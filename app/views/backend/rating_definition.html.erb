@@ -1,0 +1,40 @@
+<div class="card">
+  <div class="card-block">
+    <div class="card-header">
+          <h4> <%= t '.title' %> </h4>
+    </div>
+
+
+    <%= simple_form_for @rating, url: wizard_path, :remote => true, authenticity_token: true, method: :put, html: { id: :rating_definition_form } do |f| %>
+
+      <% if @rating.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@rating.errors.count, "error") %> prohibited this rating from being saved:</h2>
+          <ul>
+          <% @rating.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div id="flash_message" class="hidden alert alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      </div>
+
+      <%= f.input :title, label: t('.title_label') %>
+      <%= f.input :description, label: t('.description_label') %>
+
+      <%= f.simple_fields_for :sections, html: { id: :section_form } do |builder| %>
+      <%= render 'section_fields', :f => builder %>
+      <% end %>
+
+      <%= link_to_add_association f, :sections, data: { 'association-insertion-method': 'before', 'association-insertion-node': 'this' }, id: :new_section_link   do %>
+        <%= t '.add_section' %>
+      <% end %>
+
+      <br>
+      <%= f.button :submit, id: 'definition_commit_button', target: '_self' %>
+    <% end %>
+  </div>
+</div>

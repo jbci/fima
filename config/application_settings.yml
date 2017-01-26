@@ -1,0 +1,22 @@
+development:
+  BASE_URL: 'localhost'
+  BASE_URL_PORT: '3000'
+  SMTP_SETTING_ADDRESS: ''
+  SMTP_SETTING_PORT: ''
+  SMTP_SETTING_USERNAME: ''
+  SMTP_SETTING_PASSWORD: ''
+  MAILER_SENDER: 'lab@ciudadanointeligente.org'
+test:
+  BASE_URL: ''
+  SMTP_SETTING_ADDRESS: ''
+  SMTP_SETTING_PORT: ''
+  SMTP_SETTING_USERNAME: ''
+  SMTP_SETTING_PASSWORD: ''
+  MAILER_SENDER: 'test@test.com'
+production:
+  BASE_URL: ''
+  SMTP_SETTING_ADDRESS: ''
+  SMTP_SETTING_PORT: ''
+  SMTP_SETTING_USERNAME: ''
+  SMTP_SETTING_PASSWORD: ''
+  MAILER_SENDER: 'test@test.com'

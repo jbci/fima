@@ -1,0 +1,3 @@
+class AreaLevel < ApplicationRecord
+  
+end

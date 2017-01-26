@@ -1,0 +1,16 @@
+<div class="row  ml-5">
+  <div class="card w-100">
+    <div class="card-block">
+      <div class="card-title">
+        <h7> <%= t '.indicator'  %> </h7>
+      </div>
+
+      <%= f.input :title, label: t('.title_label') %>
+      <%= f.input :description, label: t('.description_label') %>
+
+      <%= link_to_remove_association f,  data: {confirm: (t '.remove_indicator')+'?'} do %>
+        <%= t '.remove_indicator' %>
+      <% end %>
+    </div>
+  </div>
+</div>
