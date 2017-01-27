@@ -1,12 +1,12 @@
-<div class="row  ml-5">
+<div class="row  ml-5" id ="section_<%= @section_index %>_indicator_<%= f.options[:child_index] %>">
   <div class="card w-100">
     <div class="card-block">
       <div class="card-title">
         <h7> <%= t '.indicator'  %> </h7>
       </div>
 
-      <%= f.input :title, label: t('.title_label') %>
-      <%= f.input :description, label: t('.description_label') %>
+      <%= f.input :title, label: t('.title_label'), :input_html => {:id => 'section_'+@section_index.to_s+'_indicator_'+f.options[:child_index].to_s+'_title' } %>
+      <%= f.input :description, label: t('.description_label'), :input_html => {:id => 'section_'+@section_index.to_s+'_indicator_'+f.options[:child_index].to_s+'_description' } %>
 
       <%= link_to_remove_association f,  data: {confirm: (t '.remove_indicator')+'?'} do %>
         <%= t '.remove_indicator' %>

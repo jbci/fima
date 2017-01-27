@@ -12,7 +12,7 @@ $('#flash_message').attr('style','display:block')
   $('#flash_message').addClass("alert-success")
   $('#flash_message').append("<p>Datos Guardados correctamente </p>")
   $('#flash_message').append("<p>La página se recargará automaticamente </p>")
-  $('#flash_message').fadeOut(3000, function(){
-      //location.reload(true);
+  $('#flash_message').fadeOut(1500, function(){
+      location.reload(true);
   });
 <% end %>

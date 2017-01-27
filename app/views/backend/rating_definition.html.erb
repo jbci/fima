@@ -22,19 +22,21 @@
         <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
 
+      <%= f.options[:child_index] %>
+a
       <%= f.input :title, label: t('.title_label') %>
       <%= f.input :description, label: t('.description_label') %>
-
-      <%= f.simple_fields_for :sections, html: { id: :section_form } do |builder| %>
-      <%= render 'section_fields', :f => builder %>
-      <% end %>
 
       <%= link_to_add_association f, :sections, data: { 'association-insertion-method': 'before', 'association-insertion-node': 'this' }, id: :new_section_link   do %>
         <%= t '.add_section' %>
       <% end %>
 
       <br>
-      <%= f.button :submit, id: 'definition_commit_button', target: '_self' %>
+      <%= f.button :submit, id: 'rating_commit_button', target: '_self', data: { confirm: "Are you sure you want to submit this form?" } %>
+
+      <%= f.simple_fields_for :sections do |builder| %>
+      <%= render 'section_fields', :f => builder %>
+      <% end %>
     <% end %>
   </div>
 </div>

@@ -26,6 +26,8 @@ es:
       add_section: "Añadir Nueva Sección"
       title_label: "Título"
       description_label: "Descripción"
+      section: "Sección"
+      remove_section: "Eliminar Sección"
     section_fields:
       section: "Sección"
       remove_section: "Eliminar Sección"

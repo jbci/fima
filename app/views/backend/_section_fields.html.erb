@@ -1,4 +1,7 @@
-<div class="card" id="section_0">
+
+<% @section_index = f.options[:child_index] %>
+
+<div class="card" id="section_<%= @section_index %>">
   <div class="card-block">
     <div class="card-header">
           <h4> <%= t '.section'  %> </h4>
@@ -7,18 +10,18 @@
           <% end %>
     </div>
 
-    <%= f.input :title, label: t('.title_label') %>
-    <%= f.input :description, label: t('.description_label') %>
+    <%= f.input :title, label: t('.title_label'), :input_html => {:id => 'section_'+@section_index.to_s+'_title' }%>
+    <%= f.input :description, label: t('.description_label'), :input_html => {:id => 'section_'+@section_index.to_s+'_description' } %>
 
     <%= f.simple_fields_for :indicators do |builder| %>
-    <%= render 'indicator_fields', :f => builder %>
+      <%= render 'indicator_fields', :f => builder  %>
     <% end %>
 
     <%= link_to_add_association f, :indicators, data: { 'association-insertion-method': 'before', 'association-insertion-node': 'this' } do %>
     <%= t '.add_indicator' %>
     <% end %>
     <br>
-    <%= f.button :submit, id: 'definition_commit_button', target: '_self' %>
+    <%= f.button :submit, id: 'section_commit_button', target: '_self' %>
 
 
   </div>
