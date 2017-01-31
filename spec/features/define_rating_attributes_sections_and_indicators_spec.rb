@@ -149,7 +149,7 @@ RSpec.feature "define rating, sections, and indicators" do
 
   end
 
-  scenario "delete section" do
+  scenario "delete section", js: true do
     section_1 = FactoryGirl.create(:section_1)
     section_2 = FactoryGirl.create(:section_2)
     rating = Rating.first
@@ -159,6 +159,9 @@ RSpec.feature "define rating, sections, and indicators" do
 
     login_as(@admin, :scope => :admin)
     visit '/backend/rating_definition'
+
+
+    find('#section_0')
 
     within("#section_0") do
       click_on('Delete Section')
