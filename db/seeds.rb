@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Admin.create({email: 'lab@ciudadanointeligente.org', password: 'xxxxxxxx', password_confirmation: 'xxxxxxxx'})
-AreaLevel.create([{name: 'País'}, {name: 'Región'}, {name: 'Provincia'}, {name: 'Comuna'}])
+# AreaLevel.create([{name: 'País'}, {name: 'Región'}, {name: 'Provincia'}, {name: 'Comuna'}])
 
 level_0 = AreaLevel.create(name: 'País')
 level_1 = AreaLevel.create(name: 'Región')

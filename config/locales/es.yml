@@ -39,3 +39,9 @@ es:
       remove_indicator: "Eliminar Indicador"
       title_label: "Título"
       description_label: "Descripción"
+    posts:
+      title: "Iniciativas Ambientales"
+      id_header: "Id"
+      title_header: "Título"
+      body_header: "Texto"
+      exists_image_header: "Imagen"

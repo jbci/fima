@@ -34,7 +34,7 @@ RSpec.feature "define rating, sections, and indicators" do
           page.driver.browser.switch_to.alert.accept
           # wait_for_ajax
     end
-    
+
     expect(find('#rating_definition_form')).to be
     within("#rating_definition_form") do
           title_field = find('#rating_title')
@@ -101,8 +101,8 @@ RSpec.feature "define rating, sections, and indicators" do
     end
 
     within("#rating_definition_form") do
-      find('#rating_commit_button').click
-      page.driver.browser.switch_to.alert.accept
+      find('#section_0_commit_button').click
+      #page.driver.browser.switch_to.alert.accept
     end
 
 
@@ -118,9 +118,9 @@ RSpec.feature "define rating, sections, and indicators" do
     end
 
     within("#rating_definition_form") do
-      find('#rating_commit_button').click
-      page.driver.browser.switch_to.alert.accept
-      wait_for_ajax
+      find('#section_0_commit_button').click
+      #page.driver.browser.switch_to.alert.accept
+      # wait_for_ajax
     end
 
     within("div#section_0") do
@@ -129,7 +129,6 @@ RSpec.feature "define rating, sections, and indicators" do
       description_field = find('#section_0_description')
       expect(description_field.value).to eq('Section 0 Description')
     end
-
 
     within("#section_0_indicator_0") do
       title_field = find('#section_0_indicator_0_title')
@@ -146,7 +145,7 @@ RSpec.feature "define rating, sections, and indicators" do
       expect(description_field.value).to eq('Section 0 - Indicator 1 - Description')
     end
 
-    # save_and_open_page
+    save_and_open_page
 
   end
 

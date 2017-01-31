@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170125142738) do
+ActiveRecord::Schema.define(version: 20170127180830) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -25,8 +28,8 @@ ActiveRecord::Schema.define(version: 20170125142738) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
-    t.index ["email"], name: "index_admins_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true
+    t.index ["email"], name: "index_admins_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_admins_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "area_levels", force: :cascade do |t|
@@ -41,8 +44,8 @@ ActiveRecord::Schema.define(version: 20170125142738) do
     t.string   "name"
     t.integer  "parent_id"
     t.integer  "area_level_id"
-    t.index ["area_level_id"], name: "index_areas_on_area_level_id"
-    t.index ["parent_id"], name: "index_areas_on_parent_id"
+    t.index ["area_level_id"], name: "index_areas_on_area_level_id", using: :btree
+    t.index ["parent_id"], name: "index_areas_on_parent_id", using: :btree
   end
 
   create_table "indicators", force: :cascade do |t|
@@ -51,7 +54,20 @@ ActiveRecord::Schema.define(version: 20170125142738) do
     t.string   "title"
     t.string   "description"
     t.integer  "section_id"
-    t.index ["section_id"], name: "index_indicators_on_section_id"
+    t.index ["section_id"], name: "index_indicators_on_section_id", using: :btree
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "title"
+    t.string   "body"
+    t.integer  "area_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.index ["area_id"], name: "index_posts_on_area_id", using: :btree
   end
 
   create_table "ratings", force: :cascade do |t|
@@ -67,7 +83,8 @@ ActiveRecord::Schema.define(version: 20170125142738) do
     t.string   "title"
     t.string   "description"
     t.integer  "rating_id"
-    t.index ["rating_id"], name: "index_sections_on_rating_id"
+    t.index ["rating_id"], name: "index_sections_on_rating_id", using: :btree
   end
 
+  add_foreign_key "posts", "areas"
 end

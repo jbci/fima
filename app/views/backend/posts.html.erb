@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-block">
+    <div class="card-header">
+          <h4> <%= t '.title' %> </h4>
+    </div>
+
+    <%= link_to "Nuevo Post", new_post_path, remote: true, id:"new_post_link", class: "btn btn-primary" %>
+
+    <table id="posts_table" border=1>
+      <tr>
+        <th>  <%= t '.id_header' %>  </th>
+        <th>  <%= t '.title_header' %>  </th>
+        <th>  <%= t '.body_header' %>  </th>
+        <th>  <%= t '.exists_image_header' %>  </th>
+      </tr>
+      <% @posts.each do |post| %>
+        <%= render "posts/row", post: post %>
+      <% end %>
+    </table>
+  </div>
+</div>

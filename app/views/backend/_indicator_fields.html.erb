@@ -2,7 +2,7 @@
   <div class="card w-100">
     <div class="card-block">
       <div class="card-title">
-        <h7> <%= t '.indicator'  %> </h7>
+        <h7> <%= t '.indicator'  %> id ="section_<%= @section_index %>_indicator_<%= f.options[:child_index] %>" </h7>
       </div>
 
       <%= f.input :title, label: t('.title_label'), :input_html => {:id => 'section_'+@section_index.to_s+'_indicator_'+f.options[:child_index].to_s+'_title' } %>

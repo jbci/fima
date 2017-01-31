@@ -1,0 +1,25 @@
+<div id="post-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"> Post </h4>
+      </div>
+        <%= simple_form_for @post, remote: true, authenticity_token: true, :html => { :multipart => true }, :data => { :type => :script } do |f| %>
+          <%= f.error_notification %>
+
+          <div class="form-inputs">
+            <%= f.input :title %>
+            <%= f.input :body %>
+            <%= f.input :image %>
+            <%= f.collection_select(:area_id, Area.regiones.all, :id, :name, {prompt: 'Seleccione región'}, {'class' => 'form-control'}) %>
+            <%= f.collection_select(:area_id, Area.comunas.all, :id, :name, {prompt: 'Seleccione comuna'}, {'id' => 'post_comuna_dropdown','class' => 'form-control'}) %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, :id => 'post_modal_button', :format => "js", :remote => true %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>

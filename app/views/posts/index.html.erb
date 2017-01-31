@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Posts</h1>
+
+    <%= link_to "Nuevo Post", new_post_path, remote: true, class: "btn btn-primary" %>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @posts.each do |post| %>
+      <%= render "row", post: post %>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Post', new_post_path %>

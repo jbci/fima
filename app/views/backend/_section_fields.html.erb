@@ -4,7 +4,7 @@
 <div class="card" id="section_<%= @section_index %>">
   <div class="card-block">
     <div class="card-header">
-          <h4> <%= t '.section'  %> </h4>
+          <h4> <%= t '.section'  %> id="section_<%= @section_index %>" </h4>
           <%= link_to_remove_association f,  data: {confirm: (t '.remove_section')+'?'} do %>
             <%= t '.remove_section' %>
           <% end %>
@@ -21,7 +21,7 @@
     <%= t '.add_indicator' %>
     <% end %>
     <br>
-    <%= f.button :submit, id: 'section_commit_button', target: '_self' %>
+    <%= f.button :submit, id: "section_" + @section_index.to_s + "_commit_button", target: '_self' %>
 
 
   </div>

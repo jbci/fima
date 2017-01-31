@@ -39,3 +39,9 @@ en:
       remove_indicator: "Delete Indicator"
       title_label: "Title"
       description_label: "Description"
+    posts:
+      title: "Environmental Initiatives"
+      id_header: "Id"
+      title_header: "Title"
+      body_header: "Body"
+      exists_image_header: "Image"
