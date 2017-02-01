@@ -3,14 +3,11 @@ class BackendController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_rating
 
-  steps :rating_definition, :posts
+  steps :rating_definition, :posts, :areas
 
   def show
-    # @rating = Rating.first
     case step
     when :posts
-      # p "debugggggggg___________________________________________________________________"
-      # Post.all.map{|post| p post}
       @posts = Post.all.reverse
     end
     render_wizard
@@ -25,7 +22,6 @@ class BackendController < ApplicationController
           p @errors
         end
     else
-      # render_wizard @rating
     end
   end
 
