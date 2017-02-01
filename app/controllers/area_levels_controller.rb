@@ -1,0 +1,2 @@
+class AreaLevelsController < ApplicationController
+end

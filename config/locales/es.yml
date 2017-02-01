@@ -45,3 +45,9 @@ es:
       title_header: "Título"
       body_header: "Texto"
       exists_image_header: "Imagen"
+    areas:
+      title: "Areas"
+      id_header: "Id"
+      name_header: "Nombre"
+      level_header: "Nivel"
+      parent_header: "Padre"

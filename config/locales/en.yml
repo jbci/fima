@@ -45,3 +45,9 @@ en:
       title_header: "Title"
       body_header: "Body"
       exists_image_header: "Image"
+    areas:
+      title: "Areas"
+      id_header: "Id"
+      name_header: "Name"
+      level_header: "Level"
+      parent_header: "Parent"

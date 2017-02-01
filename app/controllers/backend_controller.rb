@@ -7,8 +7,11 @@ class BackendController < ApplicationController
 
   def show
     case step
-    when :posts
-      @posts = Post.all.reverse
+      when :posts
+        @posts = Post.all.reverse
+      when :areas
+        @area_levels = AreaLevel.all
+        @areas = Area.all
     end
     render_wizard
   end

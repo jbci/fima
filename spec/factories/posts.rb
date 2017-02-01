@@ -14,6 +14,6 @@ FactoryGirl.define do
   factory :post_2, class: Post do
     title Faker::Hipster.sentence(4)
     body Faker::Hipster.sentence(50)
-    area 
+    area
   end
 end
