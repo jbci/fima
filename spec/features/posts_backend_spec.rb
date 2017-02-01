@@ -60,5 +60,41 @@ RSpec.feature "posts backend" do
     save_and_open_page
   end
 
+  scenario "update the second post", js: true do
+    post_1 = FactoryGirl.create(:post)
+    post_2 = FactoryGirl.create(:post_1)
+    post_3 = FactoryGirl.create(:post_2)
+    login_as(@admin, :scope => :admin)
+    visit '/backend/posts'
+    expect("table#posts_table")
+    expect("tr#2").to be
+
+    find(:xpath, "//tr[td[contains(.,'2')]]/td/a", :text => 'Edit').click
+    expect("#post-modal")
+    within("#post-modal") do
+      fill_in 'Title', :with => 'Test Update Post Title'
+      fill_in 'Body', :with => 'Test Update Post Body'
+      option = find_all('#post_comuna_dropdown option').last
+      option.select_option
+      find('#post_modal_button').click
+    end
+    sleep 6
+  end
+
+  scenario "delete the third post", js: true do
+    post_1 = FactoryGirl.create(:post)
+    post_2 = FactoryGirl.create(:post_1)
+    post_3 = FactoryGirl.create(:post_2)
+    login_as(@admin, :scope => :admin)
+    visit '/backend/posts'
+    expect("table#posts_table")
+    expect("tr#3").to be
+
+    find(:xpath, "//tr[td[contains(.,'3')]]/td/a", :text => 'Destroy').click
+    page.driver.browser.switch_to.alert.accept
+
+    sleep 6
+  end
+
 
 end
