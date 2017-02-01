@@ -86,5 +86,7 @@ ActiveRecord::Schema.define(version: 20170127180830) do
     t.index ["rating_id"], name: "index_sections_on_rating_id", using: :btree
   end
 
+  add_foreign_key "indicators", "sections"
   add_foreign_key "posts", "areas"
+  add_foreign_key "sections", "ratings"
 end
