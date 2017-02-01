@@ -3,7 +3,7 @@ class BackendController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_rating
 
-  steps :rating_definition
+  steps :rating_definition, :areas
 
   def show
     # @rating = Rating.first
