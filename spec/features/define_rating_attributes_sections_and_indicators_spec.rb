@@ -145,7 +145,7 @@ RSpec.feature "define rating, sections, and indicators" do
       expect(description_field.value).to eq('Section 0 - Indicator 1 - Description')
     end
 
-    save_and_open_page
+    # save_and_open_page
 
   end
 

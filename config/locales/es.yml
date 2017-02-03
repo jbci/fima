@@ -47,7 +47,11 @@ es:
       exists_image_header: "Imagen"
     areas:
       title: "Areas"
+      title_levels: "Niveles de Area"
       id_header: "Id"
       name_header: "Nombre"
       level_header: "Nivel"
       parent_header: "Padre"
+  area_levels:
+    form:
+      area_modal_title: "Nivel de Area"

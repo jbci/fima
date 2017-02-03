@@ -1,7 +1,7 @@
 <% if @area_level.errors.empty? %>
   // add the row to the table, show alert and hide modal
-  $('#area_levels_table tbody').append(' <%= j render "row", area_level: @area_level %>');
-  $('.alert-success').html("El producto ha sido creado con éxito").show();
+  $('table tbody tr#area_level_<%= @area_level.id %>').remove();
+  $('.alert-success').html("El area_level ha sido eliminado con éxito").show();
   $('#area_level-modal').modal('hide');
 <% else %>
   // show first error

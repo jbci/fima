@@ -57,7 +57,7 @@ RSpec.feature "posts backend" do
     end
 
 
-    save_and_open_page
+    # save_and_open_page
   end
 
   scenario "update the second post", js: true do
@@ -78,7 +78,6 @@ RSpec.feature "posts backend" do
       option.select_option
       find('#post_modal_button').click
     end
-    sleep 6
   end
 
   scenario "delete the third post", js: true do
@@ -93,7 +92,6 @@ RSpec.feature "posts backend" do
     find(:xpath, "//tr[td[contains(.,'3')]]/td/a", :text => 'Destroy').click
     page.driver.browser.switch_to.alert.accept
 
-    sleep 6
   end
 
 

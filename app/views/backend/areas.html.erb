@@ -4,28 +4,51 @@
           <h4> <%= t '.title' %> </h4>
     </div>
 
-    <table id="area_levels_table" border=1>
-      <tr>
-        <th>  <%= t '.id_header' %>  </th>
-        <th>  <%= t '.name_header' %>  </th>
-      </tr>
-      <% @area_levels.each do |area_level| %>
-        <%= render "area_levels/row", area_level: area_level %>
-      <% end %>
-    </table>
+    <div class="card">
+      <div class="card-block">
+        <div class="card-header">
+              <h4> <%= t '.title_levels' %> </h4>
+        </div>
 
-    <%= link_to "Nuevo Area", new_area_path, remote: true, id:"new_area_link", class: "btn btn-primary" %>
+        <%= link_to "Nuevo nivel de Area", new_area_level_path, remote: true, id:"new_area_level_link", class: "btn btn-primary" %>
 
-    <table id="areas_table" border=1>
-      <tr>
-        <th>  <%= t '.id_header' %>  </th>
-        <th>  <%= t '.name_header' %>  </th>
-        <th>  <%= t '.level_header' %>  </th>
-        <th>  <%= t '.parent_header' %>  </th>
-      </tr>
-      <% @areas.each do |area| %>
-        <%= render "areas/row", area: area %>
-      <% end %>
-    </table>
+
+        <table id="area_levels_table" border=1>
+          <tr>
+            <th>  <%= t '.id_header' %>  </th>
+            <th>  <%= t '.name_header' %>  </th>
+          </tr>
+          <% @area_levels.each do |area_level| %>
+            <%= render "area_levels/row", area_level: area_level %>
+          <% end %>
+        </table>
+      </div>
+    </div>
+
+
+    <div class="card">
+      <div class="card-block">
+        <div class="card-header">
+              <h4> <%= t '.title' %> </h4>
+        </div>
+
+        <%= link_to "Nuevo Area", new_area_path, remote: true, id:"new_area_link", class: "btn btn-primary" %>
+
+        <table id="areas_table" border=1>
+          <tr>
+            <th>  <%= t '.id_header' %>  </th>
+            <th>  <%= t '.name_header' %>  </th>
+            <th>  <%= t '.level_header' %>  </th>
+            <th>  <%= t '.parent_header' %>  </th>
+          </tr>
+          <% @areas.each do |area| %>
+            <%= render "areas/row", area: area %>
+          <% end %>
+        </table>
+
+      </div>
+    </div>
+
+
   </div>
 </div>

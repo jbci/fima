@@ -1,8 +1,6 @@
-<tr id="<%= post.id %>">
-  <td><%= post.id %></td>
-  <td><%= post.title %></td>
-  <td><%= post.area.name %></td>
-  <td><%= !post.image.size.nil? %></td>
-  <td><%= link_to 'Edit', edit_post_path(post), remote: true %></td>
-  <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<tr id="area_level_<%= area_level.id %>">
+  <td><%= area_level.id %></td>
+  <td><%= area_level.name %></td>
+  <td><%= link_to 'Edit', edit_area_level_path(area_level), remote: true %></td>
+  <td><%= link_to 'Destroy', area_level, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
 </tr>

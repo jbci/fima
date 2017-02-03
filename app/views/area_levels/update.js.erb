@@ -1,9 +1,10 @@
-<% if @post.errors.empty? %>
+console.log("area_level update.js")
+<% if @area_level.errors.empty? %>
   // add the row to the table, show alert and hide modal
-  $('table tbody tr#<%= @post.id %>').replaceWith(' <%= j render "row", post: @post %>');
-  $('.alert-success').html("El posto ha sido modificado con éxito").show();
-  $('#post-modal').modal('hide');
+  $('table tbody tr#area_level_<%= @area_level.id %>').replaceWith(' <%= j render "row", area_level: @area_level %>');
+  //$('.alert-success').html("El area_level ha sido modificado con éxito").show();
+  $('#area_level-modal').modal('hide');
 <% else %>
   // show first error
-  alert('<%= @post.errors.full_messages[0] %>');
+  alert('<%= @area_level.errors.full_messages[0] %>');
 <% end %>

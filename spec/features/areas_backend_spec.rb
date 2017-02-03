@@ -18,47 +18,88 @@ RSpec.feature "areas backend" do
   end
 
   scenario "exists a table of area_levels", js: true do
-    area_level_1 = FactoryGirl.create(:area_level)
-    area_level_2 = FactoryGirl.create(:area_level_1)
-    area_level_3 = FactoryGirl.create(:area_level_2)
-
     login_as(@admin, :scope => :admin)
     visit '/backend/areas'
-    # save_and_open_page
     expect(find('#area_levels_table')).to be
-    # include header row
-    # expect(all("table#area_levels_table tr").count).to eq(4)
-    save_and_open_page
   end
-  #
-  # scenario "opens area popup to create a new area ", js: true do
-  #   area_1 = FactoryGirl.create(:area)
-  #   area_2 = FactoryGirl.create(:area_1)
-  #   area_3 = FactoryGirl.create(:area_2)
-  #   login_as(@admin, :scope => :admin)
-  #   visit '/backend/areas'
-  #
-  #   find('#new_area_link').click
-  #   expect(find('#area-modal')).to be
-  #
-  #   within("#area-modal") do
-  #     fill_in 'Title', :with => 'Test Post Title'
-  #     fill_in 'Body', :with => 'Test Post Body - Test Post Body'
-  #     attach_file('Image', File.absolute_path('./app/assets/images/fima.jpg'))
-  #     option = find_all('#area_comuna_dropdown option').last
-  #     option.select_option
-  #     find('#area_modal_button').click
-  #   end
-  #
-  #   wait_for_ajax
-  #   find('#areas_table')
-  #   within ('#areas_table') do
-  #     expect(page.body).to have_content ('Test Post Title')
-  #   end
-  #
-  #
-  #   save_and_open_page
-  # end
 
+  scenario "opens area popup to create a new area_level and insert a row to area_levels_table ", js: true do
+    login_as(@admin, :scope => :admin)
+    visit '/backend/areas'
+
+    find('#new_area_level_link').click
+    expect(find('#area_level-modal')).to be
+
+    within("#area_level-modal") do
+      fill_in 'Name', :with => 'Test Area Level Name'
+      find('#area_level_modal_button').click
+    end
+
+    wait_for_ajax
+    find('#area_levels_table')
+    within ('#area_levels_table') do
+      expect(page.body).to have_content ('Test Area Level Name')
+    end
+  end
+
+  scenario "delete the last created area_level", js: true do
+    area_level = FactoryGirl.create(:area_level)
+    login_as(@admin, :scope => :admin)
+    visit '/backend/areas'
+
+    area_levels_count = all("table#area_levels_table tr").count
+
+    expect(find("#area_levels_table")).to be
+    expect(find("#area_level_" + area_level.id.to_s)).to be
+
+    find("#area_levels_table")
+    within("#area_levels_table") do
+      expect(find("tr#area_level_" + area_level.id.to_s)).to be
+      within("#area_level_" + area_level.id.to_s) do
+        find("a", :text => 'Destroy').click
+        page.driver.browser.switch_to.alert.accept
+      end
+    end
+    expect(find("table#area_levels_table")).to be
+    expect(all("table#area_levels_table tr").count).to eq(area_levels_count - 1)
+  end
+
+  scenario "update area_level name", js: true do
+    area_level = FactoryGirl.create(:area_level)
+    login_as(@admin, :scope => :admin)
+    visit '/backend/areas'
+
+    area_levels_count = all("table#area_levels_table tr").count
+
+    expect(find("#area_levels_table")).to be
+    expect(find("#area_level_" + area_level.id.to_s)).to be
+
+    find("#area_levels_table")
+    within("#area_levels_table") do
+      expect(find("tr#area_level_" + area_level.id.to_s)).to be
+      within("#area_level_" + area_level.id.to_s) do
+        find("a", :text => 'Edit').click
+      end
+    end
+
+    expect(find('#area_level-modal')).to be
+
+    within("#area_level-modal") do
+      fill_in 'Name', :with => 'Update Area Level Name'
+      find('#area_level_modal_button').click
+    end
+    sleep 20
+    find("#area_levels_table")
+    within("#area_levels_table") do
+      find("#area_level_" + area_level.id.to_s)
+      wait_for_ajax
+      expect(find("#area_level_" + area_level.id.to_s)).to be
+      within("#area_level_" + area_level.id.to_s) do
+        # expect(find("td", :text => 'Update Area Level Name')).to be
+        expect(find("tr#area_level_" + area_level.id.to_s)).to have_content('Update Area Level Name')
+      end
+    end
+
+  end
 
 end
