@@ -1,0 +1,9 @@
+<% if @area_level.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody tr#area_level_<%= @area_level.id %>').remove();
+  $('.alert-success').html("El area_level ha sido eliminado con éxito").show();
+  $('#area_level-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @area_level.errors.full_messages[0] %>');
+<% end %>

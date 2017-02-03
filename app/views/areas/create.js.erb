@@ -1,0 +1,10 @@
+<% if @post.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  console.log("running create.js.erb");
+  $('table tbody').append(' <%= j render "row", post: @post %>');
+  $('.alert-success').html("El producto ha sido creado con éxito").show();
+  $('#post-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @post.errors.full_messages[0] %>');
+<% end %>

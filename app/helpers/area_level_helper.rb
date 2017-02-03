@@ -1,0 +1,2 @@
+module AreaLevelHelper
+end

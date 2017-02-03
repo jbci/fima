@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   resources :posts
   resources :areas
+  resources :area_levels
   devise_for :admins
   get 'home/index'
   root to: "home#index"

@@ -1,0 +1,1 @@
+json.array! @area_levels, partial: 'areas/area', as: :area

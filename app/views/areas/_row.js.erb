@@ -1,0 +1,8 @@
+<tr id="area_<%= area.id %>">
+  <td><%= area.id %></td>
+  <td><%= area.name %></td>
+  <td><%= area.area_level.name unless area.area_level.nil? %></td>
+  <td><%= area.parent.name unless area.parent.nil? %></td>
+  <td><%= link_to 'Edit', edit_area_path(area), remote: true %></td>
+  <td><%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</tr>
