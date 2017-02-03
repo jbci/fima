@@ -1,6 +1,6 @@
 <% if @post.errors.empty? %>
   // add the row to the table, show alert and hide modal
-  $('table tbody tr#<%= @post.id %>').remove();
+  $('table tbody tr#post_<%= @post.id %>').remove();
   $('.alert-success').html("El post ha sido eliminado con éxito").show();
   $('#post-modal').modal('hide');
 <% else %>

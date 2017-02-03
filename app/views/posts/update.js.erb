@@ -1,6 +1,6 @@
 <% if @post.errors.empty? %>
   // add the row to the table, show alert and hide modal
-  $('table tbody tr#<%= @post.id %>').replaceWith(' <%= j render "row", post: @post %>');
+  $('table tbody tr#post_<%= @post.id %>').replaceWith(' <%= j render "row", post: @post %>');
   $('.alert-success').html("El posto ha sido modificado con éxito").show();
   $('#post-modal').modal('hide');
 <% else %>

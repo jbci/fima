@@ -66,19 +66,32 @@ RSpec.feature "posts backend" do
     post_3 = FactoryGirl.create(:post_2)
     login_as(@admin, :scope => :admin)
     visit '/backend/posts'
-    expect("table#posts_table")
-    expect("tr#2").to be
 
-    find(:xpath, "//tr[td[contains(.,'2')]]/td/a", :text => 'Edit').click
-    expect("#post-modal")
+    expect(find("#posts_table")).to be
+    within("#posts_table")do
+      expect(find("#post_2")).to be
+      within('#post_2') do
+        find('a', :text => 'Edit').click
+      end
+    end
+    expect(find("#post-modal")).to be
     within("#post-modal") do
       fill_in 'Title', :with => 'Test Update Post Title'
       fill_in 'Body', :with => 'Test Update Post Body'
       option = find_all('#post_comuna_dropdown option').last
       option.select_option
       find('#post_modal_button').click
+      wait_for_ajax
     end
-    sleep 6
+
+    expect(find("#posts_table")).to be
+    within("#posts_table")do
+      expect(find("#post_2")).to be
+      within('#post_2') do
+        expect(find('td', :text => 'Test Update Post Title')).to be
+      end
+    end
+    save_and_open_page
   end
 
   scenario "delete the third post", js: true do
@@ -87,13 +100,22 @@ RSpec.feature "posts backend" do
     post_3 = FactoryGirl.create(:post_2)
     login_as(@admin, :scope => :admin)
     visit '/backend/posts'
-    expect("table#posts_table")
-    expect("tr#3").to be
+    initial_post_count = Post.count
+    expect(initial_post_count).to eq(3)
 
-    find(:xpath, "//tr[td[contains(.,'3')]]/td/a", :text => 'Destroy').click
-    page.driver.browser.switch_to.alert.accept
+    expect(find("#posts_table")).to be
+    within("#posts_table")do
+      expect(find("#post_3")).to be
+      within('#post_3') do
+        find('a', :text => 'Destroy').click
+        page.driver.browser.switch_to.alert.accept
+        wait_for_ajax
+      end
+    end
 
-    sleep 6
+    post = Post.count
+    expect(post).to eq(initial_post_count - 1)
+    save_and_open_page
   end
 
 
