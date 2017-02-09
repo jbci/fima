@@ -52,6 +52,20 @@ es:
       name_header: "Nombre"
       level_header: "Nivel"
       parent_header: "Padre"
+    evaluations:
+      title: "Evaluaciones"
+      select_indicator: "Seleccionar Indicador"
+      filter: "Mostrar"
+  areas:
+    form:
+      area_modal_title: "Area"
   area_levels:
     form:
       area_modal_title: "Nivel de Area"
+
+  evaluations:
+    evals_table:
+      id_header: "Id"
+      indicator_header: "Indicador"
+      area_header: "Area"
+      value_header: "Valor" 

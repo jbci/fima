@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.remotipart
+//= require chosen-jquery
 //= require tether
 //= require bootstrap
 //= require turbolinks

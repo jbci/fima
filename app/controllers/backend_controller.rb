@@ -3,7 +3,7 @@ class BackendController < ApplicationController
   before_action :authenticate_admin!
   before_action :set_rating
 
-  steps :rating_definition, :posts, :areas
+  steps :rating_definition, :posts, :areas, :evaluations
 
   def show
     case step

@@ -1,0 +1,11 @@
+<table id="eval_indicator_table" border=1>
+  <tr>
+    <th>  <%= t '.id_header' %>  </th>
+    <th>  <%= t '.indicator_header' %>  </th>
+    <th>  <%= t '.area_header' %>  </th>
+    <th>  <%= t '.value_header' %>  </th>
+  </tr>
+  <% @evaluations.each do |evaluation| %>
+    <%= render "evaluations/row", evaluation: evaluation %>
+  <% end %>
+</table>

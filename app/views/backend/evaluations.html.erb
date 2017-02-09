@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-block">
+    <div class="card-header">
+          <h4> <%= t '.title' %> </h4>
+    </div>
+
+    <div class="card">
+      <div class="card-block">
+        <div class="card-header">
+              <h4> <%= t '.select_indicator' %> </h4>
+        </div>
+
+        <div id="eval_indicator_form">
+          <%= form_tag evals_by_indicator_path, :method => :get, remote: true do |f| %>
+            <!-- <%= select_tag :section, options_from_collection_for_select(Section.all, "id", "title", params[:section] || ""), prompt: "Seleccionar Sección", class: "chosen-select" %> -->
+            <%= select_tag :indicator, options_from_collection_for_select(Indicator.all, "id", "title", params[:indicator] || ""), include_blank:  t('.select_indicator'), class: "chosen-select", id: "eval_indicator_select"%>
+            <%= submit_tag t('.filter'), class: "btn", id:"eval_form_button" %>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-block">
+        <div class="card-header">
+              <h4> <%= t '.select_indicator' %> </h4>
+        </div>
+
+        <div id="evaluations">
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

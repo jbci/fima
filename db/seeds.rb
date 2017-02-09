@@ -18,4 +18,19 @@ region_m = chile.children.create(name: 'Región Metropolitana', area_level: leve
 provincia_s = region_m.children.create(name: 'Provincia de Santiago', area_level: level_2)
 providencia = provincia_s.children.create(name: 'Providencia', area_level: level_3)
 
-Rating.create({title: 'Índice FIMA', description: 'Descripción del índice FIMA'})
+rating = Rating.create({title: 'Índice FIMA', description: 'Descripción del índice FIMA'})
+
+section_0 = Section.create({title: 's0t', description: 'Descripción de la sección 0'})
+section_1 = Section.create({title: 's1t', description: 'Descripción de la sección 1'})
+rating.sections << section_0
+rating.sections << section_1
+
+section_0_indicator_0 = Indicator.create({title: 's0i0t', description: 'Descripción de la sección 0 indicador 0'})
+section_0_indicator_1 = Indicator.create({title: 's0i1t', description: 'Descripción de la sección 0 indicador 1'})
+section_0.indicators << section_0_indicator_0
+section_0.indicators << section_0_indicator_1
+
+section_1_indicator_0 = Indicator.create({title: 's1i0t', description: 'Descripción de la sección 1 indicador 0'})
+section_1_indicator_1 = Indicator.create({title: 's1i1t', description: 'Descripción de la sección 1 indicador 1'})
+section_1.indicators << section_1_indicator_0
+section_1.indicators << section_1_indicator_1

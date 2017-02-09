@@ -17,7 +17,7 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, :id => 'post_modal_button', :format => "js", :remote => true %>
+            <%= f.button :submit, :id => 'post_modal_button', :format => "js", :remote => true, :input_html => {"data-dismiss" => "modal"} %>
           </div>
         <% end %>
       </div>

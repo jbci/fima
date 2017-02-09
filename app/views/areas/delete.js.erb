@@ -1,8 +1,7 @@
 <% if @area.errors.empty? %>
   // add the row to the table, show alert and hide modal
-  //console.log("running create.js.erb");
-  $('#areas_table tbody').append(' <%= j render "row", area: @area %>');
-  $('.alert-success').html("El producto ha sido creado con éxito").show();
+  $('table tbody tr#area_<%= @area.id %>').remove();
+  $('.alert-success').html("El area ha sido eliminado con éxito").show();
   $('#area-modal').modal('hide');
 <% else %>
   // show first error

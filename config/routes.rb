@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :evaluations
+  get 'evals_by_indicator', to:'evaluations#evals_by_indicator'
   resources :posts
   resources :areas
   resources :area_levels

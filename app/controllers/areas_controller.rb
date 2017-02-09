@@ -24,15 +24,21 @@ class AreasController < ApplicationController
   # POST /areas
   # POST /areas.json
   def create
-    @area = Area.new(area_params)
+    # @area = Area.new(area_params)
+    params = area_params
+    parent_area = Area.find params[:parent_id]
+    area_level = AreaLevel.find params[:area_level_id]
+
 
     respond_to do |format|
-      if @area.save
+      if @area = parent_area.children.create(name: params[:name], area_level: area_level )
         format.html { redirect_to @area, notice: 'Area was successfully created.' }
         format.json { render :show, status: :created, location: @area }
+        format.js { :create }
       else
         format.html { render :new }
         format.json { render json: @area.errors, status: :unprocessable_entity }
+        format.js { :create }
       end
     end
   end
@@ -58,6 +64,7 @@ class AreasController < ApplicationController
     respond_to do |format|
       format.html { redirect_to areas_url, notice: 'Area was successfully destroyed.' }
       format.json { head :no_content }
+      format.js { render :delete }
     end
   end
 
@@ -69,6 +76,6 @@ class AreasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def area_params
-      params.fetch(:area, {})
+      params.require(:area).permit(:id, :name, :parent_id, :area_level_id)
     end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170127180830) do
+ActiveRecord::Schema.define(version: 20170206211449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 20170127180830) do
     t.integer  "area_level_id"
     t.index ["area_level_id"], name: "index_areas_on_area_level_id", using: :btree
     t.index ["parent_id"], name: "index_areas_on_parent_id", using: :btree
+  end
+
+  create_table "evaluations", force: :cascade do |t|
+    t.integer  "area_id"
+    t.integer  "indicator_id"
+    t.boolean  "visible"
+    t.string   "value"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.index ["area_id"], name: "index_evaluations_on_area_id", using: :btree
+    t.index ["indicator_id"], name: "index_evaluations_on_indicator_id", using: :btree
   end
 
   create_table "indicators", force: :cascade do |t|
@@ -86,7 +97,7 @@ ActiveRecord::Schema.define(version: 20170127180830) do
     t.index ["rating_id"], name: "index_sections_on_rating_id", using: :btree
   end
 
-  add_foreign_key "indicators", "sections"
+  add_foreign_key "evaluations", "areas"
+  add_foreign_key "evaluations", "indicators"
   add_foreign_key "posts", "areas"
-  add_foreign_key "sections", "ratings"
 end

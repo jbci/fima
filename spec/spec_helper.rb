@@ -19,9 +19,11 @@
 DEFAULT_HOST = "localhost"
 DEFAULT_PORT = 7171
 require 'capybara/rspec'
+require 'chosen-rails/rspec'
 
 RSpec.configure do |config|
 
+  config.include Chosen::Rspec::FeatureHelpers, type: :feature
 
   config.before(:suite) do
     DatabaseCleaner.clean_with(:truncation)

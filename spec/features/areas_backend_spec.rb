@@ -76,7 +76,7 @@ RSpec.feature "areas backend" do
 
     find("#area_levels_table")
     within("#area_levels_table") do
-      expect(find("tr#area_level_" + area_level.id.to_s)).to be
+      expect(find("#area_level_" + area_level.id.to_s)).to be
       within("#area_level_" + area_level.id.to_s) do
         find("a", :text => 'Edit').click
       end
@@ -88,18 +88,59 @@ RSpec.feature "areas backend" do
       fill_in 'Name', :with => 'Update Area Level Name'
       find('#area_level_modal_button').click
     end
-    sleep 20
     find("#area_levels_table")
     within("#area_levels_table") do
       find("#area_level_" + area_level.id.to_s)
-      wait_for_ajax
       expect(find("#area_level_" + area_level.id.to_s)).to be
       within("#area_level_" + area_level.id.to_s) do
-        # expect(find("td", :text => 'Update Area Level Name')).to be
-        expect(find("tr#area_level_" + area_level.id.to_s)).to have_content('Update Area Level Name')
+        expect(find("td", :text => 'Update Area Level Name')).to be
       end
     end
+  end
+
+  scenario "exists a table of areas", js: true do
+    login_as(@admin, :scope => :admin)
+    visit '/backend/areas'
+    expect(find('#areas_table')).to be
+  end
+
+  scenario "opens area popup to create a new area and insert a row to areas_table ", js: true do
+    login_as(@admin, :scope => :admin)
+    visit '/backend/areas'
+
+    find('#new_area_link').click
+    expect(find('#area-modal')).to be
+
+    within("#area-modal") do
+      fill_in 'Name', :with => 'Test Area Name'
+      chosen_select('Provincia de Santiago', from: 'area_parent_select')
+      select('Región', from: 'Area level')
+      find('#area_modal_button').click
+    end
+
+    wait_for_ajax
+    find('#areas_table')
+    within ('#areas_table') do
+      expect(page.body).to have_content ('Test Area Name')
+    end
+  end
+
+  scenario "Delete area whit area_level = comuna", js: true do
+    login_as(@admin, :scope => :admin)
+    visit '/backend/areas'
+    expect(find('#areas_table')).to be
+    initial_row_count = find_all('#areas_table tr').count
+    within('#areas_table') do
+      row_id = find_all('tr', :text => 'Comuna').first[:id]
+      within('#' + row_id) do
+        find('a', :text => 'Destroy').click
+        page.driver.browser.switch_to.alert.accept
+        wait_for_ajax
+      end
+    end
+    expect(initial_row_count - 1).to eq(find_all('#areas_table tr').count)
 
   end
+
 
 end
