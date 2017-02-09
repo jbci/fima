@@ -20,6 +20,15 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es:
+  layouts:
+    side_menu:
+      home: "Inicio"
+      get_informed: "Informate"
+      opinions: "Opina"
+      inspect: "Fiscaliza"
+      about_us: "Sobre nosotros"
+      sign_up: "Registrate"
+      contact: "Contacto"
   backend:
     rating_definition:
       title: "Índice"
@@ -55,6 +64,7 @@ es:
     evaluations:
       title: "Evaluaciones"
       select_indicator: "Seleccionar Indicador"
+      indicators_list: "Evaluaciones"
       filter: "Mostrar"
   areas:
     form:
@@ -62,10 +72,20 @@ es:
   area_levels:
     form:
       area_modal_title: "Nivel de Area"
-
   evaluations:
     evals_table:
       id_header: "Id"
       indicator_header: "Indicador"
       area_header: "Area"
-      value_header: "Valor" 
+      value_header: "Valor"
+    evals_by_indicator:
+      indicator_header: "Indicador"
+      area_header: "Area"
+      value_header: "Valor"
+  home:
+    get_informed:
+      select_indicator: "Seleccionar Indicador"
+    initiatives:
+      select_area: "Seleccionar Area"
+    posts_list:
+      post_card_header: "Iniciativa ambiental"

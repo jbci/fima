@@ -1,7 +1,9 @@
+<%= render 'layouts/side_menu'%>
 <div id="evaluations">
+  <h4> <%= @evaluations.first.indicator.title unless @evaluations.empty?  %> </h4>
+
 <table id="eval_indicator_table" border=1>
   <tr>
-    <th>  <%= t '.id_header' %>  </th>
     <th>  <%= t '.indicator_header' %>  </th>
     <th>  <%= t '.area_header' %>  </th>
     <th>  <%= t '.value_header' %>  </th>

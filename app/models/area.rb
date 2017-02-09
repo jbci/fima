@@ -4,6 +4,8 @@ class Area < ApplicationRecord
   acts_as_tree order: "name"
 
   belongs_to :area_level
+  has_many :evaluations, dependent: :destroy
+
   validates_presence_of :name
 
   scope :comunas, -> {

@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :backend
 
+  get 'get_informed', to:'home#get_informed'
+  get 'initiatives', to:'home#initiatives'
 end

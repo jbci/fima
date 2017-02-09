@@ -21,6 +21,15 @@
 
 
 en:
+  layouts:
+    side_menu:
+      home: "Start"
+      get_informed: "Get Informed"
+      opinions: "Have an opinion"
+      inspect: "Inspect"
+      about_us: "About us"
+      sign_up: "Sign Up"
+      contact: "Contact"
   backend:
     rating_definition:
       title: "Rating"
@@ -55,6 +64,7 @@ en:
     evaluations:
       title: "Evaluations"
       select_indicator: "Select Indicator"
+      indicators_list: "Evaluations"
       filter: "Show"
   areas:
     form:
@@ -68,3 +78,14 @@ en:
       indicator_header: "Indicator"
       area_header: "Area"
       value_header: "Value"
+    evals_by_indicator:
+      indicator_header: "Indicator"
+      area_header: "Area"
+      value_header: "Value"
+  home:
+    get_informed:
+      select_indicator: "Select Indicator"
+    initiatives:
+      select_area: "Select Area"
+    posts_list:
+      post_card_header: "Environmental initiative"

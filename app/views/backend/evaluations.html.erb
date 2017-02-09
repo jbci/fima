@@ -24,7 +24,8 @@
     <div class="card">
       <div class="card-block">
         <div class="card-header">
-              <h4> <%= t '.select_indicator' %> </h4>
+              <h4> <%= t '.indicators_list' %> </h4>
+              <%= link_to "Nueva Evaluacion", new_evaluation_path, remote: true, id:"new_evaluation_link", class: "btn btn-primary" %>
         </div>
 
         <div id="evaluations">

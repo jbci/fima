@@ -34,3 +34,6 @@ section_1_indicator_0 = Indicator.create({title: 's1i0t', description: 'Descripc
 section_1_indicator_1 = Indicator.create({title: 's1i1t', description: 'Descripción de la sección 1 indicador 1'})
 section_1.indicators << section_1_indicator_0
 section_1.indicators << section_1_indicator_1
+
+evaluation_1 = Evaluation.create({indicator: section_0_indicator_0, area: providencia, value: 'value 1'})
+evaluation_2 = Evaluation.create({indicator: section_0_indicator_1, area: providencia, value: 'value 2'})

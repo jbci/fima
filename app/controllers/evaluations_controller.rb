@@ -9,8 +9,10 @@ class EvaluationsController < ApplicationController
 
   def evals_by_indicator
     indicator = params[:indicator]
+    p 'indicator: ' + indicator
     @evaluations = Evaluation.where indicator: indicator
     respond_to do |format|
+      format.html { render :evals_by_indicator }
       format.js { render :evals_by_indicator }
     end
   end
