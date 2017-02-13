@@ -114,7 +114,7 @@ RSpec.feature "posts backend" do
 
     post = Post.count
     expect(post).to eq(initial_post_count - 1)
-    save_and_open_page
+    # save_and_open_page
   end
 
 
