@@ -64,7 +64,7 @@ RSpec.feature "define rating, sections, and indicators" do
       page.driver.browser.switch_to.alert.accept
     end
 
-
+    sleep 10
     expect(find('#section_' + last_section.to_s)).to be
     within('#section_' + last_section.to_s) do
       title_field = find('#section_' + last_section.to_s + '_title')
@@ -94,7 +94,7 @@ RSpec.feature "define rating, sections, and indicators" do
       page.driver.browser.switch_to.alert.accept
     end
 
-    section_index = Section.count 
+    section_index = Section.count
 
 
     within('#section_' + section_index.to_s) do

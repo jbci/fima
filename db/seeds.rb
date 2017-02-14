@@ -44,7 +44,10 @@ evaluation_4 = Evaluation.create({ indicator: section_0_indicator_1, area: san_j
 post_1 = Post.create({ title: 'Iniciativa Ambiental 1', body: 'Texto de la Iniciativa Ambiental 1', area: providencia })
 post_2 = Post.create({ title: 'Iniciativa Ambiental 2', body: 'Texto de la Iniciativa Ambiental 2', area: providencia })
 post_3 = Post.create({ title: 'Iniciativa Ambiental 3', body: 'Texto de la Iniciativa Ambiental 3', area: providencia })
+post_4 = Post.create({ title: 'Iniciativa Ambiental 4', body: 'Texto de la Iniciativa Ambiental 4', area: providencia })
+post_5 = Post.create({ title: 'Iniciativa Ambiental 5', body: 'Texto de la Iniciativa Ambiental 5', area: providencia })
+post_6 = Post.create({ title: 'Iniciativa Ambiental 6', body: 'Texto de la Iniciativa Ambiental 6', area: providencia })
 
-post_4 = Post.create({ title: 'Iniciativa Ambiental 4', body: 'Texto de la Iniciativa Ambiental 4', area: san_jose })
-post_5 = Post.create({ title: 'Iniciativa Ambiental 5', body: 'Texto de la Iniciativa Ambiental 5', area: san_jose })
-post_6 = Post.create({ title: 'Iniciativa Ambiental 6', body: 'Texto de la Iniciativa Ambiental 6', area: san_jose })
+post_7 = Post.create({ title: 'Iniciativa Ambiental 7', body: 'Texto de la Iniciativa Ambiental 7', area: san_jose })
+post_8 = Post.create({ title: 'Iniciativa Ambiental 8', body: 'Texto de la Iniciativa Ambiental 8', area: san_jose })
+post_9 = Post.create({ title: 'Iniciativa Ambiental 9', body: 'Texto de la Iniciativa Ambiental 9', area: san_jose })

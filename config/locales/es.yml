@@ -89,3 +89,19 @@ es:
       select_area: "Seleccionar Area"
     posts_list:
       post_card_header: "Iniciativa ambiental"
+  views:
+    pagination:
+      first: " &laquo; Primero "
+      last: " Último &raquo; "
+      previous: " &lsaquo; Anterior "
+      next: " Siguiente &rsaquo; "
+      truncate: " &hellip; "
+  helpers:
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: "No %{entry_name} found"
+          one: "Mostrando <b>1</b> %{entry_name}"
+          other: "Mostrando <b>&nbsp; todos %{count} &nbsp;</b> %{entry_name}"
+      more_pages:
+        display_entries: "Mostrando %{entry_name} <b>&nbsp; %{first}&nbsp;-&nbsp;%{last} &nbsp;</b> de  <b>&nbsp; %{total} &nbsp;</b>  en total"

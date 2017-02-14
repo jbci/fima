@@ -5,7 +5,7 @@
     </div>
 
     <%= link_to "Nuevo Post", new_post_path, remote: true, id:"new_post_link", class: "btn btn-primary" %>
-    <%= paginate @posts %>
+    <%= paginate @posts, remote: true %>
 
     <table id="posts_table" border=1>
       <tr>

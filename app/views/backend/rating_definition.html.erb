@@ -5,7 +5,7 @@
     </div>
 
 
-    <%= simple_form_for @rating, url: wizard_path, :remote => true, authenticity_token: true, method: :put, html: { id: :rating_definition_form } do |f| %>
+    <%= simple_form_for @rating, url: backend_rating_definition_path, :remote => true, authenticity_token: true, method: :put, html: { id: :rating_definition_form } do |f| %>
 
       <% if @rating.errors.any? %>
         <div id="error_explanation">

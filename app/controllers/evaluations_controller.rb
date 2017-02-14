@@ -25,6 +25,10 @@ class EvaluationsController < ApplicationController
   # GET /evaluations/new
   def new
     @evaluation = Evaluation.new
+    respond_to do |format|
+      format.html { render :new }
+      format.js { render :new }
+    end
   end
 
   # GET /evaluations/1/edit
