@@ -99,5 +99,7 @@ ActiveRecord::Schema.define(version: 20170206211449) do
 
   add_foreign_key "evaluations", "areas"
   add_foreign_key "evaluations", "indicators"
+  add_foreign_key "indicators", "sections"
   add_foreign_key "posts", "areas"
+  add_foreign_key "sections", "ratings"
 end

@@ -61,17 +61,19 @@ RSpec.feature "posts backend" do
     # save_and_open_page
   end
 
-  scenario "update the second post", js: true do
+  scenario "update the last post", js: true do
     post_1 = FactoryGirl.create(:post)
     post_2 = FactoryGirl.create(:post_1)
     post_3 = FactoryGirl.create(:post_2)
     login_as(@admin, :scope => :admin)
     visit '/backend/posts'
 
+    last_post = Post.count
+
     expect(find("#posts_table")).to be
     within("#posts_table")do
-      expect(find("#post_2")).to be
-      within('#post_2') do
+      expect(find("#post_" + last_post.to_s)).to be
+      within("#post_" + last_post.to_s) do
         find('a', :text => 'Edit').click
       end
     end
@@ -87,26 +89,26 @@ RSpec.feature "posts backend" do
 
     expect(find("#posts_table")).to be
     within("#posts_table")do
-      expect(find("#post_2")).to be
-      within('#post_2') do
+      expect(find("#post_" + last_post.to_s)).to be
+      within("#post_" + last_post.to_s) do
         expect(find('td', :text => 'Test Update Post Title')).to be
       end
     end
   end
 
-  scenario "delete the third post", js: true do
+  scenario "delete the last post", js: true do
     post_1 = FactoryGirl.create(:post)
     post_2 = FactoryGirl.create(:post_1)
     post_3 = FactoryGirl.create(:post_2)
     login_as(@admin, :scope => :admin)
     visit '/backend/posts'
     initial_post_count = Post.count
-    # expect(initial_post_count).to eq(3)
+    last_post = Post.count
 
     expect(find("#posts_table")).to be
     within("#posts_table")do
-      expect(find("#post_3")).to be
-      within('#post_3') do
+      expect(find("#post_" + last_post.to_s)).to be
+      within("#post_" + last_post.to_s) do
         find('a', :text => 'Destroy').click
         page.driver.browser.switch_to.alert.accept
         wait_for_ajax

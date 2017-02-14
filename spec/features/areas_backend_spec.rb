@@ -47,10 +47,11 @@ RSpec.feature "areas backend" do
     login_as(@admin, :scope => :admin)
     visit '/backend/areas'
 
+    expect(find("#area_levels_table")).to be
     area_levels_count = all("table#area_levels_table tr").count
 
-    expect(find("#area_levels_table")).to be
-    expect(find("#area_level_" + area_level.id.to_s)).to be
+
+    expect(find("#area_level_" + (area_level.id).to_s)).to be
 
     find("#area_levels_table")
     within("#area_levels_table") do
@@ -61,6 +62,7 @@ RSpec.feature "areas backend" do
       end
     end
     expect(find("table#area_levels_table")).to be
+    wait_for_ajax
     expect(all("table#area_levels_table tr").count).to eq(area_levels_count - 1)
   end
 
