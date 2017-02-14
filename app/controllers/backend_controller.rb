@@ -5,6 +5,7 @@ class BackendController < ApplicationController
 
   # steps :rating_definition, :posts, :areas, :evaluations
 
+
   def posts
     @posts = Post.order(created_at: :desc).page(@page).per(5)
     respond_to do |format|

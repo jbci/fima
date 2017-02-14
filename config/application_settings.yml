@@ -6,6 +6,7 @@ development:
   SMTP_SETTING_USERNAME: ''
   SMTP_SETTING_PASSWORD: ''
   MAILER_SENDER: 'lab@ciudadanointeligente.org'
+  DISQUS_SHORTNAME: 'fima-fci'
 test:
   BASE_URL: ''
   SMTP_SETTING_ADDRESS: ''
@@ -13,6 +14,7 @@ test:
   SMTP_SETTING_USERNAME: ''
   SMTP_SETTING_PASSWORD: ''
   MAILER_SENDER: 'test@test.com'
+  DISQUS_SHORTNAME: ''
 production:
   BASE_URL: ''
   SMTP_SETTING_ADDRESS: ''
@@ -20,3 +22,4 @@ production:
   SMTP_SETTING_USERNAME: ''
   SMTP_SETTING_PASSWORD: ''
   MAILER_SENDER: 'test@test.com'
+  DISQUS_SHORTNAME: ''

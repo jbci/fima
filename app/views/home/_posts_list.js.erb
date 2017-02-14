@@ -7,7 +7,7 @@
         <div class="card-block">
           <div class="card-header">
                 <h5> <%= initiative.title %> </h5>
-                <%= link_to('details', post_path(initiative.id),  :data => { :toggle => "lightbox" }) %>
+                <%= link_to('details', post_path(initiative.id)) %>
           </div>
           <div class="card-body">
                 <%= initiative.body %>
