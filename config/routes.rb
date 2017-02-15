@@ -19,4 +19,6 @@ Rails.application.routes.draw do
   get 'backend/evaluations', to:'backend#evaluations'
   get 'backend/rating_definition', to:'backend#rating_definition'
   put 'backend/rating_definition', to:'backend#rating_definition'
+
+  devise_for :users
 end

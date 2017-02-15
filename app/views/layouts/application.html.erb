@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Fima</title>
-    
+
 
     <%= csrf_meta_tags %>
 
@@ -12,8 +12,10 @@
 
   <body>
     <div class="container-fluid">
+      <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
       <p class="notice"><%= notice %></p>
       <p class="alert"><%= alert %></p>
+
 
       <%= yield %>
     </div>
