@@ -39,8 +39,12 @@
    z-index: 1
  }
 
+ #app_container{
+ }
+
  #googlemaps {
-   height: 300%;
+  //  height: 300%;
+   min-height: 2000px;
    width: 100%;
    position:absolute;
    top: 0;
