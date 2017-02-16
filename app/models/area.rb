@@ -18,12 +18,5 @@ class Area < ApplicationRecord
                       level = AreaLevel.find_by_name('Región')
                       where(area_level: level)
                     }
-  #
-  # AreaLevel.all.each do |level|
-  #   scope level.name.downcase.pluralize.to_sym , -> { where(area_level: level) }
-  # end
-  # AreaLevel.all.each do |level|
-  #   p level.name.downcase.pluralize.to_sym
-  # end
 
 end

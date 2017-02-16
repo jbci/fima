@@ -1,7 +1,8 @@
-<div class="row"
-  <%= render 'layouts/side_menu'%>
+<div id="googlemaps"></div>
+
+Iniciativas Ambientales
+<div class="row">
   <div class="col-md-9">
-    Iniciativas Ambientales
     <div id="initiatives_form">
       <%= form_tag initiatives_path, :method => :get, remote: true do |f| %>
         <!-- <%= select_tag :section, options_from_collection_for_select(Section.all, "id", "title", params[:section] || ""), prompt: "Seleccionar Sección", class: "chosen-select" %> -->
@@ -14,3 +15,38 @@
     </div>
   </div>
 </div>
+
+<!-- Include the Google Maps API library - required for embedding maps -->
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+<script type="text/javascript">
+
+// The latitude and longitude of your business / place
+var position = [-33.446165, -70.665767];
+
+function showGoogleMaps() {
+
+    var latLng = new google.maps.LatLng(position[0], position[1]);
+
+    var mapOptions = {
+        zoom: 10, // initialize zoom level - the max value is 21
+        streetViewControl: false, // hide the yellow Street View pegman
+        scaleControl: false, // allow users to zoom the Google Map
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        center: latLng
+    };
+
+    map = new google.maps.Map(document.getElementById('googlemaps'),
+        mapOptions);
+
+    // Show the default red marker at the location
+    marker = new google.maps.Marker({
+        position: latLng,
+        map: map,
+        draggable: false,
+        animation: google.maps.Animation.DROP
+    });
+}
+
+google.maps.event.addDomListener(window, 'load', showGoogleMaps);
+</script>

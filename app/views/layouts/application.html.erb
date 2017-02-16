@@ -5,19 +5,30 @@
 
 
     <%= csrf_meta_tags %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'ratyrate.js', "data-turbolinks-track": false %>
   </head>
 
   <body>
     <div class="container-fluid">
-      <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
-      <p class="notice"><%= notice %></p>
-      <p class="alert"><%= alert %></p>
+      <div class="row">
+        <div id="social">
+          <!-- <%= render 'layouts/social_logins'%> -->
+        </div>
+
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+        <div id="side_menu">
+          <%= render 'layouts/side_menu'%>
+        </div>
 
 
-      <%= yield %>
+        <div id="content" class="right_content">
+          <%= yield %>
+        </div>
+      </div>
     </div>
   </body>
 </html>

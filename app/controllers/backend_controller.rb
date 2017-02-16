@@ -43,27 +43,12 @@ class BackendController < ApplicationController
     end
   end
 
-  # def show
-  #   case step
-  #     when :posts
-  #       p 'aaaaaaaaqui'
-  #       p @page
-  #       p 'aaaaaaaaqui'
-  #       @posts = Post.order(created_at: :desc).page(@page).per(5)
-  #     when :areas
-  #       @area_levels = AreaLevel.all
-  #       @areas = Area.all
-  #   end
-  #   render_wizard
-  # end
-  #
   def update
     @rating.update_attributes(rating_params)
     if request.xhr?
         @rating.save
         @errors = @rating.errors
         @errors.full_messages.each do |message|
-          p @errors
         end
     else
     end

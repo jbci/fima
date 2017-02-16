@@ -59,6 +59,9 @@ gem 'kaminari'
 
 gem 'omniauth-facebook'
 
+gem 'ratyrate'
+
+gem "omniauth-google-oauth2"
 
 
 group :development, :test do

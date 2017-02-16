@@ -1,20 +1,22 @@
-<div id="initiatives_list" class="row">
+<div class="row">
   <%= paginate @initiatives, remote: true %>
-  <br>
-    <% @initiatives.each do |initiative|%>
-    <div class="col-sm-4">
-      <div class="card">
-        <div class="card-block">
-          <div class="card-header">
-                <h5> <%= initiative.title %> </h5>
-                <%= link_to('details', post_path(initiative.id)) %>
-          </div>
-          <div class="card-body">
-                <%= initiative.body %>
+  <div id="initiatives_list" class="row">
+    <br>
+      <% @initiatives.each do |initiative|%>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-block">
+            <div class="card-header">
+                  <h5> <%= initiative.title %> </h5>
+                  <%= link_to('details', post_path(initiative.id)) %>
+            </div>
+            <div class="card-body">
+                  <%= initiative.body %>
+            </div>
           </div>
         </div>
-      </div>
-      </div>
-    <% end %>
-    <%= page_entries_info @initiatives %>
+        </div>
+      <% end %>
+  </div>
+  <%= page_entries_info @initiatives %>
 </div>

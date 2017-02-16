@@ -18,4 +18,6 @@
 //= require bootstrap
 //= require turbolinks
 //= require cocoon
+//= require jquery.raty
+//= require ratyrate
 //= require_tree .

@@ -1,5 +1,8 @@
 <p id="notice"><%= notice %></p>
 
+Problem  : <%= rating_for @post, 'problem', star: 7 %>
+Implementation  : <%= rating_for @post, 'implementation', star: 7 %>
+
 <%= render 'disqus' %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

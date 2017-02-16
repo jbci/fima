@@ -3,13 +3,14 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook]
+         :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
+
+  ratyrate_rater
 
    def self.from_omniauth(auth)
-     p "def self.from_omniauth(auth)"
-     p auth
      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
        user.email = auth.info.email
+       user.names = auth.info.name
        user.password = Devise.friendly_token[0,20]
        user.provider = auth.provider
        user.uid = auth.uid
@@ -22,19 +23,19 @@ class User < ApplicationRecord
    end
 
    def self.new_with_session(params, session)
-     p " def self.new_with_session(params, session)  def self.new_with_session(params, session)"
-     p session["devise.facebook_data"]
-     p session["devise.facebook_data"]["provider"]
-     p session["devise.facebook_data"]["uid"]
-     p " raw_data end"
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-        p " def self.new_with_session(params, session)  def self.new_with_session(params, session)"
-        p data
         user.email = data["email"] if user.email.blank?
         user.names = data["name"] if user.names.blank?
         user.provider = session["devise.facebook_data"]["provider"]
         user.uid = session["devise.facebook_data"]["uid"]
+
+      elsif data = session["devise.google_data"] && session["devise.google_data"]["info"]
+        user.email = data["email"] if user.email.blank?
+        user.names = data["name"] if user.names.blank?
+        user.provider = session["devise.google_data"]["provider"]
+        user.uid = session["devise.google_data"]["uid"]
+
       end
     end
   end

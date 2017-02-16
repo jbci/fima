@@ -16,3 +16,34 @@
  */
  // Custom bootstrap variables must be set or imported *before* bootstrap.
  @import "bootstrap";
+ @import "chosen";
+ @import "chosen-base";
+
+ body {
+   margin: 0;
+ }
+ .left_menu {
+   width: 100%;
+  //  background: teal;
+   left: 0;
+   top: 0;
+ }
+ .right_content {
+   width: 80%;
+  //  background: yellow;
+  //  height: 100vh;
+   position: fixed;
+   right: 0;
+   top: 0;
+   padding: 10px;
+   z-index: 1
+ }
+
+ #googlemaps {
+   height: 300%;
+   width: 100%;
+   position:absolute;
+   top: 0;
+   left: 0;
+   z-index: 0; /* Set z-index to 0 as it will be on a layer below the contact form */
+ }
