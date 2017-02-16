@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215220150) do
+ActiveRecord::Schema.define(version: 20170216141102) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -112,6 +112,12 @@ ActiveRecord::Schema.define(version: 20170215220150) do
     t.datetime "updated_at",                          null: false
     t.string   "provider"
     t.string   "uid"
+    t.string   "names"
+    t.string   "surnames"
+    t.integer  "area_of_residence_id"
+    t.integer  "area_of_interest_id"
+    t.index ["area_of_interest_id"], name: "index_users_on_area_of_interest_id", using: :btree
+    t.index ["area_of_residence_id"], name: "index_users_on_area_of_residence_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
@@ -119,4 +125,6 @@ ActiveRecord::Schema.define(version: 20170215220150) do
   add_foreign_key "evaluations", "areas"
   add_foreign_key "evaluations", "indicators"
   add_foreign_key "posts", "areas"
+  add_foreign_key "users", "areas", column: "area_of_interest_id"
+  add_foreign_key "users", "areas", column: "area_of_residence_id"
 end

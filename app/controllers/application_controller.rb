@@ -3,6 +3,15 @@ class ApplicationController < ActionController::Base
 
   before_action :set_language
 
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:names, :surnames, :area_of_residence_id,
+                                                       :area_of_interest_id, :provider, :uid])
+  end
+
   def set_language
     if session[:locale].nil?
       if params[:locale].nil?
