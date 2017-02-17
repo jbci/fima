@@ -6,8 +6,8 @@ Iniciativas Ambientales
     <div id="initiatives_form">
       <%= form_tag initiatives_path, :method => :get, remote: true do |f| %>
         <!-- <%= select_tag :section, options_from_collection_for_select(Section.all, "id", "title", params[:section] || ""), prompt: "Seleccionar Sección", class: "chosen-select" %> -->
-        <%= select_tag :area, options_from_collection_for_select(Area.comunas.all, "id", "name", params[:area] || ""), include_blank:  t('.select_area'), class: "chosen-select", id: "initiatives_area_select"%>
-        <%= submit_tag t('.select_area'), class: "btn", id:"initiatives_form_button" %>
+        <%= select_tag :area, options_from_collection_for_select(Area.comunas.all, "id", "name", params[:area] || ""), include_blank:  t('.select_area'), class: "chosen-select", id: "initiatives_area_select", onchange: "$(this).parent('form').submit();"%>
+        <!-- <%= submit_tag t('.select_area'), class: "btn", id:"initiatives_form_button" %> -->
       <% end %>
     </div>
     <div id="initiatives_list">
