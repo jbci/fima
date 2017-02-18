@@ -37,31 +37,28 @@ gem 'jbuilder', '~> 2.5'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-
 gem 'acts_as_tree'
 gem 'wicked'
 gem 'rails-i18n', '~> 5.0.2'
 gem 'devise'
 gem 'cocoon'
 gem 'simple_form'
-
 gem 'bootstrap'
-
 source 'https://rails-assets.org' do
   gem 'rails-assets-tether'
 end
-
 gem 'paperclip'
 gem 'remotipart'
 gem 'chosen-rails'
-
 gem 'kaminari'
-
 gem 'omniauth-facebook'
-
 gem 'ratyrate'
-
 gem "omniauth-google-oauth2"
+gem 'activerecord-postgis-adapter'
+gem 'seed_dump'
+gem 'leaflet-rails'
+gem 'rgeo-geojson'
+
 
 
 group :development, :test do

@@ -10,10 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216153857) do
+ActiveRecord::Schema.define(version: 20170217140939) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "postgis"
 
   create_table "admins", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -39,11 +40,12 @@ ActiveRecord::Schema.define(version: 20170216153857) do
   end
 
   create_table "areas", force: :cascade do |t|
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                                          null: false
+    t.datetime "updated_at",                                          null: false
     t.string   "name"
     t.integer  "parent_id"
     t.integer  "area_level_id"
+    t.geometry "geom",          limit: {:srid=>0, :type=>"geometry"}
     t.index ["area_level_id"], name: "index_areas_on_area_level_id", using: :btree
     t.index ["parent_id"], name: "index_areas_on_parent_id", using: :btree
   end

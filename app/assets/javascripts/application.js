@@ -20,4 +20,5 @@
 //= require cocoon
 //= require jquery.raty
 //= require ratyrate
+//= require leaflet
 //= require_tree .

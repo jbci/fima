@@ -12,12 +12,14 @@
  *
  * require_tree .
  * require chosen
+ * require leaflet
  * require_self
  */
  // Custom bootstrap variables must be set or imported *before* bootstrap.
  @import "bootstrap";
  @import "chosen";
  @import "chosen-base";
+ @import "leaflet";
 
  body {
    margin: 0;
@@ -32,7 +34,7 @@
    width: 80%;
   //  background: yellow;
   //  height: 100vh;
-   position: fixed;
+  //  position: fixed;
    right: 0;
    top: 0;
    padding: 10px;
