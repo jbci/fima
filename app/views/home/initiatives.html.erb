@@ -47,9 +47,15 @@ function showGoogleMaps() {
         animation: google.maps.Animation.DROP
     });
 
-    // map.data.addGeoJson("{ \"type\": \"FeatureCollection\", \"features\": [{  \"type\": \"Feature\",  \"geometry\": {    \"type\": \"Point\",    \"coordinates\": [-33.546165, -70.665767]  },  \"properties\": {    \"name\": \"Dinagat Islands\"  }}]}");
+    <% vitacura = Area.find_by_name 'Vitacura' %>
+    <% geojson_polygon = RGeo::GeoJSON.encode vitacura.geom%>
+
     var geojson = JSON.parse("{ \"type\": \"FeatureCollection\", \"features\": [{  \"type\": \"Feature\",  \"geometry\": {    \"type\": \"Point\",    \"coordinates\": [-70.565767, -33.446165]  },  \"properties\": {    \"name\": \"Dinagat Islands\"  }}]}");
     map.data.addGeoJson(geojson);
+
+
+    var geojson_polygon = JSON.parse("{    \"type\": \"Feature\",    \"geometry\": {        \"type\":\"MultiPolygon\", \"coordinates\":[[[[35.303612313, 63.085742115], [35.36040170999998, 73.0819561], [45.35383417999996, 63.08291937], [35.303612313, 63.085742115]]]]    },    \"properties\": {        \"name\": \"Plaza Road Park\"    }}");
+    map.data.addGeoJson(geojson_polygon);
 
 }
 
