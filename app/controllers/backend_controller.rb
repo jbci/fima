@@ -19,6 +19,7 @@ class BackendController < ApplicationController
   def areas
     @area_levels = AreaLevel.all
     @areas = Area.all
+    @countries = Area.paises.all
     respond_to do |format|
       format.html
       format.js { render :areas}

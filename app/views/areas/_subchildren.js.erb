@@ -1,0 +1,11 @@
+<li id="area_li_<%=@area.id%>">
+  <%= link_to(@area.name, children_path(@area), remote: true) %>
+  <ul>
+    <% @children.each do |area| %>
+      <li id="area_li_<%=area.id%>" > <%= link_to(area.name, children_path(area), remote: true) %>
+        <%= link_to 'Edit', edit_area_path(area), remote: true %>
+        <%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } , remote: true%>
+      </li>
+    <% end %>
+  </ul>
+</li>

@@ -68,6 +68,12 @@ class AreasController < ApplicationController
     end
   end
 
+  def children
+    @area = Area.find(params[:area_id])
+    @children = @area.children
+    render :children
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_area

@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'evals_by_indicator', to:'evaluations#evals_by_indicator'
   resources :posts
   resources :areas
+  get 'area/children/:area_id', to:'areas#children', as: 'children'
   resources :area_levels
   devise_for :admins
   get 'home/index'

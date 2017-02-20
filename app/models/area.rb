@@ -19,6 +19,11 @@ class Area < ApplicationRecord
                       where(area_level: level)
                     }
 
+  scope :paises, -> {
+                      level = AreaLevel.find_by_name('País')
+                      where(area_level: level)
+                    }
+
   def geojson
     geom = RGeo::GeoJSON.encode(self.geom)
 
