@@ -326,6 +326,7 @@ DEPENDENCIES
   rails-i18n (~> 5.0.2)
   ratyrate
   remotipart
+  rgeo
   rgeo-geojson
   rspec-rails
   sass-rails (~> 5.0)

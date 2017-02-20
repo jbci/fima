@@ -29,6 +29,12 @@ es:
       about_us: "Sobre nosotros"
       sign_up: "Registrate"
       contact: "Contacto"
+    top_menu:
+      posts: "Posts"
+      areas: "Areas"
+      evaluations: "Evaluaciones"
+      definition: "Definición"
+      projects: "Proyectos"
   backend:
     rating_definition:
       title: "Índice"

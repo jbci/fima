@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fima</title>
+
+    <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+  </head>
+
+  <body>
+    <div class="container-fluid" id="app_container">
+        <!-- <%= render 'layouts/social_logins'%> -->
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+
+        <div id="side_menu">
+          <%= render 'layouts/top_menu'%>
+        </div>
+
+
+        <div id="content" class="right_content">
+          <%= yield %>
+        </div>
+    </div>
+  </body>
+</html>

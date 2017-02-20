@@ -1,4 +1,6 @@
 class BackendController < ApplicationController
+
+  layout 'backend'
   # include Wicked::Wizard
   before_action :authenticate_admin!
   before_action :set_rating, :set_page

@@ -30,6 +30,12 @@ en:
       about_us: "About us"
       sign_up: "Sign Up"
       contact: "Contact"
+    top_menu:
+      posts: "Posts"
+      areas: "Areas"
+      evaluations: "Evaluations"
+      definition: "Definition"
+      projects: "Projects"
   backend:
     rating_definition:
       title: "Rating"
