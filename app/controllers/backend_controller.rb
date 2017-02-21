@@ -18,6 +18,7 @@ class BackendController < ApplicationController
 
   def areas
     @area_levels = AreaLevel.all
+    @main_level = AreaLevel.first
     @areas = Area.all
     @countries = Area.paises.all
     respond_to do |format|

@@ -1,9 +1,16 @@
-<% if @post.errors.empty? %>
-  // add the row to the table, show alert and hide modal
-  $('table tbody tr#<%= @post.id %>').replaceWith(' <%= j render "row", post: @post %>');
-  $('.alert-success').html("El posto ha sido modificado con éxito").show();
-  $('#post-modal').modal('hide');
-<% else %>
-  // show first error
-  alert('<%= @post.errors.full_messages[0] %>');
-<% end %>
+$('li#area_li_<%=@area.id %>').replaceWith(' <%= j render "subchildren", areas: @children %>');
+$('body').on('hidden.bs.modal', '.modal', function () {
+      $(this).removeData('bs.modal');
+    });
+var $modal = $('#area-modal');
+
+//when hidden
+$(document).on('hidden.bs.modal', function(e) {
+  $('#area-modal').remove();
+});
+
+$('#area-modal').modal('hide');
+$modal.modal('hide'); //start hiding
+// $modal.on('hidden', function () {
+//   $(this).removeData('bs.modal');
+// }

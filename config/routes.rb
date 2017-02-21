@@ -5,7 +5,10 @@ Rails.application.routes.draw do
   resources :posts
   resources :areas
   get 'area/children/:area_id', to:'areas#children', as: 'children'
+  get 'area/new_child/:area_id', to:'areas#new_child', as: 'new_child'
   resources :area_levels
+  get 'area_level/children/:area_level_id', to:'area_levels#children', as: 'area_level_children'
+  get 'area_level/new_child/:area_level_id', to:'area_levels#new_child', as: 'new_area_level_child'
   devise_for :admins
   get 'home/index'
   root to: "home#index"

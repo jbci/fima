@@ -1,2 +1,4 @@
 //console.log("running new.js.erb")
-$('<%= j render "form", title: "Publicar Post" %>').modal();
+$('<%= j render "form", title: "Publicar Post" %>').modal().on('shown.bs.modal', function() {
+  $('.chosen-select').chosen();
+});

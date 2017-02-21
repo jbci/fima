@@ -1,1 +1,16 @@
 $('li#area_li_<%=@area.id %>').replaceWith(' <%= j render "subchildren", areas: @children %>');
+$('body').on('hidden.bs.modal', '.modal', function () {
+      $(this).removeData('bs.modal');
+    });
+var $modal = $('#area-modal');
+
+//when hidden
+$(document).on('hidden.bs.modal', function(e) {
+  $('#area-modal').remove();
+});
+
+$('#area-modal').modal('hide');
+$modal.modal('hide'); //start hiding
+// $modal.on('hidden', function () {
+//   $(this).removeData('bs.modal');
+// }

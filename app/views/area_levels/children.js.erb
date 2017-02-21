@@ -1,0 +1,16 @@
+$('li#area_level_li_<%=@area_level.id %>').replaceWith(' <%= j render "subchildren", area_levels: @children %>');
+$('body').on('hidden.bs.modal', '.modal', function () {
+      $(this).removeData('bs.modal');
+    });
+var $modal = $('#area_level-modal');
+
+//when hidden
+$(document).on('hidden.bs.modal', function(e) {
+  $('#area_level-modal').remove();
+});
+
+$('#area_level-modal').modal('hide');
+$modal.modal('hide'); //start hiding
+// $modal.on('hidden', function () {
+//   $(this).removeData('bs.modal');
+// }

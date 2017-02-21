@@ -1,3 +1,3 @@
-$('<%= j render "form", title: "Publicar Area" %>').modal().on('shown.bs.modal', function() {
+$('<%= j render "form", title: "Publicar Area", parent: @parent_area %>').modal().on('shown.bs.modal', function() {
   $('.chosen-select').chosen();
 });

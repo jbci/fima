@@ -10,18 +10,16 @@
               <h4> <%= t '.title_levels' %> </h4>
         </div>
 
-        <%= link_to "Nuevo nivel de Area", new_area_level_path, remote: true, id:"new_area_level_link", class: "btn btn-primary" %>
+        <!-- <%= link_to "Nuevo nivel de Area", new_area_level_path, remote: true, id:"new_area_level_link", class: "btn btn-primary" %> -->
 
+        <ul>
+            <li id="area_level_li_<%=@main_level.id%>" > <%= link_to(@main_level.name, area_level_children_path(@main_level), remote: true) %>
+              <%= link_to '', edit_area_level_path(@main_level), remote: true, class: "fa fa-pencil-square" %>
+              <%= link_to '', @main_level, method: :delete, data: { confirm: 'Are you sure?' } , remote: true, class: "fa fa-trash"%>
+              <%= link_to '', new_area_level_child_path(@main_level), method: :get , remote: true, class: "fa fa-plus-square"%>
+            </li>
+        </ul>
 
-        <table id="area_levels_table" border=1>
-          <tr>
-            <th>  <%= t '.id_header' %>  </th>
-            <th>  <%= t '.name_header' %>  </th>
-          </tr>
-          <% @area_levels.each do |area_level| %>
-            <%= render "area_levels/row", area_level: area_level %>
-          <% end %>
-        </table>
       </div>
     </div>
 
@@ -32,13 +30,14 @@
               <h4> <%= t '.title' %> </h4>
         </div>
 
-        <%= link_to "Nuevo Area", new_area_path, remote: true, id:"new_area_link", class: "btn btn-primary" %>
+        <!-- <%= link_to "Nuevo Area", new_area_path, remote: true, id:"new_area_link", class: "btn btn-primary" %> -->
 
         <ul>
           <% @countries.each do |area| %>
             <li id="area_li_<%=area.id%>" > <%= link_to(area.name, children_path(area), remote: true) %>
-              <%= link_to 'Edit', edit_area_path(area), remote: true %>
-              <%= link_to 'Destroy', area, method: :delete, data: { confirm: 'Are you sure?' } , remote: true%>
+              <%= link_to '', edit_area_path(area), remote: true, class: "fa fa-pencil-square" %>
+              <%= link_to '', area, method: :delete, data: { confirm: 'Are you sure?' } , remote: true, class: "fa fa-trash"%>
+              <%= link_to '', new_child_path(area), method: :get , remote: true, class: "fa fa-plus-square"%>
             </li>
           <% end %>
         </ul>

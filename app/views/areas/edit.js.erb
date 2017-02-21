@@ -1,5 +1,5 @@
 //console.log("running edit.js.erb")
-$('<%= j render "form", title: "Modificar post" %>').on('hidden.bs.modal', function (e) {
+$('<%= j render "form", title: "Modificar post", parent: @parent_area %>').on('hidden.bs.modal', function (e) {
   $(this).remove();
   $('.modal-backdrop').remove();
 }).modal();

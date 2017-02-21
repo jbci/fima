@@ -10,9 +10,10 @@ Admin.create({email: 'lab@ciudadanointeligente.org', password: 'xxxxxxxx', passw
 # AreaLevel.create([{name: 'País'}, {name: 'Región'}, {name: 'Provincia'}, {name: 'Comuna'}])
 
 level_0 = AreaLevel.create(name: 'País')
-level_1 = AreaLevel.create(name: 'Región')
-level_2 = AreaLevel.create(name: 'Provincia')
-level_3 = AreaLevel.create(name: 'Comuna')
+level_1 = level_0.children.create(name: 'Región')
+level_2 = level_1.children.create(name: 'Provincia')
+level_3 = level_2.children.create(name: 'Comuna')
+
 chile = Area.first_or_create(name: 'Chile', area_level: level_0)
 # region_m = chile.children.create(name: 'Región Metropolitana', area_level: level_1)
 # provincia_s = region_m.children.create(name: 'Provincia de Santiago', area_level: level_2)

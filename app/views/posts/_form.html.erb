@@ -12,8 +12,7 @@
             <%= f.input :title %>
             <%= f.input :body %>
             <%= f.input :image %>
-            <%= f.collection_select(:area_id, Area.regiones.all, :id, :name, {prompt: 'Seleccione región'}, {'class' => 'form-control'}) %>
-            <%= f.collection_select(:area_id, Area.comunas.all, :id, :name, {prompt: 'Seleccione comuna'}, {'id' => 'post_comuna_dropdown','class' => 'form-control'}) %>
+            <%= f.association :area, collection: Area.comunas.all,  include_blank: true, input_html: {id: 'post_comuna_dropdown', class: 'chosen-select'}%>
           </div>
 
           <div class="form-actions">

@@ -34,7 +34,10 @@ class AreasController < ApplicationController
       if @area = parent_area.children.create(name: params[:name], area_level: area_level )
         format.html { redirect_to @area, notice: 'Area was successfully created.' }
         format.json { render :show, status: :created, location: @area }
-        format.js { :create }
+        format.js {
+                      @area = parent_area
+                      @children = @area.children
+                      render :children }
       else
         format.html { render :new }
         format.json { render json: @area.errors, status: :unprocessable_entity }
@@ -50,6 +53,7 @@ class AreasController < ApplicationController
       if @area.update(area_params)
         format.html { redirect_to @area, notice: 'Area was successfully updated.' }
         format.json { render :show, status: :ok, location: @area }
+        format.js { :children }
       else
         format.html { render :edit }
         format.json { render json: @area.errors, status: :unprocessable_entity }
@@ -72,6 +76,12 @@ class AreasController < ApplicationController
     @area = Area.find(params[:area_id])
     @children = @area.children
     render :children
+  end
+
+  def new_child
+    @area = Area.new
+    @parent_area = Area.find(params[:area_id])
+    render :new
   end
 
   private

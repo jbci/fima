@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170217140939) do
+ActiveRecord::Schema.define(version: 20170221154057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,8 @@ ActiveRecord::Schema.define(version: 20170217140939) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
+    t.integer  "parent_id"
+    t.index ["parent_id"], name: "index_area_levels_on_parent_id", using: :btree
   end
 
   create_table "areas", force: :cascade do |t|
@@ -57,6 +59,11 @@ ActiveRecord::Schema.define(version: 20170217140939) do
     t.float    "avg",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "comunas", id: false, force: :cascade do |t|
+    t.string   "nom_com", limit: 80
+    t.geometry "geom",    limit: {:srid=>0, :type=>"multi_polygon"}
   end
 
   create_table "evaluations", force: :cascade do |t|

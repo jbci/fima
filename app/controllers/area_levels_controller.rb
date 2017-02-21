@@ -30,7 +30,10 @@ class AreaLevelsController < ApplicationController
       if @area_level.save
         format.html { redirect_to @area_level, notice: 'AreaLevel was successfully created.' }
         format.json { render :show, status: :created, location: @area_level }
-        format.js { render :create }
+        format.js {
+                      @area_level = @area_level.parent unless @area_level.nil?
+                      @children = @area_level.children unless @area_level.nil?
+                      render :children }
       else
         format.html { render :new }
         format.json { render json: @area_level.errors, status: :unprocessable_entity }
@@ -66,6 +69,18 @@ class AreaLevelsController < ApplicationController
     end
   end
 
+  def children
+    @area_level = AreaLevel.find(params[:area_level_id])
+    @children = @area_level.children
+    render :children
+  end
+
+  def new_child
+    @area_level = AreaLevel.new
+    @area_level.parent = AreaLevel.find(params[:area_level_id])
+    render :new
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_area_level
@@ -75,6 +90,6 @@ class AreaLevelsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def area_level_params
       # params.fetch(:area_level, {})
-      params.require(:area_level).permit(:id, :name)
+      params.require(:area_level).permit(:id, :name, :parent_id)
     end
 end

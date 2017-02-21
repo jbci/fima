@@ -3,6 +3,9 @@
   //console.log("running create.js.erb");
   $('table tbody').append(' <%= j render "row", post: @post %>');
   $('.alert-success').html("El producto ha sido creado con éxito").show();
+  $(document).on('hidden.bs.modal', function(e) {
+    $('#post-modal').remove();
+  });
   $('#post-modal').modal('hide');
 <% else %>
   // show first error

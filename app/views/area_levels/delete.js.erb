@@ -1,6 +1,6 @@
 <% if @area_level.errors.empty? %>
   // add the row to the table, show alert and hide modal
-  $('table tbody tr#area_level_<%= @area_level.id %>').remove();
+  $('li#area_level_li_<%= @area_level.id %>').remove();
   $('.alert-success').html("El area_level ha sido eliminado con éxito").show();
   $('#area_level-modal').modal('hide');
 <% else %>

@@ -1,6 +1,6 @@
 <% if @area.errors.empty? %>
   // add the row to the table, show alert and hide modal
-  $('table tbody tr#area_<%= @area.id %>').remove();
+  $('li#area_li_<%= @area.id %>').remove();
   $('.alert-success').html("El area ha sido eliminado con éxito").show();
   $('#area-modal').modal('hide');
 <% else %>

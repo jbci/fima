@@ -10,6 +10,10 @@
 
           <div class="form-inputs">
             <%= f.input :name %>
+
+            <% unless @area_level.parent.nil? %>
+              <%= f.hidden_field :parent_id, value: @area_level.parent.id %>
+            <% end %>
           </div>
 
           <div class="form-actions">
