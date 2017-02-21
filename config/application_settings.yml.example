@@ -6,6 +6,7 @@ development:
   SMTP_SETTING_USERNAME: 'b7cba938-3273-4cc7-98a2-b912ccc97d98'
   SMTP_SETTING_PASSWORD: 'b7cba938-3273-4cc7-98a2-b912ccc97d98'
   MAILER_SENDER: 'lab@ciudadanointeligente.org'
+  GOOGLE_MAPS_API_KEY: 'AIzaSyB0tTPnk5MGOLM0GbYgfq-6ileL9FiTTlw'
 test:
   BASE_URL: ''
   SMTP_SETTING_ADDRESS: ''
