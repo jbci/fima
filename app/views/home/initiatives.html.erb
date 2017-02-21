@@ -65,28 +65,30 @@ function showGoogleMaps() {
     <% post_areas = Post.select(:area_id).distinct %>
     <% post_areas.each do |post_area| %>
       <% area = Area.find(post_area.area_id) %>
-      var contentString = '<div id="content">'+' <%= area.name %> '+ '</div>';
-      var infowindow_<%= area.id %> = new google.maps.InfoWindow({
-        content: contentString
-      });
+        <% unless area.geom.nil? %>
+          var contentString = '<div id="content">'+' <%= area.name %> '+ '</div>';
+          var infowindow_<%= area.id %> = new google.maps.InfoWindow({
+            content: contentString
+          });
 
-      var latlong = {lat: -25.363, lng: 131.044};
+          var latlong = {lat: -25.363, lng: 131.044};
 
-      var marker_<%= area.id %> = new google.maps.Marker({
-        position: <%= raw area.centroid_coordinates %>,
-        map: map,
-        title: '<%= area.name %>',
-        draggable: false,
-        animation: google.maps.Animation.DROP
-      });
+          var marker_<%= area.id %> = new google.maps.Marker({
+            position: <%= raw area.centroid_coordinates %>,
+            map: map,
+            title: '<%= area.name %>',
+            draggable: false,
+            animation: google.maps.Animation.DROP
+          });
 
-      marker_<%= area.id %>.addListener('click', function() {
-        infowindow_<%= area.id %>.open(map, marker_<%= area.id %>);
-      });
+          marker_<%= area.id %>.addListener('click', function() {
+            infowindow_<%= area.id %>.open(map, marker_<%= area.id %>);
+          });
 
-      var geojson_polygon = JSON.parse('<%= raw area.geojson %>')
-      map.data.addGeoJson(geojson_polygon);
+          var geojson_polygon = JSON.parse('<%= raw area.geojson %>')
+          map.data.addGeoJson(geojson_polygon);
 
+        <% end %>
     <% end %>
 
 
