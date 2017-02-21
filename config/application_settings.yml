@@ -7,6 +7,7 @@ development:
   SMTP_SETTING_PASSWORD: ''
   MAILER_SENDER: 'lab@ciudadanointeligente.org'
   DISQUS_SHORTNAME: 'fima-fci'
+  GOOGLE_MAPS_API_KEY: 'AIzaSyB0tTPnk5MGOLM0GbYgfq-6ileL9FiTTlw'
 test:
   BASE_URL: ''
   SMTP_SETTING_ADDRESS: ''
