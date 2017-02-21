@@ -60,6 +60,8 @@ gem 'leaflet-rails'
 gem 'rgeo'
 gem 'rgeo-geojson'
 gem "font-awesome-rails"
+gem 'execjs'
+gem 'therubyracer'
 
 
 
