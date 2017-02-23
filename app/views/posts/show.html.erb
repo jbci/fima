@@ -3,6 +3,10 @@
 Problem  : <%= rating_for @post, 'problem', star: 7 %>
 Implementation  : <%= rating_for @post, 'implementation', star: 7 %>
 
+
+<%= imdb_style_rating_for @post, current_user, 'problem' %>
+<%= rating_for @post, "problem", disable_after_rate: true, imdb_avg: true %>
+
 <%= render 'disqus' %>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
