@@ -17,5 +17,9 @@ class HomeController < ApplicationController
     end
   end
 
+  def cover
+    render :layout => false
+  end
+
 
 end

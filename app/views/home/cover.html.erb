@@ -1,0 +1,69 @@
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Cabin" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300" rel="stylesheet">
+  <style>
+    div #cover {
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        left: 0px;
+        top: 0px;
+        z-index: -1;
+    }
+
+    div #text {
+        height: 100%;
+        width: 100%;
+        position: fixed;
+        left: 0px;
+        top: 90px;
+        z-index: 1;
+        padding: 10px;
+        text-align: center;
+    }
+
+    .stretch {
+        width:100%;
+        height:100%;
+    }
+    @-webkit-keyframes movimiento-diagonal {
+       from {
+          left: 0px;
+          opacity: 0.9;
+       }
+
+       to {
+          left: 0px;
+          opacity: 0;
+       }
+    }
+
+
+    #anim {
+       -webkit-animation-name: movimiento-diagonal;
+       -webkit-animation-duration: 3s;
+       -webkit-animation-iteration-count: infinite;
+       -webkit-animation-direction: alternate;/*para que vuelva a su posicion inicial */
+       height: 100%;
+       width: 100%;
+       position: fixed;
+       left: 0px;
+       top: 150px;
+       z-index: 1;
+       padding: 10px;
+       text-align: center;
+    }
+}
+  </style>
+
+
+</head>
+<body>
+<div id="cover">
+    <%= image_tag 'cover.jpg', :class => 'stretch' %>
+<div id="text">
+        <div><h1 style="font-size: 37px; color: rgba(26,116,49,.96); font-family: Cabin;">Municipio Verde</h1></div>
+        <!-- <div><h1 style="color: rgba(26,116,49,.96); font-family: 'Open Sans Condensed', sans-serif;">PRONTO PODRÁS CAMBIAR EL COLOR A TU COMUNA</h1></div> -->
+        <div id="anim"><h2 style="color: rgba(26,116,49,.96); font-family: 'Open Sans Condensed', sans-serif;">PRONTO PODRÁS CAMBIAR EL COLOR A TU COMUNA</h2></div>
+</div>
+</body>
