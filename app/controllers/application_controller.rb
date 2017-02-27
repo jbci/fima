@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   before_action :configure_permitted_parameters, if: :devise_controller?
 
+  before_action :store_current_location, :unless => :devise_controller?
+
   protected
 
   def configure_permitted_parameters
@@ -28,4 +30,13 @@ class ApplicationController < ActionController::Base
     end
     I18n.locale =  I18n.available_locales.map{|l|l.to_s}.include?(session[:locale]) ? session[:locale] : I18n.default_locale
   end
+
+  def store_current_location
+    store_location_for(:user, request.url)
+  end
+
+  def after_sign_out_path_for(resource)
+    request.referrer || root_path
+  end
+
 end
