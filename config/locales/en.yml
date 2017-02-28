@@ -36,6 +36,7 @@ en:
       evaluations: "Evaluations"
       definition: "Definition"
       projects: "Projects"
+      users: "Users"
   backend:
     rating_definition:
       title: "Rating"
@@ -72,6 +73,14 @@ en:
       select_indicator: "Select Indicator"
       indicators_list: "Evaluations"
       filter: "Show"
+    users:
+      title: "Users"
+      id_header: "Id"
+      email_header: "Email"
+      created_header: "Created at"
+      residence_header: "Residence"
+      interest_header: "Interest"
+      provider_header: "Provider"
   areas:
     form:
       area_modal_title: "Area"

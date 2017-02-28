@@ -1,0 +1,8 @@
+<tr id="user_<%= user.id %>">
+  <td><%= user.id %></td>
+  <td><%= user.email %></td>
+  <td><%= user.created_at %></td>
+  <td><%= Area.find(user.area_of_residence_id).name unless user.area_of_residence_id.nil? %></td>
+  <td><%= Area.find(user.area_of_interest_id).name unless user.area_of_interest_id.nil?  %></td>
+  <td><%= user.provider %></td>
+</tr>

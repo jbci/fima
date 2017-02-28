@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-block">
+    <div class="card-header">
+          <h4> <%= t '.title' %> </h4>
+    </div>
+
+    <%= link_to "Nuevo Post", new_post_path, remote: true, id:"new_post_link", class: "btn btn-primary" %>
+    <%= paginate @users %>
+
+    <table id="users_table" border=1>
+      <tr>
+        <th>  <%= t '.id_header' %>  </th>
+        <th>  <%= t '.email_header' %>  </th>
+        <th>  <%= t '.created_header' %>  </th>
+        <th>  <%= t '.residence_header' %>  </th>
+        <th>  <%= t '.interest_header' %>  </th>
+        <th>  <%= t '.provider_header' %>  </th>
+      </tr>
+      <% @users.each do |user| %>
+        <%= render "users/row", user: user %>
+      <% end %>
+    </table>
+    <%= page_entries_info @users %>
+  </div>
+</div>

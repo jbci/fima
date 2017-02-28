@@ -35,6 +35,7 @@ es:
       evaluations: "Evaluaciones"
       definition: "Definición"
       projects: "Proyectos"
+      users: "Usuarios"
   backend:
     rating_definition:
       title: "Índice"
@@ -72,6 +73,14 @@ es:
       select_indicator: "Seleccionar Indicador"
       indicators_list: "Evaluaciones"
       filter: "Mostrar"
+    users:
+      title: "Usuarios"
+      id_header: "Id"
+      email_header: "Email"
+      created_header: "Creado en"
+      residence_header: "Residencia"
+      interest_header: "Interés"
+      provider_header: "Proveedor"
   areas:
     form:
       area_modal_title: "Area"

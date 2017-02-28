@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get 'backend/evaluations', to:'backend#evaluations'
   get 'backend/rating_definition', to:'backend#rating_definition'
   put 'backend/rating_definition', to:'backend#rating_definition'
+  get 'backend/users', to:'backend#users'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", sessions: 'users/sessions' }
   # devise_scope :user do

@@ -16,6 +16,22 @@ class BackendController < ApplicationController
     end
   end
 
+  def users
+    @users = User.order(created_at: :desc).page(@page).per(5)
+    respond_to do |format|
+      format.html
+      format.js { render :users}
+    end
+  end
+
+  def export_users
+    @users = User.order(created_at: :desc).page(@page).per(5)
+    respond_to do |format|
+      format.html
+      format.js { render :users}
+    end
+  end
+
   def areas
     @area_levels = AreaLevel.all
     @main_level = AreaLevel.first
