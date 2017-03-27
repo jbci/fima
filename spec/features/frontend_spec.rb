@@ -3,7 +3,7 @@ include Warden::Test::Helpers
 
 RSpec.feature "basic frontend" do
   before(:each) do
-     Capybara.current_driver = :selenium
+    #  Capybara.current_driver = :selenium
      @admin = FactoryGirl.create(:admin)
    end
 

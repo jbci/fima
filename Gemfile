@@ -74,7 +74,8 @@ group :development, :test do
   gem 'capybara'
   gem 'launchy'
   gem 'faker'
-  gem 'selenium-webdriver'
+  # gem 'selenium-webdriver'
+  gem 'poltergeist'
 end
 
 group :development do

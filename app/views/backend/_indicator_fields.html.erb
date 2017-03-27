@@ -9,6 +9,7 @@
       <%= f.input :description, label: t('.description_label'), :input_html => {:id => 'section_'+@section_index.to_s+'_indicator_'+f.options[:child_index].to_s+'_description' } %>
 
       <%= link_to_remove_association f,  data: {confirm: (t '.remove_indicator')+'?'} do %>
+        <%= fa_icon "minus 2x" %>
         <%= t '.remove_indicator' %>
       <% end %>
     </div>

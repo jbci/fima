@@ -20,25 +20,32 @@ DEFAULT_HOST = "localhost"
 DEFAULT_PORT = 7171
 require 'capybara/rspec'
 require 'chosen-rails/rspec'
+require 'capybara/poltergeist'
+
 
 RSpec.configure do |config|
 
   config.include Chosen::Rspec::FeatureHelpers, type: :feature
 
   config.before(:suite) do
+    Capybara.default_driver = :poltergeist
+    Capybara.current_driver = :poltergeist
+    Capybara.javascript_driver = :poltergeist
+
     DatabaseCleaner.clean_with(:truncation)
+    DatabaseCleaner.strategy = :transaction # rollback transactions between each test
+    Rails.application.load_seed # (optional) seed DB
   end
 
   config.before(:each) do
-    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.start
   end
 
   config.before(:each, :js => true) do
-    DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.start
   end
 
   config.before(:each) do
-    Rails.application.load_seed
     DatabaseCleaner.start
   end
 

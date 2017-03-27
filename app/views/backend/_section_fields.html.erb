@@ -6,6 +6,7 @@
     <div class="card-header">
           <h4> <%= t '.section'  %> id="section_<%= @section_index %>" </h4>
           <%= link_to_remove_association f,  data: {confirm: (t '.remove_section')+'?'} do %>
+            <%= fa_icon "minus 2x" %>
             <%= t '.remove_section' %>
           <% end %>
     </div>
@@ -18,7 +19,8 @@
     <% end %>
 
     <%= link_to_add_association f, :indicators, data: { 'association-insertion-method': 'before', 'association-insertion-node': 'this' } do %>
-    <%= t '.add_indicator' %>
+      <%= fa_icon "plus 2x" %>
+      <%= t '.add_indicator' %>
     <% end %>
     <br>
     <%= f.button :submit, id: "section_" + @section_index.to_s + "_commit_button", target: '_self' %>

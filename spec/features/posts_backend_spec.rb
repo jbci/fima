@@ -3,7 +3,7 @@ include Warden::Test::Helpers
 
 RSpec.feature "posts backend" do
   before(:each) do
-     Capybara.current_driver = :selenium
+    #  Capybara.current_driver = :selenium
      @admin = FactoryGirl.create(:admin)
    end
    after(:all) do
@@ -110,7 +110,7 @@ RSpec.feature "posts backend" do
       expect(find("#post_" + last_post.to_s)).to be
       within("#post_" + last_post.to_s) do
         find('a', :text => 'Destroy').click
-        page.driver.browser.switch_to.alert.accept
+        # page.driver.browser.switch_to.alert.accept
         wait_for_ajax
       end
     end

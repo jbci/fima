@@ -3,7 +3,7 @@ include Warden::Test::Helpers
 
 RSpec.feature "define rating, sections, and indicators" do
   before(:each) do
-     Capybara.current_driver = :selenium
+    #  Capybara.current_driver = :selenium
      @admin = FactoryGirl.create(:admin)
    end
    after(:all) do
@@ -31,7 +31,7 @@ RSpec.feature "define rating, sections, and indicators" do
           fill_in 'rating_title', :with => 'Jimmy'
           fill_in 'rating_description', :with => 'Jimmy is a punk rocker'
           click_button('Update Rating')
-          page.driver.browser.switch_to.alert.accept
+          # page.driver.browser.switch_to.alert.accept
           # wait_for_ajax
     end
 
@@ -61,10 +61,18 @@ RSpec.feature "define rating, sections, and indicators" do
 
     within("#rating_definition_form") do
       find('#rating_commit_button').click
-      page.driver.browser.switch_to.alert.accept
+      p 'click'
+      # page.driver.browser.switch_to.alert.accept
+      page.accept_confirm do
+        click_link 'OK'
+      end
+      p 'click2'
     end
 
     sleep 10
+    p 'click3'
+    p "cards: " + find_all('.card-header').count.to_s
+    visit '/backend/rating_definition'
     expect(find('#section_' + last_section.to_s)).to be
     within('#section_' + last_section.to_s) do
       title_field = find('#section_' + last_section.to_s + '_title')
@@ -91,7 +99,7 @@ RSpec.feature "define rating, sections, and indicators" do
 
     within("#rating_definition_form") do
       find('#rating_commit_button').click
-      page.driver.browser.switch_to.alert.accept
+      # page.driver.browser.switch_to.alert.accept
     end
 
     section_index = Section.count
@@ -111,7 +119,7 @@ RSpec.feature "define rating, sections, and indicators" do
 
     within('#rating_definition_form') do
       find('#section_' + section_index.to_s + '_commit_button').click
-      #page.driver.browser.switch_to.alert.accept
+      ## page.driver.browser.switch_to.alert.accept
     end
 
 
@@ -129,7 +137,7 @@ RSpec.feature "define rating, sections, and indicators" do
 
     within('#rating_definition_form') do
       find('#section_' + section_index.to_s + '_commit_button').click
-      #page.driver.browser.switch_to.alert.accept
+      ## page.driver.browser.switch_to.alert.accept
       # wait_for_ajax
     end
 
@@ -177,12 +185,12 @@ RSpec.feature "define rating, sections, and indicators" do
 
     within('#section_0') do
       click_on('Delete Section')
-      page.driver.browser.switch_to.alert.accept
+      # page.driver.browser.switch_to.alert.accept
     end
 
     within('#rating_definition_form') do
       find('#rating_commit_button').click
-      page.driver.browser.switch_to.alert.accept
+      # page.driver.browser.switch_to.alert.accept
       wait_for_ajax
     end
 

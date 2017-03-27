@@ -28,10 +28,11 @@
       <%= f.input :description, label: t('.description_label') %>
 
       <%= link_to_add_association f, :sections, data: { 'association-insertion-method': 'before', 'association-insertion-node': 'this' }, id: :new_section_link   do %>
+        <%= fa_icon "plus 2x" %>
         <%= t '.add_section' %>
       <% end %>
 
-      <br>
+
       <%= f.button :submit, id: 'rating_commit_button', target: '_self', data: { confirm: "Are you sure you want to submit this form?" } %>
 
       <%= f.simple_fields_for :sections do |builder| %>
