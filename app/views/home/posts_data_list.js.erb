@@ -1,0 +1,39 @@
+<div class="row">
+  <%= paginate @initiatives, remote: true %>
+  <div id="initiatives_list" class="row">
+    <br>
+      <% @initiatives.each do |initiative|%>
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-block">
+            <div class="card-header">
+                  <h5> <%= initiative.title %> </h5>
+                  <%= link_to('details', post_path(initiative.id)) %>
+            </div>
+            <div class="card-body">
+                  <%= initiative.body %>
+            </div>
+            <div class="card-footer">
+                  <%= rating_for initiative, 'problem', star: 7 %>
+            </div>
+          </div>
+        </div>
+        </div>
+      <% end %>
+  </div>
+  <%= page_entries_info @initiatives %>
+</div>
+
+	<% @initiatives.each do |initiative|%>
+	<ul class="cd-slider">
+		<li>
+			<a href="#0">
+				<img src="" alt=">
+				<div class="project-info">
+					<h2> <%= initiative.title %> </h2>
+					<p> <%= initiative.title %> </p>
+				</div>
+			</a>
+		</li>
+	</ul>
+	<% end %>

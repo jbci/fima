@@ -1,0 +1,59 @@
+<div class="cd-intro-block">
+	<div class="content-wrapper">
+		<h1>Squeezebox Portfolio Template</h1>
+		<a href="" class='cd-btn' data-action="show-projects">Show projects</a>
+	</div>
+</div> <!-- .cd-intro-block -->
+
+<div class="cd-projects-wrapper">
+	<ul class="cd-slider">
+	<% @initiatives.each_with_index do |initiative, index|%>
+		<li <%= index == 0? 'class="current"' : nil  %>>
+			<a href="" id="post_thumb_<%=initiative.id %>">
+				<img src="/assets/img.png" alt="">
+				<div class="project-info">
+					<h2> <%= initiative.title %> </h2>
+					<p> <%= initiative.title %> </p>
+					<p>
+						<%= imdb_style_rating_for initiative, current_user, 'problem' %>
+						<%= rating_for initiative, "problem", disable_after_rate: true, imdb_avg: true %>
+					</p>
+				</div>
+			</a>
+		</li>
+	<% end %>
+
+	<li>
+		<a href="">
+			<img src="/assets/img.png" alt="project image">
+			<div class="project-info">
+				<h2>Project 1</h2>
+				<p>Lorem ipsum dolor sit amet.</p>
+			</div>
+		</a>
+	</li>
+	<li>
+		<a href="">
+			<img src="/assets/img.png" alt="project image">
+			<div class="project-info">
+				<h2>Project 1</h2>
+				<p>Lorem ipsum dolor sit amet.</p>
+			</div>
+		</a>
+	</li>
+	</ul>
+
+	<ul class="cd-slider-navigation cd-img-replace">
+		<li><a href="" class="prev disabled">Prev</a></li>
+		<li><a href="" class="next">Next</a></li>
+	</ul> <!-- .cd-slider-navigation -->
+</div> <!-- .cd-projects-wrapper -->
+
+<div class="cd-project-content">
+	<div>
+		<h2>Project title here</h2>
+		<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, ullam.</em>
+		<!-- other content here -->
+	</div>
+	<a href="" class="close cd-img-replace">Close</a>
+</div> <!-- .cd-project-content -->

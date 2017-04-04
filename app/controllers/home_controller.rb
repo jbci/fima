@@ -21,5 +21,15 @@ class HomeController < ApplicationController
     render :layout => false
   end
 
+  def squeeze
+
+    @initiatives = Post.where(area_id: 407)
+    
+    respond_to do |format|
+      format.html { render :layout => 'no-menu' }
+      format.js { render :initiatives_data }
+    end
+  end
+
 
 end
