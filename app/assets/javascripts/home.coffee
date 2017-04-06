@@ -3,14 +3,31 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on "turbolinks:load", ->
   # alert "aaaaa"
-  # $('.chosen-select').chosen();
+  $('.chosen-select').chosen();
+
   intro = $('.cd-intro-block')
   projectsContainer = $('.cd-projects-wrapper')
   projectsSlider = projectsContainer.children('.cd-slider')
   singleProjectContent = $('.cd-project-content')
   sliderNav = $('.cd-slider-navigation')
   resizing = false
+  initiatives_select = $('initiatives_area_select')
   #if on desktop - set a width for the projectsSlider element
+
+  loadPostsAndShow = ->
+    alert 11111
+    event.preventDefault()
+    initiatives_select.parent('form').submit()
+    intro.addClass 'projects-visible'
+    projectsContainer.addClass 'projects-visible'
+    #animate single project - entrance animation
+    setTimeout (->
+      showProjectPreview projectsSlider.children('li').eq(0)
+      return
+    ), 200
+    return
+
+
 
   showProjectPreview = (project) ->
     if project.length > 0

@@ -330,11 +330,11 @@ Projects Slider
     width: 26vw;
     margin: 0 0 0 2vw;
     top: 50%;
-    -webkit-transform: translateX(400%) translateY(-50%) rotate(-10deg);
-    -moz-transform: translateX(400%) translateY(-50%) rotate(-10deg);
-    -ms-transform: translateX(400%) translateY(-50%) rotate(-10deg);
-    -o-transform: translateX(400%) translateY(-50%) rotate(-10deg);
-    transform: translateX(400%) translateY(-50%) rotate(-10deg);
+    -webkit-transform: translateX(400%) translateY(-50%) rotate(-25deg);
+    -moz-transform: translateX(400%) translateY(-50%) rotate(-25deg);
+    -ms-transform: translateX(400%) translateY(-50%) rotate(-25deg);
+    -o-transform: translateX(400%) translateY(-50%) rotate(-25deg);
+    transform: translateX(400%) translateY(-50%) rotate(-25deg);
     -webkit-transition: opacity 0s 0.3s, -webkit-transform 0s 0.3s;
     -moz-transition: opacity 0s 0.3s, -moz-transform 0s 0.3s;
     transition: opacity 0s 0.3s, transform 0s 0.3s;

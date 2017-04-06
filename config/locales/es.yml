@@ -104,6 +104,8 @@ es:
       select_area: "Seleccionar Area"
     posts_list:
       post_card_header: "Iniciativa ambiental"
+    squeeze:
+      select_area: "Seleccionar Comuna"
   views:
     pagination:
       first: " &laquo; Primero "

@@ -6,7 +6,7 @@ Iniciativas Ambientales
     <div id=\"initiatives_form\">
       <%= form_tag initiatives_path, :method => :get, remote: true do |f| %>
         <!-- <%= select_tag :section, options_from_collection_for_select(Section.all, "id", "title", params[:section] || ""), prompt: "Seleccionar Sección", class: "chosen-select" %> -->
-        <%= select_tag :area, options_from_collection_for_select(Area.comunas.all, "id", "name", params[:area] || ""), include_blank:  t('.select_area'), class: "chosen-select", id: "initiatives_area_select", onchange: "$(this).parent('form').submit();"%>
+        <%= select_tag :area, options_from_collection_for_select(Area.joins(:posts).where('posts.area_id is not null').distinct, "id", "name", params[:area] || ""), include_blank:  t('.select_area'), class: "chosen-select", id: "initiatives_area_select", onchange: "$(this).parent('form').submit();"%>
         <!-- <%= submit_tag t('.select_area'), class: "btn", id:"initiatives_form_button" %> -->
       <% end %>
     </div>
@@ -39,28 +39,8 @@ function showGoogleMaps() {
     map = new google.maps.Map(document.getElementById('googlemaps'),
         mapOptions);
 
-    // Show the default red marker at the location
-    // marker = new google.maps.Marker({
-    //     position: latLng,
-    //     map: map,
-    //     draggable: false,
-    //     animation: google.maps.Animation.DROP
-    // });
-
     <% vitacura = Area.find_by_name 'Vitacura' %>
     <% geojson_polygon = RGeo::GeoJSON.encode vitacura.geom%>
-
-    // var geojson = JSON.parse("{ \"type\": \"FeatureCollection\", \"features\": [{  \"type\": \"Feature\",  \"geometry\": {    \"type\": \"Point\",    \"coordinates\": [-70.565767, -33.446165]  },  \"properties\": {    \"name\": \"Dinagat Islands\"  }}]}");
-    // map.data.addGeoJson(geojson);
-
-    // var geojson_polygon = JSON.parse('<%= raw vitacura.geojson %>')
-    // map.data.addGeoJson(geojson_polygon);
-
-
-    // <% Area.find(2).children.each do |provincia| %>
-    // <% provincia.children.each do |area| %>
-    // <% end %>
-    // <% end %>
 
     <% post_areas = Post.select(:area_id).distinct %>
     <% post_areas.each do |post_area| %>
