@@ -4,6 +4,7 @@
 $(document).on "turbolinks:load", ->
   # alert "aaaaa"
   # $('.chosen-select').chosen();
+  $('[data-toggle="tooltip"]').tooltip()
   intro = $('.cd-intro-block')
   projectsContainer = $('.cd-projects-wrapper')
   projectsSlider = projectsContainer.children('.cd-slider')
