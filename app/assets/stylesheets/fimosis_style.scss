@@ -1,0 +1,48 @@
+body{
+  background-color: #FAFAFA;
+  font-family: 'Karla', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 900;
+}
+
+a {
+  color: #3FAB66;
+  &:hover {
+    color: #A5CC1D;
+  }
+}
+
+.tooltip {
+  font-size: 14px;
+}
+
+// Nav
+
+#side_menu {
+  width: 104px;
+  background: white;
+  height:100%;
+  margin-left: -15px;
+  position: fixed;
+}
+
+.nav-link {
+  border: 1px solid #Fafafa;
+  height: 94px;
+  color: #8C9398;
+  text-align: center;
+  padding: 20px 15px;
+  line-height: 24px;
+}
+
+.nav-link:hover path {
+    stroke: #A5CC1D;
+}
+
+
+// Home

@@ -1,22 +1,26 @@
 
-<div class="col-10">
-  ¿Es tu municipio un municipio verde?
+<section id="home">
 
-  <ul>
-    <li>
-      Informate
-    </li>
-    <li>
-      Opina
-    </li>
-    <li>
-      Fiscaliza
-    </li>
-  </ul>
+  <div class="col-10">
+    ¿Es tu municipio un municipio verde?
 
-  </div>
+    <ul>
+      <li>
+        Informate
+      </li>
+      <li>
+        Opina
+      </li>
+      <li>
+        Fiscaliza
+      </li>
+    </ul>
 
-  <%= map(:center => {
-  :latlng => [-33.446165, -70.665767],
-  :zoom => 18
-}) %>
+    </div>
+
+    <%= map(:center => {
+    :latlng => [-33.446165, -70.665767],
+    :zoom => 18
+  }) %>
+
+</section>

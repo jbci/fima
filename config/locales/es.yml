@@ -23,12 +23,19 @@ es:
   layouts:
     side_menu:
       home: "Inicio"
-      get_informed: "Informate"
-      opinions: "Opina"
-      inspect: "Fiscaliza"
-      about_us: "Sobre nosotros"
+      tt_home: "Municipio Verde"
+      get_informed: "Infórmate"
+      tt_informate: "Conoce el compromiso ambiental de tu comuna"
+      opinions: "Evalúa"
+      tt_evalua: "Ponle nota a las iniciativas ambientales de tu comuna"
+      inspect: "Participa"
+      tt_participa: "Realiza Observaciones Ciudadanas a proyectos en Evaluación Ambiental"
+      about_us: "Nosotros"
+      tt_nosotros: "Sobre nosotros"
       sign_up: "Registrate"
+      tt_registro: "Regístrate para participar"
       contact: "Contacto"
+      tt_contacto: "Envíanos un mensaje"
     top_menu:
       posts: "Posts"
       areas: "Areas"

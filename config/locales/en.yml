@@ -24,12 +24,19 @@ en:
   layouts:
     side_menu:
       home: "Start"
+      tt_home: "Municipio Verde"
       get_informed: "Get Informed"
-      opinions: "Have an opinion"
+      tt_informate: "Know the environmental commitment of your commune"
+      opinions: "Participate"
+      tt_evalua: "Rate the environmental initiatives of your commune"
       inspect: "Inspect"
-      about_us: "About us"
+      tt_participa: "Make Citizen Observations for projects in Environmental Assessment"
+      about_us: "Us"
+      tt_nosotros: "About us"
       sign_up: "Sign Up"
+      tt_registro: "Sign up to participate"
       contact: "Contact"
+      tt_contacto: "Send us a message"
     top_menu:
       posts: "Posts"
       areas: "Areas"

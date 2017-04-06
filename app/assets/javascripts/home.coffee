@@ -2,9 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on "turbolinks:load", ->
-  # alert "aaaaa"
-  $('.chosen-select').chosen();
 
+  $('.chosen-select').chosen();
+  $('[data-toggle="tooltip"]').tooltip()
   intro = $('.cd-intro-block')
   projectsContainer = $('.cd-projects-wrapper')
   projectsSlider = projectsContainer.children('.cd-slider')
