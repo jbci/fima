@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Fima</title>
+    <title>Municipio Verde</title>
 
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link href="https://fonts.googleapis.com/css?family=Karla|Poppins" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Palanquin:100,400" rel="stylesheet">
 
-  <!-- Para cambiar color svg -->
+  <!-- color svg -->
    <script type="text/javascript">
       jQuery('nav-informate.svg').each(function(){
           var $img = jQuery(this);
@@ -52,7 +52,7 @@
           <p class="alert"><%= alert %></p>
         </div>
         <div class="col-11">
-          <div id="content" class="right_content">
+          <div id="content">
             <%= yield %>
           </div>
         </div>

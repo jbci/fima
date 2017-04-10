@@ -1,13 +1,26 @@
-body{
-  background-color: #FAFAFA;
-  font-family: 'Karla', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+html, body {
+    height:100%;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 900;
+body{
+  background-color: #FAFAFA;
+  font-family: 'Palanquin', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #403939;
+}
+
+h1 {
+  font-size: 48px;
+  font-weight: 100;
+  line-height: 67px;
+}
+
+h2 {
+  font-size: 36px;
+  font-weight: 100;
+  line-height: 45px;
+  color: #403939;
 }
 
 a {
@@ -17,8 +30,35 @@ a {
   }
 }
 
+p {
+  font-size: 14px;
+  color: #AFA5A5;
+}
+
 .tooltip {
   font-size: 14px;
+}
+
+// Btn
+
+.btn-lg, .btn-group-lg > .btn {
+    font-size: 24px;
+}
+
+.btn-primary {
+  background-color: #A5CC1D;
+  border-color: #A5CC1D;
+}
+
+.btn-default {
+  background-color: #3FAB66;
+  border-color: #3FAB66;
+  color: white;
+}
+
+.btn-danger {
+  background-color: #E76C11;
+  border-color: #E76C11;
 }
 
 // Nav
@@ -46,3 +86,48 @@ a {
 
 
 // Home
+
+.hero-content {
+    padding: 67px 0px;
+    height:100vh;
+}
+
+#home {
+  background-image: url('/assets/bg.png');
+  background-repeat: repeat-x;
+  background-position-y: 100%;
+}
+
+.bg-white {
+  background-color: #FAFAFA;
+}
+
+#home .bg-white {
+  padding: 50px 20px;
+}
+
+#home h1 {
+  margin-bottom: 60px;
+}
+
+#home h2 {
+    margin-bottom: 10px;
+}
+
+#home p {
+    margin-bottom: 20px;
+}
+
+h1 img {
+  margin: 0px 20px -12px;
+}
+
+#home .item {
+    margin: 60px 0;
+}
+
+#home .btn-lg {
+  margin: -14px 0 0;
+  font-weight: 100;
+  font-size: 34px;
+}
