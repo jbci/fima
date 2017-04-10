@@ -1,3 +1,8 @@
+// Colors
+$light-green: #A5CC1D;
+$green: #3FAB66;
+$orange: #E76C11;
+
 html, body {
     height:100%;
 }
@@ -13,7 +18,7 @@ body{
 h1 {
   font-size: 48px;
   font-weight: 100;
-  line-height: 67px;
+  line-height: 78px;
 }
 
 h2 {
@@ -37,6 +42,18 @@ p {
 
 .tooltip {
   font-size: 14px;
+}
+
+.light-green {
+    color: $light-green;
+}
+
+.green {
+    color: $green;
+}
+
+.orange {
+    color: $orange;
 }
 
 // Btn
@@ -102,32 +119,42 @@ p {
   background-color: #FAFAFA;
 }
 
-#home .bg-white {
-  padding: 50px 20px;
-}
-
 #home h1 {
   margin-bottom: 60px;
-}
-
-#home h2 {
-    margin-bottom: 10px;
 }
 
 #home p {
     margin-bottom: 20px;
 }
 
-h1 img {
-  margin: 0px 20px -12px;
+#home h1 img {
+    margin: 0px 20px -12px 0px;
 }
 
-#home .item {
-    margin: 60px 0;
+#home a:hover {
+  text-decoration: none;
 }
 
-#home .btn-lg {
-  margin: -14px 0 0;
-  font-weight: 100;
-  font-size: 34px;
+#home a.light-green {
+    border-bottom: 2px solid $light-green;
+    &:hover {
+      color:darken( $light-green, 10% );
+      border-bottom: 2px solid darken( $light-green, 10% );
+    }
+}
+
+#home a.green {
+    border-bottom: 2px solid $green;
+    &:hover {
+      color:darken( $green, 10% );
+      border-bottom: 2px solid darken( $green, 10% );
+    }
+}
+
+#home a.orange {
+    border-bottom: 2px solid $orange;
+    &:hover {
+      color:darken( $orange, 10% );
+      border-bottom: 2px solid darken( $orange, 10% );
+    }
 }
