@@ -18,9 +18,13 @@
         <%= render 'nav-nosotros.html' %>
         <%= t('.about_us') %>
       <% end %>
-      <%= link_to root_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_registro') do %>
-        <%= render 'nav-registro.html' %>
-        <%= t('.sign_up') %>
+      <%= link_to registration_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_registro') do %>
+        <% if user_signed_in? %>
+          <%= current_user.names %> | <%= link_to "Sign out", destroy_user_session_path %>
+        <% else %>
+          <%= render 'nav-registro.html' %>
+          <%= t('.sign_up') %>
+        <% end %>
       <% end %>
       <%= link_to root_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_contacto') do %>
         <%= render 'nav-contacto.html' %>

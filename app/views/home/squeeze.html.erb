@@ -7,7 +7,7 @@ Iniciativas Ambientales
     <div id=\"initiatives_form\">
       <%= form_tag initiatives_path, :method => :get, remote: true do |f| %>
         <!-- <%= select_tag :section, options_from_collection_for_select(Section.all, "id", "title", params[:section] || ""), prompt: "Seleccionar Sección", class: "chosen-select" %> -->
-        <%= select_tag :area, options_from_collection_for_select(Area.joins(:posts).where('posts.area_id is not null').distinct, "id", "name", ""), include_blank:  t('.select_area'), class: "chosen-select", id: "initiatives_area_select", onchange: "loadPostsAndShow();"%>
+        <%= select_tag :area, options_from_collection_for_select(Area.joins(:posts).where('posts.area_id is not null').distinct, "id", "name", t('.select_area')), prompt: t('.select_area'), class: "chosen-select", id: "initiatives_area_select", "data-action": "show-projects"%>
         <!-- <%= submit_tag t('.select_area'), class: "btn", id:"initiatives_form_button" %> -->
       <% end %>
     </div>
@@ -17,8 +17,6 @@ Iniciativas Ambientales
   </div>
 </div>
 
-
-		<h1>Squeezebox Portfolio Template</h1>
 		<a href="" class='cd-btn' data-action="show-projects">Show projects</a>
 	</div>
 </div> <!-- .cd-intro-block -->
@@ -32,9 +30,7 @@ Iniciativas Ambientales
 				<div class="project-info">
 					<h2> <%= initiative.title %> </h2>
 					<p> <%= initiative.title %> </p>
-					<p>
-						<%= rating_for initiative, "problem", disable_after_rate: true, imdb_avg: true %>
-					</p>
+					
 				</div>
 			</a>
 		</li>

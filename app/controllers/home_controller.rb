@@ -1,5 +1,13 @@
 class HomeController < ApplicationController
   def index
+    areas_with_posts = Area.joins(:posts).where('posts.area_id is not null').distinct
+    areas_with_evaluations = Area.joins(:evaluations).where('evaluations.area_id is not null').distinct
+
+    @carousel_data =[]
+    Area.all.each_with_index do |a,i|
+      @carousel_data.push({area_name: a.name})
+    end
+
   end
 
   def get_informed
@@ -19,6 +27,10 @@ class HomeController < ApplicationController
 
   def cover
     render :layout => false
+  end
+
+  def registration
+
   end
 
   def squeeze

@@ -8,4 +8,8 @@ class Post < ApplicationRecord
 
   ratyrate_rateable "problem", "implementation"
 
+  def avg_rating
+    
+  end
+
 end

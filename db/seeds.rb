@@ -22,20 +22,29 @@ chile = Area.first_or_create(name: 'Chile', area_level: level_0)
 
 rating = Rating.create({ title: 'Índice FIMA', description: 'Descripción del índice FIMA'})
 
-section_0 = Section.create({ title: 's0t', description: 'Descripción de la sección 0' })
-section_1 = Section.create({ title: 's1t', description: 'Descripción de la sección 1' })
+
+section_0 = Section.create({ title: 'Movilidad', description: 'Indicadores de movilidad.' })
+section_1 = Section.create({ title: 's1t', description: 'Descripción de la sección 0' })
+section_2 = Section.create({ title: 's2t', description: 'Descripción de la sección 1' })
+
 rating.sections << section_0
 rating.sections << section_1
+rating.sections << section_2
 
-section_0_indicator_0 = Indicator.create({ title: 's0i0t', description: 'Descripción de la sección 0 indicador 0' })
-section_0_indicator_1 = Indicator.create({ title: 's0i1t', description: 'Descripción de la sección 0 indicador 1' })
+section_0_indicator_0 = Indicator.create({ title: 'ciclovias', description: 'Descripción de la sección 0 indicador 0' })
+section_0_indicator_1 = Indicator.create({ title: 'kms', description: 'Descripción de la sección 0 indicador 1' })
 section_0.indicators << section_0_indicator_0
 section_0.indicators << section_0_indicator_1
 
-section_1_indicator_0 = Indicator.create({ title: 's1i0t', description: 'Descripción de la sección 1 indicador 0' })
-section_1_indicator_1 = Indicator.create({ title: 's1i1t', description: 'Descripción de la sección 1 indicador 1' })
+section_1_indicator_0 = Indicator.create({ title: 's1i0t', description: 'Descripción de la sección 0 indicador 0' })
+section_1_indicator_1 = Indicator.create({ title: 's1i1t', description: 'Descripción de la sección 0 indicador 1' })
 section_1.indicators << section_1_indicator_0
 section_1.indicators << section_1_indicator_1
+
+section_2_indicator_0 = Indicator.create({ title: 's2i0t', description: 'Descripción de la sección 1 indicador 0' })
+section_2_indicator_1 = Indicator.create({ title: 's2i1t', description: 'Descripción de la sección 1 indicador 1' })
+section_2.indicators << section_2_indicator_0
+section_2.indicators << section_2_indicator_1
 
 
 
@@ -472,10 +481,13 @@ comuna_234 = provincia_21.children.create(name: "Máfil", area_level: level_3 )
 comuna_296 = provincia_46.children.create(name: "El Bosque", area_level: level_3 )
 comuna_198 = provincia_39.children.create(name: "Sagrada Familia", area_level: level_3 )
 
-evaluation_1 = Evaluation.create({ indicator: section_0_indicator_0, area: comuna_268, value: 'value 1' })
-evaluation_2 = Evaluation.create({ indicator: section_0_indicator_1, area: comuna_268, value: 'value 2' })
-evaluation_3 = Evaluation.create({ indicator: section_0_indicator_0, area: comuna_124, value: 'value 3' })
-evaluation_4 = Evaluation.create({ indicator: section_0_indicator_1, area: comuna_124, value: 'value 4' })
+evaluation_1 = Evaluation.create({ indicator: section_1_indicator_0, area: comuna_268, value: '20' })
+evaluation_3 = Evaluation.create({ indicator: section_1_indicator_0, area: comuna_124, value: '17' })
+
+evaluation_5 = Evaluation.create({ indicator: section_1_indicator_0, area: comuna_268, value: 'value 1' })
+evaluation_6 = Evaluation.create({ indicator: section_1_indicator_1, area: comuna_268, value: 'value 2' })
+evaluation_7 = Evaluation.create({ indicator: section_1_indicator_0, area: comuna_124, value: 'value 3' })
+evaluation_8 = Evaluation.create({ indicator: section_1_indicator_1, area: comuna_124, value: 'value 4' })
 
 post_1 = Post.create({ title: 'Iniciativa Ambiental 1', body: 'Texto de la Iniciativa Ambiental 1', area: comuna_268 })
 post_2 = Post.create({ title: 'Iniciativa Ambiental 2', body: 'Texto de la Iniciativa Ambiental 2', area: comuna_268 })

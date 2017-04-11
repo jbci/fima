@@ -11,16 +11,16 @@
 // about supported directives.
 //
 //= require jquery
-//= require turbolinks
 //= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.remotipart
 //= require chosen-jquery
 //= require tether
 //= require bootstrap
-
 //= require cocoon
 //= require jquery.raty
 //= require ratyrate
+//= require turbolinks
+
 //= require leaflet
 //= require_tree .

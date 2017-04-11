@@ -1,6 +1,7 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
+
 $(document).on "turbolinks:load", ->
 
   $('.chosen-select').chosen();
@@ -11,23 +12,18 @@ $(document).on "turbolinks:load", ->
   singleProjectContent = $('.cd-project-content')
   sliderNav = $('.cd-slider-navigation')
   resizing = false
-  initiatives_select = $('initiatives_area_select')
+  initiatives_select = $('#initiatives_area_select')
   #if on desktop - set a width for the projectsSlider element
 
-  loadPostsAndShow = ->
-    alert 11111
+  initiatives_select.on "change",  (event) ->
     event.preventDefault()
-    initiatives_select.parent('form').submit()
-    intro.addClass 'projects-visible'
     projectsContainer.addClass 'projects-visible'
-    #animate single project - entrance animation
+    intro.addClass 'projects-visible'
     setTimeout (->
       showProjectPreview projectsSlider.children('li').eq(0)
       return
-    ), 200
+      ), 200
     return
-
-
 
   showProjectPreview = (project) ->
     if project.length > 0

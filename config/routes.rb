@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   get 'get_informed', to:'home#get_informed'
   get 'initiatives', to:'home#initiatives'
+  get 'registration', to:'home#registration'
   get 'squeeze', to:'home#squeeze'
 
   get 'backend/posts', to:'backend#posts'
