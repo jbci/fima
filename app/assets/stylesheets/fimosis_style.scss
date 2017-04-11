@@ -16,9 +16,9 @@ body{
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 5vmin;
   font-weight: 100;
-  line-height: 78px;
+  line-height: 9vmin;
 }
 
 h2 {
@@ -38,6 +38,7 @@ a {
 p {
   font-size: 14px;
   color: #AFA5A5;
+  line-height: 18px;
 }
 
 .tooltip {
@@ -86,6 +87,7 @@ p {
   height:100%;
   margin-left: -15px;
   position: fixed;
+  z-index: 1;
 }
 
 .nav-link {
@@ -95,6 +97,20 @@ p {
   text-align: center;
   padding: 20px 15px;
   line-height: 24px;
+  background: white;
+}
+
+@media (max-width: 600px) {
+  #side_menu {
+    width: 80px;
+  }
+
+  .nav-link {
+    height: 80px;
+    padding: 20px 10px;
+    font-size: 11px;
+    line-height: 16px;
+  }
 }
 
 .nav-link:hover path {
@@ -113,6 +129,12 @@ p {
   background-image: url('/assets/bg.png');
   background-repeat: repeat-x;
   background-position-y: 100%;
+}
+
+@media (max-width: 1200px) {
+  #home {
+    background-image: none;
+  }
 }
 
 .bg-white {

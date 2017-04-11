@@ -44,14 +44,14 @@
   <body>
     <div class="container-fluid" id="app_container">
       <div class="row">
-        <div class="col-1">
+        <div class="col-xs-3 col-sm-2 col-md-2 col-lg-1">
           <div id="side_menu">
             <%= render 'layouts/side_menu'%>
           </div>
           <p class="notice"><%= notice %></p>
           <p class="alert"><%= alert %></p>
         </div>
-        <div class="col-11">
+        <div class="content-right">
           <div id="content">
             <%= yield %>
           </div>
