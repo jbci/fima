@@ -5,6 +5,7 @@
 
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application'%>
+    <%= javascript_include_tag 'application'%>
     <link href="https://fonts.googleapis.com/css?family=Karla|Poppins" rel="stylesheet">
 
   <!-- Para cambiar color svg -->
@@ -28,7 +29,6 @@
       </div>
     </div>
   </body>
-  <%= javascript_include_tag 'application'%>
   <script type="text/javascript">
       jQuery('nav-informate.svg').each(function(){
           var $img = jQuery(this);

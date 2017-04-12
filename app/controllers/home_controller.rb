@@ -38,7 +38,7 @@ class HomeController < ApplicationController
     @initiatives = Post.where(area_id: 407)
 
     respond_to do |format|
-      format.html { render :layout => 'simple'}
+      format.html { render }
       format.js { render :initiatives_data }
     end
   end

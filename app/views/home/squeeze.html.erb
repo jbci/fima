@@ -16,7 +16,7 @@
     <ul class="cd-slider">
       <% @initiatives.each_with_index do |i, index|%>
       <li class="<%= (index===0) ? 'current' : '' %>">
-        <a href="#0">
+        <a href="#0" data-id="<%= index %>">
           <img src="img/img.png" alt="project image">
           <div class="project-info">
             <h2><%= i.title %></h2>
@@ -33,22 +33,17 @@
     </ul> <!-- .cd-slider-navigation -->
   </div> <!-- .cd-projects-wrapper -->
 
-  <div class="cd-project-content">
+  <% @initiatives.each_with_index do |i, index|%>
+  <div class="cd-project-content" data-id="project-<%= index %>">
     <div>
-      <h2>Project title here</h2>
-      <em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, ullam.</em>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum praesentium officia, fugit recusandae ipsa, quia velit nulla adipisci? Consequuntur aspernatur at, eaque hic repellendus sit dicta consequatur quae, ut harum ipsam molestias maxime non nisi reiciendis eligendi! Doloremque quia pariatur harum ea amet quibusdam quisquam, quae, temporibus dolores porro doloribus.
-      </p>
-      <p>
-        Illum quaerat asperiores aliquam voluptate saepe omnis porro excepturi in atque veritatis sapiente ipsam voluptates iste amet deserunt ullam error pariatur, magni consectetur optio nostrum minima dolorum. Soluta animi nihil doloremque ipsa incidunt vitae architecto beatae, maxime libero, dolore corporis vero porro tenetur ipsam modi repudiandae magnam enim, quibusdam sit.
-      </p>
-      <p>
-        Illum quaerat asperiores aliquam voluptate saepe omnis porro excepturi in atque veritatis sapiente ipsam voluptates iste amet deserunt ullam error pariatur, magni consectetur optio nostrum minima dolorum. Soluta animi nihil doloremque ipsa incidunt vitae architecto beatae, maxime libero, dolore corporis vero porro tenetur ipsam modi repudiandae magnam enim, quibusdam sit.
-      </p>
+      <h2><%= i.title %></h2>
+      <p><%= i.body %></p>
     </div>
     <a href="#0" class="close cd-img-replace">Close</a>
   </div> <!-- .cd-project-content -->
+  <% end %>
+
+
 
 <script type="text/javascript">
   jQuery(document).ready(function(){
@@ -98,7 +93,9 @@
     } else if ( $(this).parent('li').prev('li').prev('li').prev('li').is('.current')  && (mq == 'desktop') ) {
       nextSides(projectsSlider);
     } else {
-      singleProjectContent.addClass('is-visible');
+      var dataid = $(this).data('id');
+      var project_id = $("[data-id=project-"+dataid+"]");
+      project_id.addClass('is-visible');
     }
   });
 
@@ -255,44 +252,44 @@
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>"></script>
 
 <script type="text/javascript">
-// The latitude and longitude of your business / place
-var position = [-33.446165, -70.665767];
-function showGoogleMaps() {
-    var latLng = new google.maps.LatLng(position[0], position[1]);
-    var mapOptions = {
-        zoom: 10, // initialize zoom level - the max value is 21
-        streetViewControl: false, // hide the yellow Street View pegman
-        scaleControl: false, // allow users to zoom the Google Map
-        mapTypeId: google.maps.MapTypeId.ROADMAP,
-        center: latLng
-    };
-    map = new google.maps.Map(document.getElementById('googlemaps'),
-        mapOptions);
-    <% vitacura = Area.find_by_name 'Vitacura' %>
-    <% geojson_polygon = RGeo::GeoJSON.encode vitacura.geom%>
-    <% post_areas = Post.select(:area_id).distinct %>
-    <% post_areas.each do |post_area| %>
-      <% area = Area.find(post_area.area_id) %>
-        <% unless area.geom.nil? %>
-          var contentString = '<div id="content">'+' <%= area.name %> '+ '</div>';
-          var infowindow_<%= area.id %> = new google.maps.InfoWindow({
-            content: contentString
-          });
-          var latlong = {lat: -25.363, lng: 131.044};
-          var marker_<%= area.id %> = new google.maps.Marker({
-            position: <%= raw area.centroid_coordinates %>,
-            map: map,
-            title: '<%= area.name %>',
-            draggable: false,
-            animation: google.maps.Animation.DROP
-          });
-          marker_<%= area.id %>.addListener('click', function() {
-            infowindow_<%= area.id %>.open(map, marker_<%= area.id %>);
-          });
-          var geojson_polygon = JSON.parse('<%= raw area.geojson %>')
-          map.data.addGeoJson(geojson_polygon);
-        <% end %>
-    <% end %>
-}
-google.maps.event.addDomListener(window, 'load', showGoogleMaps);
+  // The latitude and longitude of your business / place
+  var position = [-33.446165, -70.665767];
+  function showGoogleMaps() {
+      var latLng = new google.maps.LatLng(position[0], position[1]);
+      var mapOptions = {
+          zoom: 10, // initialize zoom level - the max value is 21
+          streetViewControl: false, // hide the yellow Street View pegman
+          scaleControl: false, // allow users to zoom the Google Map
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+          center: latLng
+      };
+      map = new google.maps.Map(document.getElementById('googlemaps'),
+          mapOptions);
+      <% vitacura = Area.find_by_name 'Vitacura' %>
+      <% geojson_polygon = RGeo::GeoJSON.encode vitacura.geom%>
+      <% post_areas = Post.select(:area_id).distinct %>
+      <% post_areas.each do |post_area| %>
+        <% area = Area.find(post_area.area_id) %>
+          <% unless area.geom.nil? %>
+            var contentString = '<div id="content">'+' <%= area.name %> '+ '</div>';
+            var infowindow_<%= area.id %> = new google.maps.InfoWindow({
+              content: contentString
+            });
+            var latlong = {lat: -25.363, lng: 131.044};
+            var marker_<%= area.id %> = new google.maps.Marker({
+              position: <%= raw area.centroid_coordinates %>,
+              map: map,
+              title: '<%= area.name %>',
+              draggable: false,
+              animation: google.maps.Animation.DROP
+            });
+            marker_<%= area.id %>.addListener('click', function() {
+              infowindow_<%= area.id %>.open(map, marker_<%= area.id %>);
+            });
+            var geojson_polygon = JSON.parse('<%= raw area.geojson %>')
+            map.data.addGeoJson(geojson_polygon);
+          <% end %>
+      <% end %>
+  }
+  google.maps.event.addDomListener(window, 'load', showGoogleMaps);
 </script>
