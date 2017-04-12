@@ -4,12 +4,32 @@
     <title>Fima</title>
 
     <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application'%>
     <link href="https://fonts.googleapis.com/css?family=Karla|Poppins" rel="stylesheet">
 
   <!-- Para cambiar color svg -->
-   <script type="text/javascript">
+  </head>
+
+  <body>
+    <div class="container-fluid" id="app_container">
+      <div class="row">
+        <div class="col-1">
+          <div id="side_menu">
+            <%= render 'layouts/side_menu'%>
+          </div>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+        </div>
+        <div class="col-11">
+          <div id="content" class="right_content">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  <%= javascript_include_tag 'application'%>
+  <script type="text/javascript">
       jQuery('nav-informate.svg').each(function(){
           var $img = jQuery(this);
           var imgID = $img.attr('id');
@@ -39,24 +59,4 @@
 
       });
       </script>
-  </head>
-
-  <body>
-    <div class="container-fluid" id="app_container">
-      <div class="row">
-        <div class="col-1">
-          <div id="side_menu">
-            <%= render 'layouts/side_menu'%>
-          </div>
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
-        </div>
-        <div class="col-11">
-          <div id="content" class="right_content">
-            <%= yield %>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
 </html>

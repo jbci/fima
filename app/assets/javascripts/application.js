@@ -11,7 +11,6 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
 //= require jquery.remotipart
 //= require chosen-jquery
@@ -20,7 +19,7 @@
 //= require cocoon
 //= require jquery.raty
 //= require ratyrate
-//= require turbolinks
+
 
 //= require leaflet
 //= require_tree .
