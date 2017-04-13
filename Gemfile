@@ -53,7 +53,6 @@ gem 'remotipart'
 gem 'chosen-rails'
 gem 'kaminari'
 gem 'omniauth-facebook'
-gem 'ratyrate'
 gem "omniauth-google-oauth2"
 gem 'activerecord-postgis-adapter'
 gem 'seed_dump'
