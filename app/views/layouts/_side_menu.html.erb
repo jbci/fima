@@ -1,33 +1,41 @@
-<nav class="nav flex-column">
-      <%= link_to root_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_home') do %>
-        <%= image_tag 'logo.svg' %>
-      <% end %>
-      <%= link_to get_informed_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_informate') do %>
-        <%= render 'nav-informate.html' %>
-        <%= t('.get_informed') %>
-      <% end %>
-      <%= link_to initiatives_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right', :'no-turbolink' => true }, :title => t('.tt_evalua') do %>
-        <%= render 'nav-evalua.html' %>
-        <%= t('.opinions') %>
-      <% end %>
-      <%= link_to root_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_participa') do %>
-        <%= render 'nav-participa.html' %>
-        <%= t('.inspect') %>
-      <% end %>
-      <%= link_to root_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_nosotros') do %>
-        <%= render 'nav-nosotros.html' %>
-        <%= t('.about_us') %>
-      <% end %>
-      <%= link_to registration_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_registro') do %>
-        <% if user_signed_in? %>
-          <%= current_user.names %> | <%= link_to "Sign out", destroy_user_session_path %>
-        <% else %>
+<nav class="navbar-toggleable-md navbar-light">
+    <div class="nav flex-column">
+        <%= link_to root_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_home') do %>
+          <%= image_tag 'logo.svg' %>
+        <% end %>
+        <%= link_to get_informed_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_informate') do %>
+          <%= render 'nav-informate.html' %>
+          <%= t('.get_informed') %>
+        <% end %>
+        <%= link_to initiatives_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right', :'no-turbolink' => true }, :title => t('.tt_evalua') do %>
+          <%= render 'nav-evalua.html' %>
+          <%= t('.opinions') %>
+        <% end %>
+        <%= link_to root_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_participa') do %>
+          <%= render 'nav-participa.html' %>
+          <%= t('.inspect') %>
+        <% end %>
+        <%= link_to root_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_nosotros') do %>
+          <%= render 'nav-nosotros.html' %>
+          <%= t('.about_us') %>
+        <% end %>
+        <%= link_to root_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_registro') do %>
           <%= render 'nav-registro.html' %>
           <%= t('.sign_up') %>
         <% end %>
-      <% end %>
-      <%= link_to root_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_contacto') do %>
-        <%= render 'nav-contacto.html' %>
-        <%= t('.contact') %>
-      <% end %>
+        <%= link_to root_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_contacto') do %>
+          <%= render 'nav-contacto.html' %>
+          <%= t('.contact') %>
+        <% end %>
+    </div>
 </nav>
+
+
+    <!-- <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+    </ul> -->

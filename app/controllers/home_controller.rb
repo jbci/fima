@@ -7,7 +7,9 @@ class HomeController < ApplicationController
     Area.all.each_with_index do |a,i|
       @carousel_data.push({area_name: a.name})
     end
-
+    @data = [[{:name => "Peñalolén",:num => 5}, {:name => "Las Condes",:num => 3}],
+            [{:name => "Peñalolén",:num => 5}, {:name => "Las Condes",:num => 3}],
+            [{:name => "Peñalolén",:num => 5}, {:name => "Las Condes",:num => 3}]]
   end
 
   def get_informed

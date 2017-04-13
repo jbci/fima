@@ -113,6 +113,9 @@ en:
       post_card_header: "Environmental initiative"
     squeeze: 
       select_area: "Seleccionar Comuna"
+    index:
+      get_informed: "Get Informed"
+      tt_informate: "Know the environmental commitment of your commune"
   views:
     pagination:
       first: "&laquo; First"

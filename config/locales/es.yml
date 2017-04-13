@@ -113,6 +113,9 @@ es:
       post_card_header: "Iniciativa ambiental"
     squeeze:
       select_area: "Seleccionar Comuna"
+    index:
+      get_informed: "Infórmate."
+      tt_informate: "Conoce el compromiso ambiental de tu comuna"
   views:
     pagination:
       first: " &laquo; Primero "
