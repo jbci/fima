@@ -1,5 +1,8 @@
 class HomeController < ApplicationController
   def index
+    @data = [[{:name => "Peñalolén",:num => 5}, {:name => "Las Condes",:num => 3}],
+            [{:name => "Peñalolén",:num => 5}, {:name => "Las Condes",:num => 3}],
+            [{:name => "Peñalolén",:num => 5}, {:name => "Las Condes",:num => 3}]]
   end
 
   def get_informed
@@ -24,7 +27,7 @@ class HomeController < ApplicationController
   def squeeze
 
     @initiatives = Post.where(area_id: 407)
-    
+
     respond_to do |format|
       format.html { render :layout => 'no-menu' }
       format.js { render :initiatives_data }

@@ -1,18 +1,17 @@
 <section id="home">
   <div class="hero-content">
     <h1 class="light-green"><img src="/assets/logo.svg" alt="Municipio Verde" width="80px">Municipio Verde</h1>
-    <h1><a href="#" class="light-green">Infórmate.</a> Peñalolén  tiene  5  ciclovías. <a href="#" class="green">Evalúa.</a> Los vecinos le han puesto un  3.5  a las iniciativas ambientales de  Peñalolén. <a href="#" class="orange">Participa.</a> Estás a tiempo de realizar observaciones en  2 proyectos que se van a hacer en Peñalolén.</h1>
+    <h1><%= link_to t('.get_informed'), get_informed_path, :class => "light-green", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_informate') %>
+      <%= @data[0][0][:name] %>  tiene  <%= @data[0][0][:num] %>  ciclovías.
+      <a href="#" class="green">Evalúa.</a> Los vecinos le han puesto un  <%= @data[1][0][:num] %>  a las iniciativas ambientales de  <%= @data[1][0][:name] %>.
+      <a href="#" class="orange">Participa.</a> Estás a tiempo de realizar observaciones en  <%= @data[2][0][:num] %> proyectos que se van a hacer en <%= @data[2][0][:name] %>.
+    </h1>
+
     <div class="row">
       <div class="col-md-2"><p class="light-green">Conoce el compromiso ambiental de tu comuna</p></div>
       <div class="col-md-2"><p class="green">Ponle nota a las iniciativas ambientales de tu comuna</p></div>
       <div class="col-md-2"><p class="orange">Realiza Observaciones Ciudadanas a proyectos en Evaluación Ambiental</p></div>
     </div>
   </div>
-
-
-    <%= map(:center => {
-    :latlng => [-33.446165, -70.665767],
-    :zoom => 18
-  }) %>
 
 </section>

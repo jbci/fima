@@ -111,6 +111,9 @@ en:
       select_area: "Select Area"
     posts_list:
       post_card_header: "Environmental initiative"
+    index:
+      get_informed: "Get Informed"
+      tt_informate: "Know the environmental commitment of your commune"
   views:
     pagination:
       first: "&laquo; First"
