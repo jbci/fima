@@ -57,6 +57,16 @@ p {
     color: $orange;
 }
 
+.content-right {
+    margin-left: 130px;
+}
+
+@media (max-width: 600px) {
+  .content-right {
+    margin-left: 90px;
+  }
+}
+
 // Btn
 
 .btn-lg, .btn-group-lg > .btn {
@@ -129,6 +139,7 @@ p {
   background-image: url('/assets/bg.png');
   background-repeat: repeat-x;
   background-position-y: 100%;
+  background-position-x: -3%;
 }
 
 @media (max-width: 1200px) {
