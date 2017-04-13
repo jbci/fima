@@ -10,6 +10,7 @@ class EvaluationsController < ApplicationController
   def evals_by_indicator
     indicator = params[:indicator]
     @evaluations = Evaluation.where indicator: indicator
+    @indicator = Indicator.find indicator
     respond_to do |format|
       format.html { render :evals_by_indicator }
       format.js { render :evals_by_indicator }
