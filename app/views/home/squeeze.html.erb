@@ -16,8 +16,8 @@
     <ul class="cd-slider">
       <% @initiatives.each_with_index do |i, index|%>
       <li class="<%= (index===0) ? 'current' : '' %>">
-        <a href="#0" data-id="<%= index %>">
-          <img src="img/img.png" alt="project image">
+        <a href="" data-id="<%= i.id %>" id="post_thumb_<%=i.id %>">
+          <img src="/assets/img.png" alt="project image">
           <div class="project-info">
             <h2><%= i.title %></h2>
             <p>Lorem ipsum dolor sit amet.</p>
@@ -33,15 +33,14 @@
     </ul> <!-- .cd-slider-navigation -->
   </div> <!-- .cd-projects-wrapper -->
 
-  <% @initiatives.each_with_index do |i, index|%>
-  <div class="cd-project-content" data-id="project-<%= index %>">
+
+  <div class="cd-project-content" data-id="project-0">
     <div>
-      <h2><%= i.title %></h2>
-      <p><%= i.body %></p>
+      <a href="" class="close cd-img-replace">Close</a>
+      <h2></h2>
+      <p></p>
     </div>
-    <a href="#0" class="close cd-img-replace">Close</a>
-  </div> <!-- .cd-project-content -->
-  <% end %>
+  </div>
 
 
 
@@ -93,9 +92,23 @@
     } else if ( $(this).parent('li').prev('li').prev('li').prev('li').is('.current')  && (mq == 'desktop') ) {
       nextSides(projectsSlider);
     } else {
-      var dataid = $(this).data('id');
-      var project_id = $("[data-id=project-"+dataid+"]");
-      project_id.addClass('is-visible');
+      var clicked_element = $(this).attr("data-id");
+      var id = clicked_element.replace('project-', '');
+
+      // var dataid = $(this).data('id');
+      // var project_id = $("[data-id=project-"+dataid+"]");
+      var project= $('.cd-project-content');
+      $.ajax({
+        url: "/posts/" + id,
+        dataType: "script"
+      })
+        .success(function( msg ) {
+          project.addClass('is-visible');
+          $(document).trigger("rate:click");
+        })
+        .error(function( msg ) {
+          alert( "Data Error");
+        });
     }
   });
 
@@ -245,12 +258,8 @@
       'transform': 'translateX(-' + translate + ')',
     });
   }
-});
-</script>
-
-
+});</script>
 <script src="http://maps.googleapis.com/maps/api/js?sensor=false&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>"></script>
-
 <script type="text/javascript">
   // The latitude and longitude of your business / place
   var position = [-33.446165, -70.665767];

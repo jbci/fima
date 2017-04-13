@@ -42,7 +42,9 @@ function initstars(){
         var _this = this;
         if (score == null) { score = 0; }
         $(this).trigger('rated', score)
-        $(this).raty('setScore', score)
+        $(this).trigger('rate:click', score)
+        // $(this).raty('setScore', score)
+
         $.post('<%= Rails.application.class.routes.url_helpers.rate_path %>',
         {
           score: score,
@@ -62,11 +64,8 @@ function initstars(){
             console.log($(_this).attr('data-classname'));
             console.log("ratyrate prior to set score");
 
-            $("[class=star][data-dimension=implementation]").raty('set', { readOnly: true, score: score });
-
             if ($(_this).attr('data-disable-after-rate') == 'true') {
               $(_this).raty('set', { readOnly: true, score: score });
-              $("[class=star][data-dimension=implementation]").raty('setScore', 1);
             }
           }
         });
@@ -74,11 +73,27 @@ function initstars(){
     });
   });
 };
+$(document).ready(function() {
+  alert('ready');
+  initstars;
+});
+
+$(document).on("rate:click", function() {
+  alert('initstars');
+  initstars;
+});
 
 // $(document).bind('ready ajaxComplete', function(){
 //   console.log('######')
 //   initstars
 // });
-$(document).ready(initstars);
-$(document).bind('ready ajaxComplete', initstars);
-$(document).on('page:change',initstars);
+
+$(document).bind('ajaxComplete', function() {
+  alert('ajaxComplete')
+  initstars;
+});
+
+$(document).on('page:change', function() {
+  alert('page:change')
+  initstars;
+});

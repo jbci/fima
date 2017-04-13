@@ -1,6 +1,8 @@
 	<div>
+		<a href="" class="close cd-img-replace">Close</a>
+
 		<h2><%= @post.id %></h2>
-		<em>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, ullam.</em>
+		<em><%= @post.title %></em>
 
 		<% if user_signed_in? %>
 			<em>Problem  : <%= rating_for @post, 'problem', star: 7 %>
@@ -11,4 +13,3 @@
 
 		<%= render 'disqus' %>
 	</div>
-	<a href="" class="close cd-img-replace">Close</a>
