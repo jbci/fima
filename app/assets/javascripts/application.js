@@ -18,4 +18,6 @@
 //= require bootstrap
 //= require cocoon
 //= require leaflet
+//= require jquery.raty
+//= require ratyrate
 //= require_tree .
