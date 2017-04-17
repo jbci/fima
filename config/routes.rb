@@ -10,12 +10,13 @@ Rails.application.routes.draw do
   get 'area_level/children/:area_level_id', to:'area_levels#children', as: 'area_level_children'
   get 'area_level/new_child/:area_level_id', to:'area_levels#new_child', as: 'new_area_level_child'
   devise_for :admins
-  get 'home/index'
+  # get 'home/index'
   root to: "home#cover"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # resources :backend
 
+  get 'index', to:'home#index'
   get 'get_informed', to:'home#get_informed'
   get 'initiatives', to:'home#initiatives'
   get 'registration', to:'home#registration'
