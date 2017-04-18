@@ -7,7 +7,7 @@
     <%= stylesheet_link_tag    'application'%>
     <%= javascript_include_tag 'application'%>
     <link href="https://fonts.googleapis.com/css?family=Palanquin:100,400" rel="stylesheet">
-
+    <%= ga_script %>
   <!-- Para cambiar color svg -->
   </head>
 
@@ -22,6 +22,7 @@
           <%= yield %>
         </div>
     </div>
+    <%= ga_track %>
   </body>
 
   <script type="text/javascript">

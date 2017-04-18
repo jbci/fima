@@ -12,6 +12,7 @@ development:
   FB_APP_SECRET: ''
   GOOGLE_APP_ID: ''
   GOOGLE_APP_SECRET: ''
+  GOOGLE_ANALYTICS_CODE: ''
 test:
   BASE_URL: ''
   SMTP_SETTING_ADDRESS: ''
@@ -25,6 +26,7 @@ test:
   FB_APP_SECRET: ''
   GOOGLE_APP_ID: ''
   GOOGLE_APP_SECRET: ''
+  GOOGLE_ANALYTICS_CODE: ''
 production:
   BASE_URL: ''
   SMTP_SETTING_ADDRESS: ''
@@ -38,3 +40,4 @@ production:
   FB_APP_SECRET: ''
   GOOGLE_APP_ID: ''
   GOOGLE_APP_SECRET: ''
+  GOOGLE_ANALYTICS_CODE: ''

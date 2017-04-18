@@ -62,6 +62,7 @@ gem 'rgeo-geojson'
 gem "font-awesome-rails"
 gem 'execjs'
 gem 'therubyracer'
+gem 'ratyrate'
 
 
 

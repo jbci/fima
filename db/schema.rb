@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170221154057) do
+ActiveRecord::Schema.define(version: 20170413191332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,12 +42,12 @@ ActiveRecord::Schema.define(version: 20170221154057) do
   end
 
   create_table "areas", force: :cascade do |t|
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
+    t.datetime "created_at",                                             null: false
+    t.datetime "updated_at",                                             null: false
     t.string   "name"
     t.integer  "parent_id"
     t.integer  "area_level_id"
-    t.geometry "geom",          limit: {:srid=>0, :type=>"geometry"}
+    t.geometry "geom",          limit: {:srid=>4326, :type=>"geometry"}
     t.index ["area_level_id"], name: "index_areas_on_area_level_id", using: :btree
     t.index ["parent_id"], name: "index_areas_on_parent_id", using: :btree
   end
@@ -59,11 +59,6 @@ ActiveRecord::Schema.define(version: 20170221154057) do
     t.float    "avg",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "comunas", id: false, force: :cascade do |t|
-    t.string   "nom_com", limit: 80
-    t.geometry "geom",    limit: {:srid=>0, :type=>"multi_polygon"}
   end
 
   create_table "evaluations", force: :cascade do |t|
@@ -173,7 +168,9 @@ ActiveRecord::Schema.define(version: 20170221154057) do
 
   add_foreign_key "evaluations", "areas"
   add_foreign_key "evaluations", "indicators"
+  add_foreign_key "indicators", "sections"
   add_foreign_key "posts", "areas"
+  add_foreign_key "sections", "ratings"
   add_foreign_key "users", "areas", column: "area_of_interest_id"
   add_foreign_key "users", "areas", column: "area_of_residence_id"
 end
