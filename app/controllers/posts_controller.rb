@@ -10,7 +10,6 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    p "posts controlllerrrrrrrr"
     respond_to do |format|
       format.html
       format.js
