@@ -77,7 +77,7 @@ es:
       parent_header: "Padre"
     evaluations:
       title: "Evaluaciones"
-      select_indicator: "Seleccionar Indicador"
+      select_indicator: "Ver Indicador"
       indicators_list: "Evaluaciones"
       filter: "Mostrar"
     users:
@@ -98,11 +98,11 @@ es:
     evals_table:
       id_header: "Id"
       indicator_header: "Indicador"
-      area_header: "Area"
+      area_header: "Comuna"
       value_header: "Valor"
     evals_by_indicator:
       indicator_header: "Indicador"
-      area_header: "Area"
+      area_header: "Comuna"
       value_header: "Valor"
   home:
     get_informed:
@@ -116,6 +116,10 @@ es:
     index:
       get_informed: "Infórmate."
       tt_informate: "Conoce el compromiso ambiental de tu comuna"
+      opinions: "Evalúa."
+      tt_evalua: "Ponle nota a las iniciativas ambientales de tu comuna"
+      inspect: "Participa."
+      tt_participa: "Realiza Observaciones Ciudadanas a proyectos en Evaluación Ambiental"
   views:
     pagination:
       first: " &laquo; Primero "

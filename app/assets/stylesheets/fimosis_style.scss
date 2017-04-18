@@ -3,6 +3,13 @@ $light-green: #A5CC1D;
 $green: #3FAB66;
 $orange: #E76C11;
 
+$grey-one: #403939;
+$grey-two: #837B7B;
+$grey-three: #AFA5A5;
+$grey-four: #E0DDDD;
+$grey-five: #F4F1F1;
+$grey-six: #FAFAFA;
+
 html, body {
     height:100%;
 }
@@ -28,10 +35,21 @@ h2 {
   color: #403939;
 }
 
+h4 {
+  font-size: 24px;
+  font-weight: 400;
+  color: $grey-three;
+}
+
+h5 {
+  font-size: 18px;
+  color: $grey-one;
+}
+
 a {
-  color: #3FAB66;
+  color: $green;
   &:hover {
-    color: #A5CC1D;
+    color:darken( $green, 10% );
   }
 }
 
@@ -67,6 +85,23 @@ p {
   }
 }
 
+.bg-white {
+  background: white;
+}
+
+.wrapper {
+  padding: 75px 0;
+}
+
+.padding {
+  padding: 40px 30px;
+}
+
+.number {
+    font-size: 144px;
+    font-weight: 100;
+}
+
 // Btn
 
 .btn-lg, .btn-group-lg > .btn {
@@ -95,9 +130,13 @@ p {
   width: 104px;
   background: white;
   height:100%;
-  margin-left: -15px;
   position: fixed;
   z-index: 1;
+  margin-left: -15px;
+}
+
+#side_menu a:hover {
+  color: $light-green;
 }
 
 .nav-link {
@@ -127,6 +166,21 @@ p {
     stroke: #A5CC1D;
 }
 
+// Table
+
+.table-inverse {
+  color: $grey-three;
+  background-color: white;
+}
+
+.table-inverse tr {
+    line-height: 50px;
+}
+
+.table th, .table td {
+    border-top: 10px solid $grey-six;
+}
+
 
 // Home
 
@@ -148,10 +202,6 @@ p {
   }
 }
 
-.bg-white {
-  background-color: #FAFAFA;
-}
-
 #home h1 {
   margin-bottom: 60px;
 }
@@ -168,7 +218,7 @@ p {
   text-decoration: none;
 }
 
-#home a.light-green {
+#home h1 a.light-green {
     border-bottom: 2px solid $light-green;
     &:hover {
       color:darken( $light-green, 10% );
@@ -176,7 +226,7 @@ p {
     }
 }
 
-#home a.green {
+#home h1 a.green {
     border-bottom: 2px solid $green;
     &:hover {
       color:darken( $green, 10% );
@@ -184,7 +234,7 @@ p {
     }
 }
 
-#home a.orange {
+#home h1 a.orange {
     border-bottom: 2px solid $orange;
     &:hover {
       color:darken( $orange, 10% );

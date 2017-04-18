@@ -1,12 +1,16 @@
 <div id="evaluations-content">
-<%= @indicator.title %>
-<table id="eval_indicator_table" border=1>
-  <tr>
-    <th>  <%= t '.id_header' %>  </th>
-    <th>  <%= t '.indicator_header' %>  </th>
-    <th>  <%= t '.area_header' %>  </th>
-    <th>  <%= t '.value_header' %>  </th>
-  </tr>
+<h1><%= @indicator.title %></h1>
+<h4>Bajada</h4>
+<div class="text-center">
+<div class="number">42km <span>Icon</span></div>
+</div>
+<table id="eval_indicator_table" class="table table-inverse">
+  <thead>
+    <tr>
+      <th><h5><%= t '.area_header' %></h5></th>
+      <th><h5><%= t '.value_header' %></h5></th>
+    </tr>
+  </thead>
   <% @evaluations.each do |evaluation| %>
     <%= render "evaluations/row", evaluation: evaluation %>
   <% end %>

@@ -6,27 +6,21 @@
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag    'application'%>
     <%= javascript_include_tag 'application'%>
-    <link href="https://fonts.googleapis.com/css?family=Karla|Poppins" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Palanquin:100,400" rel="stylesheet">
     <%= ga_script %>
   <!-- Para cambiar color svg -->
   </head>
 
   <body>
     <div class="container-fluid" id="app_container">
-      <div class="row">
-        <div class="col-1">
-          <div id="side_menu">
-            <%= render 'layouts/side_menu'%>
-          </div>
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
+        <div id="side_menu">
+          <%= render 'layouts/side_menu'%>
         </div>
-        <div class="col-11">
-          <div id="content" class="right_content">
-            <%= yield %>
-          </div>
+        <!-- <p class="notice"><%= notice %></p> -->
+        <!-- <p class="alert"><%= alert %></p> -->
+        <div id="content" class="content-right">
+          <%= yield %>
         </div>
-      </div>
     </div>
     <%= ga_track %>
   </body>

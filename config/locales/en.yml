@@ -27,7 +27,7 @@ en:
       tt_home: "Municipio Verde"
       get_informed: "Get Informed"
       tt_informate: "Know the environmental commitment of your commune"
-      opinions: "Participate"
+      opinions: "Evaluate"
       tt_evalua: "Rate the environmental initiatives of your commune"
       inspect: "Inspect"
       tt_participa: "Make Citizen Observations for projects in Environmental Assessment"
@@ -111,11 +111,15 @@ en:
       select_area: "Select Area"
     posts_list:
       post_card_header: "Environmental initiative"
-    squeeze: 
+    squeeze:
       select_area: "Seleccionar Comuna"
     index:
       get_informed: "Get Informed"
       tt_informate: "Know the environmental commitment of your commune"
+      opinions: "Evaluate"
+      tt_evalua: "Rate the environmental initiatives of your commune"
+      inspect: "Participate"
+      tt_participa: "Performs Citizen's Observations on Environmental Assessment Projects"
   views:
     pagination:
       first: "&laquo; First"
