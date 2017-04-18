@@ -76,12 +76,12 @@ p {
 }
 
 .content-right {
-    margin-left: 130px;
+  margin-left: 104px;
 }
 
 @media (max-width: 600px) {
   .content-right {
-    margin-left: 90px;
+    margin-left: 88px;
   }
 }
 
@@ -90,7 +90,7 @@ p {
 }
 
 .wrapper {
-  padding: 75px 0;
+  padding: 75px 15px 75px 30px;
 }
 
 .padding {
@@ -132,7 +132,6 @@ p {
   height:100%;
   position: fixed;
   z-index: 1;
-  margin-left: -15px;
 }
 
 #side_menu a:hover {
