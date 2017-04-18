@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
       end
     else
       if params[:locale].nil?
-
+        session[:locale] = I18n.default_locale
       else
         session[:locale] = params[:locale]
       end
