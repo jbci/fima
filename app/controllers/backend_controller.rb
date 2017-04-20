@@ -21,6 +21,7 @@ class BackendController < ApplicationController
     respond_to do |format|
       format.html
       format.js { render :users}
+      format.csv { send_data User.all.to_csv, filename: "users-#{Date.today}.csv" }
     end
   end
 

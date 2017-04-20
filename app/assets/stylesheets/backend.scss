@@ -1,22 +1,35 @@
 // Place all the styles related to the backend controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-body{
-    font-family:arial;
-    font-size:14px;
-    margin:0;
+body {
+    margin: 0;
+    padding: 1em;
 }
-body>ul{
-    background:linear-gradient(0deg,#000 3.333%,#fff 3.333%);
-    background-size:100% 30px;
+body > ul {
+    border-bottom: 1px solid black;
+    overflow: hidden;
 }
-ul{
-    margin:0;
-    padding:0;
-    list-style-type:none;
+a {
+    text-decoration: none;
 }
-li{
-    line-height:30px;
-    padding:0 1em;
+ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+li {
+    line-height: 1.2em;
+    position: relative;
+}
+li ul {
+    padding-left: 1em;
+}
+li:after {
+    content:"\00A0";
+    position: absolute;
+    width: 200%;
+    left: -100%;
+    top: 0;
+    // border-top: 1px solid black;
+    z-index: -1;
 }
