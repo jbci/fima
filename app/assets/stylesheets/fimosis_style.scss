@@ -39,6 +39,7 @@ h4 {
   font-size: 24px;
   font-weight: 400;
   color: $grey-three;
+  line-height: 48px;
 }
 
 h5 {
@@ -103,6 +104,11 @@ p {
 }
 
 // Btn
+
+.btn {
+  padding: 1rem 3rem;
+  font-size: 14px;
+}
 
 .btn-lg, .btn-group-lg > .btn {
     font-size: 24px;
@@ -184,7 +190,6 @@ p {
 // Home
 
 .hero-content {
-    padding: 67px 0px;
     height:100vh;
 }
 
