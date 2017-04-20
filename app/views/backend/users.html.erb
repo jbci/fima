@@ -4,7 +4,6 @@
           <h4> <%= t '.title' %> </h4>
     </div>
 
-    <%= link_to "Nuevo Post", new_post_path, remote: true, id:"new_post_link", class: "btn btn-primary" %>
     <%= paginate @users %>
 
     <table id="users_table" border=1>
@@ -20,6 +19,7 @@
         <%= render "users/row", user: user %>
       <% end %>
     </table>
+    
     <%= page_entries_info @users %>
   </div>
 </div>
