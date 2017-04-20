@@ -14,8 +14,6 @@ Rails.application.routes.draw do
   root to: "home#cover"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # resources :backend
-
   get 'index', to:'home#index'
   get 'get_informed', to:'home#get_informed'
   get 'initiatives', to:'home#initiatives'
@@ -30,7 +28,4 @@ Rails.application.routes.draw do
   get 'backend/users', to:'backend#users'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", sessions: 'users/sessions' }
-  # devise_scope :user do
-  #   delete 'sign_out', :to => 'devise/sessions#destroy', :as => :destroy_user_session
-  # end
 end

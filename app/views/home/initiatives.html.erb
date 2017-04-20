@@ -15,16 +15,18 @@
 
   <div class="cd-projects-wrapper">
     <ul class="cd-slider">
-      <% @initiatives.each_with_index do |i, index|%>
-      <li class="<%= (index===0) ? 'current' : '' %>">
-        <a href="" data-id="<%= i.id %>" id="post_thumb_<%=i.id %>">
-          <img src="/assets/img.png" alt="project image">
-          <div class="project-info">
-            <h2><%= i.title %></h2>
-            <p>Lorem ipsum dolor sit amet.</p>
-          </div>
-        </a>
-      </li>
+      <% unless @initiatives.nil? %>
+        <% @initiatives.each_with_index do |i, index|%>
+        <li class="<%= (index===0) ? 'current' : '' %>">
+          <a href="" data-id="<%= i.id %>" id="post_thumb_<%=i.id %>">
+            <img src="/assets/img.png" alt="project image">
+            <div class="project-info">
+              <h2><%= i.title %></h2>
+              <p>Lorem ipsum dolor sit amet.</p>
+            </div>
+          </a>
+        </li>
+        <% end %>
       <% end %>
     </ul>
 

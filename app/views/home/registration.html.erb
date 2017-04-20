@@ -6,23 +6,24 @@
       <div id="social_logins">
         <% if user_signed_in? %>
         <div>Signed in as... <%= current_user.names %> | <%= link_to "Sign out", destroy_user_session_path %> </div>
+          <%= render :file => "users/registrations/edit" %>
         <% else %>
-        <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, :class => "btn btn-default" %>
-        <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
-        <!-- <%= link_to "Sign in with email", new_user_session_path %> -->
-        <%= render :file => "users/registrations/new" %>
+          <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path, :class => "btn btn-default" %>
+          <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+          <!-- <%= link_to "Sign in with email", new_user_session_path %> -->
+          <%= render :file => "users/registrations/new" %>
         <% end %>
       </div>
     </div>
     <div class="col-6">
-      <h4>¿Ya tienes cuenta? Adelante</h4>
       <% if user_signed_in? %>
-      <div>Signed in as... <%= current_user.names %> | <%= link_to "Sign out", destroy_user_session_path %> </div>
+        <!-- <div>Signed in as... <%= current_user.names %> | <%= link_to "Sign out", destroy_user_session_path %> </div> -->
       <% else %>
-      <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
-      <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
-      <!-- <%= link_to "Sign in with email", new_user_session_path %> -->
-      <%= render :file => "users/sessions/new" %>
+        <h4>¿Ya tienes cuenta? Adelante</h4>
+        <%= link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path %>
+        <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
+        <!-- <%= link_to "Sign in with email", new_user_session_path %> -->
+        <%= render :file => "users/sessions/new" %>
       <% end %>
     </div>
 
