@@ -136,3 +136,7 @@ es:
           other: "Mostrando <b>&nbsp; todos %{count} &nbsp;</b> %{entry_name}"
       more_pages:
         display_entries: "Mostrando %{entry_name} <b>&nbsp; %{first}&nbsp;-&nbsp;%{last} &nbsp;</b> de  <b>&nbsp; %{total} &nbsp;</b>  en total"
+  posts:
+    show_detail:
+      tt_registro: "Regístrate para participar"
+      sign_up: "Registrate"

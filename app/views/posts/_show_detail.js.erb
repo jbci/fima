@@ -8,7 +8,9 @@
 			<em>Problem  : <%= rating_for @post, 'problem', star: 7 %>
 			Implementation  : <%= rating_for @post, 'implementation', star: 7 %></em>
 		<% else %>
-			Registrese para votar
+		<%= link_to registration_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_registro') do %>
+			<%= t('.sign_up') %>
+		<% end %>
 		<% end %>
 
 		<%= render 'disqus' %>

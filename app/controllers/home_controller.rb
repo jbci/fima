@@ -36,8 +36,10 @@ class HomeController < ApplicationController
   end
 
   def initiatives
-
-    @initiatives = Post.where(area_id: 407)
+    if params[:area]
+      area = Area.find params[:area]
+      @initiatives = Post.where(area: area)
+    end
 
     respond_to do |format|
       format.html { render }
