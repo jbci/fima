@@ -47,6 +47,11 @@ h5 {
   color: $grey-one;
 }
 
+.bajada {
+  margin-top: -20px;
+  margin-bottom: 30px;
+}
+
 a {
   color: $green;
   &:hover {
@@ -117,17 +122,30 @@ p {
 .btn-primary {
   background-color: #A5CC1D;
   border-color: #A5CC1D;
+  &:hover {
+    background-color: darken($light-green, 10%);
+    border-color: darken($light-green, 10%);
+  }
 }
 
 .btn-default {
   background-color: #3FAB66;
   border-color: #3FAB66;
   color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: darken($green, 10%);
+    border-color: darken($green, 10%);
+  }
 }
 
 .btn-danger {
   background-color: #E76C11;
   border-color: #E76C11;
+}
+
+.border {
+  border-right: 1px solid $grey-five;
 }
 
 // Nav
@@ -184,6 +202,39 @@ p {
 
 .table th, .table td {
     border-top: 10px solid $grey-six;
+}
+
+// Form
+
+.form-group {
+  line-height: 42px;
+  margin: 40px 0;
+}
+
+label {
+  color: $grey-three;
+  font-size: 14px;
+  margin-right: 9px;
+}
+
+input {
+  border-radius: 4px;
+  font-family: 'Palanquin', sans-serif;
+  padding: 0px 10px;
+  border: 1px solid $grey-five;
+  color: $grey-one;
+}
+
+input.string, input.password {
+    width: 100%;
+}
+
+input.boolean {
+    margin-right: 5px;
+}
+
+.input {
+    margin-bottom: 10px;
 }
 
 
