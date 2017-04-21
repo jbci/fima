@@ -39,7 +39,8 @@ h4 {
   font-size: 24px;
   font-weight: 400;
   color: $grey-three;
-  line-height: 48px;
+  line-height: 33px;
+  margin-bottom: 30px;
 }
 
 h5 {
@@ -235,6 +236,23 @@ input.boolean {
 
 .input {
     margin-bottom: 10px;
+}
+
+.chosen-container-single .chosen-single {
+    padding: 7px 0 0 8px;
+    height: 39px;
+    border: 1px solid $grey-four;
+    box-shadow: none;
+    color: $grey-one;
+    margin-right: 5px;
+}
+
+.chosen-container-single .chosen-single div b {
+    background: url(/assets/chosen-sprite-8aa69ee6b2376505578d758bfbbc52aec88fa5e591f1a7cabd8adfa80a7b613a.png) no-repeat 0px 10px;
+}
+
+.chosen-container-active.chosen-with-drop .chosen-single div b {
+  background-position: -18px 10px;
 }
 
 
