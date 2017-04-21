@@ -93,7 +93,7 @@ class BackendController < ApplicationController
   def rating_params
     params.require(:rating).permit(:id, :title, :description,
                                                 sections_attributes: [:id, :title, :description, :_destroy,
-                                                                      indicators_attributes: [:id, :title, :description, :_destroy]
+                                                                      indicators_attributes: [:id, :title, :description, :icon, :_destroy]
                                                                       ])
   end
 end
