@@ -169,9 +169,12 @@
       var mq = checkMQ();
       if(mq == 'desktop') {
         var slides = projectsSlider.children('li'),
-        slideWidth = slides.eq(0).width(),
-        marginLeft = Number(projectsSlider.children('li').eq(1).css('margin-left').replace('px', '')),
-        sliderWidth = ( slideWidth + marginLeft )*( slides.length + 1 ) + 'px',
+        slideWidth = slides.eq(0).width();
+        var marginLeft = 0;
+        if (typeof projectsSlider.children('li').eq(1).css('margin-left') !== 'undefined') {
+          marginLeft = Number(projectsSlider.children('li').eq(1).css('margin-left').replace('px', ''))
+        }
+        var sliderWidth = ( slideWidth + marginLeft )*( slides.length + 1 ) + 'px',
         slideCurrentIndex = projectsSlider.children('li.current').index();
         projectsSlider.css('width', sliderWidth);
         ( slideCurrentIndex != 0 ) && setTranslateValue(projectsSlider, (  slideCurrentIndex * (slideWidth + marginLeft) + 'px'));
