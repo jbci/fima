@@ -8,6 +8,7 @@
       <%= f.input :title, label: t('.title_label'), :input_html => {:id => 'section_'+@section_index.to_s+'_indicator_'+f.options[:child_index].to_s+'_title' } %>
       <%= f.input :description, label: t('.description_label'), :input_html => {:id => 'section_'+@section_index.to_s+'_indicator_'+f.options[:child_index].to_s+'_description' } %>
       <%= f.input :icon, as: :file, label: t('.description_label'), :input_html => {:id => 'section_'+@section_index.to_s+'_indicator_'+f.options[:child_index].to_s+'_icon' } %>
+
       <% unless f.object.icon.size.nil? %>
         <%= image_tag f.object.icon %>
         <%=  f.object.icon.size %> bytes
