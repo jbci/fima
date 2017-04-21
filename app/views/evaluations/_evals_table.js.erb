@@ -2,7 +2,7 @@
 <h1><%= @indicator.title %></h1>
 <h4>Bajada</h4>
 <div class="text-center">
-<div class="number">42km <span>Icon</span></div>
+<div class="number"> <%= @indicator.description %> <span><%= image_tag @indicator.icon %></span></div>
 </div>
 <table id="eval_indicator_table" class="table table-inverse">
   <thead>
