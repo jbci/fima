@@ -40,6 +40,14 @@ class HomeController < ApplicationController
   end
 
   def citizen_obs
+    # if params[:area]
+    #   area = Area.find params[:area]
+    # else
+    #   area = Area.joins(:projects).where('projects.area_id is not null').first
+    # end
+
+    date = Project.arel_table[:end_date]
+    @projects = Project.where(date.gt(Date.today - 1))
 
   end
 

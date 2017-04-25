@@ -3,7 +3,9 @@
     <div class="row">
       <div class="col-6"><h4>Indicadores ambientales por municipalidad</h4></div>
       <div class="col-md-3">
-
+        <% @projects.each do |project| %>
+          <%= project.title %> <br>
+        <% end %>
       </div>
     </div>
   </div>

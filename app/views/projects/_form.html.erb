@@ -12,6 +12,8 @@
             <%= f.input :title %>
             <%= f.input :description %>
             <%= f.input :end_date %>
+            <%= f.input :image %>
+            <%= f.association :area, collection: Area.comunas.all,  include_blank: true, input_html: {id: 'post_comuna_dropdown', class: 'chosen-select'}%>
           </div>
 
           <div class="form-actions">

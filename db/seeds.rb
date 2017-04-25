@@ -46,6 +46,13 @@ section_2_indicator_1 = Indicator.create({ title: 's2i1t', description: 'Descrip
 section_2.indicators << section_2_indicator_0
 section_2.indicators << section_2_indicator_1
 
+proyecto_1 = Project.create({ :title => 'Proyecto sujeto a observaciones ciudadanas 1', :description => 'Descripcion del Proyecto sujeto a observaciones ciudadanas 1', :end_date => '2017-05-05'})
+proyecto_2 = Project.create({ :title => 'Proyecto sujeto a observaciones ciudadanas 2', :description => 'Descripcion del Proyecto sujeto a observaciones ciudadanas 2', :end_date => '2017-06-05'})
+proyecto_3 = Project.create({ :title => 'Proyecto sujeto a observaciones ciudadanas 3', :description => 'Descripcion del Proyecto sujeto a observaciones ciudadanas 3', :end_date => '2017-07-05'})
+proyecto_4 = Project.create({ :title => 'Proyecto sujeto a observaciones ciudadanas 4', :description => 'Descripcion del Proyecto sujeto a observaciones ciudadanas 4', :end_date => '2017-08-05'})
+proyecto_5 = Project.create({ :title => 'Proyecto sujeto a observaciones ciudadanas 5', :description => 'Descripcion del Proyecto sujeto a observaciones ciudadanas 5', :end_date => '2017-05-07'})
+
+
 
 
 # create table regiones as select distinct(nom_reg) as region, min(gid) as region_id from division_regional group by nom_reg;
