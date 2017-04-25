@@ -1,0 +1,15 @@
+<div class="wrapper">
+  <div class="bg-white padding">
+    <div class="row">
+      <div class="col-6"><h4>Indicadores ambientales por municipalidad</h4></div>
+      <div class="col-md-3">
+          <%= form_tag evals_by_indicator_path, :method => :get, :remote => true do |f| %>
+            <%= select_tag :indicator, options_from_collection_for_select(Indicator.all, "id", "title", params[:indicator] || ""), include_blank:  t('.select_indicator'), class: "chosen-select", id: "eval_indicator_select", onchange: "$(this).parent('form').submit();" %>
+          <% end %>
+      </div>
+    </div>
+  </div>
+
+  <div id="evaluations-content">
+  </div>
+</div>
