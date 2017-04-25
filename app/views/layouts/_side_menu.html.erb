@@ -1,6 +1,6 @@
 <nav class="navbar-toggleable-md navbar-light">
     <div class="nav flex-column">
-        <%= link_to root_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_home') do %>
+        <%= link_to index_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_home') do %>
           <%= image_tag 'logo.svg' %>
         <% end %>
         <%= link_to get_informed_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_informate') do %>
@@ -11,11 +11,11 @@
           <%= render 'nav-evalua.html' %>
           <%= t('.opinions') %>
         <% end %>
-        <%= link_to root_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_participa') do %>
+        <%= link_to citizen_obs_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_participa') do %>
           <%= render 'nav-participa.html' %>
           <%= t('.inspect') %>
         <% end %>
-        <%= link_to root_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_nosotros') do %>
+        <%= link_to about_us_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_nosotros') do %>
           <%= render 'nav-nosotros.html' %>
           <%= t('.about_us') %>
         <% end %>

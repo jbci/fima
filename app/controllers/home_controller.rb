@@ -35,6 +35,14 @@ class HomeController < ApplicationController
 
   end
 
+  def about_us
+
+  end
+
+  def citizen_obs
+
+  end
+
   def initiatives
     if params[:area]
       area = Area.find params[:area]
