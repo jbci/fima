@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  resources :projects
   post '/rate' => 'rater#create', :as => 'rate'
   resources :evaluations
   get 'evals_by_indicator', to:'evaluations#evals_by_indicator'
   resources :posts
+  resources :projects
   resources :areas
   get 'area/children/:area_id', to:'areas#children', as: 'children'
   get 'area/new_child/:area_id', to:'areas#new_child', as: 'new_child'
@@ -21,6 +23,7 @@ Rails.application.routes.draw do
   get 'squeeze', to:'home#squeeze'
 
   get 'backend/posts', to:'backend#posts'
+  get 'backend/projects', to:'backend#projects'
   get 'backend/areas', to:'backend#areas'
   get 'backend/evaluations', to:'backend#evaluations'
   get 'backend/rating_definition', to:'backend#rating_definition'

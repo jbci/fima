@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170421135710) do
+ActiveRecord::Schema.define(version: 20170424211205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -106,6 +106,22 @@ ActiveRecord::Schema.define(version: 20170421135710) do
     t.index ["area_id"], name: "index_posts_on_area_id", using: :btree
   end
 
+  create_table "project_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "projects", force: :cascade do |t|
+    t.string   "title"
+    t.string   "description"
+    t.date     "end_date"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.integer  "project_type_id"
+    t.index ["project_type_id"], name: "index_projects_on_project_type_id", using: :btree
+  end
+
   create_table "rates", force: :cascade do |t|
     t.integer  "rater_id"
     t.string   "rateable_type"
@@ -174,6 +190,7 @@ ActiveRecord::Schema.define(version: 20170421135710) do
   add_foreign_key "evaluations", "indicators"
   add_foreign_key "indicators", "sections"
   add_foreign_key "posts", "areas"
+  add_foreign_key "projects", "project_types"
   add_foreign_key "sections", "ratings"
   add_foreign_key "users", "areas", column: "area_of_interest_id"
   add_foreign_key "users", "areas", column: "area_of_residence_id"
