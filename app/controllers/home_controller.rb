@@ -38,8 +38,10 @@ class HomeController < ApplicationController
   def initiatives
     if params[:area]
       area = Area.find params[:area]
-      @initiatives = Post.where(area: area)
+    else
+      area = Area.joins(:posts).where('posts.area_id is not null').first
     end
+    @initiatives = Post.where(area: area)
 
     respond_to do |format|
       format.html { render }

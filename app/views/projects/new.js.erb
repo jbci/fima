@@ -1,0 +1,4 @@
+//console.log("running new.js.erb")
+$('<%= j render "form", title: "Publicar Proyecto" %>').modal().on('shown.bs.modal', function() {
+  $('.chosen-select').chosen();
+});

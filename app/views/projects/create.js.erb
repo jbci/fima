@@ -1,0 +1,13 @@
+<% if @project.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  //console.log("running create.js.erb");
+  $('table tbody').append(' <%= j render "row", project: @project %>');
+  $('.alert-success').html("El producto ha sido creado con éxito").show();
+  $(document).on('hidden.bs.modal', function(e) {
+    $('#project-modal').remove();
+  });
+  $('#project-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @project.errors.full_messages[0] %>');
+<% end %>

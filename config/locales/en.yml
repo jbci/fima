@@ -88,6 +88,12 @@ en:
       residence_header: "Residence"
       interest_header: "Interest"
       provider_header: "Provider"
+    projects:
+      title: "Projects"
+      id_header: "Id"
+      title_header: "Title"
+      date_header: "Date"
+      exists_image_header: ""
   areas:
     form:
       area_modal_title: "Area"

@@ -7,6 +7,14 @@ class BackendController < ApplicationController
 
   # steps :rating_definition, :posts, :areas, :evaluations
 
+  def projects
+    @projects = Project.order(created_at: :desc).page(@page).per(5)
+    respond_to do |format|
+      format.html
+      format.js { render :projects}
+    end
+  end
+
 
   def posts
     @posts = Post.order(created_at: :desc).page(@page).per(5)
