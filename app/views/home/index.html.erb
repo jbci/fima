@@ -1,19 +1,27 @@
 <section id="home">
-  <div class="hero-content wrapper">
+  <div class="hero-content wrapper text-center">
     <h1 class="light-green"><img src="/assets/logo.svg" alt="Municipio Verde" width="80px">Municipio Verde</h1>
-    <h1>
-      <%= link_to t('.get_informed'), get_informed_path, :class => "light-green", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_informate') %>
-      <%= @data[0][0][:name] %>  tiene  <%= @data[0][0][:num] %>  ciclovías.
-      <%= link_to t('.opinions'), squeeze_path, :class => "green", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_evalua') %>
-      Los vecinos le han puesto un
-      <%= @data[1][0][:num] %>  a las iniciativas ambientales de  <%= @data[1][0][:name] %>.
-      <a href="#" class="orange">Participa.</a> Estás a tiempo de realizar observaciones en  <%= @data[2][0][:num] %> proyectos que se van a hacer en <%= @data[2][0][:name] %>.
-    </h1>
 
-    <div class="row">
-      <div class="col-md-2"><p class="light-green"><%= link_to t('.tt_informate'), get_informed_path, :class => "light-green", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_informate') %></p></div>
-      <div class="col-md-2"><p class="green"><%= link_to t('.tt_evalua'), squeeze_path, :class => "green", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_evalua') %></p></div>
-      <div class="col-md-2"><p class="orange">Realiza Observaciones Ciudadanas a proyectos en Evaluación Ambiental</p></div>
+    <div class="row text-center">
+      <div class="col-md-4">
+        <h2>La certificación ambiental de <%= @data[0][0][:name] %>  es  <%= @data[0][0][:num] %></h2>
+        <p><%= t('.tt_informate') %></p>
+        <%= link_to t('.get_informed'), get_informed_path, :class => "btn btn-primary", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_informate') %>
+      </div>
+      <div class="col-md-4">
+        <h2>
+          Las iniciativas de <%= @data[1][0][:name] %> tienen nota <%= @data[1][0][:num] %>
+        </h2>
+        <p><%= t('.tt_evalua') %></p>
+        <%= link_to t('.opinions'), squeeze_path, :class => "btn btn-default", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_evalua') %>
+      </div>
+      <div class="col-md-4">
+        <h2>
+          <%= @data[2][0][:num] %> proyectos en evaluación en <%= @data[2][0][:name] %>
+        </h2>
+        <p>Realiza Observaciones Ciudadanas a proyectos en Evaluación Ambiental</p>
+        <a href="#" class="btn btn-danger">Participa</a>
+      </div>
     </div>
   </div>
 

@@ -120,11 +120,11 @@ es:
     squeeze:
       select_area: "Seleccionar Comuna"
     index:
-      get_informed: "Infórmate."
+      get_informed: "Infórmate"
       tt_informate: "Conoce el compromiso ambiental de tu comuna"
-      opinions: "Evalúa."
+      opinions: "Evalúa"
       tt_evalua: "Ponle nota a las iniciativas ambientales de tu comuna"
-      inspect: "Participa."
+      inspect: "Participa"
       tt_participa: "Realiza Observaciones Ciudadanas a proyectos en Evaluación Ambiental"
   views:
     pagination:
