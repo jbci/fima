@@ -48,6 +48,10 @@ h5 {
   color: $grey-one;
 }
 
+hr {
+  border-top: 1px solid $grey-four;
+}
+
 .bajada {
   margin-top: -20px;
   margin-bottom: 30px;
@@ -57,6 +61,7 @@ a {
   color: $green;
   &:hover {
     color:darken( $green, 10% );
+    text-decoration: none;
   }
 }
 
@@ -283,7 +288,7 @@ input.boolean {
     margin-bottom: 20px;
 }
 
-#home h1 img {
+#home h1 img, #us h1 img {
     margin: 0px 20px -12px 0px;
 }
 
@@ -313,4 +318,15 @@ input.boolean {
       color:darken( $orange, 10% );
       border-bottom: 2px solid darken( $orange, 10% );
     }
+}
+
+// Iniciativas
+
+.cd-project-content .bg-white {
+  padding: 25px 30px;
+  margin-bottom: 30px;
+}
+
+.cd-project-content div img {
+    margin-bottom: 20px;
 }
