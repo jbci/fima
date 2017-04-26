@@ -40,6 +40,9 @@ class HomeController < ApplicationController
   end
 
   def citizen_obs
+    respond_to do |format|
+      format.html { render :layout => "application_squeeze" }
+    end
 
   end
 
@@ -52,7 +55,7 @@ class HomeController < ApplicationController
     @initiatives = Post.where(area: area)
 
     respond_to do |format|
-      format.html { render }
+      format.html { render :layout => "application_squeeze" }
       format.js { render :initiatives_data }
     end
   end

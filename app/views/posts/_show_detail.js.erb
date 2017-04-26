@@ -12,12 +12,16 @@
 			<<%= rating_for @post, 'problem', star: 7 %>
 			<h5>2. Evalúa la implementación del proyecto</h5>
 			<%= rating_for @post, 'implementation', star: 7 %>
-		</div>
 		<% else %>
-			<%= link_to registration_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_registro') do %>
-				<%= t('.sign_up') %>
-			<% end %>
+			<div class="bg-white">
+				<h4>
+				<%= link_to registration_path, :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_registro') do %>
+					Para ponerle nota a esta iniciativa debes estar <%= t('.sign_up') %>
+				<% end %>
+				</h4>
+			</div>
 		<% end %>
+		</div>
 
 		<div>
 		<% unless @post.image.size.nil? %>

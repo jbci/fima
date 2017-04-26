@@ -95,6 +95,14 @@ p {
   margin-left: 104px;
 }
 
+.text-light {
+  color: $grey-three;
+}
+
+hr {
+    margin-bottom: 4rem;
+}
+
 @media (max-width: 600px) {
   .content-right {
     margin-left: 88px;
