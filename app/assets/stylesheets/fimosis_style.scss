@@ -57,6 +57,10 @@ hr {
   margin-bottom: 30px;
 }
 
+.text-width {
+  max-width: 900px;
+}
+
 a {
   color: $green;
   &:hover {
@@ -110,8 +114,13 @@ p {
 }
 
 .number {
-    font-size: 144px;
-    font-weight: 100;
+  font-size: 144px;
+  font-weight: 100;
+  margin-bottom: 80px;
+}
+
+.number img {
+    margin: 0px 0px -20px;
 }
 
 // Btn
@@ -207,7 +216,8 @@ p {
 }
 
 .table th, .table td {
-    border-top: 10px solid $grey-six;
+  border-top: 10px solid $grey-six;
+  padding: 0.75rem 30px;
 }
 
 // Form
@@ -298,6 +308,12 @@ input.boolean {
 
 #home a:hover {
   text-decoration: none;
+}
+
+// Indicadores
+
+.bg-white h4 {
+  margin-bottom: 4px;
 }
 
 // Iniciativas

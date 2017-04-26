@@ -2,7 +2,10 @@
 <h1><%= @indicator.title %></h1>
 <h4>Bajada</h4>
 <div class="text-center">
-<div class="number"> <%= @indicator.description %> <span><%= image_tag @indicator.icon %></span></div>
+<div class="number">
+  <%= @indicator.description %> <span><%= image_tag @indicator.icon %></span></br>
+  <h4 class="text-center">Bajada explicativa del numero (editable)</h4>
+</div>
 </div>
 <table id="eval_indicator_table" class="table table-inverse">
   <thead>
