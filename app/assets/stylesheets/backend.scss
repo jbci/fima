@@ -32,3 +32,16 @@ li:after {
     // border-top: 1px solid black;
     z-index: -1;
 }
+
+.card {
+    border-radius: 0;
+    border-top: none;
+}
+
+nav.pagination {
+    margin: 10px 0 20px;
+}
+
+.pagination .page {
+    margin-right: 6px;
+}

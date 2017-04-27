@@ -37,12 +37,14 @@ es:
       contact: "Contacto"
       tt_contacto: "Envíanos un mensaje"
     top_menu:
-      posts: "Posts"
+      posts: "Iniciativas"
       areas: "Areas"
       evaluations: "Evaluaciones"
       definition: "Definición"
       projects: "Proyectos"
       users: "Usuarios"
+    backend:
+      title_backend: "Administrador Municipio Verde"
   backend:
     rating_definition:
       title: "Índice"
