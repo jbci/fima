@@ -49,6 +49,9 @@ class HomeController < ApplicationController
     date = Project.arel_table[:end_date]
     @projects = Project.where(date.gt(Date.today - 1))
 
+    respond_to do |format|
+      format.html { render :layout => "application_squeeze" }
+    end
   end
 
   def initiatives
@@ -60,7 +63,7 @@ class HomeController < ApplicationController
     @initiatives = Post.where(area: area)
 
     respond_to do |format|
-      format.html { render }
+      format.html { render :layout => "application_squeeze" }
       format.js { render :initiatives_data }
     end
   end

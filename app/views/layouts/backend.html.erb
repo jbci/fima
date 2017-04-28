@@ -14,10 +14,9 @@
         <!-- <%= render 'layouts/social_logins'%> -->
         <p class="notice"><%= notice %></p>
         <p class="alert"><%= alert %></p>
-
+        <h1><%= t('.title_backend') %></h1>
         <%= render 'layouts/top_menu'%>
-
-        <div id="content" class="right_content">
+        <div id="backend_content">
           <%= yield %>
         </div>
     </div>

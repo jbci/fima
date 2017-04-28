@@ -20,8 +20,8 @@
         <!-- <div>Signed in as... <%= current_user.names %> | <%= link_to "Sign out", destroy_user_session_path %> </div> -->
       <% else %>
         <h4 class="bajada">¿Ya tienes cuenta? Adelante</h4>
-        <%= link_to "Regístrate con Google", user_google_oauth2_omniauth_authorize_path, :class => "btn btn-primary"  %>
-        <%= link_to "Regístrate con Facebook", user_facebook_omniauth_authorize_path, :class => "btn btn-primary"  %>
+        <%= link_to "Entra con Google", user_google_oauth2_omniauth_authorize_path, :class => "btn btn-primary"  %>
+        <%= link_to "Entra con Facebook", user_facebook_omniauth_authorize_path, :class => "btn btn-primary"  %>
         <!-- <%= link_to "Sign in with email", new_user_session_path %> -->
         <%= render :file => "users/sessions/new" %>
       <% end %>

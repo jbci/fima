@@ -29,7 +29,7 @@ h1 {
 }
 
 h2 {
-  font-size: 36px;
+  font-size: 4vmin;
   font-weight: 100;
   line-height: 45px;
   color: #403939;
@@ -55,6 +55,10 @@ hr {
 .bajada {
   margin-top: -20px;
   margin-bottom: 30px;
+}
+
+.text-width {
+  max-width: 900px;
 }
 
 a {
@@ -91,6 +95,14 @@ p {
   margin-left: 104px;
 }
 
+.text-light {
+  color: $grey-three;
+}
+
+hr {
+    margin-bottom: 4rem;
+}
+
 @media (max-width: 600px) {
   .content-right {
     margin-left: 88px;
@@ -110,8 +122,13 @@ p {
 }
 
 .number {
-    font-size: 144px;
-    font-weight: 100;
+  font-size: 144px;
+  font-weight: 100;
+  margin-bottom: 80px;
+}
+
+.number img {
+    margin: 0px 0px -20px;
 }
 
 // Btn
@@ -146,8 +163,8 @@ p {
 }
 
 .btn-danger {
-  background-color: #E76C11;
-  border-color: #E76C11;
+  background-color: $orange;
+  border-color: $orange;
 }
 
 .border {
@@ -168,7 +185,7 @@ p {
   color: $light-green;
 }
 
-.nav-link {
+#side_menu .nav-link {
   border: 1px solid #Fafafa;
   height: 94px;
   color: #8C9398;
@@ -207,7 +224,8 @@ p {
 }
 
 .table th, .table td {
-    border-top: 10px solid $grey-six;
+  border-top: 10px solid $grey-six;
+  padding: 0.75rem 30px;
 }
 
 // Form
@@ -265,11 +283,15 @@ input.boolean {
 
 .hero-content {
     height:100vh;
+    background: -moz-linear-gradient(top, rgba(250,250,250,1) 0%, rgba(250,250,250,1) 48%, rgba(250,250,250,0) 100%);
+    background: -webkit-linear-gradient(top, rgba(250,250,250,1) 0%,rgba(250,250,250,1) 48%,rgba(250,250,250,0) 100%);
+    background: linear-gradient(to bottom, rgba(250,250,250,1) 0%,rgba(250,250,250,1) 48%,rgba(250,250,250,0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#00fafafa',GradientType=0 );
 }
 
 #home {
   background-image: url('/assets/bg.png');
-  background-repeat: repeat-x;
+  background-repeat: repeat;
   background-position-y: 100%;
   background-position-x: -3%;
 }
@@ -296,28 +318,10 @@ input.boolean {
   text-decoration: none;
 }
 
-#home h1 a.light-green {
-    border-bottom: 2px solid $light-green;
-    &:hover {
-      color:darken( $light-green, 10% );
-      border-bottom: 2px solid darken( $light-green, 10% );
-    }
-}
+// Indicadores
 
-#home h1 a.green {
-    border-bottom: 2px solid $green;
-    &:hover {
-      color:darken( $green, 10% );
-      border-bottom: 2px solid darken( $green, 10% );
-    }
-}
-
-#home h1 a.orange {
-    border-bottom: 2px solid $orange;
-    &:hover {
-      color:darken( $orange, 10% );
-      border-bottom: 2px solid darken( $orange, 10% );
-    }
+.bg-white h4 {
+  margin-bottom: 4px;
 }
 
 // Iniciativas
