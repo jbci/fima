@@ -35,13 +35,32 @@ li:after {
 
 .card {
     border-radius: 0;
+    border: 1px solid #F4F1F1;
     border-top: none;
+}
+
+.card-block {
+  padding: 4vmin;
+}
+
+.nav-tabs {
+  border-bottom: 1px solid #F4F1F1;
+}
+
+.nav-tabs .nav-link.activek {
+    border-color: #F4F1F1 #F4F1F1 #fff;
 }
 
 nav.pagination {
     margin: 10px 0 20px;
 }
 
-.pagination .page {
+.pagination .page, .pagination .next {
     margin-right: 6px;
+}
+
+.box {
+  padding: 4vmin;
+  border: 1px dashed #F4F1F1;
+  margin: 4vmin 0;
 }

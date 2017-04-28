@@ -1,15 +1,11 @@
 
 <% @section_index = f.options[:child_index] %>
 
-<div class="card" id="section_<%= @section_index %>">
-  <div class="card-block">
-    <div class="card-header">
+<div class="box" id="section_<%= @section_index %>">
           <h4> <%= t '.section'  %> id="section_<%= @section_index %>" </h4>
-          <%= link_to_remove_association f,  data: {confirm: (t '.remove_section')+'?'} do %>
-            <%= fa_icon "minus 2x" %>
+          <%= link_to_remove_association f, class: "btn btn-warning",  data: {confirm: (t '.remove_section')+'?'} do %>
             <%= t '.remove_section' %>
           <% end %>
-    </div>
 
     <%= f.input :title, label: t('.title_label'), :input_html => {:id => 'section_'+@section_index.to_s+'_title' }%>
     <%= f.input :description, label: t('.description_label'), :input_html => {:id => 'section_'+@section_index.to_s+'_description' } %>
@@ -18,13 +14,10 @@
       <%= render 'indicator_fields', :f => builder  %>
     <% end %>
 
-    <%= link_to_add_association f, :indicators, data: { 'association-insertion-method': 'before', 'association-insertion-node': 'this' } do %>
-      <%= fa_icon "plus 2x" %>
+    <%= link_to_add_association f, :indicators, class: "btn btn-primary", data: { 'association-insertion-method': 'before', 'association-insertion-node': 'this' } do %>
       <%= t '.add_indicator' %>
     <% end %>
-    <br>
-    <%= f.button :submit, id: "section_" + @section_index.to_s + "_commit_button", target: '_self' %>
+    <%= f.button :submit, class: "btn btn-default", id: "section_" + @section_index.to_s + "_commit_button", target: '_self' %>
 
 
-  </div>
 </div>

@@ -1,14 +1,9 @@
 <div class="card">
   <div class="card-block">
-    <div class="card-header">
-          <h4> <%= t '.title' %> </h4>
-    </div>
+          <h2> <%= t '.title' %> </h2>
 
-    <div class="card">
-      <div class="card-block">
-        <div class="card-header">
-              <h4> <%= t '.select_indicator' %> </h4>
-        </div>
+    <div class="box">
+      <h4> <%= t '.select_indicator' %> </h4>
 
         <div id="eval_indicator_form">
           <%= form_tag evals_by_indicator_path, :method => :get, remote: true do |f| %>
@@ -18,20 +13,15 @@
           <% end %>
 
         </div>
-      </div>
     </div>
 
-    <div class="card">
-      <div class="card-block">
-        <div class="card-header">
+    <div class="box">
               <h4> <%= t '.indicators_list' %> </h4>
               <%= link_to "Nueva Evaluacion", new_evaluation_path, remote: true, id:"new_evaluation_link", class: "btn btn-primary" %>
-        </div>
 
         <div id="evaluations-content">
 
         </div>
-      </div>
     </div>
 
   </div>

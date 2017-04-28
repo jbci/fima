@@ -1,9 +1,6 @@
-<div class="row  ml-5" id ="section_<%= @section_index %>_indicator_<%= f.options[:child_index] %>">
-  <div class="card w-100">
-    <div class="card-block">
-      <div class="card-title">
-        <h7> <%= t '.indicator'  %> id ="section_<%= @section_index %>_indicator_<%= f.options[:child_index] %>" </h7>
-      </div>
+<div class="" id ="section_<%= @section_index %>_indicator_<%= f.options[:child_index] %>">
+  <div class="box w-100">
+        <h5> <%= t '.indicator'  %> id ="section_<%= @section_index %>_indicator_<%= f.options[:child_index] %>" </h5>
 
       <%= f.input :title, label: t('.title_label'), :input_html => {:id => 'section_'+@section_index.to_s+'_indicator_'+f.options[:child_index].to_s+'_title' } %>
       <%= f.input :description, label: t('.description_label'), :input_html => {:id => 'section_'+@section_index.to_s+'_indicator_'+f.options[:child_index].to_s+'_description' } %>
@@ -17,10 +14,8 @@
       <% end %>
       <br>
 
-      <%= link_to_remove_association f,  data: {confirm: (t '.remove_indicator')+'?'} do %>
-        <%= fa_icon "minus 2x" %>
+      <%= link_to_remove_association f, class: "btn btn-warning",  data: {confirm: (t '.remove_indicator')+'?'} do %>
         <%= t '.remove_indicator' %>
       <% end %>
-    </div>
   </div>
 </div>
