@@ -4,3 +4,5 @@
 $(document).ready ->
   # alert "aaaaa"
   $('.chosen-select').chosen();
+  $('.nav-link').tooltip();
+  $('.btn').tooltip();
