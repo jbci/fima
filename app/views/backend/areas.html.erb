@@ -1,14 +1,9 @@
 <div class="card">
   <div class="card-block">
-    <div class="card-header">
-          <h4> <%= t '.title' %> </h4>
-    </div>
+    <h2> <%= t '.title' %> </h2>
 
-    <div class="card">
-      <div class="card-block">
-        <div class="card-header">
+    <div class="box">
               <h4> <%= t '.title_levels' %> </h4>
-        </div>
 
         <!-- <%= link_to "Nuevo nivel de Area", new_area_level_path, remote: true, id:"new_area_level_link", class: "btn btn-primary" %> -->
 
@@ -19,16 +14,11 @@
               <%= link_to '', new_area_level_child_path(@main_level), method: :get , remote: true, class: "fa fa-plus-square"%>
             </li>
         </ul>
-
-      </div>
     </div>
 
 
-    <div class="card">
-      <div class="card-block">
-        <div class="card-header">
+    <div class="box">
               <h4> <%= t '.title' %> </h4>
-        </div>
 
         <!-- <%= link_to "Nuevo Area", new_area_path, remote: true, id:"new_area_link", class: "btn btn-primary" %> -->
 
@@ -42,7 +32,6 @@
           <% end %>
         </ul>
 
-      </div>
     </div>
 
 

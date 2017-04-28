@@ -35,6 +35,12 @@ h2 {
   color: #403939;
 }
 
+h3 {
+  font-size: 3vmin;
+  font-weight: 100;
+  color: $grey-two;
+}
+
 h4 {
   font-size: 24px;
   font-weight: 400;
@@ -239,6 +245,7 @@ label {
   color: $grey-three;
   font-size: 14px;
   margin-right: 9px;
+  margin-bottom: 7px;
 }
 
 input {

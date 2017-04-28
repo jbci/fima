@@ -1,23 +1,23 @@
 <div class="card">
   <div class="card-block">
-    <div class="card-header">
-          <h4> <%= t '.title' %> </h4>
-    </div>
+    <h2> <%= t '.title' %> </h2>
 
     <%= link_to "Nuevo Proyecto", new_project_path, remote: true, id:"new_project_link", class: "btn btn-primary" %>
     <%= paginate @projects %>
 
-    <table id="projects_table" border=1>
+    <table id="projects_table" border=1 class="table">
       <tr>
         <th>  <%= t '.id_header' %>  </th>
         <th>  <%= t '.title_header' %>  </th>
         <th>  <%= t '.date_header' %>  </th>
         <th>  <%= t '.exists_image_header' %>  </th>
+        <th></th>
+        <th></th>
       </tr>
       <% @projects.each do |project| %>
         <%= render "projects/row", project: project %>
       <% end %>
     </table>
-    <%= page_entries_info @projects %>
+    <p><%= page_entries_info @projects %></p>
   </div>
 </div>

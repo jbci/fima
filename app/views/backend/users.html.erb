@@ -1,25 +1,23 @@
 <div class="card">
   <div class="card-block">
-    <div class="card-header">
-          <h4> <%= t '.title' %> </h4>
-    </div>
+    <h2> <%= t '.title' %> </h2>
 
     <%= paginate @users %>
 
-    <table id="users_table" border=1>
+    <table class="table" id="users_table" border=1>
       <tr>
-        <th>  <%= t '.id_header' %>  </th>
-        <th>  <%= t '.email_header' %>  </th>
-        <th>  <%= t '.created_header' %>  </th>
-        <th>  <%= t '.residence_header' %>  </th>
-        <th>  <%= t '.interest_header' %>  </th>
-        <th>  <%= t '.provider_header' %>  </th>
+        <th><h5>  <%= t '.id_header' %>  </h5></th>
+        <th><h5>  <%= t '.email_header' %>  </h5></th>
+        <th><h5>  <%= t '.created_header' %>  </h5></th>
+        <th><h5>  <%= t '.residence_header' %>  </h5></th>
+        <th><h5>  <%= t '.interest_header' %>  </h5></th>
+        <th><h5>  <%= t '.provider_header' %>  </h5></th>
       </tr>
       <% @users.each do |user| %>
         <%= render "users/row", user: user %>
       <% end %>
     </table>
-    
-    <%= page_entries_info @users %>
+
+    <p><%= page_entries_info @users %></p>
   </div>
 </div>

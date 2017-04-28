@@ -12,6 +12,8 @@
         <th>  <%= t '.title_header' %>  </th>
         <th>  <%= t '.body_header' %>  </th>
         <th>  <%= t '.exists_image_header' %>  </th>
+        <th></th>
+        <th></th>
       </tr>
       </thead>
       <tbody>
@@ -19,6 +21,6 @@
         <%= render "posts/row", post: post %>
       <% end %>
     </table>
-    <%= page_entries_info @posts %>
+    <p><%= page_entries_info @posts %></p>
   </div>
 </div>
