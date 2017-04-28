@@ -64,6 +64,8 @@ es:
       remove_indicator: "Eliminar Indicador"
       title_label: "Título"
       description_label: "Descripción"
+      number_label: "Número"
+      explanation_label: "Explicación"
     posts:
       title: "Iniciativas Ambientales"
       id_header: "Id"
