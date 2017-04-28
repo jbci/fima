@@ -13,14 +13,14 @@
           Las iniciativas de <%= @data[1][0][:name] %> tienen nota <%= @data[1][0][:num] %>
         </h2>
         <p><%= t('.tt_evalua') %></p>
-        <%= link_to t('.opinions'), squeeze_path, :class => "btn btn-default", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_evalua') %>
+        <%= link_to t('.opinions'), initiatives_path, :class => "btn btn-default", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_evalua') %>
       </div>
       <div class="col-md-4">
         <h2>
           <%= @data[2][0][:num] %> proyectos en evaluación en <%= @data[2][0][:name] %>
         </h2>
         <p>Realiza Observaciones Ciudadanas a proyectos en Evaluación Ambiental</p>
-        <a href="#" class="btn btn-danger">Participa</a>
+        <%= link_to t('.opinions'), citizen_obs_path, :class => "btn btn-default", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_evalua') %>
       </div>
     </div>
   </div>

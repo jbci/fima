@@ -32,11 +32,9 @@ class HomeController < ApplicationController
   end
 
   def registration
-
   end
 
   def about_us
-
   end
 
   def citizen_obs
@@ -68,5 +66,7 @@ class HomeController < ApplicationController
     end
   end
 
+  def contact
+  end
 
 end
