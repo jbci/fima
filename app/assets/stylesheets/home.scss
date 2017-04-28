@@ -147,7 +147,7 @@ Intro page
   top: 95%;
   height: 24px;
   width: 24px;
-  background: url(/assets/cd-arrow-back.svg) no-repeat center center;
+  background: url(asset_path('cd-arrow-back.svg')) no-repeat center center;
   opacity: 0;
   -webkit-transition: opacity 0.2s;
   -moz-transition: opacity 0.2s;
@@ -668,16 +668,18 @@ Project slider navigation
   left: 0;
   height: 60px;
   width: 4%;
-  background: url(/assets/cd-arrow.svg) no-repeat center center;
+  background: url(asset_path('cd-arrow.svg')) no-repeat center center;
   -webkit-transition: opacity 0.2s 0s, visibility 0s 0s;
   -moz-transition: opacity 0.2s 0s, visibility 0s 0s;
   transition: opacity 0.2s 0s, visibility 0s 0s;
 }
 .cd-slider-navigation a.next {
+	position: fixed;
   right: 0;
   left: auto;
 }
 .cd-slider-navigation a.prev {
+	position: fixed;
   -webkit-transform: translateY(-50%) rotate(180deg);
   -moz-transform: translateY(-50%) rotate(180deg);
   -ms-transform: translateY(-50%) rotate(180deg);
@@ -774,7 +776,7 @@ Project content panel
   position: absolute;
   top: 10px;
   right: 10px;
-  background: url(/assets/cd-close-dark.svg) no-repeat center center;
+  background: url(asset_path('cd-close-dark.svg')) no-repeat center center;
 }
 @media only screen and (min-width: 900px) {
   .cd-project-content em {
