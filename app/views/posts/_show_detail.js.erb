@@ -8,9 +8,9 @@
 		<% if user_signed_in? %>
 		<div class="bg-white">
 			<h2>Evalúa esta iniciativa</h2>
-			<h5>1. ¿Qué tan importante es el problema ambiental que aborda el programa implementado?</h5>
-			<<%= rating_for @post, 'problem', star: 7 %>
-			<h5>2. Evalúa la implementación del proyecto</h5>
+			<h5> 1. ¿Qué tan importante es el problema ambiental que aborda el programa implementado? </h5>
+			<%= rating_for @post, 'problem', star: 7 %>
+			<h5> 2. Evalúa la implementación del proyecto</h5>
 			<%= rating_for @post, 'implementation', star: 7 %>
 		<% else %>
 			<div class="bg-white">

@@ -24,8 +24,8 @@
           <a href="" data-id="<%= i.id %>" id="post_thumb_<%=i.id %>">
             <img src="/assets/img.png" alt="project image">
             <div class="project-info">
-              <h5><%= i.title %></h5>
-              <p>Lorem ipsum dolor sit amet.</p>
+              <h5> <%= i.title %> </h5>
+              <p> <%= i.body.truncate(37, :omission => "...más") %> </p>
             </div>
           </a>
         </li>
