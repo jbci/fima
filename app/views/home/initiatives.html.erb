@@ -6,7 +6,7 @@
       <div id="googlemaps"></div>
       <h1>Iniciativas ambientales</h1>
       <h4>Es importante que participemos activamente evaluando la gestión de nuestros municipios para incidir positivamente en su trabajo. Selecciona tu comuna para revisar sus proyectos.</h4>
-      <div id=\"initiatives_form\" class="pull-left">
+      <div id="initiatives_form" class="pull-left">
         <%= form_tag initiatives_path, :method => :get, remote: true do |f| %>
           <%= select_tag :area, options_from_collection_for_select(Area.joins(:posts).where('posts.area_id is not null').distinct, "id", "name", ""), include_blank:  t('.select_area'), class: "chosen-select", id: "initiatives_area_select", onchange: "$(this).parent('form').submit();"%>
         <% end %>
@@ -33,13 +33,8 @@
       <% end %>
     </ul>
 
-    <ul class="">
-      <li><a href="#0" class="">Prev</a></li>
-      <li><a href="#0" class="">Next</a></li>
-    </ul> <!-- .cd-slider-navigation -->
-
-    <ul class="cd-slider-navigation cd-img-replace">
-      <li><a href="#0" class="prev inactive">Prev</a></li>
+    <ul class="cd-slider-2-navigation cd-img-replace">
+      <li><a href="#0" class="prev">Prev</a></li>
       <li><a href="#0" class="next">Next</a></li>
     </ul> <!-- .cd-slider-navigation -->
   </div> <!-- .cd-projects-wrapper -->

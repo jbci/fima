@@ -121,8 +121,6 @@ es:
       select_area: "Seleccionar Area"
     posts_list:
       post_card_header: "Iniciativa ambiental"
-    squeeze:
-      select_area: "Seleccionar Comuna"
     index:
       get_informed: "Infórmate"
       tt_informate: "Conoce el compromiso ambiental de tu comuna"
@@ -130,6 +128,8 @@ es:
       tt_evalua: "Ponle nota a las iniciativas ambientales de tu comuna"
       inspect: "Participa"
       tt_participa: "Realiza Observaciones Ciudadanas a proyectos en Evaluación Ambiental"
+    citizen_obs:
+      select_area: "Seleccionar Comuna"
   views:
     pagination:
       first: " &laquo; Primero "
