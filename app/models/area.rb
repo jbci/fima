@@ -6,6 +6,7 @@ class Area < ApplicationRecord
   belongs_to :area_level
   has_many :evaluations, dependent: :destroy
   has_many :posts, dependent: :nullify
+  has_many :projects, dependent: :nullify
 
   validates_presence_of :name
 

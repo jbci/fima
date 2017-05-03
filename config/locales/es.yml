@@ -64,6 +64,8 @@ es:
       remove_indicator: "Eliminar Indicador"
       title_label: "Título"
       description_label: "Descripción"
+      number_label: "Número"
+      explanation_label: "Explicación"
     posts:
       title: "Iniciativas Ambientales"
       id_header: "Id"
@@ -119,8 +121,6 @@ es:
       select_area: "Seleccionar Area"
     posts_list:
       post_card_header: "Iniciativa ambiental"
-    squeeze:
-      select_area: "Seleccionar Comuna"
     index:
       get_informed: "Infórmate"
       tt_informate: "Conoce el compromiso ambiental de tu comuna"
@@ -128,6 +128,8 @@ es:
       tt_evalua: "Ponle nota a las iniciativas ambientales de tu comuna"
       inspect: "Participa"
       tt_participa: "Realiza Observaciones Ciudadanas a proyectos en Evaluación Ambiental"
+    citizen_obs:
+      select_area: "Seleccionar Comuna"
   views:
     pagination:
       first: " &laquo; Primero "
@@ -148,3 +150,9 @@ es:
     show_detail:
       tt_registro: "Regístrate para participar"
       sign_up: "registrado"
+  devise:
+    mailer:
+      confirmation_instructions:
+        subject: 'Instrucciones de confirmación'
+      reset_password_instructions:
+        subject: 'Restablecer Contraseña de municipioverde.cl'

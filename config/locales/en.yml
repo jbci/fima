@@ -62,6 +62,8 @@ en:
       remove_indicator: "Delete Indicator"
       title_label: "Title"
       description_label: "Description"
+      number_label: "Number"
+      explanation_label: "Explanation"
     posts:
       title: "Environmental Initiatives"
       id_header: "Id"
@@ -117,8 +119,6 @@ en:
       select_area: "Select Area"
     posts_list:
       post_card_header: "Environmental initiative"
-    squeeze:
-      select_area: "Seleccionar Comuna"
     index:
       get_informed: "Get Informed"
       tt_informate: "Know the environmental commitment of your commune"
@@ -126,6 +126,8 @@ en:
       tt_evalua: "Rate the environmental initiatives of your commune"
       inspect: "Participate"
       tt_participa: "Performs Citizen's Observations on Environmental Assessment Projects"
+    citizen_obs:
+      select_area: "Select Area"
   views:
     pagination:
       first: "&laquo; First"
@@ -146,3 +148,9 @@ en:
     show_detail:
       tt_registro: "Regístrate para participar"
       sign_up: "Registrate"
+  devise:
+    mailer:
+      confirmation_instructions:
+        subject: 'Confirmation Instructions'
+      reset_password_instructions:
+        subject: 'Reset Password Instructions'
