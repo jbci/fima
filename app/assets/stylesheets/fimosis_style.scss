@@ -158,13 +158,14 @@ hr {
 }
 
 .btn-default {
-  background-color: #3FAB66;
-  border-color: #3FAB66;
+  background-color: $green;
+  border-color: $green;
   color: white;
   cursor: pointer;
   &:hover {
     background-color: darken($green, 10%);
     border-color: darken($green, 10%);
+    color: white;
   }
 }
 
@@ -199,6 +200,14 @@ hr {
   padding: 20px 15px;
   line-height: 24px;
   background: white;
+}
+
+#side_menu a.nav-link.active {
+    color: $light-green;
+}
+
+#side_menu .nav-link.active path {
+    stroke: $light-green;
 }
 
 @media (max-width: 600px) {
