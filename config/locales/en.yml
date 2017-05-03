@@ -148,3 +148,9 @@ en:
     show_detail:
       tt_registro: "Regístrate para participar"
       sign_up: "Registrate"
+  devise:
+    mailer:
+      confirmation_instructions:
+        subject: 'Confirmation Instructions'
+      reset_password_instructions:
+        subject: 'Reset Password Instructions'

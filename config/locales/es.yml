@@ -150,3 +150,9 @@ es:
     show_detail:
       tt_registro: "Regístrate para participar"
       sign_up: "registrado"
+  devise:
+    mailer:
+      confirmation_instructions:
+        subject: 'Instrucciones de confirmación'
+      reset_password_instructions:
+        subject: 'Restablecer Contraseña de municipioverde.cl'

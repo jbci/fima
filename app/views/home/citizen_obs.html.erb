@@ -9,7 +9,7 @@
     <div class="col-lg-6">
       <div class="input-group">
         <div id="initiatives_form" class="pull-left">
-          <%= form_tag projects_path, :method => :get, remote: true do |f| %>
+          <%= form_tag citizen_obs_path, :method => :get, remote: true do |f| %>
             <%= select_tag :area, options_from_collection_for_select(Area.joins(:projects).where('projects.area_id is not null').distinct, "id", "name", ""), include_blank:  t('.select_area'), class: "chosen-select", id: "projects_area_select", onchange: "$(this).parent('form').submit();"%>
           <% end %>
         </div>
@@ -29,7 +29,7 @@
             <div class="project-info">
               <h5> <%= i.title %> </h5>
               <p> <%= i.description.truncate(37, :omission => "...más") %> </p>
-              <p> <%= i.remaining_days %> hasta el <%= i.end_date %> </p>
+              <p> quedan <%= i.remaining_days %> dias  hasta el <%= i.end_date %> </p>
             </div>
           </a>
         </li>
