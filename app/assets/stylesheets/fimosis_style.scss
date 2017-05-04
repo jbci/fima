@@ -263,6 +263,17 @@ input {
   padding: 0px 10px;
   border: 1px solid $grey-five;
   color: $grey-one;
+  min-width: 300px;
+}
+
+textarea {
+  border-radius: 4px;
+  font-family: 'Palanquin', sans-serif;
+  padding: 0px 10px;
+  border: 1px solid $grey-five;
+  color: $grey-one;
+  resize: none;
+  min-width: 300px;
 }
 
 input.string, input.password {

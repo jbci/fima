@@ -39,8 +39,8 @@ es:
     top_menu:
       posts: "Iniciativas"
       areas: "Areas"
-      evaluations: "Evaluaciones"
-      definition: "Definición"
+      evaluations: "Evaluación Indicadores"
+      definition: "Indicadores"
       projects: "Proyectos"
       users: "Usuarios"
     backend:
