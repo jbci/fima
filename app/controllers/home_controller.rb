@@ -46,7 +46,8 @@ class HomeController < ApplicationController
     end
 
     date = Project.arel_table[:end_date]
-    @projects = Project.where(date.gt(Date.today - 1)).where(area: area)
+    # @projects = Project.where(date.gt(Date.today - 1)).where(area: area)
+    @projects = Project.all
 
     respond_to do |format|
       format.html { render :layout => "application_squeeze" }
