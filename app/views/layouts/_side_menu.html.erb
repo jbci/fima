@@ -3,27 +3,27 @@
         <%= link_to index_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_home') do %>
           <%= image_tag 'logo.svg' %>
         <% end %>
-        <%= link_to get_informed_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_informate') do %>
+        <%= link_to get_informed_path, :class => action_name == 'get_informed' ? 'nav-link active' : 'nav-link', :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_informate') do %>
           <%= render 'nav-informate.html' %>
           <%= t('.get_informed') %>
         <% end %>
-        <%= link_to initiatives_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right', :'no-turbolink' => true }, :title => t('.tt_evalua') do %>
+        <%= link_to initiatives_path, :class => action_name == 'initiatives' ? 'nav-link active' : 'nav-link', :data => { :toggle => 'tooltip', :placement => 'right', :'no-turbolink' => true }, :title => t('.tt_evalua') do %>
           <%= render 'nav-evalua.html' %>
           <%= t('.opinions') %>
         <% end %>
-        <%= link_to citizen_obs_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_participa') do %>
+        <%= link_to citizen_obs_path, :class => action_name == 'citizen_obs' ? 'nav-link active' : 'nav-link', :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_participa') do %>
           <%= render 'nav-participa.html' %>
           <%= t('.inspect') %>
         <% end %>
-        <%= link_to about_us_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_nosotros') do %>
+        <%= link_to about_us_path, :class => action_name == 'about_us' ? 'nav-link active' : 'nav-link', :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_nosotros') do %>
           <%= render 'nav-nosotros.html' %>
           <%= t('.about_us') %>
         <% end %>
-        <%= link_to registration_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_registro') do %>
+        <%= link_to registration_path, :class => action_name == 'registration' ? 'nav-link active' : 'nav-link', :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_registro') do %>
           <%= render 'nav-registro.html' %>
           <%= t('.sign_up') %>
         <% end %>
-        <%= link_to contact_path, :class => "nav-link", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_contacto') do %>
+        <%= link_to contact_path, :class => action_name == 'contact' ? 'nav-link active' : 'nav-link', :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_contacto') do %>
           <%= render 'nav-contacto.html' %>
           <%= t('.contact') %>
         <% end %>
