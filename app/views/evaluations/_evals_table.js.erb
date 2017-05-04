@@ -3,12 +3,12 @@
 <h4><%= @indicator.description %></h4>
 <div class="text-center">
 <div class="number">
-  <% if @indicator.number.nil? %>
-    <span><%= image_tag @indicator.icon if @indicator.icon.file? %></span></br>
-    <h4 class="text-center"> <%= @indicator.number %> </h4>
+  <% if @indicator.number.nil? || @indicator.number == "" %>
+    <span><%= image_tag @indicator.icon %></span></br>
   <% else %>
-    <h4 class="text-center"> <%= @indicator.explanation %> </h4>
+  <h4 class="text-center"> <%= @indicator.number %> </h4>
   <% end %>
+  <h4 class="text-center"> <%= @indicator.explanation %> </h4>
 </div>
 </div>
 
