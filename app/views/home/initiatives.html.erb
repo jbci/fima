@@ -22,7 +22,7 @@
         <% @initiatives.each_with_index do |i, index|%>
         <li class="<%= (index===0) ? 'current' : '' %>">
           <a href="" data-id="<%= i.id %>" id="post_thumb_<%=i.id %>">
-            <img src="/assets/img.png" alt="project image">
+            <img src="/assets/img.png" alt="project image" class="img-responsive">
             <div class="project-info">
               <h5> <%= i.title %> </h5>
               <p> <%= i.body.truncate(37, :omission => "...más") %> </p>

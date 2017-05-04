@@ -31,9 +31,10 @@
               <%= image_tag i.image.url, :alt => "project image" %>
             <% end %>
             <div class="project-info">
+              <p class="text-right">Días para recibir observaciones <span class="counter"><%= i.remaining_days %></span></p>
+              <hr>
               <h5> <%= i.title %> </h5>
-              <p> <%= i.description.truncate(37, :omission => "...más") %> </p>
-              <p> quedan <%= i.remaining_days %> dias  hasta el <%= i.end_date %> </p>
+              <p> <%= i.description.truncate(300, :omission => "...más") %> </p>
             </div>
           </a>
         </li>

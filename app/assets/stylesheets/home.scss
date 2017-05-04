@@ -842,11 +842,10 @@ Keyframes
   position: fixed;
   z-index: 1;
   bottom: 0;
-  right: 0;
+  left: 0;
   width: 80%;
   height: 60%;
   visibility: visible;
-  background-color: #F4F1F1;
   -webkit-transition: visibility 0s 0.5s;
   -moz-transition: visibility 0s 0.5s;
   transition: visibility 0s 0.5s;
