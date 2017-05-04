@@ -1,20 +1,20 @@
 <ul class="nav nav-tabs">
   <li class="nav-item">
-    <%= link_to t('.posts'), backend_posts_path, :class => action_name == 'posts' ? 'nav-link active' : 'nav-link' %>
-  </li>
-  <li class="nav-item">
-    <%= link_to t('.areas'), backend_areas_path, :class => action_name == 'areas' ? 'nav-link active' : 'nav-link' %>
+    <%= link_to t('.definition'), backend_rating_definition_path, :class => action_name == 'rating_definition' ? 'nav-link active' : 'nav-link' %>
   </li>
   <li class="nav-item">
     <%= link_to t('.evaluations'), backend_evaluations_path, :class => action_name == 'evaluations' ? 'nav-link active' : 'nav-link' %>
   </li>
   <li class="nav-item">
-    <%= link_to t('.definition'), backend_rating_definition_path, :class => action_name == 'rating_definition' ? 'nav-link active' : 'nav-link' %>
+    <%= link_to t('.posts'), backend_posts_path, :class => action_name == 'posts' ? 'nav-link active' : 'nav-link' %>
+  </li>
+  <li class="nav-item">
+    <%= link_to t('.projects'), backend_projects_path, :class => action_name == 'projects' ? 'nav-link active' : 'nav-link' %>
   </li>
   <li class="nav-item">
     <%= link_to t('.users'), backend_users_path, :class => action_name == 'users' ? 'nav-link active' : 'nav-link' %>
   </li>
   <li class="nav-item">
-    <%= link_to t('.projects'), backend_projects_path, :class => action_name == 'projects' ? 'nav-link active' : 'nav-link' %>
+    <%= link_to t('.areas'), backend_areas_path, :class => action_name == 'areas' ? 'nav-link active' : 'nav-link' %>
   </li>
 </ul>
