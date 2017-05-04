@@ -4,20 +4,20 @@
 
     <div class="row text-center">
       <div class="col-md-4">
-        <h2>La certificación ambiental de <%= @data[0][0][:name] %>  es  <%= @data[0][0][:num] %></h2>
+        <h2>La certificación ambiental de <span class="area_name"> area </span> es  <%= @data[0][:data][:val_2] %></h2>
         <p><%= t('.tt_informate') %></p>
         <%= link_to t('.get_informed'), get_informed_path, :class => "btn btn-primary", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_informate') %>
       </div>
       <div class="col-md-4">
         <h2>
-          Las iniciativas de <%= @data[1][0][:name] %> tienen nota <%= @data[1][0][:num] %>
+          Las iniciativas de <span class="area_name"> area </span> tienen nota <%= @data[0][:data][:val_1] %>
         </h2>
         <p><%= t('.tt_evalua') %></p>
         <%= link_to t('.opinions'), initiatives_path, :class => "btn btn-default", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_evalua') %>
       </div>
       <div class="col-md-4">
         <h2>
-          <%= @data[2][0][:num] %> proyectos en evaluación en <%= @data[2][0][:name] %>
+          <%= @data[0][:data][:val_3] %> proyectos en evaluación en <span class="area_name"> area </span>
         </h2>
         <p>Realiza Observaciones Ciudadanas a proyectos en Evaluación Ambiental</p>
         <%= link_to t('.inspect'), citizen_obs_path, :class => "btn btn-warning", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_participa') %>
@@ -26,3 +26,69 @@
   </div>
 
 </section>
+<script type="text/javascript">
+
+$(document).ready(function(){
+  var delay = ( function() {
+      var timer = 0;
+      return function(callback, ms) {
+          clearTimeout (timer);
+          timer = setTimeout(callback, ms);
+      };
+  })();
+
+  function set_spans(name) {
+    spans = $('.area_name');
+    spans[0].innerText = name;
+    spans[1].innerText = name;
+    spans[2].innerText = name;
+  };
+
+  var data = <%=  @data.to_json.html_safe %>;
+  var current_data;
+  var val_1 = 0;
+  var val_2 = 0;
+  var val_3 = 0;
+  var name;
+
+  console.log(data);
+
+  setInterval(function(){
+    var i= 0;
+    console.log(i);
+    while (i < data.length){
+      console.log("i : "+i);
+      console.log("in bucle");
+      // delay(function(){
+        console.log("in delay");
+        var aux = Object.prototype.toString.call(data).match(/^\[object\s(.*)\]$/)[1]
+        console.log(aux);
+        console.log(data);
+        console.log(i);
+        var name = data[i]['name'];
+        set_spans(name);
+      // }, 1000);
+      i++;
+    }
+  }, 500 );
+
+  // data.forEach(function(element) {
+  //   setInterval(function(){
+  //     console.log(element);
+  //     name = element['name'];
+  //     console.log(name);
+  //     console.log(val_1);
+  //     console.log("..............");
+  //     // $.each(spans, function(i, el) {
+  //       delay(function(){
+  //         set_name(name);
+  //       }, 2000);
+  //     //   });
+  //     val_1 = element['data']['val_1'];
+  //     val_2 = element['data']['val_2'];
+  //     val_3 = element['data']['val_3'];
+  //   }, 5000 );
+  // });
+
+});
+</script>

@@ -7,9 +7,10 @@ class HomeController < ApplicationController
     Area.all.each_with_index do |a,i|
       @carousel_data.push({area_name: a.name})
     end
-    @data = [[{:name => "Peñalolén",:num => 5}, {:name => "Las Condes",:num => 3}],
-            [{:name => "Peñalolén",:num => 5}, {:name => "Las Condes",:num => 3}],
-            [{:name => "Peñalolén",:num => 5}, {:name => "Las Condes",:num => 3}]]
+    # @data = [[{:name => "Peñalolén",:num => 5}, {:name => "Peñalolén",:num => 6}, {:name => "Peñalolén",:num => 3}],
+    #          [{:name => "Las Condes",:num => 9}, {:name => "Las Condes",:num => 9}, {:name => "Las Condes",:num => 9}]]
+    @data = [{:name => "Peñalolén", :data => { :val_1 => 3,:val_2 => 3,:val_3 => 3}},
+      {:name => "Las Condes", :data => { :val_1 => 3,:val_2 => 3,:val_3 => 3}}]
   end
 
   def get_informed
@@ -45,7 +46,8 @@ class HomeController < ApplicationController
     end
 
     date = Project.arel_table[:end_date]
-    @projects = Project.where(date.gt(Date.today - 1)).where(area: area)
+    # @projects = Project.where(date.gt(Date.today - 1)).where(area: area)
+    @projects = Project.all
 
     respond_to do |format|
       format.html { render :layout => "application_squeeze" }
