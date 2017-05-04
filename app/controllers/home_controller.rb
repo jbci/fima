@@ -50,6 +50,7 @@ class HomeController < ApplicationController
 
     respond_to do |format|
       format.html { render :layout => "application_squeeze" }
+      format.js { render :proj_carousel_data }
     end
   end
 
