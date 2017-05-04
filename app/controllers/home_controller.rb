@@ -42,12 +42,11 @@ class HomeController < ApplicationController
     if params[:area]
       area = Area.find params[:area]
     else
-      # area = Area.joins(:projects).where('projects.area_id is not null')
+      area = Area.joins(:projects).where('projects.area_id is not null')
     end
 
     date = Project.arel_table[:end_date]
-    # @projects = Project.where(date.gt(Date.today - 1)).where(area: area)
-    @projects = Project.all
+    @projects = Project.where(date.gt(Date.today - 1)).where(area: area).order(:end_date)
 
     respond_to do |format|
       format.html { render :layout => "application_squeeze" }
