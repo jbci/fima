@@ -1,6 +1,8 @@
-<tbody>
-  <tr id="evaluation_<%= evaluation.id %>">
-    <td><%= evaluation.area.name unless evaluation.area.nil? %></td>
-    <td><%= evaluation.value unless evaluation.nil? %></td>
-  </tr>
-</tbody>
+<tr id="evaluation_<%= evaluation.id %>">
+  <td><%= evaluation.id %></td>
+  <td><%= evaluation.area.name unless evaluation.area.nil? %></td>
+  <td><%= evaluation.indicator.title unless evaluation.indicator.nil? %></td>
+  <td><%= evaluation.value unless evaluation.nil? %></td>
+  <td><%= link_to 'Edit', edit_evaluation_path(evaluation), remote: true %></td>
+  <td><%= link_to 'Destroy', evaluation, method: :delete, data: { confirm: 'Are you sure?' }, remote: true %></td>
+</tr>

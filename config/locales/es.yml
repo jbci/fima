@@ -82,8 +82,18 @@ es:
     evaluations:
       title: "Evaluaciones"
       select_indicator: "Ver Indicador"
+      select_area: "Ver Area"
       indicators_list: "Evaluaciones"
       filter: "Mostrar"
+      id_header: "Id"
+      area_header: "Area"
+      indicator_header: "Indicator"
+      value_header: "Value"
+    evaluations_table:
+      id_header: "Id"
+      area_header: "Area"
+      indicator_header: "Indicator"
+      value_header: "Value"
     users:
       title: "Usuarios"
       id_header: "Id"

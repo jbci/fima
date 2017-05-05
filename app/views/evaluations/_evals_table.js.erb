@@ -4,7 +4,9 @@
 <div class="text-center">
 <div class="number">
   <% if @indicator.number.nil? || @indicator.number == "" %>
-    <span><%= image_tag @indicator.icon %></span></br>
+    <% unless @indicator.icon.size.nil? %>
+      <span><%= image_tag @indicator.icon %></span></br>
+    <% end %>
   <% else %>
   <h4 class="text-center"> <%= @indicator.number %> </h4>
   <% end %>

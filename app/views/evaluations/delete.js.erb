@@ -1,0 +1,9 @@
+<% if @evaluation.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody tr#evaluation_<%= @evaluation.id %>').remove();
+  $('.alert-success').html("El evaluation ha sido eliminado con éxito").show();
+  $('#evaluation-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @evaluation.errors.full_messages[0] %>');
+<% end %>
