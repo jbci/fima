@@ -43,6 +43,7 @@ es:
       definition: "Indicadores"
       projects: "Proyectos"
       users: "Usuarios"
+      exit: "Salir"
     backend:
       title_backend: "Administrador Municipio Verde"
   backend:
@@ -166,3 +167,7 @@ es:
         subject: 'Instrucciones de confirmación'
       reset_password_instructions:
         subject: 'Restablecer Contraseña de municipioverde.cl'
+  users:
+    sessions:
+      new:
+        forgot: "Olvidó su contraseña?"

@@ -44,6 +44,7 @@ en:
       definition: "Definition"
       projects: "Projects"
       users: "Users"
+      exit: "Exit"
   backend:
     rating_definition:
       title: "Rating"
@@ -164,3 +165,7 @@ en:
         subject: 'Confirmation Instructions'
       reset_password_instructions:
         subject: 'Reset Password Instructions'
+  users:
+    sessions:
+      new:
+        forgot: "Olvidó su contraseña?"
