@@ -22,7 +22,14 @@
         <% @initiatives.each_with_index do |i, index|%>
         <li class="<%= (index===0) ? 'current' : '' %>">
           <a href="" data-id="<%= i.id %>" id="post_thumb_<%=i.id %>">
-            <img src="/assets/img.png" alt="project image" class="img-responsive" style="height: 278px;">
+            <% if i.image.size.nil? %>
+              <img src="/assets/img.png" alt="project image" class="img-responsive" style="height: 278px;">
+            <% else %>
+              <%= image_tag i.image.url, :alt => "project image", class:"img-responsive", style:"height: 278px;" %>
+            <% end %>
+            <% unless i.average("problem").nil? %>
+        			<span class="pull-right text-light"><%= i.average("problem").avg %> / 7 <svg xmlns="http://www.w3.org/2000/svg" width="34" height="33" viewBox="0 0 34 33"><path fill="none" stroke="#ACC74D" d="M23.604 19.633c3.038 4.31 3.496 7.613 3.875 12.034-3.96-1.737-7.296-3.29-10.334-7.6-3.037 4.31-6.372 5.863-10.333 7.6.379-4.421.837-7.723 3.875-12.034-4.914-1.646-6.862-4.252-9.687-7.6 4.194-.995 7.356-1.646 12.27 0 0-5.327 1.662-8.228 3.875-12.033 2.214 3.805 3.846 6.713 3.875 12.033 4.884-1.639 8.077-.995 12.271 0-2.826 3.348-4.773 5.954-9.687 7.6z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        		<% end %>
             <div class="project-info">
               <h5> <%= i.title %> </h5>
               <p> <%= i.body.truncate(37, :omission => "...más") %> </p>
@@ -33,7 +40,7 @@
       <% end %>
     </ul>
 
-    <ul class="cd-slider-2-navigation cd-img-replace">
+    <ul class="cd-slider-navigation cd-img-replace">
       <li><a href="#0" class="prev">Prev</a></li>
       <li><a href="#0" class="next">Next</a></li>
     </ul> <!-- .cd-slider-navigation -->
@@ -100,9 +107,6 @@
       } else {
         var clicked_element = $(this).attr("data-id");
         var id = clicked_element.replace('project-', '');
-
-        // var dataid = $(this).data('id');
-        // var project_id = $("[data-id=project-"+dataid+"]");
         var project= $('.cd-project-content');
         $.ajax({
           url: "/posts/" + id,
@@ -110,7 +114,60 @@
         })
         .success(function( msg ) {
           project.addClass('is-visible');
-          $(document).trigger("rate:click");
+          $(".star").each(function() {
+            var $readonly = ($(this).attr('data-readonly') == 'true');
+            var $half     = ($(this).attr('data-enable-half') == 'true');
+            var $halfShow = ($(this).attr('data-half-show') == 'true');
+            var $single   = ($(this).attr('data-single') == 'true');
+            $(this).raty({
+              score: function() {
+                return $(this).attr('data-rating')
+              },
+              number: function() {
+                return $(this).attr('data-star-count')
+              },
+              half:        $half,
+              halfShow:    $halfShow,
+              single:      $single,
+              path:        $(this).attr('data-star-path'),
+              starOn:      $(this).attr('data-star-on'),
+              starOff:     $(this).attr('data-star-off'),
+              starHalf:    $(this).attr('data-star-half'),
+              cancel:      $(this).attr('data-cancel'),
+              cancelPlace: $(this).attr('data-cancel-place'),
+              cancelHint:  $(this).attr('data-cancel-hint'),
+              cancelOn:    $(this).attr('data-cancel-on'),
+              cancelOff:   $(this).attr('data-cancel-off'),
+              noRatedMsg:  $(this).attr('data-no-rated-message'),
+              round:       $(this).attr('data-round'),
+              space:       $(this).attr('data-space'),
+              target:      $(this).attr('data-target'),
+              targetText:  $(this).attr('data-target-text'),
+              targetType:  $(this).attr('data-target-type'),
+              targetFormat: $(this).attr('data-target-format'),
+              targetScoret: $(this).attr('data-target-score'),
+              readOnly: $readonly,
+              click: function(score, evt) {
+                var _this = this;
+                if (score == null) { score = 0; }
+                $.post('<%= Rails.application.class.routes.url_helpers.rate_path %>',
+                {
+                  score: score,
+                  dimension: $(this).attr('data-dimension'),
+                  id: $(this).attr('data-id'),
+                  klass: $(this).attr('data-classname')
+                },
+                function(data) {
+                  if(data) {
+                    // success code goes here ...
+                    if ($(_this).attr('data-disable-after-rate') == 'true') {
+                      $(_this).raty('set', { readOnly: true, score: score });
+                    }
+                  }
+                });
+              }
+            });
+          });
         })
         .error(function( msg ) {
           alert( "Data Error");
@@ -274,6 +331,8 @@
     squeezebox_setup();
   });
   $( document ).ajaxComplete(function() {
+    var projectsContainer = $('.cd-projects-wrapper');
+    projectsContainer.off('click', '.cd-slider a', function(event) {});
     squeezebox_setup();
   });
 
