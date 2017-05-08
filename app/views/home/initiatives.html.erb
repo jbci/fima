@@ -11,7 +11,7 @@
           <%= select_tag :area, options_from_collection_for_select(Area.joins(:posts).where('posts.area_id is not null').order(:name).distinct, "id", "name", ""), include_blank:  t('.select_area'), class: "chosen-select", id: "initiatives_area_select", onchange: "$(this).parent('form').submit();"%>
         <% end %>
       </div>
-      <a href="#0" class='btn btn-primary' data-action="show-projects">Ver iniciativas</a>
+      <a href="#0" class='btn btn-primary' data-action="show-projects" onclick="squeezebox_setup();">Ver iniciativas</a>
       <div id="initiatives_list"></div>
     </div>
 </div>
@@ -327,14 +327,14 @@
 
 
   }
-  jQuery(document).ready(function(){
-    squeezebox_setup();
-  });
-  $( document ).ajaxComplete(function() {
-    var projectsContainer = $('.cd-projects-wrapper');
-    projectsContainer.off('click', '.cd-slider a', function(event) {});
-    squeezebox_setup();
-  });
+  // jQuery(document).ready(function(){
+  //   squeezebox_setup();
+  // });
+  // $( document ).ajaxComplete(function() {
+  //   var projectsContainer = $('.cd-projects-wrapper');
+  //   projectsContainer.off('click', '.cd-slider a', function(event) {});
+  //   squeezebox_setup();
+  // });
 
 </script>
 
@@ -354,13 +354,13 @@
       };
       map = new google.maps.Map(document.getElementById('googlemaps'),
           mapOptions);
-      <% vitacura = Area.find_by_name 'Vitacura' %>
-      <% geojson_polygon = RGeo::GeoJSON.encode vitacura.geom%>
+      // <% vitacura = Area.find_by_name 'Vitacura' %>
+      // <% geojson_polygon = RGeo::GeoJSON.encode vitacura.geom%>
       <% post_areas = Post.select(:area_id).distinct %>
       <% post_areas.each do |post_area| %>
         <% area = Area.find(post_area.area_id) %>
           <% unless area.geom.nil? %>
-            var contentString = '<div id="content">'+' <%= area.name %> '+ '</div>';
+            var contentString = '<div id="content">'+' <%= area.name %>, <%= area.posts_average %> / 7'+ '</div>';
             var infowindow_<%= area.id %> = new google.maps.InfoWindow({
               content: contentString
             });
