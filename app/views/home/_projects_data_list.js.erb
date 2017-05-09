@@ -8,6 +8,13 @@
         <%= image_tag i.image.url, :alt => "project image", class:"img-responsive", style:"height: 278px;" %>
       <% end %>
       <div class="project-info">
+
+      <% if i.mark == true %>
+        <p class="text-right">Días para recibir observaciones <span class="counter"><%= i.remaining_days %></span></p>
+      <% else %>
+        <p class="text-right">Días para enviar observaciones <span class="counter"><%= i.remaining_days %></span></p>
+      <% end %>
+
         <h5> <%= i.title %> </h5>
         <p> <%= i.description.truncate(37, :omission => "...más") %> </p>
       </div>
