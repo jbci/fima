@@ -375,8 +375,8 @@
             marker_<%= area.id %>.addListener('click', function() {
               infowindow_<%= area.id %>.open(map, marker_<%= area.id %>);
             });
-            var geojson_polygon = JSON.parse('<%= raw area.geojson %>')
-            map.data.addGeoJson(geojson_polygon);
+            // var geojson_polygon = JSON.parse('<%= raw area.geojson %>')
+            // map.data.addGeoJson(geojson_polygon);
           <% end %>
       <% end %>
   }
