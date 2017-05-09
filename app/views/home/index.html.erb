@@ -1,4 +1,4 @@
-<section id="home">
+<!-- <section id="home">
   <div class="hero-content wrapper text-center">
     <h1 class="light-green"><img src="/assets/logo.svg" alt="Municipio Verde" width="80px">Municipio Verde</h1>
 
@@ -25,6 +25,49 @@
     </div>
   </div>
 
+</section> -->
+<section id="home">
+<div class="hero-content wrapper text-center">
+  <h1 class="light-green"><img src="/assets/logo.svg" alt="Municipio Verde" width="80px">Municipio Verde</h1>
+  <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner" role="listbox">
+
+    <% @data.each_with_index do |data, index| %>
+      <div class="carousel-item <%= "active" if index == 0 %>">
+        <div class="row text-center">
+          <div class="col-md-4">
+            <h2>La certificación ambiental de <%= data[:name] %> es  <%= data[:data][:val_2] %></h2>
+            <p><%= t('.tt_informate') %></p>
+            <%= link_to t('.get_informed'), get_informed_path, :class => "btn btn-primary", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_informate') %>
+          </div>
+          <div class="col-md-4">
+            <h2>
+              Las iniciativas de <%= data[:name] %> tienen nota <%= data[:data][:val_1] %>
+            </h2>
+            <p><%= t('.tt_evalua') %></p>
+            <%= link_to t('.opinions'), initiatives_path, :class => "btn btn-default", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_evalua') %>
+          </div>
+          <div class="col-md-4">
+            <h2>
+              <%= data[:data][:val_3] %> proyectos en evaluación en <%= data[:name] %>
+            </h2>
+            <p>Realiza Observaciones Ciudadanas a proyectos en Evaluación Ambiental</p>
+            <%= link_to t('.inspect'), citizen_obs_path, :class => "btn btn-warning", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_participa') %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+</div>
 </section>
 <script type="text/javascript">
 
@@ -52,43 +95,31 @@ $(document).ready(function(){
   var name;
 
   console.log(data);
-
-  setInterval(function(){
-    var i= 0;
-    console.log(i);
-    while (i < data.length){
-      console.log("i : "+i);
-      console.log("in bucle");
-      // delay(function(){
-        console.log("in delay");
-        var aux = Object.prototype.toString.call(data).match(/^\[object\s(.*)\]$/)[1]
-        console.log(aux);
-        console.log(data);
-        console.log(i);
-        var name = data[i]['name'];
-        set_spans(name);
-      // }, 1000);
-      i++;
-    }
-  }, 500 );
-
-  // data.forEach(function(element) {
-  //   setInterval(function(){
-  //     console.log(element);
-  //     name = element['name'];
-  //     console.log(name);
-  //     console.log(val_1);
-  //     console.log("..............");
-  //     // $.each(spans, function(i, el) {
-  //       delay(function(){
-  //         set_name(name);
-  //       }, 2000);
-  //     //   });
-  //     val_1 = element['data']['val_1'];
-  //     val_2 = element['data']['val_2'];
-  //     val_3 = element['data']['val_3'];
-  //   }, 5000 );
-  // });
-
+  var i= 0;
+  var name = data[i]['name'];
+  console.log(name);
+  set_spans(name)
+  delay(function(){
+        console.log('Time elapsed!');
+  }, 2000 );
+  //
+  // i++;
+  // var name = data[i]['name'];
+  // console.log(name);
+  //
+  // delay(function(){
+  //       console.log('Time elapsed!');
+  // }, 2000 );
+  //
+  // set_spans(name)
+  // i=0;
+  // var name = data[i]['name'];
+  // console.log(name);
+  //
+  // delay(function(){
+  //       console.log('Time elapsed!');
+  // }, 2000 );
+  //
+  // set_spans(name)
 });
 </script>

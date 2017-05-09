@@ -10,7 +10,8 @@ class HomeController < ApplicationController
     # @data = [[{:name => "Peñalolén",:num => 5}, {:name => "Peñalolén",:num => 6}, {:name => "Peñalolén",:num => 3}],
     #          [{:name => "Las Condes",:num => 9}, {:name => "Las Condes",:num => 9}, {:name => "Las Condes",:num => 9}]]
     @data = [{:name => "Peñalolén", :data => { :val_1 => 3,:val_2 => 3,:val_3 => 3}},
-      {:name => "Las Condes", :data => { :val_1 => 3,:val_2 => 3,:val_3 => 3}}]
+      {:name => "Las casas", :data => { :val_1 => 4,:val_2 => 4,:val_3 => 4}},
+      {:name => "Las Condes", :data => { :val_1 => 5,:val_2 => 5,:val_3 => 5}}]
   end
 
   def get_informed
