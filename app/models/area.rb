@@ -56,6 +56,6 @@ class Area < ApplicationRecord
   def posts_average
     array = self.posts.map{|p| p.average("problem").avg unless p.average("problem").nil?}.compact
     average = array.inject(0.0) { |sum, el| sum + el } / array.size
-    average
+    "%0.2f" % [average]
   end
 end
