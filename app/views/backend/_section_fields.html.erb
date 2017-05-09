@@ -2,7 +2,6 @@
 <% @section_index = f.options[:child_index] %>
 
 <div class="box" id="section_<%= @section_index %>">
-          <h4> <%= t '.section'  %> id="section_<%= @section_index %>" </h4>
           <%= link_to_remove_association f, class: "btn btn-warning",  data: {confirm: (t '.remove_section')+'?'} do %>
             <%= t '.remove_section' %>
           <% end %>

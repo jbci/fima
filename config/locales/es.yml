@@ -43,6 +43,7 @@ es:
       definition: "Indicadores"
       projects: "Proyectos"
       users: "Usuarios"
+      exit: "Salir"
     backend:
       title_backend: "Administrador Municipio Verde"
   backend:
@@ -82,8 +83,18 @@ es:
     evaluations:
       title: "Evaluaciones"
       select_indicator: "Ver Indicador"
+      select_area: "Ver Area"
       indicators_list: "Evaluaciones"
       filter: "Mostrar"
+      id_header: "Id"
+      area_header: "Area"
+      indicator_header: "Indicator"
+      value_header: "Value"
+    evaluations_table:
+      id_header: "Id"
+      area_header: "Area"
+      indicator_header: "Indicator"
+      value_header: "Value"
     users:
       title: "Usuarios"
       id_header: "Id"
@@ -156,3 +167,7 @@ es:
         subject: 'Instrucciones de confirmación'
       reset_password_instructions:
         subject: 'Restablecer Contraseña de municipioverde.cl'
+  users:
+    sessions:
+      new:
+        forgot: "Olvidó su contraseña?"

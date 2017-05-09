@@ -1,0 +1,21 @@
+<div id="evaluations_table">
+
+  <% unless @evaluations.empty? %>
+    <%= paginate @evaluations %>
+
+    <table border=1 class="table">
+      <tr>
+        <th>  <%= t '.id_header' %>  </th>
+        <th>  <%= t '.area_header' %>  </th>
+        <th>  <%= t '.indicator_header' %>  </th>
+        <th>  <%= t '.value_header' %>  </th>
+      </tr>
+      <% @evaluations.each do |evaluation| %>
+        <%= render "evaluations/row", evaluation: evaluation %>
+      <% end %>
+    </table>
+    <%= page_entries_info @evaluations %>
+  <% else %>
+    No hay evaluaciones para mostrar según los criterios de búsqueda.
+  <% end %>
+</div>

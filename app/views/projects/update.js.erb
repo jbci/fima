@@ -1,0 +1,9 @@
+<% if @project.errors.empty? %>
+  // add the row to the table, show alert and hide modal
+  $('table tbody tr#project_<%= @project.id %>').replaceWith(' <%= j render "row", project: @project %>');
+  $('.alert-success').html("El projecto ha sido modificado con éxito").show();
+  $('#project-modal').modal('hide');
+<% else %>
+  // show first error
+  alert('<%= @project.errors.full_messages[0] %>');
+<% end %>

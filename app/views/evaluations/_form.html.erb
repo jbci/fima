@@ -1,14 +1,24 @@
-<%= simple_form_for(@evaluation) do |f| %>
-  <%= f.error_notification %>
+<div id="evaluation-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title"> Evaluation </h4>
+      </div>
+        <%= simple_form_for @evaluation, remote: true, authenticity_token: true, :html => { :multipart => true }, :data => { :type => :script } do |f| %>
+          <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.association :area %>
-    <%= f.association :indicator %>
-    <%= f.input :visible %>
-    <%= f.input :value %>
-  </div>
+          <div class="form-inputs">
+          <%= f.association :area, collection: Area.comunas.all.order(:name),  include_blank: true, input_html: {id: 'evaluation_comuna_dropdown', class: 'chosen-select form-control'}%>
+          <%= f.association :indicator, collection: Indicator.all.order(:title),  include_blank: true, input_html: {id: 'evaluation_evaluation_dropdown', class: 'chosen-select form-control'}%>
+          <!-- <%= f.input :visible %>/ -->
+          <%= f.input :value %>
+          </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+          <div class="form-actions">
+            <%= f.button :submit, :id => 'evaluation_modal_button', :format => "js", :remote => true, :input_html => {"data-dismiss" => "modal"} %>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-<% end %>

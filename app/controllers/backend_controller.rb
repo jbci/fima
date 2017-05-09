@@ -8,7 +8,7 @@ class BackendController < ApplicationController
   # steps :rating_definition, :posts, :areas, :evaluations
 
   def projects
-    @projects = Project.order(created_at: :desc).page(@page).per(5)
+    @projects = Project.order(created_at: :desc).page(@page).per(10)
     respond_to do |format|
       format.html
       format.js { render :projects}
@@ -17,7 +17,7 @@ class BackendController < ApplicationController
 
 
   def posts
-    @posts = Post.order(created_at: :desc).page(@page).per(5)
+    @posts = Post.order(created_at: :desc).page(@page).per(10)
     respond_to do |format|
       format.html
       format.js { render :posts}
@@ -25,7 +25,7 @@ class BackendController < ApplicationController
   end
 
   def users
-    @users = User.order(created_at: :desc).page(@page).per(5)
+    @users = User.order(created_at: :desc).page(@page).per(10)
     respond_to do |format|
       format.html
       format.js { render :users}
@@ -34,7 +34,7 @@ class BackendController < ApplicationController
   end
 
   def export_users
-    @users = User.order(created_at: :desc).page(@page).per(5)
+    @users = User.order(created_at: :desc).page(@page).per(10)
     respond_to do |format|
       format.html
       format.js { render :users}
@@ -54,7 +54,21 @@ class BackendController < ApplicationController
 
 
   def evaluations
-    @area_levels = AreaLevel.all
+    if params[:area].to_s != ""
+      area = Area.find params[:area]
+    else
+      area = Area.joins(:evaluations).where('evaluations.area_id is not null')
+    end
+
+    if params[:indicator].to_s != ""
+      indicator = Indicator.find params[:indicator]
+    else
+      indicator = Indicator.joins(:evaluations).where('evaluations.area_id is not null')
+    end
+    p "evals backend: " + area.to_s + " " + indicator.to_s
+    @evaluations = Evaluation.where(area: area).where(indicator: indicator).page(@page).per(10)
+    p "evals count: " + @evaluations.count.to_s
+
     respond_to do |format|
       format.html
       format.js { render :evaluations}

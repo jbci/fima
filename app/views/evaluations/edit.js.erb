@@ -1,0 +1,6 @@
+//console.log("running edit.js.erb")
+$('<%= j render "form", title: "Modificar Evaluation" %>').modal().on('shown.bs.modal', function (e) {
+  // $(this).remove();
+  // $('.modal-backdrop').remove();
+  $('.chosen-select').chosen();
+}).modal();

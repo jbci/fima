@@ -44,6 +44,7 @@ en:
       definition: "Definition"
       projects: "Projects"
       users: "Users"
+      exit: "Exit"
   backend:
     rating_definition:
       title: "Rating"
@@ -80,8 +81,18 @@ en:
     evaluations:
       title: "Evaluations"
       select_indicator: "Select Indicator"
+      select_area: "Select Area"
       indicators_list: "Evaluations"
       filter: "Show"
+      id_header: "Id"
+      area_header: "Area"
+      indicator_header: "Indicator"
+      value_header: "Value"
+    evaluations_table:
+      id_header: "Id"
+      area_header: "Area"
+      indicator_header: "Indicator"
+      value_header: "Value"
     users:
       title: "Users"
       id_header: "Id"
@@ -154,3 +165,7 @@ en:
         subject: 'Confirmation Instructions'
       reset_password_instructions:
         subject: 'Reset Password Instructions'
+  users:
+    sessions:
+      new:
+        forgot: "Olvidó su contraseña?"

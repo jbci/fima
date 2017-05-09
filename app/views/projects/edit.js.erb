@@ -1,0 +1,5 @@
+//console.log("running edit.js.erb")
+$('<%= j render "form", title: "Modificar Proyecto" %>').on('hidden.bs.modal', function (e) {
+  $(this).remove();
+  $('.modal-backdrop').remove();
+}).modal();

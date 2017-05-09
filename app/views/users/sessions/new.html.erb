@@ -9,3 +9,6 @@
     <%= f.button :submit, "Entrar", :class => "btn btn-default" %>
   </div>
 <% end %>
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+  <%= link_to t('.forgot'), new_password_path(resource_name) %><br />
+<% end -%>
