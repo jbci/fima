@@ -8,6 +8,7 @@
     <%= stylesheet_link_tag    'application'%>
     <%= javascript_include_tag 'application'%>
     <link href="https://fonts.googleapis.com/css?family=Palanquin:100,400" rel="stylesheet">
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
     <%= ga_script %>
   <!-- Para cambiar color svg -->
   </head>
@@ -19,9 +20,26 @@
         </div>
         <div id="content" class="content-right">
           <%= yield %>
+          <footer class="footer">
+            <div class="row text-center">
+              <div class="col-4">
+                <%= image_tag 'fima.svg' %>
+              </div>
+              <div class="col-4">
+                <%= image_tag 'corfo.svg' %>
+              </div>
+              <div class="col-4">
+                <%= image_tag 'socialab.svg' %>
+              </div>
+            </div>
+            <div class="text-center">
+              <p>Hecho con <i class="fa fa-heart-o" aria-hidden="true"></i> para una sociedad mejor</p>
+            </div>
+          </footer>
         </div>
     </div>
     <%= ga_track %>
+
   </body>
 
   <script type="text/javascript">
