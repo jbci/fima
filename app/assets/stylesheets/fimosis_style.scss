@@ -367,3 +367,18 @@ input.boolean {
   letter-spacing: 16px;
   margin-right: -6px;
 }
+
+// Footer
+
+.footer {
+  border-top: 1px solid $grey-four;
+  padding: 3vw 0;
+}
+
+.footer .fa {
+    color: $light-green;
+}
+
+.footer p {
+    margin-top: 40px;
+}
