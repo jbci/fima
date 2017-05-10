@@ -7,12 +7,14 @@
     <%= f.input :email, required: true, autofocus: true, :input_html => { :value => current_user.email } %>
     <%= f.input :names, required: true, :input_html => { :value => current_user.names } %>
     <%= f.input :surnames, required: true, :input_html => { :value => current_user.surnames } %>
-    <%= f.collection_select(:area_of_residence_id, Area.comunas.all, :id, :name, {prompt: 'Seleccione comuna de residencia'}, {'id' => 'post_comuna_dropdown','class' => 'chosen-select form-control'}) %>
-    <%= f.collection_select(:area_of_interest_id, Area.comunas.all, :id, :name, {prompt: 'Seleccione comuna de interés'}, {'id' => 'post_comuna_dropdown','class' => 'chosen-select form-control'}) %>
+    <%= f.collection_select(:area_of_residence_id, Area.comunas.all, :id, :name, {:selected => current_user.area_of_residence_id, prompt: 'Seleccione comuna de residencia'}, {'id' => 'post_comuna_dropdown','class' => 'chosen-select form-control'}) %>
+    <%= f.collection_select(:area_of_interest_id, Area.comunas.all, :id, :name, {:selected => current_user.area_of_interest_id, prompt: 'Seleccione comuna de interés'}, {'id' => 'post_comuna_dropdown','class' => 'chosen-select form-control'}) %>
 
-    <%= f.input :password, autocomplete: "off", hint: "leave it blank if you don't want to change it", required: false %>
-    <%= f.input :password_confirmation, required: false %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true %>
+    <% if current_user.provider.blank? %>
+    <%= f.input :password, autocomplete: "off", placeholder: t( '.new_password_change_placeholder' ), required: false %>
+    <%= f.input :password_confirmation, required: false, placeholder: t( '.new_password_change_placeholder' ) %>
+    <%= f.input :current_password, placeholder: t( '.password_change_placeholder' ), required: true %>
+    <% end %>
   </div>
 
   <div class="form-actions">

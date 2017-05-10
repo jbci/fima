@@ -173,3 +173,7 @@ es:
     sessions:
       new:
         forgot: "Olvidó su contraseña?"
+    registrations:
+      edit:
+        new_password_change_placeholder: "Dejar en blanco si no desea cambiar su passowrd"
+        password_change_placeholder: "El password actual es necesario para confirmar sus datos."

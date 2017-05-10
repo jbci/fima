@@ -10,9 +10,9 @@
       <div class="project-info <%= 'is_dia' if i.mark == true %>">
 
       <% if i.mark == true %>
-        <p class="text-right">Días para recibir observaciones <span class="counter"><%= i.remaining_days %></span></p>
+        <p class="text-right">Días para recibir observaciones <%= number_to_spans i.remaining_days %></p>
       <% else %>
-        <p class="text-right">Días para enviar observaciones <span class="counter"><%= i.remaining_days %></span></p>
+        <p class="text-right">Días para enviar observaciones <%= number_to_spans i.remaining_days %></p>
       <% end %>
 
         <h5> <%= i.title %> </h5>
