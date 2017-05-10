@@ -71,6 +71,6 @@ Rails.application.configure do
     # :enable_starttls_auto => false # I don't have this, but it should work anyway
   }
 
-  config.log_level = :info
+  config.log_level = :debug
 
 end
