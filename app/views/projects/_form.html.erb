@@ -2,9 +2,10 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title"> Project </h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
       </div>
+      <div class="modal-body">
         <%= simple_form_for @project, remote: true, authenticity_token: true, :html => { :multipart => true }, :data => { :type => :script } do |f| %>
           <%= f.error_notification %>
 
@@ -23,9 +24,10 @@
           </div>
 
           <div class="form-actions">
-            <%= f.button :submit, :id => 'project_modal_button', :format => "js", :remote => true, :input_html => {"data-dismiss" => "modal"} %>
+            <%= f.button :submit, :id => 'project_modal_button', :format => "js", :remote => true, :input_html => {"data-dismiss" => "modal", class: 'btn btn-primary'} %>
           </div>
         <% end %>
       </div>
     </div>
   </div>
+</div>
