@@ -12,14 +12,12 @@
  *
  * require_tree .
  * require chosen
- * require leaflet
  * require_self
  */
  // Custom bootstrap variables must be set or imported *before* bootstrap.
  @import "bootstrap";
  @import "chosen";
  @import "chosen-base";
- @import "leaflet";
  @import "font-awesome";
  @import "home";
  @import "backend";

@@ -56,7 +56,7 @@ gem 'omniauth-facebook'
 gem "omniauth-google-oauth2"
 gem 'activerecord-postgis-adapter'
 gem 'seed_dump'
-gem 'leaflet-rails'
+# gem 'leaflet-rails'
 gem 'rgeo'
 gem 'rgeo-geojson'
 gem "font-awesome-rails"
