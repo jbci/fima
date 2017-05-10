@@ -1,6 +1,7 @@
 <div class="card">
   <div class="card-block">
     <h2> <%= t '.title' %> </h2>
+    <%= link_to "Exportar", backend_users_path + '.csv', format: :csv, id:"new_evaluation_link", class: "btn btn-primary" %>
 
     <%= paginate @users %>
 

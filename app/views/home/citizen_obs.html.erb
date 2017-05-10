@@ -31,7 +31,11 @@
               <%= image_tag i.image.url, :alt => "project image" %>
             <% end %>
             <div class="project-info">
-              <p class="text-right">Días para recibir observaciones <span class="counter"><%= i.remaining_days %></span></p>
+              <% if i.mark == true %>
+                <p class="text-right">Días para recibir observaciones <span class="counter"><%= i.remaining_days %></span></p>
+              <% else %>
+                <p class="text-right">Días para enviar observaciones <span class="counter"><%= i.remaining_days %></span></p>
+              <% end %>
               <hr>
               <h5> <%= i.title %> </h5>
               <p> <%= i.description.truncate(300, :omission => "...más") %> </p>

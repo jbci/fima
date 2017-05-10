@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Municipio Verde</title>
-
+    <%= favicon_link_tag 'favicon.ico' %>
     <%= csrf_meta_tags %>
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>"></script>
     <%= stylesheet_link_tag    'application'%>

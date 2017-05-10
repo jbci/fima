@@ -3,14 +3,21 @@ class HomeController < ApplicationController
     areas_with_posts = Area.joins(:posts).where('posts.area_id is not null').distinct
     areas_with_evaluations = Area.joins(:evaluations).where('evaluations.area_id is not null').distinct
 
-    @carousel_data =[]
-    Area.all.each_with_index do |a,i|
-      @carousel_data.push({area_name: a.name})
+    @data = []
+
+    Area.joins(:evaluations).where('evaluations.area_id is not null').distinct.each_with_index do |a,i|
+      projects_count = Project.where(area: a).count
+      indicator = Indicator.where(title: 'Certifiación Ambiental')
+      evaluation = Evaluation.where(indicator: indicator).where(area: a).first
+      value = 'No existe'
+      value = evaluation.value unless evaluation.nil?
+      @data << { :name => a.name, :data => { :nota => a.posts_average, :certif => value, :projects => projects_count} }
     end
     # @data = [[{:name => "Peñalolén",:num => 5}, {:name => "Peñalolén",:num => 6}, {:name => "Peñalolén",:num => 3}],
     #          [{:name => "Las Condes",:num => 9}, {:name => "Las Condes",:num => 9}, {:name => "Las Condes",:num => 9}]]
-    @data = [{:name => "Peñalolén", :data => { :val_1 => 3,:val_2 => 3,:val_3 => 3}},
-      {:name => "Las Condes", :data => { :val_1 => 3,:val_2 => 3,:val_3 => 3}}]
+    # @data = [{:name => "Peñalolén", :data => { :val_1 => 3,:val_2 => 3,:val_3 => 3}},
+    #   {:name => "Las casas", :data => { :val_1 => 4,:val_2 => 4,:val_3 => 4}},
+    #   {:name => "Las Condes", :data => { :val_1 => 5,:val_2 => 5,:val_3 => 5}}]
   end
 
   def get_informed

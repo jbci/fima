@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170428153851) do
+ActiveRecord::Schema.define(version: 20170509194058) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,11 @@ ActiveRecord::Schema.define(version: 20170428153851) do
     t.float    "avg",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "comunas", id: false, force: :cascade do |t|
+    t.string   "nom_com", limit: 80
+    t.geometry "geom",    limit: {:srid=>4326, :type=>"multi_polygon"}
   end
 
   create_table "evaluations", force: :cascade do |t|
@@ -126,6 +131,7 @@ ActiveRecord::Schema.define(version: 20170428153851) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "area_id"
+    t.boolean  "mark"
     t.index ["area_id"], name: "index_projects_on_area_id", using: :btree
     t.index ["project_type_id"], name: "index_projects_on_project_type_id", using: :btree
   end

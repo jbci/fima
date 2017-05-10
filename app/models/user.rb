@@ -41,7 +41,7 @@ class User < ApplicationRecord
   end
 
   def self.to_csv
-    attributes = %w{id email names surnames area_of_residence_id area_of_interest_id created_at sign_in_count last_sign_in_at}
+    attributes = %w{id email names surnames area_of_residence_id area_of_interest_id provider sign_in_count created_at  last_sign_in_at}
 
     CSV.generate(headers: true) do |csv|
       csv << attributes
