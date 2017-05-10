@@ -4,11 +4,11 @@
 <div class="text-center">
 <div class="number">
   <% if @indicator.number.nil? || @indicator.number == "" %>
+  <% else %>
+    <h4 class="text-center"> <%= @indicator.number %> </h4>
     <% unless @indicator.icon.size.nil? %>
       <span><%= image_tag @indicator.icon %></span></br>
     <% end %>
-  <% else %>
-  <h4 class="text-center"> <%= @indicator.number %> </h4>
   <% end %>
   <h4 class="text-center"> <%= @indicator.explanation %> </h4>
 </div>

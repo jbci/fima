@@ -4,6 +4,7 @@
     <title>Municipio Verde</title>
 
     <%= csrf_meta_tags %>
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>"></script>
     <%= stylesheet_link_tag    'application'%>
     <%= javascript_include_tag 'application'%>
     <link href="https://fonts.googleapis.com/css?family=Palanquin:100,400" rel="stylesheet">
