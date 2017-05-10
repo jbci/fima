@@ -56,6 +56,7 @@ h5 {
 
 hr {
   border-top: 1px solid $grey-four;
+  margin-bottom: 2vw;
 }
 
 .bajada {
@@ -103,10 +104,6 @@ p {
 
 .text-light {
   color: $grey-three;
-}
-
-hr {
-    margin-bottom: 4rem;
 }
 
 @media (max-width: 600px) {

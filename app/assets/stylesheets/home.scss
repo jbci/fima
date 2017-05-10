@@ -842,7 +842,7 @@ Keyframes
   position: fixed;
   z-index: 1;
   bottom: 0;
-  left: 0;
+  left: 100px;
   width: 80%;
   height: 60%;
   visibility: visible;
@@ -914,7 +914,7 @@ Keyframes
   width: 100%;
 }
 .cd-slider-2 .project-info {
-  padding: 1em 1.6em;
+  padding: 1vw 2vw 2vw;
   background-color: white;
 }
 
@@ -963,7 +963,7 @@ Keyframes
     transition: opacity 0s 0.3s, transform 0s 0.3s;
   }
   .cd-slider-2 li:first-of-type {
-    margin-left: 9vw;
+    margin-left: 2vw;
   }
   .cd-slider-2 li.slides-in {
     /* this class is used to trigger the entrance animation */
