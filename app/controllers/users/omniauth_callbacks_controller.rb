@@ -39,6 +39,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def google_oauth2
+      p "google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2"
+      p request.env["omniauth.auth"]
       # You need to implement the method below in your model (e.g. app/models/user.rb)
       @user = User.from_omniauth(request.env["omniauth.auth"])
 
