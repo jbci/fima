@@ -369,6 +369,36 @@ input.boolean {
   border-radius: 4px;
 }
 
+.project-info {
+    border-bottom: 15px solid $grey-four;
+    &::after {
+      content: 'EIA';
+      position: absolute;
+      bottom: -2px;
+      left: 46%;
+      letter-spacing: 2px;
+      font-weight: 600;
+      color: white;
+      font-size: 10px;
+    }
+}
+
+
+.project-info.is_dia {
+    border-bottom: 15px solid $grey-three;
+    &::after {
+      content: 'DIA';
+      position: absolute;
+      bottom: -2px;
+      left: 46%;
+      letter-spacing: 2px;
+      font-weight: 600;
+      color: white;
+      font-size: 10px;
+    }
+}
+
+
 // Footer
 
 .footer {
