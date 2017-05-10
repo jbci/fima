@@ -8,3 +8,5 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       :image_size => 50
     }
 end
+
+OmniAuth.config.full_host = Rails.env.production? ? 'ENV['BASE_URL']' : 'ENV['BASE_URL']:ENV['BASE_URL_PORT']'
