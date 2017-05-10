@@ -53,6 +53,6 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
 
   def failure
     flash[:notice] = "oauth2 error"
-    redirect_to root_path
+    redirect_to registration_path
   end
 end
