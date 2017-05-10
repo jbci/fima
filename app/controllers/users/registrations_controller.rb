@@ -17,11 +17,30 @@ before_action :configure_account_update_params, only: [:update]
   #   super
   # end
 
-  # PUT /resource
+  # # PUT /resource
+  # def update
+  #   # p "registrations controller update user params"
+  #   # p params[:user]
+  #   super
+  # end
   def update
-    # p "registrations controller update user params"
-    # p params[:user]
-    super
+    @user = User.find(current_user.id)
+    # email_changed = @user.email != params[:user][:email]
+    is_facebook_account = !@user.provider.blank?
+
+    successfully_updated = if !is_facebook_account
+      @user.update_with_password(allowed_params)
+    else
+      @user.update_without_password(allowed_params)
+    end
+
+    if successfully_updated
+      # Sign in the user bypassing validation in case his password changed
+      # sign_in @user, :bypass => true
+      redirect_to registration_path
+    else
+      redirect_to registration_path      
+    end
   end
 
   # DELETE /resource
@@ -51,10 +70,10 @@ before_action :configure_account_update_params, only: [:update]
     devise_parameter_sanitizer.permit(:account_update) do |user_params|
       user_params.permit(:email, :password, :password_confirmation, :current_password, :names, :surnames, :area_of_residence_id, :area_of_interest_id)
     end
-    # devise_parameter_sanitizer.permit(:account_update, keys: [:email, :password, :password_confirmation, :current_password, :names, :surnames, :area_of_residence_id, :area_of_interest_id])
-    # params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :names, :surnames, :area_of_residence_id, :area_of_interest_id)
-    p 'params'
-    p params
+  end
+
+  def allowed_params
+    params.require(:user).permit(:email, :password, :password_confirmation, :current_password, :names, :surnames, :area_of_residence_id, :area_of_interest_id)
   end
 
   # The path used after sign up.
