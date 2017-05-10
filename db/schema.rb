@@ -61,11 +61,6 @@ ActiveRecord::Schema.define(version: 20170509194058) do
     t.datetime "updated_at"
   end
 
-  create_table "comunas", id: false, force: :cascade do |t|
-    t.string   "nom_com", limit: 80
-    t.geometry "geom",    limit: {:srid=>4326, :type=>"multi_polygon"}
-  end
-
   create_table "evaluations", force: :cascade do |t|
     t.integer  "area_id"
     t.integer  "indicator_id"

@@ -7,7 +7,7 @@
       <% else %>
         <%= image_tag i.image.url, :alt => "project image", class:"img-responsive", style:"height: 278px;" %>
       <% end %>
-      <div class="project-info">
+      <div class="project-info <%= 'is_dia' if i.mark == true %>">
 
       <% if i.mark == true %>
         <p class="text-right">Días para recibir observaciones <span class="counter"><%= i.remaining_days %></span></p>
