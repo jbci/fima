@@ -108,7 +108,7 @@ en:
       date_header: "Date"
       exists_image_header: ""
       description_header: "Description"
-      mark_header: "Mark"
+      mark_header: "DIA"
   areas:
     form:
       area_modal_title: "Area"
