@@ -7,7 +7,7 @@ class HomeController < ApplicationController
 
     Area.joins(:evaluations).where('evaluations.area_id is not null').distinct.each_with_index do |a,i|
       projects_count = Project.where(area: a).count
-      indicator = Indicator.where(title: 'Certifiación Ambiental')
+      indicator = Indicator.where(title: 'Sistema de Certificación Ambiental Municipal')
       evaluation = Evaluation.where(indicator: indicator).where(area: a).first
       value = 'No existe'
       value = evaluation.value unless evaluation.nil?
