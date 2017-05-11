@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   put 'backend/rating_definition', to:'backend#rating_definition'
   get 'backend/users', to:'backend#users'
   get 'backend/users.csv', to:'backend#users'
+  get 'admin', to:'backend#users'
 
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks", sessions: 'users/sessions', registrations: 'users/registrations' , passwords: 'users/passwords'}
 end
