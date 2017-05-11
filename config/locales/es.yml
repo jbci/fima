@@ -110,7 +110,7 @@ es:
       date_header: "Fecha"
       exists_image_header: ""
       description_header: "Descripción"
-      mark_header: "Marca"
+      mark_header: "DIA"
   areas:
     form:
       area_modal_title: "Area"

@@ -39,6 +39,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def google_oauth2
+      p "google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2"
+      p request.env["omniauth.auth"]
       # You need to implement the method below in your model (e.g. app/models/user.rb)
       @user = User.from_omniauth(request.env["omniauth.auth"])
 
@@ -52,7 +54,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def failure
+    p "google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2"
+    p request.env["omniauth"]
+    p "google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2"
+    p request.env["omniauth.auth"]
     flash[:notice] = "oauth2 error"
-    redirect_to root_path
+    redirect_to registration_path
   end
 end

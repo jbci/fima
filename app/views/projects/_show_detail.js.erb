@@ -2,10 +2,10 @@
 		<a href="" class="close cd-img-replace">Close</a>
 		<h2><%= @project.title %></h4>
 				<hr></hr>
-				<% if i.mark == true %>
-	        <p class="text-right">Días para recibir observaciones <%= number_to_spans i.remaining_days %></p>
+				<% if @project.mark == true %>
+	        <p class="text-right">Días para solicitar participación ciudadana <%= number_to_spans @project.remaining_days %></p>
 	      <% else %>
-	        <p class="text-right">Días para enviar observaciones <%= number_to_spans i.remaining_days %></p>
+	        <p class="text-right">Días para recibir observaciones <%= number_to_spans @project.remaining_days %></p>
 	      <% end %>
 		<h4><%= @project.description %></h4>
 

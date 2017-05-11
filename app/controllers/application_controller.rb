@@ -36,7 +36,19 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_out_path_for(resource)
-    request.referrer || root_path
+    registration_path
+  end
+
+  def after_sign_up_path_for(resource)
+    request.referer || registration_path
+  end
+
+  def after_sign_in_path_for(resource)
+    if resource.is_a?(User)
+      registration_path
+    else
+      backend_users_path
+    end
   end
 
 end
