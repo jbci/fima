@@ -101,9 +101,9 @@ Rails.application.configure do
       :domain               => ENV['SMTP_SETTING_DOMAIN'],
       :user_name            => ENV['SMTP_SETTING_USERNAME'],
       :password             => ENV['SMTP_SETTING_PASSWORD'],
-      :authentication       => :login,
-      :ssl                  => true,
-      :tls                  => true,
-      :enable_starttls_auto => true
+      :authentication       => 'plain',
+      :ssl                  => false,
+      :tsl                  => false,
+      # :enable_starttls_auto => false # I don't have this, but it should work anyway
     }
 end
