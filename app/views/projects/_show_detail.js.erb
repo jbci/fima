@@ -3,9 +3,15 @@
 		<h2><%= @project.title %></h4>
 				<hr></hr>
 				<% if @project.mark == true %>
-	        <p class="counter-wrapper">Días para solicitar participación ciudadana <%= number_to_spans @project.remaining_days %><a href="https://drive.google.com/open?id=0B46V6trrifTlSFhDV2doRGVheFU3dm9yQUFKcWZuLVlfUzFj" target="_blank" class="btn btn-primary pull-right">¡Participa Ya!</a></p>
+	        <p class="counter-wrapper">
+						Días para solicitar participación ciudadana <%= number_to_spans @project.remaining_days %>
+						<a href="https://drive.google.com/open?id=0B5D5lXUFnFJselRUSzFVNzFsVjQ" target="_blank" class="btn btn-primary pull-right">¡Participa Ya!</a>
+						</p>
 	      <% else %>
-	        <p class="counter-wrapper">Días para recibir observaciones <%= number_to_spans @project.remaining_days %><a href="https://drive.google.com/open?id=0B46V6trrifTlbmk2dVlWRWhJcXVFYmphYnFWaUZJR1JEUGpN" target="_blank" class="btn btn-primary pull-right">¡Participa Ya!</a></p>
+	        <p class="counter-wrapper">
+						Días para recibir observaciones <%= number_to_spans @project.remaining_days %>
+						<a href="https://drive.google.com/open?id=0B5D5lXUFnFJsSkRnTC1VdkM5WjA" target="_blank" class="btn btn-primary pull-right">¡Participa Ya!</a>
+					</p>
 	      <% end %>
 		<h4><%= @project.description %></h4>
 
