@@ -30,7 +30,7 @@
             <% else %>
               <%= image_tag i.image.url, :alt => "project image", class:"img-responsive", style:"height: 278px;" %>
             <% end %>
-            <div class="project-info <%= 'is_dia' if i.mark == true %>">
+            <div class="project-info <%= i.mark == true ? 'is_dia' : 'is_eia'%>">
               <% if i.mark == true %>
                 <p class="text-right">Días para solicitar participación ciudadana <%= number_to_spans i.remaining_days %></p>
               <% else %>
