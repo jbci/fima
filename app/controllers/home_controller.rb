@@ -9,31 +9,14 @@ class HomeController < ApplicationController
       projects_count = Project.where(area: a).count
       indicator = Indicator.where(title: 'Sistema de Certificación Ambiental Municipal')
       evaluation = Evaluation.where(indicator: indicator).where(area: a).first
-      value = 'No existe'
+      value = 'inexistente'
       value = evaluation.value unless evaluation.nil?
       @data << { :name => a.name, :data => { :nota => a.posts_average, :certif => value, :projects => projects_count} }
     end
-    # @data = [[{:name => "Peñalolén",:num => 5}, {:name => "Peñalolén",:num => 6}, {:name => "Peñalolén",:num => 3}],
-    #          [{:name => "Las Condes",:num => 9}, {:name => "Las Condes",:num => 9}, {:name => "Las Condes",:num => 9}]]
-    # @data = [{:name => "Peñalolén", :data => { :val_1 => 3,:val_2 => 3,:val_3 => 3}},
-    #   {:name => "Las casas", :data => { :val_1 => 4,:val_2 => 4,:val_3 => 4}},
-    #   {:name => "Las Condes", :data => { :val_1 => 5,:val_2 => 5,:val_3 => 5}}]
   end
 
   def get_informed
   end
-
-  # def initiatives
-  #   if params[:area]
-  #     area = Area.find params[:area]
-  #     @initiatives = Post.where(area: area).page(params[:page]).per(3)
-  #   end
-  #
-  #   respond_to do |format|
-  #     format.html
-  #     format.js { render :initiatives}
-  #   end
-  # end
 
   def cover
     render :layout => false
