@@ -209,6 +209,14 @@ Projects Slider
   -moz-transition: visibility 0s 0.5s;
   transition: visibility 0s 0.5s;
 }
+
+@media (max-width: 600px) {
+	.cd-projects-wrapper-2 {
+	    position: relative;
+	}
+}
+
+
 .cd-projects-wrapper::before {
   /* never visible - this is used in jQuery to check the current MQ */
   content: 'mobile';

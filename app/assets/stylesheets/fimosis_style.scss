@@ -23,29 +23,29 @@ body{
 }
 
 h1 {
-  font-size: 5vmin;
+  font-size: 6vmin;
   font-weight: 100;
   line-height: 9vmin;
 }
 
 h2 {
-  font-size: 4vmin;
+  font-size: 5vmin;
   font-weight: 100;
-  line-height: 45px;
+  line-height: 4.5vmin;
   color: #403939;
 }
 
 h3 {
-  font-size: 3vmin;
+  font-size: 4vmin;
   font-weight: 100;
   color: $grey-two;
 }
 
 h4 {
-  font-size: 24px;
+  font-size: calc(13px + 1.5vmin);
   font-weight: 400;
   color: $grey-three;
-  line-height: 33px;
+  line-height: calc(13px + 2.5vmin);
   margin-bottom: 30px;
 }
 
@@ -117,11 +117,11 @@ p {
 }
 
 .wrapper {
-  padding: 75px 15px 75px 30px;
+    padding: 75px 15px 75px 5px;
 }
 
 .padding {
-  padding: 40px 30px;
+  padding: 7vmin 7vmin;
 }
 
 .number {
@@ -305,11 +305,15 @@ input.boolean {
 // Home
 
 .hero-content {
-    height:100vh;
+    min-height:100vh;
     background: -moz-linear-gradient(top, rgba(250,250,250,1) 0%, rgba(250,250,250,1) 48%, rgba(250,250,250,0) 100%);
     background: -webkit-linear-gradient(top, rgba(250,250,250,1) 0%,rgba(250,250,250,1) 48%,rgba(250,250,250,0) 100%);
     background: linear-gradient(to bottom, rgba(250,250,250,1) 0%,rgba(250,250,250,1) 48%,rgba(250,250,250,0) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fafafa', endColorstr='#00fafafa',GradientType=0 );
+}
+
+.hero-content .col-md-4 {
+    margin-bottom: 30px;
 }
 
 #home {
@@ -329,12 +333,25 @@ input.boolean {
   margin-bottom: 60px;
 }
 
+@media (max-width: 600px) {
+  #home h1 {
+      margin-bottom: 40px;
+  }
+}
+
 #home p {
     margin-bottom: 20px;
 }
 
 #home h1 img, #us h1 img {
     margin: 0px 20px -12px 0px;
+}
+
+@media (max-width: 600px) {
+  #home h1 img, #us h1 img {
+      margin: 0px 5px -18px 0px;
+      width: 40px;
+  }
 }
 
 #home a:hover {
@@ -429,4 +446,8 @@ input.boolean {
 
 .footer p {
     margin-top: 40px;
+}
+
+.footer img {
+    margin: 10px 0;
 }
