@@ -5,13 +5,13 @@
       <h4 class="bajada">Cambia el color de tu comuna ¡Regístrate! </h4>
       <div id="social_logins">
         <% if user_signed_in? %>
-        <div>Signed in as... <%= current_user.names %> | <%= link_to "Sign out", destroy_user_session_path %> </div>
           <%= render :file => "users/registrations/edit" %>
+          <%= link_to t('.close_session'), destroy_user_session_path, :class => "btn btn-primary"  %>
         <% else %>
-        <%= link_to "Regístrate con Google", user_google_oauth2_omniauth_authorize_path, :class => "btn btn-primary" %>
-        <%= link_to "Regístrate con Facebook", user_facebook_omniauth_authorize_path, :class => "btn btn-primary" %>
+          <%= link_to "Regístrate con Google", user_google_oauth2_omniauth_authorize_path, :class => "btn btn-primary" %>
+          <%= link_to "Regístrate con Facebook", user_facebook_omniauth_authorize_path, :class => "btn btn-primary" %>
         <!-- <%= link_to "Sign in with email", new_user_session_path %> -->
-        <%= render :file => "users/registrations/new" %>
+          <%= render :file => "users/registrations/new" %>
         <% end %>
       </div>
     </div>
