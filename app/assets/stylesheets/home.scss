@@ -210,12 +210,6 @@ Projects Slider
   transition: visibility 0s 0.5s;
 }
 
-@media (max-width: 600px) {
-	.cd-projects-wrapper-2 {
-	    position: relative;
-	}
-}
-
 
 .cd-projects-wrapper::before {
   /* never visible - this is used in jQuery to check the current MQ */
@@ -858,6 +852,14 @@ Keyframes
   -moz-transition: visibility 0s 0.5s;
   transition: visibility 0s 0.5s;
 }
+
+@media (max-width: 600px) {
+	.cd-projects-wrapper-2 {
+	    position: initial;
+	    width: 100%;
+	}
+}
+
 .cd-projects-wrapper-2::before {
   /* never visible - this is used in jQuery to check the current MQ */
   content: 'mobile';

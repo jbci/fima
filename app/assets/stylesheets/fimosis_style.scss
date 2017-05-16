@@ -23,7 +23,7 @@ body{
 }
 
 h1 {
-  font-size: 6vmin;
+  font-size: calc(13px + 6vmin);
   font-weight: 100;
   line-height: 9vmin;
 }
@@ -62,6 +62,12 @@ hr {
 .bajada {
   margin-top: -20px;
   margin-bottom: 30px;
+}
+
+@media (max-width: 600px) {
+  .bajada {
+    margin-top: 20px;
+  }
 }
 
 .text-width {
@@ -139,6 +145,7 @@ p {
 .btn {
   padding: 1rem 3rem;
   font-size: 14px;
+  margin-bottom: 5px;
 }
 
 .btn-lg, .btn-group-lg > .btn {
@@ -197,6 +204,13 @@ p {
   padding: 20px 15px;
   line-height: 24px;
   background: white;
+}
+
+@media (max-width: 600px) {
+  #side_menu .nav-link {
+    height: auto;
+    padding: 12px 15px;
+  }
 }
 
 #side_menu a.nav-link.active {
@@ -349,7 +363,7 @@ input.boolean {
 
 @media (max-width: 600px) {
   #home h1 img, #us h1 img {
-      margin: 0px 5px -18px 0px;
+      margin: 0px 5px -7px 0px;
       width: 40px;
   }
 }

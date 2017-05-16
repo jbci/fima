@@ -1,7 +1,7 @@
 <div class="wrapper">
   <h1>Registro</h1>
   <div class="row">
-    <div class="col-6 border">
+    <div class="col-md-6 border">
       <h4 class="bajada">Cambia el color de tu comuna ¡Regístrate! </h4>
       <div id="social_logins">
         <% if user_signed_in? %>
@@ -15,7 +15,7 @@
         <% end %>
       </div>
     </div>
-    <div class="col-6">
+    <div class="col-md-6">
       <% if user_signed_in? %>
         <!-- <div>Signed in as... <%= current_user.names %> | <%= link_to "Sign out", destroy_user_session_path %> </div> -->
       <% else %>
