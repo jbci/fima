@@ -9,7 +9,7 @@ class HomeController < ApplicationController
       projects_count = Project.where(area: a).count
       indicator = Indicator.where(title: 'Sistema de Certificación Ambiental Municipal')
       evaluation = Evaluation.where(indicator: indicator).where(area: a).first
-      value = 'inexistente'
+      value = ' inexistente'
       value = evaluation.value unless evaluation.nil?
       @data << { :name => a.name, :data => { :nota => a.posts_average, :certif => value, :projects => projects_count} }
     end
