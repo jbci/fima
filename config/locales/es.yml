@@ -184,6 +184,7 @@ es:
         surnames: "Apellidos"
         confirmation: "Confirmación"
       edit:
+        update: "Guardar Cambios"
         user_data: "Datos de usuario"
         names: "Nombre"
         surnames: "Apellidos"

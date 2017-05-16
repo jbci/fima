@@ -16,7 +16,6 @@ class Users::SessionsController < Devise::SessionsController
       yield resource if block_given?
       respond_with resource, location: after_sign_in_path_for(resource)
     else
-      @alert = "bad user / password"
       set_flash_message(:notice, :login_error)
       redirect_to registration_path
     end

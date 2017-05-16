@@ -6,7 +6,7 @@
       <div id="social_logins">
         <% if user_signed_in? %>
           <%= render :file => "users/registrations/edit" %>
-          <%= link_to t('.close_session'), destroy_user_session_path, :class => "btn btn-primary"  %>
+          <%= link_to t('.close_session'), destroy_user_session_path, :class => "btn btn-alert"  %>
         <% else %>
           <%= link_to "Regístrate con Google", user_google_oauth2_omniauth_authorize_path, :class => "btn btn-primary" %>
           <%= link_to "Regístrate con Facebook", user_facebook_omniauth_authorize_path, :class => "btn btn-primary" %>
@@ -24,7 +24,7 @@
         <%= link_to "Entra con Facebook", user_facebook_omniauth_authorize_path, :class => "btn btn-primary"  %>
         <!-- <%= link_to "Sign in with email", new_user_session_path %> -->
         <br>
-        <p id="notice"><%= notice %></p>
+        <p id="notice" style="color:red;"><%= notice %></p>
         <%= render :file => "users/sessions/new" %>
       <% end %>
     </div>
