@@ -143,6 +143,8 @@ es:
       tt_participa: "Realiza Observaciones Ciudadanas a proyectos en Evaluación Ambiental"
     citizen_obs:
       select_area: "Seleccionar Comuna"
+    registration:
+      close_session: "Cerrar Sesion"
   views:
     pagination:
       first: " &laquo; Primero "
@@ -174,6 +176,13 @@ es:
       new:
         forgot: "Olvidó su contraseña?"
     registrations:
+      new:
+        names: "Nombre"
+        surnames: "Apellidos"
+        confirmation: "Confirmación"
       edit:
+        names: "Nombre"
+        surnames: "Apellidos"
+        confirmation: "Confirmación"
         new_password_change_placeholder: "Dejar en blanco si no desea cambiar su passowrd"
         password_change_placeholder: "El password actual es necesario para confirmar sus datos."

@@ -3,12 +3,12 @@
 
   <div class="form-group">
     <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :names, required: true %>
-    <%= f.input :surnames, required: true %>
+    <%= f.input :names, required: true, label: t('.names') %>
+    <%= f.input :surnames, required: true, label: t('.surnames') %>
     <%= f.collection_select(:area_of_residence_id, Area.comunas.all, :id, :name, {prompt: 'Seleccione comuna de residencia'}, {'id' => 'post_comuna_dropdown','class' => 'chosen-select form-control'}) %>
     <%= f.collection_select(:area_of_interest_id, Area.comunas.all, :id, :name, {prompt: 'Seleccione comuna de interés'}, {'id' => 'post_comuna_dropdown','class' => 'chosen-select form-control'}) %>
     <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
+    <%= f.input :password_confirmation, required: true, label: t('.confirmation') %>
   </div>
 
   <div class="form-actions">
