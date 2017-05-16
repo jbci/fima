@@ -173,8 +173,11 @@ en:
     sessions:
       new:
         forgot: "Forgot your password?"
+      user:
+        login_error: "Invalid Data"
     registrations:
       edit:
+        user_data: "User Data"
         names: "Name"
         surnames: "Surname"
         confirmation: "Confirmation"

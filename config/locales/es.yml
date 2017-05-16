@@ -171,6 +171,9 @@ es:
         subject: 'Instrucciones de confirmación'
       reset_password_instructions:
         subject: 'Restablecer Contraseña de municipioverde.cl'
+    sessions:
+      user:
+        login_error: "Datos no válidos"
   users:
     sessions:
       new:
@@ -181,6 +184,7 @@ es:
         surnames: "Apellidos"
         confirmation: "Confirmación"
       edit:
+        user_data: "Datos de usuario"
         names: "Nombre"
         surnames: "Apellidos"
         confirmation: "Confirmación"
