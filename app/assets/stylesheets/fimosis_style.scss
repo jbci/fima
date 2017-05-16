@@ -404,19 +404,6 @@ input.boolean {
   margin-bottom: 70px;
 }
 
-.project-info {
-    border-bottom: 15px solid $grey-four;
-    &::after {
-      position: absolute;
-      // bottom: -2px;
-      left: 46%;
-      letter-spacing: 2px;
-      font-weight: 600;
-      color: white;
-      font-size: 10px;
-    }
-}
-
 
 .project-info.is_dia {
     border-bottom: 15px solid $grey-three;
@@ -433,7 +420,7 @@ input.boolean {
 }
 
 .project-info.is_eia {
-    border-bottom: 15px solid $grey-three;
+    border-bottom: 15px solid $grey-four;
     &::after {
       content: 'EIA';
       position: absolute;
