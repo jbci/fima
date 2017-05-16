@@ -38,21 +38,21 @@
           <div class="col-md-4">
             <h2>La certificación ambiental de <%= data[:name] %> es  <%= data[:data][:certif] %></h2>
             <p><%= t('.tt_informate') %></p>
-            <%= link_to t('.get_informed'), get_informed_path, :class => "btn btn-primary", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_informate') %>
+            <%= link_to t('.get_informed'), get_informed_path, :class => "btn btn-primary", :data => { :toggle => 'tooltip', :placement => 'bottom' }, :title => t('.tt_informate') %>
           </div>
           <div class="col-md-4">
             <h2>
               Las iniciativas de <%= data[:name] %> tienen nota <%= data[:data][:nota] %>
             </h2>
             <p><%= t('.tt_evalua') %></p>
-            <%= link_to t('.opinions'), initiatives_path, :class => "btn btn-default", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_evalua') %>
+            <%= link_to t('.opinions'), initiatives_path, :class => "btn btn-default", :data => { :toggle => 'tooltip', :placement => 'bottom' }, :title => t('.tt_evalua') %>
           </div>
           <div class="col-md-4">
             <h2>
               <%= data[:data][:projects] %> proyectos en evaluación en <%= data[:name] %>
             </h2>
             <p>Realiza Observaciones Ciudadanas a proyectos en Evaluación Ambiental</p>
-            <%= link_to t('.inspect'), citizen_obs_path, :class => "btn btn-warning", :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_participa') %>
+            <%= link_to t('.inspect'), citizen_obs_path, :class => "btn btn-warning", :data => { :toggle => 'tooltip', :placement => 'bottom' }, :title => t('.tt_participa') %>
           </div>
         </div>
       </div>
