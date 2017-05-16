@@ -28,7 +28,7 @@
               <%= image_tag i.image.url, :alt => "project image", class:"img-responsive", style:"height: 278px;" %>
             <% end %>
             <% unless i.average("problem").nil? %>
-        			<span class="pull-right text-light"><%= i.average("problem").avg %> / 7 <svg xmlns="https://www.w3.org/2000/svg" width="34" height="33" viewBox="0 0 34 33"><path fill="none" stroke="#ACC74D" d="M23.604 19.633c3.038 4.31 3.496 7.613 3.875 12.034-3.96-1.737-7.296-3.29-10.334-7.6-3.037 4.31-6.372 5.863-10.333 7.6.379-4.421.837-7.723 3.875-12.034-4.914-1.646-6.862-4.252-9.687-7.6 4.194-.995 7.356-1.646 12.27 0 0-5.327 1.662-8.228 3.875-12.033 2.214 3.805 3.846 6.713 3.875 12.033 4.884-1.639 8.077-.995 12.271 0-2.826 3.348-4.773 5.954-9.687 7.6z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+        			<span class="pull-right text-light"><%= i.avg_rating %> / 7 <svg xmlns="https://www.w3.org/2000/svg" width="34" height="33" viewBox="0 0 34 33"><path fill="none" stroke="#ACC74D" d="M23.604 19.633c3.038 4.31 3.496 7.613 3.875 12.034-3.96-1.737-7.296-3.29-10.334-7.6-3.037 4.31-6.372 5.863-10.333 7.6.379-4.421.837-7.723 3.875-12.034-4.914-1.646-6.862-4.252-9.687-7.6 4.194-.995 7.356-1.646 12.27 0 0-5.327 1.662-8.228 3.875-12.033 2.214 3.805 3.846 6.713 3.875 12.033 4.884-1.639 8.077-.995 12.271 0-2.826 3.348-4.773 5.954-9.687 7.6z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
         		<% end %>
             <div class="project-info">
               <h5> <%= i.title %> </h5>
@@ -47,7 +47,7 @@
   </div> <!-- .cd-projects-wrapper -->
 
 
-  <div class="cd-project-content" data-id="project-0">
+  <div class="cd-project-content">
     <div>
       <a href="" class="close cd-img-replace">Close</a>
       <h2></h2>
@@ -58,7 +58,9 @@
 
 
 <script type="text/javascript">
-  function squeezebox_setup(){
+$(function() {
+  // function squeezebox_setup(){
+
     var intro = $('.cd-intro-block'),
     projectsContainer = $('.cd-projects-wrapper'),
     projectsSlider = projectsContainer.children('.cd-slider'),
@@ -84,7 +86,7 @@
       projectsContainer.addClass('projects-visible');
       //animate single project - entrance animation
       setTimeout(function(){
-        showProjectPreview(projectsSlider.children('li').eq(0));
+        showProjectPreview($('.cd-slider').children('li').eq(0));
       }, 200);
     });
 
@@ -97,23 +99,24 @@
     });
 
     //select a single project - open project-content panel
+
     projectsContainer.on('click', '.cd-slider a', function(event) {
       var mq = checkMQ();
       event.preventDefault();
       if( $(this).parent('li').next('li').is('.current') && (mq == 'desktop') ) {
-        prevSides(projectsSlider);
+        prevSides($('.cd-slider'));
       } else if ( $(this).parent('li').prev('li').prev('li').prev('li').is('.current')  && (mq == 'desktop') ) {
-        nextSides(projectsSlider);
+        nextSides($('.cd-slider'));
       } else {
-        var clicked_element = $(this).attr("data-id");
-        var id = clicked_element.replace('project-', '');
+        var id = $(this).attr("data-id");
         var project= $('.cd-project-content');
         $.ajax({
           url: "/posts/" + id,
           dataType: "script"
         })
-        .success(function( msg ) {
+        .done(function( msg ) {
           project.addClass('is-visible');
+          //
           $(".star").each(function() {
             var $readonly = ($(this).attr('data-readonly') == 'true');
             var $half     = ($(this).attr('data-enable-half') == 'true');
@@ -160,6 +163,7 @@
                 function(data) {
                   if(data) {
                     // success code goes here ...
+
                     if ($(_this).attr('data-disable-after-rate') == 'true') {
                       $(_this).raty('set', { readOnly: true, score: score });
                     }
@@ -168,6 +172,7 @@
               }
             });
           });
+          //
         })
         .error(function( msg ) {
           alert( "Data Error");
@@ -183,32 +188,32 @@
 
     //go to next/pre slide - clicking on the next/prev arrow
     sliderNav.on('click', '.next', function(){
-      nextSides(projectsSlider);
+      nextSides($('.cd-slider'));
     });
     sliderNav.on('click', '.prev', function(){
-      prevSides(projectsSlider);
+      prevSides($('.cd-slider'));
     });
 
     //go to next/pre slide - keyboard navigation
     $(document).keyup(function(event){
       var mq = checkMQ();
       if(event.which=='37' &&  intro.hasClass('projects-visible') && !(sliderNav.find('.prev').hasClass('inactive')) && (mq == 'desktop') ) {
-        prevSides(projectsSlider);
+        prevSides($('.cd-slider'));
       } else if( event.which=='39' &&  intro.hasClass('projects-visible') && !(sliderNav.find('.next').hasClass('inactive')) && (mq == 'desktop') ) {
-        nextSides(projectsSlider);
+        nextSides($('.cd-slider'));
       } else if(event.which=='27' && singleProjectContent.hasClass('is-visible')) {
         singleProjectContent.removeClass('is-visible');
       }
     });
 
-    projectsSlider.on('swipeleft', function(){
+    $('.cd-slider').on('swipeleft', function(){
       var mq = checkMQ();
-      if( !(sliderNav.find('.next').hasClass('inactive')) && (mq == 'desktop') ) nextSides(projectsSlider);
+      if( !(sliderNav.find('.next').hasClass('inactive')) && (mq == 'desktop') ) nextSides($('.cd-slider'));
     });
 
-    projectsSlider.on('swiperight', function(){
+    $('.cd-slider').on('swiperight', function(){
       var mq = checkMQ();
-      if ( !(sliderNav.find('.prev').hasClass('inactive')) && (mq == 'desktop') ) prevSides(projectsSlider);
+      if ( !(sliderNav.find('.prev').hasClass('inactive')) && (mq == 'desktop') ) prevSides($('.cd-slider'));
     });
 
     function showProjectPreview(project) {
@@ -228,19 +233,19 @@
     function setSliderContainer() {
       var mq = checkMQ();
       if(mq == 'desktop') {
-        var slides = projectsSlider.children('li'),
+        var slides = $('.cd-slider').children('li'),
         slideWidth = slides.eq(0).width();
         var marginLeft = 0;
-        if (typeof projectsSlider.children('li').eq(1).css('margin-left') !== 'undefined') {
-          marginLeft = Number(projectsSlider.children('li').eq(1).css('margin-left').replace('px', ''))
+        if (typeof $('.cd-slider').children('li').eq(1).css('margin-left') !== 'undefined') {
+          marginLeft = Number($('.cd-slider').children('li').eq(1).css('margin-left').replace('px', ''))
         }
         var sliderWidth = ( slideWidth + marginLeft )*( slides.length + 1 ) + 'px',
-        slideCurrentIndex = projectsSlider.children('li.current').index();
-        projectsSlider.css('width', sliderWidth);
-        ( slideCurrentIndex != 0 ) && setTranslateValue(projectsSlider, (  slideCurrentIndex * (slideWidth + marginLeft) + 'px'));
+        slideCurrentIndex = $('.cd-slider').children('li.current').index();
+        $('.cd-slider').css('width', sliderWidth);
+        ( slideCurrentIndex != 0 ) && setTranslateValue($('.cd-slider'), (  slideCurrentIndex * (slideWidth + marginLeft) + 'px'));
       } else {
-        projectsSlider.css('width', '');
-        setTranslateValue(projectsSlider, 0);
+        $('.cd-slider').css('width', '');
+        setTranslateValue($('.cd-slider'), 0);
       }
       resizing = false;
     }
@@ -326,19 +331,12 @@
     }
 
 
-  }
-  // jQuery(document).ready(function(){
-  //   squeezebox_setup();
-  // });
-  // $( document ).ajaxComplete(function() {
-  //   var projectsContainer = $('.cd-projects-wrapper');
-  //   projectsContainer.off('click', '.cd-slider a', function(event) {});
-  //   squeezebox_setup();
-  // });
 
+  // }
+});
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?sensor=false&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>"></script>
+<script src="//maps.googleapis.com/maps/api/js?sensor=false&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>"></script>
 
 <script type="text/javascript">
   // The latitude and longitude of your business / place
