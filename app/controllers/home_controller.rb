@@ -13,7 +13,7 @@ class HomeController < ApplicationController
       value = evaluation.value unless evaluation.nil?
       @data << { :name => a.name, :data => { :nota => a.posts_average, :certif => value, :projects => projects_count} }
     end
-    if data.size == 0
+    if @data.size == 0
       @data << { :name => "sin datos", :data => { :nota => 0, :certif => 0, :projects => 0} }
     end
 
