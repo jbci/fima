@@ -122,7 +122,7 @@ es:
       id_header: "Id"
       indicator_header: "Indicador"
       area_header: "Comuna"
-      value_header: "Valor"
+      value_header: "Indicador"
     evals_by_indicator:
       indicator_header: "Indicador"
       area_header: "Comuna"

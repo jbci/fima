@@ -120,11 +120,11 @@ en:
       id_header: "Id"
       indicator_header: "Indicator"
       area_header: "Area"
-      value_header: "Value"
+      value_header: "Indicator"
     evals_by_indicator:
       indicator_header: "Indicator"
       area_header: "Area"
-      value_header: "Value"
+      value_header: "Indicator"
   home:
     get_informed:
       select_indicator: "Select Indicator"
