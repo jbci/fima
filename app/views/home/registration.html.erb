@@ -5,6 +5,7 @@
       <h4 class="bajada">Cambia el color de tu comuna ¡Regístrate! </h4>
       <div id="social_logins">
         <% if user_signed_in? %>
+          <p id="notice" style="color:green;"><%= notice %></p>
           <%= render :file => "users/registrations/edit" %>
           <%= link_to t('.close_session'), destroy_user_session_path, :class => "btn btn-danger"  %>
         <% else %>

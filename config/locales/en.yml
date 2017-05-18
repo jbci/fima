@@ -169,6 +169,12 @@ en:
         subject: 'Confirmation Instructions'
       reset_password_instructions:
         subject: 'Reset Password Instructions'
+    sessions:
+      user:
+        login_error: "Invalid Data"
+        signed_out: "Session succesfully closed."
+    omniauth_callbacks:
+      success: "Session succesfully started"
   users:
     sessions:
       new:
