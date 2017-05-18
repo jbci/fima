@@ -6,7 +6,7 @@
       </div>
       <div class="col-md-3">
           <%= form_tag evals_by_indicator_path, :method => :get, :remote => true do |f| %>
-            <%= select_tag :indicator, options_from_collection_for_select(Indicator.all.order(:title), "id", "title", params[:indicator] || ""), include_blank:  t('.select_indicator'), class: "chosen-select", id: "eval_indicator_select", onchange: "$(this).parent('form').submit();" %>
+            <%= select_tag :indicator, options_from_collection_for_select(Indicator.all.sort_by{|i| i.title.downcase}, "id", "title", params[:indicator] || ""), include_blank:  t('.select_indicator'), class: "chosen-select", id: "eval_indicator_select", onchange: "$(this).parent('form').submit();" %>
           <% end %>
       </div>
     </div>
