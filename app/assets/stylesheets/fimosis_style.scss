@@ -60,14 +60,7 @@ hr {
 }
 
 .bajada {
-  margin-top: -20px;
   margin-bottom: 30px;
-}
-
-@media (max-width: 600px) {
-  .bajada {
-    margin-top: 20px;
-  }
 }
 
 .text-width {
@@ -388,6 +381,10 @@ input.boolean {
 
 .cd-project-content div img {
     margin-bottom: 20px;
+}
+
+.text-bg {
+    background: rgba( $grey-six, .7 )
 }
 
 // Observaciones
