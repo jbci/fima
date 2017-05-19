@@ -1,6 +1,6 @@
 <div id="evaluations-content">
 <h1><%= @indicator.title %></h1>
-<h4><%= @indicator.description %></h4>
+<h4><%= @indicator.description.gsub(/\n/, '<br/>').html_safe  %></h4>
 <div class="text-center">
 <div class="number">
   <% if @indicator.number.nil? || @indicator.number == "" %>
@@ -10,7 +10,7 @@
       <span><%= image_tag @indicator.icon %></span></br>
     <% end %>
   <% end %>
-  <h4 class="text-center"> <%= @indicator.explanation %> </h4>
+  <h4 class="text-center"> <%= @indicator.explanation.gsub(/\n/, '<br/>').html_safe %> </h4>
 </div>
 </div>
 

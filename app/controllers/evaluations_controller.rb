@@ -9,7 +9,7 @@ class EvaluationsController < ApplicationController
 
   def evals_by_indicator
     indicator = params[:indicator]
-    @evaluations = Evaluation.where indicator: indicator
+    @evaluations = Evaluation.joins(:area).where(indicator: indicator).order("areas.name asc")
     @indicator = Indicator.find indicator
     respond_to do |format|
       format.html { render :evals_by_indicator }

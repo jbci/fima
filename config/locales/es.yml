@@ -122,7 +122,7 @@ es:
       id_header: "Id"
       indicator_header: "Indicador"
       area_header: "Comuna"
-      value_header: "Valor"
+      value_header: "Indicador"
     evals_by_indicator:
       indicator_header: "Indicador"
       area_header: "Comuna"
@@ -171,6 +171,12 @@ es:
         subject: 'Instrucciones de confirmación'
       reset_password_instructions:
         subject: 'Restablecer Contraseña de municipioverde.cl'
+    sessions:
+      user:
+        login_error: "Datos no válidos"
+        signed_out: "Sesión cerrada correctamente"
+    omniauth_callbacks:
+      success: "Sesion iniciada Correctamente"
   users:
     sessions:
       new:
@@ -181,6 +187,8 @@ es:
         surnames: "Apellidos"
         confirmation: "Confirmación"
       edit:
+        update: "Guardar Cambios"
+        user_data: "Datos de usuario"
         names: "Nombre"
         surnames: "Apellidos"
         confirmation: "Confirmación"
