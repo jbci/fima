@@ -175,6 +175,9 @@ en:
         signed_out: "Session succesfully closed."
     omniauth_callbacks:
       success: "Session succesfully started"
+    registrations:
+      user:
+        signed_up: "Session succesfully started"
   users:
     sessions:
       new:

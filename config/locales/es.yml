@@ -177,6 +177,9 @@ es:
         signed_out: "Sesión cerrada correctamente"
     omniauth_callbacks:
       success: "Sesion iniciada Correctamente"
+    registrations:
+      user:
+        signed_up: "Sesion iniciada Correctamente"
   users:
     sessions:
       new:
