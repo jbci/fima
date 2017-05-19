@@ -29,7 +29,7 @@
 
 		<div>
 		<% unless @post.image.size.nil? %>
-			<%= image_tag @post.image.url %>
+			<%= image_tag @post.image.url, id: "detail_img", class: "centered" %>
 		<% end %>
 		</div>
 
