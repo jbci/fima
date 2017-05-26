@@ -5,10 +5,11 @@
 <div class="number">
   <% if @indicator.number.nil? || @indicator.number == "" %>
   <% else %>
-    <h4 class="text-center"> <%= @indicator.number %> </h4>
+    <h4 class="text-center number"> <%= @indicator.number %>
     <% unless @indicator.icon.size.nil? %>
       <span><%= image_tag @indicator.icon %></span></br>
     <% end %>
+    </h4>
   <% end %>
   <h4 class="text-center"> <%= @indicator.explanation.gsub(/\n/, '<br/>').html_safe %> </h4>
 </div>
