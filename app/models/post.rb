@@ -14,7 +14,7 @@ class Post < ApplicationRecord
     p average
     p "%0.2f" % [average]
     p "average rating of post"
-    average.nan? ? 0 : "%0.2f" % [average]
+    average.nan? ? 0 : "%0.1f" % [average]
   end
 
 end

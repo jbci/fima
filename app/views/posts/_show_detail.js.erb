@@ -2,11 +2,11 @@
 		<a href="" class="close cd-img-replace">Close</a>
 
 		<h1><%= @post.title %>
-		<% unless @post.average("problem").nil? %>
-			<span class="pull-right text-light"><%= @post.avg_rating %> / 7 <svg xmlns="http://www.w3.org/2000/svg" width="34" height="33" viewBox="0 0 34 33"><path fill="none" stroke="#ACC74D" d="M23.604 19.633c3.038 4.31 3.496 7.613 3.875 12.034-3.96-1.737-7.296-3.29-10.334-7.6-3.037 4.31-6.372 5.863-10.333 7.6.379-4.421.837-7.723 3.875-12.034-4.914-1.646-6.862-4.252-9.687-7.6 4.194-.995 7.356-1.646 12.27 0 0-5.327 1.662-8.228 3.875-12.033 2.214 3.805 3.846 6.713 3.875 12.033 4.884-1.639 8.077-.995 12.271 0-2.826 3.348-4.773 5.954-9.687 7.6z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-		<% end %>
 		</h1>
 		<hr></hr>
+		<% unless @post.average("problem").nil? %>
+		<span class="text-right text-light"><%= @post.avg_rating %> / 7.0 <svg xmlns="http://www.w3.org/2000/svg" width="34" height="33" viewBox="0 0 34 33"><path fill="none" stroke="#ACC74D" d="M23.604 19.633c3.038 4.31 3.496 7.613 3.875 12.034-3.96-1.737-7.296-3.29-10.334-7.6-3.037 4.31-6.372 5.863-10.333 7.6.379-4.421.837-7.723 3.875-12.034-4.914-1.646-6.862-4.252-9.687-7.6 4.194-.995 7.356-1.646 12.27 0 0-5.327 1.662-8.228 3.875-12.033 2.214 3.805 3.846 6.713 3.875 12.033 4.884-1.639 8.077-.995 12.271 0-2.826 3.348-4.773 5.954-9.687 7.6z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+		<% end %>
 		<h4><%= @post.body %></h4>
 
 		<% if user_signed_in? %>
