@@ -9,7 +9,7 @@
       <% end %>
       <div class="project-info">
       <% unless i.average("problem").nil? %>
-  			<span class="pull-right text-light"><%= i.avg_rating %> / 7 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18">
+  			<span class="pull-right text-light"><%= i.avg_rating %> / 7.0 <svg xmlns="http://www.w3.org/2000/svg" width="19" height="18" viewBox="0 0 19 18">
         <path fill="none" stroke="#ACC74D" d="M12.625 10.333c1.562 2.269 1.798 4.007 1.993 6.334-2.037-.914-3.752-1.732-5.315-4-1.562 2.268-3.277 3.086-5.314 4 .195-2.327.43-4.065 1.993-6.334-2.528-.866-3.53-2.238-4.982-4 2.157-.524 3.783-.866 6.31 0 0-2.804.855-4.33 1.993-6.333 1.139 2.003 1.978 3.533 1.993 6.333 2.512-.862 4.154-.524 6.31 0-1.453 1.762-2.454 3.134-4.981 4z" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
   		<% end %>
         <h5> <%= i.title %> </h5>

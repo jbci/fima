@@ -10,7 +10,7 @@ class Post < ApplicationRecord
 
   def avg_rating
     average = self.average("problem").avg
-    average.nan? ? 0 : "%0.2f" % [average]
+    average.nan? ? 0 : "%0.1f" % [average]
   end
 
 end
