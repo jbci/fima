@@ -69,7 +69,7 @@ en:
       title: "Environmental Initiatives"
       id_header: "Id"
       title_header: "Title"
-      body_header: "Body"
+      body_header: "Area"
       exists_image_header: "Image"
     areas:
       title: "Areas"

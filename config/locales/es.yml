@@ -71,7 +71,7 @@ es:
       title: "Iniciativas Ambientales"
       id_header: "Id"
       title_header: "Título"
-      body_header: "Texto"
+      body_header: "Comuna"
       exists_image_header: "Imagen"
     areas:
       title: "Areas"
