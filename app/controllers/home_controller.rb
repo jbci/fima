@@ -49,6 +49,9 @@ class HomeController < ApplicationController
   end
 
   def initiatives
+    p "params[:area]"
+    p params[:area]
+    p "params[:area]"
     if params[:area]
       area = Area.find params[:area]
     else

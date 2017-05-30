@@ -6,7 +6,7 @@ class Indicator < ApplicationRecord
 
   has_attached_file :icon
   validates_attachment_content_type :icon, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
-  validates_attachment_size :icon, :less_than => 10.kilobytes
+  validates_attachment_size :icon, :less_than => 100.kilobytes
 
   default_scope { order(created_at: :asc) }
 end
