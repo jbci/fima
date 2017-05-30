@@ -2,11 +2,12 @@
   <%= render 'layouts/side_menu'%>
 </div>
 <div class="wrapper content-right">
-  <h2>Participa en los proyectos abiertos a observaciones ciudadanas</h2>
+  <h1>Participa en los proyectos abiertos a observaciones ciudadanas</h1>
   <h4>Realiza <a href="" data-toggle="modal" data-target="#obs-ciudadanas">Observaciones Ciudadanas</a> a proyectos o actividades en <a href="" data-toggle="modal" data-target="#evaluacion">Evaluación Ambiental</a>. Los proyectos o actividades pueden ingresar por medio de una <a href="" data-toggle="modal" data-target="#dia-eia">DIA o un EIA.</a> Las autoridades están <a href="" data-toggle="modal" data-target="#obligadas">obligadas a considerar tus observaciones</a> para determinar si una actividad o proyecto se ajusta a las normas vigentes.<br>
-    ¿Quieres saber como funciona el procedimiento de observaciones ciudadanas? <a href="" data-toggle="modal" data-target="#infografia"> Presiona aqui! </a>
   </h4>
-  <p>Selecciona tu municipalidad para saber qué proyectos tienen abiertos su proceso de participación ciudadana o en cuáles puedes solicitar que se abra un periodo de observaciones. </p>
+  <p>¿Quieres saber como funciona el procedimiento de observaciones ciudadanas? <a href="" data-toggle="modal" data-target="#infografia"> Presiona aqui! </a></p>
+  <p>Selecciona tu municipalidad para saber qué proyectos tienen abiertos su proceso de participación ciudadana o en cuáles puedes solicitar que se abra un periodo de observaciones.
+  </p>
   <div class="row">
     <div class="col-lg-6">
       <div class="input-group">
@@ -34,7 +35,7 @@
             <% end %>
             <div class="project-info <%= i.mark == true ? 'is_dia' : 'is_eia'%>">
               <% if i.mark == true %>
-                <p class="text-right">Días para solicitar participación ciudadana <%= number_to_spans i.remaining_days %></p>
+                <p class="text-right">Días para solicitar participación<%= number_to_spans i.remaining_days %></p>
               <% else %>
                 <p class="text-right">Días para recibir observaciones <%= number_to_spans i.remaining_days %></p>
               <% end %>
