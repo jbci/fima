@@ -145,6 +145,8 @@ en:
       close_session: "Close Sesion"
       change_color: "Change the colour of your neighborhood ¡Sign up!"
       already_registered: "Already have an account? Sign In"
+    observations:
+      select_area: "Select Area"
   views:
     pagination:
       first: "&laquo; First"
