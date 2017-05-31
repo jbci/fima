@@ -11,7 +11,7 @@
           <%= render 'nav-evalua.html' %>
           <%= t('.opinions') %>
         <% end %>
-        <%= link_to citizen_obs_path, :class => action_name == 'citizen_obs' ? 'nav-link active' : 'nav-link', :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_participa') do %>
+        <%= link_to observations_path, :class => action_name == 'citizen_obs' ? 'nav-link active' : 'nav-link', :data => { :toggle => 'tooltip', :placement => 'right' }, :title => t('.tt_participa') do %>
           <%= render 'nav-participa.html' %>
           <%= t('.inspect') %>
         <% end %>
