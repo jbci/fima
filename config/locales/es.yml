@@ -147,6 +147,8 @@ es:
       close_session: "Cerrar Sesion"
       change_color: "Cambia el color de tu comuna ¡Regístrate!"
       already_registered: "¿Ya tienes cuenta? Adelante"
+    observations:
+      select_area: "Seleccionar Comuna"
   views:
     pagination:
       first: " &laquo; Primero "

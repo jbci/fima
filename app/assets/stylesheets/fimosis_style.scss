@@ -40,6 +40,7 @@ h3 {
   font-size: 4vmin;
   font-weight: 100;
   color: $grey-two;
+  margin-bottom: 2vmin;
 }
 
 h4 {
@@ -62,10 +63,12 @@ hr {
 
 .bajada {
   margin-bottom: 30px;
+  margin-top: -30px;
 }
 
 .text-width {
   max-width: 900px;
+  margin: 0 auto;
 }
 
 a {
@@ -80,6 +83,7 @@ p {
   font-size: 14px;
   color: #AFA5A5;
   line-height: 18px;
+  margin-bottom: 1vmin;
 }
 
 .tooltip {
@@ -104,6 +108,12 @@ p {
 
 .text-light {
   color: $grey-three;
+}
+
+.selector {
+    padding: 3vmin;
+    margin: 3vmin 0;
+    background: white;
 }
 
 @media (max-width: 600px) {
