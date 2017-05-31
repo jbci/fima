@@ -14,7 +14,7 @@
       <% else %>
         <p class="text-right">Días para recibir observaciones <%= number_to_spans i.remaining_days %></p>
       <% end %>
-
+        <hr>
         <h5> <%= i.title %> </h5>
         <p> <%= i.description.truncate(37, :omission => "...más") %> </p>
       </div>
