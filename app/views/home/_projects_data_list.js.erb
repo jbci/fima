@@ -3,9 +3,9 @@
   <li class="<%= (index===0) ? 'current' : '' %>">
     <a href="" data-id="<%= i.id %>" id="post_thumb_<%=i.id %>">
       <% if i.image.size.nil? %>
-        <img src="/assets/img.png" alt="project image" class="img-responsive" style="height: 278px;">
+        <img src="/assets/img.png" alt="project image" class="img-responsive" style="height: 200px;">
       <% else %>
-        <%= image_tag i.image.url, :alt => "project image", class:"img-responsive", style:"height: 278px;" %>
+        <%= image_tag i.image.url, :alt => "project image", class:"img-responsive", style:"height: 200px;" %>
       <% end %>
       <div class="project-info <%= i.mark == true ? 'is_dia' : 'is_eia'%>">
 
