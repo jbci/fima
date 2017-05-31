@@ -8,7 +8,7 @@
       </h4 >
       <div class="selector">
         <p>Selecciona tu municipalidad para saber qué proyectos tienen abiertos su proceso de participación ciudadana o en cuáles puedes solicitar que se abra un periodo de observaciones. </p>
-        <p>¿Quieres saber como funciona el procedimiento de observaciones ciudadanas? <a href="" data-toggle="modal" data-target="#infografia"> Presiona aqui! </a></p>
+        <p>¿Quieres saber cómo funciona el procedimiento de observaciones ciudadanas? <a href="" data-toggle="modal" data-target="#infografia"> ¡Presiona aquí! </a></p>
           <div class="input-group">
             <div id="initiatives_form">
               <%= form_tag citizen_obs_path, :method => :get, remote: true do |f| %>
@@ -28,9 +28,9 @@
         <li class="<%= (index===0) ? 'current' : '' %>">
           <a href="" data-id="<%= i.id %>" id="project_thumb_<%=i.id %>">
             <% if i.image.size.nil? %>
-              <img src="/assets/img.png" alt="project image", class:"img-responsive", style:"height: 278px;">
+              <img src="/assets/img.png" alt="project image", class:"img-responsive", style:"height: 200px;">
             <% else %>
-              <%= image_tag i.image.url, :alt => "project image", class:"img-responsive", style:"height: 278px;" %>
+              <%= image_tag i.image.url, :alt => "project image", class:"img-responsive", style:"height: 200px;" %>
             <% end %>
             <div class="project-info <%= i.mark == true ? 'is_dia' : 'is_eia'%>">
               <% if i.mark == true %>
