@@ -32,6 +32,22 @@ class HomeController < ApplicationController
   def about_us
   end
 
+  def observations
+    if params[:area]
+      area = Area.find params[:area]
+    else
+      area = Area.joins(:projects).where('projects.area_id is not null')
+    end
+
+    date = Project.arel_table[:end_date]
+    @projects = Project.where(date.gt(Date.today - 1)).where(area: area).order(:end_date)
+
+    respond_to do |format|
+      format.html { render :layout => "application_squeeze" }
+      format.js { render :proj_carousel_data }
+    end
+  end
+
   def citizen_obs
     if params[:area]
       area = Area.find params[:area]

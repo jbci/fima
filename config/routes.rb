@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   get 'index', to:'home#index'
   get 'about_us', to:'home#about_us'
   get 'citizen_obs', to:'home#citizen_obs'
+  get 'observations', to:'home#observations'
   get 'get_informed', to:'home#get_informed'
   get 'initiatives', to:'home#initiatives'
   get 'registration', to:'home#registration'
