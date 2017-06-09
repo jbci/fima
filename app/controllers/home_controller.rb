@@ -67,15 +67,13 @@ class HomeController < ApplicationController
   end
 
   def initiatives
-    p "params[:area]"
-    p params[:area]
-    p "params[:area]"
     if params[:area]
       area = Area.find params[:area]
+      @initiatives = Post.where(area: area)
     else
       area = Area.joins(:posts).where('posts.area_id is not null').first
+      @initiatives = nil
     end
-    @initiatives = Post.where(area: area)
 
     respond_to do |format|
       format.html { render :layout => "application_squeeze" }
