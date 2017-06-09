@@ -1,5 +1,5 @@
 <div class="wrapper" id="us">
 <h1 class="light-green"><img src="/assets/logo.svg" alt="Municipio Verde" width="80px">Municipio Verde</h1>
-<h4 class="text-width"> <%= @about_us.gsub(/\n/, '<br/>').html_safe %></h4>
+<h4 class="text-width"> <%= @about_us.gsub(/\n/, '<br/>').html_safe unless @about_us.nil? %></h4>
 <h4 class="text-width"> <a href="http://www.fima.cl/category/quienes-somos/staff/">ONG FIMA</a> </h4>
 </div>
