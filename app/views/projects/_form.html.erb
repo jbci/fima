@@ -20,7 +20,7 @@
             <%= image_tag @project.image.url %>
             <% end %>
 
-            <%= f.association :area, collection: Area.comunas.all,  include_blank: true, input_html: {id: 'project_comuna_dropdown', class: 'chosen-select'}%>
+            <%= f.association :areas, collection: Area.comunas.all,  include_blank: true, input_html: {multiple: true, id: 'project_comuna_dropdown', class: 'chosen-select'}%>
           </div>
 
           <div class="form-actions">

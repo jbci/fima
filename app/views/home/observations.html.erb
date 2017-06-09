@@ -11,8 +11,8 @@
         <p>¿Quieres saber cómo funciona el procedimiento de observaciones ciudadanas? <a href="" data-toggle="modal" data-target="#infografia"> ¡Presiona aquí! </a></p>
           <div class="input-group">
             <div id="initiatives_form">
-              <%= form_tag citizen_obs_path, :method => :get, remote: true do |f| %>
-                <%= select_tag :area, options_from_collection_for_select(Area.joins(:projects).where('projects.area_id is not null').order(:name).distinct, "id", "name", ""), include_blank:  t('.select_area'), class: "chosen-select", id: "projects_area_select", onchange: "$(this).parent('form').submit();"%>
+              <%= form_tag observations_path, :method => :get, remote: true do |f| %>
+                <%= select_tag :area, options_from_collection_for_select(Area.joins(:areas_projects).where('areas_projects.area_id is not null').order(:name).distinct, "id", "name", ""), include_blank:  t('.select_area'), class: "chosen-select", id: "projects_area_select", onchange: "$(this).parent('form').submit();"%>
                 <a href="#0" class='btn btn-primary pull-right' data-action="show-projects" > Ver iniciativas </a>
               <% end %>
             </div>
