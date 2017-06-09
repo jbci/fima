@@ -8,21 +8,21 @@
       <div class="carousel-item <%= "active" if index == 0 %>">
         <div class="row text-center">
           <div class="col-md-4">
-            <h2>La certificación ambiental de <%= data[:name] %> es  <%= data[:data][:certif] %></h2>
+            <h3>La certificación ambiental de <%= data[:name] %> es  <%= data[:data][:certif] %></h3>
             <p><%= t('.tt_informate') %></p>
             <%= link_to t('.get_informed'), get_informed_path, :class => "btn btn-primary", :data => { :toggle => 'tooltip', :placement => 'bottom' }, :title => t('.tt_informate') %>
           </div>
           <div class="col-md-4">
-            <h2>
+            <h3>
               Las iniciativas de <%= data[:name] %> tienen nota <%= data[:data][:nota] %>
-            </h2>
+            </h3>
             <p><%= t('.tt_evalua') %></p>
             <%= link_to t('.opinions'), initiatives_path, :class => "btn btn-default", :data => { :toggle => 'tooltip', :placement => 'bottom' }, :title => t('.tt_evalua') %>
           </div>
           <div class="col-md-4">
-            <h2>
+            <h3>
               <%= data[:data][:projects] %> proyectos en evaluación en <%= data[:name] %>
-            </h2>
+            </h3>
             <p>Realiza Observaciones Ciudadanas a proyectos en Evaluación Ambiental</p>
             <%= link_to t('.inspect'), citizen_obs_path, :class => "btn btn-warning", :data => { :toggle => 'tooltip', :placement => 'bottom' }, :title => t('.tt_participa') %>
           </div>
