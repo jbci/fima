@@ -162,7 +162,9 @@
           </button>
         </div>
         <div class="modal-body">
-          <%= image_tag 'infografia-municipio-verde-4', class: "img-responsive" %>
+          <%= link_to asset_url('infografia-municipio-verde-4'), target: '_blank' do %>
+            <%= image_tag 'infografia-municipio-verde-4', class: "img-responsive" %>
+          <% end %>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
