@@ -86,6 +86,16 @@ class BackendController < ApplicationController
     end
   end
 
+  def configuration
+    @rating = Rating.first
+    respond_to do |format|
+      format.html
+      format.js { @rating.update_attributes(rating_params)
+                  @errors = @rating.errors
+                  render :update}
+    end
+  end
+
   def update
     @rating.update_attributes(rating_params)
     if request.xhr?
@@ -113,7 +123,7 @@ class BackendController < ApplicationController
   end
 
   def rating_params
-    params.require(:rating).permit(:id, :title, :description,
+    params.require(:rating).permit(:id, :title, :description, :nosotros,
                                                 sections_attributes: [:id, :title, :description, :_destroy,
                                                                       indicators_attributes: [:id, :title, :description, :number, :explanation, :icon, :_destroy]
                                                                       ])

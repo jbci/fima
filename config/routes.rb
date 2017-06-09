@@ -32,6 +32,7 @@ Rails.application.routes.draw do
   get 'backend/rating_definition', to:'backend#rating_definition'
   put 'backend/rating_definition', to:'backend#rating_definition'
   get 'backend/users', to:'backend#users'
+  get 'backend/configuration', to:'backend#configuration'
   get 'backend/users.csv', to:'backend#users'
   get 'admin', to:'backend#users'
 

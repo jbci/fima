@@ -30,6 +30,7 @@ class HomeController < ApplicationController
   end
 
   def about_us
+    @about_us = Rating.first.nosotros
   end
 
   def observations
