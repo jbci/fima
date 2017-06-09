@@ -200,7 +200,7 @@ es:
         surnames: "Apellidos"
         confirmation: "Confirmación"
         new_password_change_placeholder: "Dejar en blanco si no desea cambiar su passowrd"
-        password_change_placeholder: "El password actual es necesario para confirmar sus datos."
+        password_change_placeholder: "La contraseña actual es necesaria para confirmar sus datos."
     passwords:
       new:
         forgot_pass_new: "Olvidó su contraseña?"
