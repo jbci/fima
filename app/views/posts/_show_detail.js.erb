@@ -9,6 +9,8 @@
 		<% end %>
 		<h4><%= @post.body %></h4>
 
+		<%= link_to ' + info ', @post.url_link, target: '_blank' %>
+
 		<% if user_signed_in? %>
 		<div class="bg-white">
 			<h2>Evalúa esta iniciativa</h2>

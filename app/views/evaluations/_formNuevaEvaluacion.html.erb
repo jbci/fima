@@ -13,6 +13,7 @@
             <%= f.collection_select(:indicator_id, Indicator.all.order(:title), :id, :title, {prompt: 'Seleccione Indicador'}, {'id' => 'evaluation_indicator_dropdown','class' => 'chosen-select form-control'}) %>
             <%= f.collection_select(:area_id, Area.comunas.all.order(:name), :id, :name, {prompt: 'Seleccione comuna'}, {'id' => 'post_comuna_dropdown','class' => 'chosen-select form-control'}) %>
             <%= f.input :value %>
+            <%= f.input :url_link %>
           </div>
 
           <div class="form-actions">

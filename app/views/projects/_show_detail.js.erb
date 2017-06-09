@@ -16,9 +16,11 @@
 		<h4><%= @project.description %></h4>
 
 		<div>
-		<% unless @project.image.size.nil? %>
-			<%= image_tag @project.image.url %>
-		<% end %>
+			<%= link_to  ' + info ', @project.url_link, target: '_blank' %>
+
+			<% unless @project.image.size.nil? %>
+				<%= image_tag @project.image.url %>
+			<% end %>
 		</div>
 
 </div>

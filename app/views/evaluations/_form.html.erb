@@ -14,6 +14,7 @@
           <%= f.association :indicator, collection: Indicator.all.order(:title),  include_blank: true, input_html: {id: 'evaluation_evaluation_dropdown', class: 'chosen-select form-control'}%>
           <!-- <%= f.input :visible %>/ -->
           <%= f.input :value %>
+          <%= f.input :url_link %>
           </div>
 
           <div class="form-actions">

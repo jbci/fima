@@ -12,6 +12,7 @@
             <%= f.input :title %>
             <%= f.input :body, as: :text %>
             <%= f.input :image %>
+            <%= f.input :url_link %>
             <% unless @post.image.size.nil? %>
             <%= image_tag @post.image.url %>
             <% end %>
