@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170609192541) do
+ActiveRecord::Schema.define(version: 20170612093558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -141,6 +141,7 @@ ActiveRecord::Schema.define(version: 20170609192541) do
     t.datetime "image_updated_at"
     t.boolean  "mark"
     t.string   "url_link"
+    t.date     "end_date_2"
     t.index ["project_type_id"], name: "index_projects_on_project_type_id", using: :btree
   end
 

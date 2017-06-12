@@ -4,7 +4,11 @@
 				<hr></hr>
 				<% if @project.mark == true %>
 	        <p class="counter-wrapper">
-						Días para solicitar participación  <%= number_to_spans @project.remaining_days %>
+						Días para solicitar observaciones  <%= number_to_spans @project.remaining_days %>
+						<% unless @project.end_date_2.nil? %>
+							<br>
+							Días para realizar observaciones  <%= number_to_spans @project.remaining_days_2 %>
+						<% end %>
 						<a href="https://drive.google.com/open?id=0B5D5lXUFnFJselRUSzFVNzFsVjQ" target="_blank" class="btn btn-primary pull-right">¡Participa Ya!</a>
 						</p>
 	      <% else %>

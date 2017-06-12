@@ -42,7 +42,7 @@ class HomeController < ApplicationController
 
     date = Project.arel_table[:end_date]
     # @projects = Project.where(date.gt(Date.today - 1)).where(area: area).order(:end_date)
-    @projects = area.projects.where(date.gt(Date.today - 1)).order(:end_date)
+    @projects = area.projects.order(:end_date)
 
     respond_to do |format|
       format.html { render :layout => "application_squeeze" }
@@ -58,7 +58,7 @@ class HomeController < ApplicationController
     end
 
     date = Project.arel_table[:end_date]
-    @projects = Project.where(date.gt(Date.today - 1)).where(area: area).order(:end_date)
+    @projects = Project.where(area: area).order(:end_date)
 
     respond_to do |format|
       format.html { render :layout => "application_squeeze" }
