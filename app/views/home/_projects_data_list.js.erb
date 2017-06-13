@@ -10,7 +10,10 @@
       <div class="project-info <%= i.mark == true ? 'is_dia' : 'is_eia'%>">
 
       <% if i.mark == true %>
-        <p class="text-right">Días para solicitar participación  <%= number_to_spans i.remaining_days %></p>
+        <p class="text-right">Días para solicitar observaciones  <%= number_to_spans i.remaining_days %></p>
+        <% unless i.end_date_2.nil? %>
+          <p class="text-right">Días para realizar observaciones  <%= number_to_spans i.remaining_days_2 %></p>
+        <% end %>
       <% else %>
         <p class="text-right">Días para recibir observaciones <%= number_to_spans i.remaining_days %></p>
       <% end %>

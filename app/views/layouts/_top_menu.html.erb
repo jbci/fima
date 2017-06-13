@@ -18,6 +18,9 @@
     <%= link_to t('.areas'), backend_areas_path, :class => action_name == 'areas' ? 'nav-link active' : 'nav-link' %>
   </li>
   <li class="nav-item">
+    <%= link_to 'Config', backend_configuration_path, :class => action_name == 'areas' ? 'nav-link active' : 'nav-link' %>
+  </li>
+  <li class="nav-item">
     <%= link_to t('.exit'), destroy_admin_session_path, :class => 'nav-link' %>
   </li>
 </ul>
