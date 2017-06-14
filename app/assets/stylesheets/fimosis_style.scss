@@ -60,6 +60,7 @@ h4 {
 h5 {
   font-size: 18px;
   color: $grey-one;
+  line-height: 5vmin;
 }
 
 hr {
@@ -413,6 +414,10 @@ input.boolean {
 
 .bg-white h4 {
   margin-bottom: 4px;
+}
+
+svg#i-arrow-right {
+    margin-bottom: -6px;
 }
 
 // Iniciativas
