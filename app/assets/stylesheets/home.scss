@@ -300,6 +300,7 @@ Projects Slider
     transform: translateZ(0);
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
+    width: 5000px;
   }
   .cd-slider::after {
     clear: both;
