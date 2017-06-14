@@ -26,7 +26,7 @@ h1 {
   font-size: calc(13px + 6vmin);
   font-weight: 100;
   line-height: 9vmin;
-  margin-bottom: 3vmin;
+  margin-bottom: 6vmin;
 }
 
 h2 {
@@ -41,6 +41,12 @@ h3 {
   font-weight: 100;
   color: $grey-one;
   margin-bottom: 2vmin;
+}
+
+@media (max-width: 600px) {
+  h3 {
+    font-size: 6vmin;
+  }
 }
 
 h4 {
@@ -141,8 +147,21 @@ p {
   color: $grey-one;
 }
 
+@media (max-width: 600px) {
+  .number {
+    font-size: 15vmin;
+    margin-bottom: 30px;
+  }
+}
+
 .number img {
     margin: 0px 0px -20px;
+}
+
+@media (max-width:600px) {
+  .number img {
+    max-width: 100px;
+  }
 }
 
 // Btn
@@ -186,6 +205,7 @@ p {
 
 .border {
   border-right: 1px solid $grey-five;
+  margin-bottom: 15vmin;
 }
 
 // Nav
@@ -260,11 +280,21 @@ p {
   padding: 0.75rem 30px;
 }
 
+@media (max-width: 600px) {
+  .table th, .table td {
+    padding: 4vmin;
+  }
+}
+
 // Form
 
 .form-group {
   line-height: 42px;
   margin: 40px 0;
+}
+
+.form-control {
+  margin-bottom: 5px;
 }
 
 label {
@@ -404,11 +434,11 @@ input.boolean {
 
 .counter {
   background: $grey-one;
-  padding: 1px 9px 2px 5px;
+  padding: 0px 4px 2px 2px;
   font-weight: 600;
   color: white;
   margin: 0 1px;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
 .counter-wrapper {
@@ -466,4 +496,9 @@ input.boolean {
 
 .footer img {
     margin: 10px 0;
+}
+
+.logo {
+    max-width: 70%;
+    margin: 6px auto;
 }

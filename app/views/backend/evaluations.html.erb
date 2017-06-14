@@ -8,7 +8,7 @@
         <div id="eval_indicator_form">
           <%= form_tag backend_evaluations_path, :method => :get, remote: true do |f| %>
             <!-- <%= select_tag :section, options_from_collection_for_select(Section.all, "id", "title", params[:section] || ""), prompt: "Seleccionar Sección", class: "chosen-select" %> -->
-            <%= select_tag :indicator, options_from_collection_for_select(Indicator.all, "id", "title", params[:indicator] || ""), include_blank:  t('.select_indicator'), class: "chosen-select", id: "eval_indicator_select"%>
+            <%= select_tag :indicator, options_from_collection_for_select(Indicator.all, "id", "title", params[:indicator] || ""), include_blank:  t('.select_indicator'), class: "chosen-select form-control", id: "eval_indicator_select"%>
             <%= select_tag :area, options_from_collection_for_select(Area.comunas.all, "id", "name", params[:area] || ""), include_blank:  t('.select_area'), class: "chosen-select", id: "eval_area_select"%>
             <%= submit_tag t('.filter'), class: "btn", id:"eval_form_button" %>
           <% end %>

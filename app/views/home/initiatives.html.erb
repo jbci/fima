@@ -11,7 +11,7 @@
           <div id="initiatives_form" class="">
             <%= form_tag initiatives_path, :method => :get, remote: true, :id=>'i_form' do |f| %>
               <div class="pull-left">
-                <%= select_tag :area, options_from_collection_for_select(Area.joins(:posts).where('posts.area_id is not null').order(:name).distinct, "id", "name", ""), include_blank:  t('.select_area'), class: "chosen-select", id: "initiatives_area_select", onchange: "$('#i_form').submit();"%>
+                <%= select_tag :area, options_from_collection_for_select(Area.joins(:posts).where('posts.area_id is not null').order(:name).distinct, "id", "name", ""), include_blank:  t('.select_area'), class: "chosen-select form-control", id: "initiatives_area_select", onchange: "$('#i_form').submit();"%>
               </div>
               <a href="#0" class='btn btn-primary' data-action="show-projects" >Ver iniciativas</a>
             <% end %>
@@ -23,7 +23,7 @@
 </div>
 
   <div class="cd-projects-wrapper">
-    <ul class="cd-slider" style="width:5088px;">
+    <ul class="cd-slider" style="transform: translateX(0px);">
       <% unless @initiatives.nil? %>
         <% @initiatives.each_with_index do |i, index|%>
         <li class="<%= (index===0) ? 'current' : '' %>">
