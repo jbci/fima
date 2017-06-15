@@ -41,13 +41,17 @@ class User < ApplicationRecord
   end
 
   def self.to_csv
-    attributes = %w{id email names surnames area_of_residence_id area_of_interest_id provider sign_in_count created_at  last_sign_in_at}
+    attributes = %w{id email names surnames provider sign_in_count created_at  last_sign_in_at}
 
     CSV.generate(headers: true) do |csv|
       csv << attributes
 
       all.each do |user|
-        csv << attributes.map{ |attr| user.send(attr) }
+        interest= Area.find(user.area_of_interest_id).name unless user.area_of_interest_id.nil?
+        residence= Area.find(user.area_of_residence_id).name  unless user.area_of_residence_id.nil?
+        # p attributes.map{ |attr| user.send(attr) } << residence << interest
+        data = attributes.map{ |attr| user.send(attr) } << residence << interest
+        csv << data
       end
     end
   end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170509194058) do
+ActiveRecord::Schema.define(version: 20170612093558) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,13 @@ ActiveRecord::Schema.define(version: 20170509194058) do
     t.index ["parent_id"], name: "index_areas_on_parent_id", using: :btree
   end
 
+  create_table "areas_projects", id: false, force: :cascade do |t|
+    t.integer "area_id"
+    t.integer "project_id"
+    t.index ["area_id"], name: "index_areas_projects_on_area_id", using: :btree
+    t.index ["project_id"], name: "index_areas_projects_on_project_id", using: :btree
+  end
+
   create_table "average_caches", force: :cascade do |t|
     t.integer  "rater_id"
     t.string   "rateable_type"
@@ -68,6 +75,7 @@ ActiveRecord::Schema.define(version: 20170509194058) do
     t.string   "value"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.string   "url_link"
     t.index ["area_id"], name: "index_evaluations_on_area_id", using: :btree
     t.index ["indicator_id"], name: "index_evaluations_on_indicator_id", using: :btree
   end
@@ -105,6 +113,7 @@ ActiveRecord::Schema.define(version: 20170509194058) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.string   "url_link"
     t.index ["area_id"], name: "index_posts_on_area_id", using: :btree
   end
 
@@ -125,9 +134,9 @@ ActiveRecord::Schema.define(version: 20170509194058) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.integer  "area_id"
     t.boolean  "mark"
-    t.index ["area_id"], name: "index_projects_on_area_id", using: :btree
+    t.string   "url_link"
+    t.date     "end_date_2"
     t.index ["project_type_id"], name: "index_projects_on_project_type_id", using: :btree
   end
 
@@ -159,6 +168,7 @@ ActiveRecord::Schema.define(version: 20170509194058) do
     t.datetime "updated_at",  null: false
     t.string   "title"
     t.string   "description"
+    t.string   "nosotros"
   end
 
   create_table "sections", force: :cascade do |t|
@@ -199,7 +209,6 @@ ActiveRecord::Schema.define(version: 20170509194058) do
   add_foreign_key "evaluations", "indicators"
   add_foreign_key "indicators", "sections"
   add_foreign_key "posts", "areas"
-  add_foreign_key "projects", "areas"
   add_foreign_key "projects", "project_types"
   add_foreign_key "sections", "ratings"
   add_foreign_key "users", "areas", column: "area_of_interest_id"

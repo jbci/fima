@@ -9,12 +9,8 @@ class Post < ApplicationRecord
   ratyrate_rateable "problem", "implementation"
 
   def avg_rating
-    p "average rating of post"
     average = self.average("problem").avg
-    p average
-    p "%0.2f" % [average]
-    p "average rating of post"
-    average.nan? ? 0 : "%0.2f" % [average]
+    average.nan? ? 0 : "%0.1f" % [average]
   end
 
 end

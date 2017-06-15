@@ -1,7 +1,7 @@
 <tr id="project_<%= project.id %>">
   <td><%= project.id %></td>
   <td><%= project.title %></td>
-  <td><%= project.description %></td>
+  <td><%= project.description.truncate(100, :omission => "...más") %></td>
   <td><%= project.end_date %></td>
   <td><%= project.mark %></td>
   <td><%= link_to 'Edit', edit_project_path(project), remote: true %></td>

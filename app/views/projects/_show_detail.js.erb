@@ -4,7 +4,11 @@
 				<hr></hr>
 				<% if @project.mark == true %>
 	        <p class="counter-wrapper">
-						Días para solicitar participación ciudadana <%= number_to_spans @project.remaining_days %>
+						Días para solicitar observaciones  <%= number_to_spans @project.remaining_days %>
+						<% unless @project.end_date_2.nil? %>
+							<br>
+							Días para realizar observaciones  <%= number_to_spans @project.remaining_days_2 %>
+						<% end %>
 						<a href="https://drive.google.com/open?id=0B5D5lXUFnFJselRUSzFVNzFsVjQ" target="_blank" class="btn btn-primary pull-right">¡Participa Ya!</a>
 						</p>
 	      <% else %>
@@ -13,12 +17,21 @@
 						<a href="https://drive.google.com/open?id=0B5D5lXUFnFJsSkRnTC1VdkM5WjA" target="_blank" class="btn btn-primary pull-right">¡Participa Ya!</a>
 					</p>
 	      <% end %>
-		<h4><%= @project.description %></h4>
+		<h4>
+		<%= @project.description %>
+		<% unless @project.url_link.nil? %>
+		<td><a href="<%= @project.url_link %>" target="_blank">Más info
+		<svg id="i-arrow-right" viewBox="0 0 32 32" width="32" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+		<path d="M22 6 L30 16 22 26 M30 16 L2 16" />
+		</svg></a></td>
+		<% end %>
+		</h4>
 
 		<div>
-		<% unless @project.image.size.nil? %>
-			<%= image_tag @project.image.url %>
-		<% end %>
+
+			<% unless @project.image.size.nil? %>
+				<%= image_tag @project.image.url %>
+			<% end %>
 		</div>
 
 </div>

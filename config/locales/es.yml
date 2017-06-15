@@ -71,7 +71,7 @@ es:
       title: "Iniciativas Ambientales"
       id_header: "Id"
       title_header: "Título"
-      body_header: "Texto"
+      body_header: "Comuna"
       exists_image_header: "Imagen"
     areas:
       title: "Areas"
@@ -145,6 +145,10 @@ es:
       select_area: "Seleccionar Comuna"
     registration:
       close_session: "Cerrar Sesion"
+      change_color: "Cambia el color de tu comuna ¡Regístrate!"
+      already_registered: "¿Ya tienes cuenta? Adelante"
+    observations:
+      select_area: "Seleccionar Comuna"
   views:
     pagination:
       first: " &laquo; Primero "
@@ -177,6 +181,9 @@ es:
         signed_out: "Sesión cerrada correctamente"
     omniauth_callbacks:
       success: "Sesion iniciada Correctamente"
+    registrations:
+      user:
+        signed_up: "Sesion iniciada Correctamente"
   users:
     sessions:
       new:
@@ -193,4 +200,8 @@ es:
         surnames: "Apellidos"
         confirmation: "Confirmación"
         new_password_change_placeholder: "Dejar en blanco si no desea cambiar su passowrd"
-        password_change_placeholder: "El password actual es necesario para confirmar sus datos."
+        password_change_placeholder: "La contraseña actual es necesaria para confirmar sus datos."
+    passwords:
+      new:
+        forgot_pass_new: "Olvidó su contraseña?"
+        send_me_reset: "Recibir instrucciones para cambiar la contraseña"

@@ -13,12 +13,13 @@ Rails.application.routes.draw do
   get 'area_level/new_child/:area_level_id', to:'area_levels#new_child', as: 'new_area_level_child'
   devise_for :admins
   # get 'home/index'
-  root to: "home#cover"
+  root to: "home#index"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   get 'index', to:'home#index'
   get 'about_us', to:'home#about_us'
   get 'citizen_obs', to:'home#citizen_obs'
+  get 'observations', to:'home#observations'
   get 'get_informed', to:'home#get_informed'
   get 'initiatives', to:'home#initiatives'
   get 'registration', to:'home#registration'
@@ -31,6 +32,7 @@ Rails.application.routes.draw do
   get 'backend/rating_definition', to:'backend#rating_definition'
   put 'backend/rating_definition', to:'backend#rating_definition'
   get 'backend/users', to:'backend#users'
+  get 'backend/configuration', to:'backend#configuration'
   get 'backend/users.csv', to:'backend#users'
   get 'admin', to:'backend#users'
 

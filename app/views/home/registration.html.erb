@@ -2,7 +2,7 @@
   <h1>Registro</h1>
   <div class="row">
     <div class="col-md-6 border">
-      <h4 class="bajada">Cambia el color de tu comuna ¡Regístrate! </h4>
+      <h4 class="bajada"><%= t('.change_color') %></h4>
       <div id="social_logins">
         <% if user_signed_in? %>
           <p id="notice" style="color:green;"><%= notice %></p>
@@ -20,7 +20,7 @@
       <% if user_signed_in? %>
         <!-- <div>Signed in as... <%= current_user.names %> | <%= link_to "Sign out", destroy_user_session_path %> </div> -->
       <% else %>
-        <h4 class="bajada">¿Ya tienes cuenta? Adelante</h4>
+        <h4 class="bajada"><%= t('.already_registered') %></h4>
         <%= link_to "Entra con Google", user_google_oauth2_omniauth_authorize_path, :class => "btn btn-primary"  %>
         <%= link_to "Entra con Facebook", user_facebook_omniauth_authorize_path, :class => "btn btn-primary"  %>
         <!-- <%= link_to "Sign in with email", new_user_session_path %> -->

@@ -1,4 +1,5 @@
 <tr id="evaluation_<%= evaluation.id %>">
   <td><%= evaluation.area.name unless evaluation.area.nil? %></td>
   <td><%= evaluation.value unless evaluation.nil? %></td>
+  <td><%= link_to  ' + info ', evaluation.url_link, target: '_blank' unless evaluation.url_link.nil? %></td>
 </tr>

@@ -1,20 +1,23 @@
-<ul class="cd-slider-2">
+<ul class="cd-slider"  style="transform: translateX(0px);">
   <% @projects.each_with_index do |i, index|%>
   <li class="<%= (index===0) ? 'current' : '' %>">
     <a href="" data-id="<%= i.id %>" id="post_thumb_<%=i.id %>">
       <% if i.image.size.nil? %>
-        <img src="/assets/img.png" alt="project image" class="img-responsive" style="height: 278px;">
+        <img src="/assets/img.png" alt="project image" class="img-responsive" style="height: 200px;">
       <% else %>
-        <%= image_tag i.image.url, :alt => "project image", class:"img-responsive", style:"height: 278px;" %>
+        <%= image_tag i.image.url, :alt => "project image", class:"img-responsive", style:"height: 200px;" %>
       <% end %>
       <div class="project-info <%= i.mark == true ? 'is_dia' : 'is_eia'%>">
 
       <% if i.mark == true %>
-        <p class="text-right">Días para solicitar participación ciudadana <%= number_to_spans i.remaining_days %></p>
+        <p class="text-right">Días para solicitar observaciones  <%= number_to_spans i.remaining_days %></p>
+        <% unless i.end_date_2.nil? %>
+          <p class="text-right">Días para realizar observaciones  <%= number_to_spans i.remaining_days_2 %></p>
+        <% end %>
       <% else %>
         <p class="text-right">Días para recibir observaciones <%= number_to_spans i.remaining_days %></p>
       <% end %>
-
+        <hr>
         <h5> <%= i.title %> </h5>
         <p> <%= i.description.truncate(37, :omission => "...más") %> </p>
       </div>

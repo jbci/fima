@@ -26,32 +26,41 @@ h1 {
   font-size: calc(13px + 6vmin);
   font-weight: 100;
   line-height: 9vmin;
+  margin-bottom: 6vmin;
 }
 
 h2 {
   font-size: 5vmin;
   font-weight: 100;
-  line-height: 4.5vmin;
+  line-height: 5vmin;
   color: #403939;
 }
 
 h3 {
   font-size: 4vmin;
   font-weight: 100;
-  color: $grey-two;
+  color: $grey-one;
+  margin-bottom: 2vmin;
+}
+
+@media (max-width: 600px) {
+  h3 {
+    font-size: 6vmin;
+  }
 }
 
 h4 {
-  font-size: calc(13px + 1.5vmin);
+  font-size: calc(14px + 1vmin);
   font-weight: 400;
-  color: $grey-three;
-  line-height: calc(13px + 2.5vmin);
+  color: #AFA5A5;
+  line-height: calc(13px + 2vmin);
   margin-bottom: 30px;
 }
 
 h5 {
   font-size: 18px;
   color: $grey-one;
+  line-height: 5vmin;
 }
 
 hr {
@@ -60,18 +69,13 @@ hr {
 }
 
 .bajada {
-  margin-top: -20px;
-  margin-bottom: 30px;
-}
-
-@media (max-width: 600px) {
-  .bajada {
-    margin-top: 20px;
-  }
+  margin-bottom: 3vmin;
+  margin-top: -3vmin;
 }
 
 .text-width {
   max-width: 900px;
+  margin: 0 auto;
 }
 
 a {
@@ -86,6 +90,7 @@ p {
   font-size: 14px;
   color: #AFA5A5;
   line-height: 18px;
+  margin-bottom: 1vmin;
 }
 
 .tooltip {
@@ -112,6 +117,12 @@ p {
   color: $grey-three;
 }
 
+.selector {
+    padding: 3vmin;
+    margin: 3vmin 0;
+    background: white;
+}
+
 @media (max-width: 600px) {
   .content-right {
     margin-left: 88px;
@@ -134,10 +145,24 @@ p {
   font-size: 144px;
   font-weight: 100;
   margin-bottom: 80px;
+  color: $grey-one;
+}
+
+@media (max-width: 600px) {
+  .number {
+    font-size: 15vmin;
+    margin-bottom: 30px;
+  }
 }
 
 .number img {
     margin: 0px 0px -20px;
+}
+
+@media (max-width:600px) {
+  .number img {
+    max-width: 100px;
+  }
 }
 
 // Btn
@@ -181,6 +206,7 @@ p {
 
 .border {
   border-right: 1px solid $grey-five;
+  margin-bottom: 15vmin;
 }
 
 // Nav
@@ -255,11 +281,21 @@ p {
   padding: 0.75rem 30px;
 }
 
+@media (max-width: 600px) {
+  .table th, .table td {
+    padding: 4vmin;
+  }
+}
+
 // Form
 
 .form-group {
   line-height: 42px;
   margin: 40px 0;
+}
+
+.form-control {
+  margin-bottom: 5px;
 }
 
 label {
@@ -306,6 +342,7 @@ input.boolean {
     box-shadow: none;
     color: $grey-one;
     margin-right: 5px;
+    background: white;
 }
 
 .chosen-container-single .chosen-single div b {
@@ -338,7 +375,7 @@ input.boolean {
   background-position-x: -3%;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 700px) {
   #home {
     background-image: none;
   }
@@ -379,6 +416,10 @@ input.boolean {
   margin-bottom: 4px;
 }
 
+svg#i-arrow-right {
+    margin-bottom: -6px;
+}
+
 // Iniciativas
 
 .cd-project-content .bg-white {
@@ -390,15 +431,19 @@ input.boolean {
     margin-bottom: 20px;
 }
 
+.text-bg {
+    background: rgba( $grey-six, .7 )
+}
+
 // Observaciones
 
 .counter {
-  padding: 1px 5px 2px 4px;
+  background: $grey-one;
+  padding: 0px 4px 2px 2px;
   font-weight: 600;
   color: white;
-  margin: 1px;
-  background: $grey-one;
-  border-radius: 4px;
+  margin: 0 1px;
+  border-radius: 2px;
 }
 
 .counter-wrapper {
@@ -434,6 +479,10 @@ input.boolean {
     }
 }
 
+#detail_img.centered {
+    display: block;
+    margin: auto;
+}
 
 // Footer
 
@@ -446,10 +495,15 @@ input.boolean {
     color: $light-green;
 }
 
-.footer p {
+.footer p.padding-top {
     margin-top: 40px;
 }
 
 .footer img {
     margin: 10px 0;
+}
+
+.logo {
+    max-width: 70%;
+    margin: 6px auto;
 }

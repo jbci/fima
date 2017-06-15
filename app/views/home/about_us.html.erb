@@ -1,4 +1,5 @@
 <div class="wrapper" id="us">
 <h1 class="light-green"><img src="/assets/logo.svg" alt="Municipio Verde" width="80px">Municipio Verde</h1>
-<h4 class="text-width">Municipio Verde es un proyecto elaborado en la <a href="http://www.fima.cl/category/quienes-somos/staff/">ONG FIMA</a> que tiene por objetivo mejorar la gestión ambiental participativa y fortalecer la democracia ambiental de los gobiernos locales de Chile. Trabajamos en equipo día a día para cambiar el color de las municipalidades del país.</h4>
+<h4 class="text-width"> <%= @about_us.gsub(/\n/, '<br/>').html_safe unless @about_us.nil? %></h4>
+<h4 class="text-width"> <a href="http://www.fima.cl/category/quienes-somos/staff/">ONG FIMA</a> </h4>
 </div>

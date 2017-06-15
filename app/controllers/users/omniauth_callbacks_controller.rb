@@ -54,11 +54,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def failure
-    p "google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2"
-    p request.env["omniauth"]
-    p "google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2google_oauth2"
-    p request.env["omniauth.auth"]
-    flash[:notice] = "oauth2 error"
+    flash[:notice] = "Error de autenticación externa"
     redirect_to registration_path
   end
 end

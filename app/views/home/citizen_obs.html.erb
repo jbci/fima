@@ -2,9 +2,14 @@
   <%= render 'layouts/side_menu'%>
 </div>
 <div class="wrapper content-right">
-  <h1>Participa en los proyectos abiertos a observaciones ciudadanas</h1>
-  <h4>Realiza <a href="" data-toggle="modal" data-target="#obs-ciudadanas">Observaciones Ciudadanas</a> a proyectos o actividades en <a href="" data-toggle="modal" data-target="#evaluacion">Evaluación Ambiental</a>. Los proyectos o actividades pueden ingresar por medio de una <a href="" data-toggle="modal" data-target="#dia-eia">DIA o un EIA.</a> Las autoridades están <a href="" data-toggle="modal" data-target="#obligadas">obligadas a considerar tus observaciones</a> para determinar si una actividad o proyecto se ajusta a las normas vigentes.</h4>
-  <p>Selecciona tu municipalidad para saber qué proyectos tienen abiertos su proceso de participación ciudadana o en cuáles puedes solicitar que se abra un periodo de observaciones. </p>
+  <div class="text-width">
+    <h1>Participa en los proyectos abiertos a observaciones ciudadanas</h1>
+    <h4>Realiza <a href="" data-toggle="modal" data-target="#obs-ciudadanas">Observaciones Ciudadanas</a> a proyectos o actividades en <a href="" data-toggle="modal" data-target="#evaluacion">Evaluación Ambiental</a>. Los proyectos o actividades pueden ingresar por medio de una <a href="" data-toggle="modal" data-target="#dia-eia">DIA o un EIA.</a> Las autoridades están <a href="" data-toggle="modal" data-target="#obligadas">obligadas a considerar tus observaciones</a> para determinar si una actividad o proyecto se ajusta a las normas vigentes.<br>
+    </h4>
+    <p>¿Quieres saber como funciona el procedimiento de observaciones ciudadanas? <a href="" data-toggle="modal" data-target="#infografia"> Presiona aqui! </a></p>
+    <p>Selecciona tu municipalidad para saber qué proyectos tienen abiertos su proceso de participación ciudadana o en cuáles puedes solicitar que se abra un periodo de observaciones.
+    </p>
+  </div>
   <div class="row">
     <div class="col-lg-6">
       <div class="input-group">
@@ -13,26 +18,28 @@
             <%= select_tag :area, options_from_collection_for_select(Area.joins(:projects).where('projects.area_id is not null').order(:name).distinct, "id", "name", ""), include_blank:  t('.select_area'), class: "chosen-select", id: "projects_area_select", onchange: "$(this).parent('form').submit();"%>
           <% end %>
         </div>
+        <a href="#0" class='btn btn-primary' data-action="show-projects" > Ver iniciativas </a>
       </div>
     </div>
   </div>
+</div>
   <!-- <% @projects.each do |project| %>
   <%= project.title %> <br>
   <% end %> -->
-  <div class="cd-projects-wrapper-2">
-    <ul class="cd-slider-2">
+  <div class="cd-projects-wrapper">
+    <ul class="cd-slider">
       <% unless @projects.nil? %>
         <% @projects.each_with_index do |i, index|%>
         <li class="<%= (index===0) ? 'current' : '' %>">
           <a href="" data-id="<%= i.id %>" id="project_thumb_<%=i.id %>">
             <% if i.image.size.nil? %>
-              <img src="/assets/img.png" alt="project image", class:"img-responsive", style:"height: 278px;">
+              <img src="/assets/img.png" alt="project image", class:"img-responsive", style:"height: 200px;">
             <% else %>
-              <%= image_tag i.image.url, :alt => "project image", class:"img-responsive", style:"height: 278px;" %>
+              <%= image_tag i.image.url, :alt => "project image", class:"img-responsive", style:"height: 200px;" %>
             <% end %>
             <div class="project-info <%= i.mark == true ? 'is_dia' : 'is_eia'%>">
               <% if i.mark == true %>
-                <p class="text-right">Días para solicitar participación ciudadana <%= number_to_spans i.remaining_days %></p>
+                <p class="text-right">Días para solicitar participación  <%= number_to_spans i.remaining_days %></p>
               <% else %>
                 <p class="text-right">Días para recibir observaciones <%= number_to_spans i.remaining_days %></p>
               <% end %>
@@ -46,7 +53,7 @@
       <% end %>
     </ul>
 
-    <ul class="cd-slider-2-navigation cd-img-replace">
+    <ul class="cd-slider-navigation cd-img-replace">
       <li><a href="#0" class="prev inactive">Prev</a></li>
       <li><a href="#0" class="next">Next</a></li>
     </ul> <!-- .cd-slider-navigation -->
@@ -150,18 +157,39 @@
   </div>
 </div>
 
-<script type="text/javascript">
-  function squeezebox_setup(){
-    var intro = $('.cd-intro-block'),
-    projectsContainer = $('.cd-projects-wrapper-2'),
-    projectsSlider = projectsContainer.children('.cd-slider-2'),
-    singleProjectContent = $('.cd-project-content'),
-    sliderNav = $('.cd-slider-2-navigation');
+<!-- Infografia-->
+<div class="modal fade bd-example-modal-lg" id="infografia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Procedimiento de observaciones ciudadanas</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= image_tag 'infografia-municipio-verde-4', class: "img-responsive" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-    projectsContainer.addClass('projects-visible');
-    setTimeout(function(){
-      showProjectPreview(projectsSlider.children('li').eq(0));
-    }, 200);
+<script type="text/javascript">
+$(function() {
+  // function squeezebox_setup(){
+  // projectsContainer = $('.cd-projects-wrapper'),
+  // projectsSlider = projectsContainer.children('.cd-slider-2'),
+  // singleProjectContent = $('.cd-project-content'),
+  // sliderNav = $('.cd-slider-2-navigation');
+
+    var intro = $('.cd-intro-block'),
+    projectsContainer = $('.cd-projects-wrapper'),
+    projectsSlider = projectsContainer.children('.cd-slider'),
+    singleProjectContent = $('.cd-project-content'),
+    sliderNav = $('.cd-slider-navigation');
 
     var resizing = false;
 
@@ -175,6 +203,17 @@
       }
     });
 
+    //show the projects slider if user clicks the show-projects button
+    intro.on('click', 'a[data-action="show-projects"]', function(event) {
+      event.preventDefault();
+      intro.addClass('projects-visible');
+      projectsContainer.addClass('projects-visible');
+      //animate single project - entrance animation
+      setTimeout(function(){
+        showProjectPreview($('.cd-slider').children('li').eq(0));
+      }, 200);
+    });
+
     intro.on('click', function(event) {
       //projects slider is visible - hide slider and show the intro panel
       if( intro.hasClass('projects-visible') && !$(event.target).is('a[data-action="show-projects"]') ) {
@@ -184,31 +223,97 @@
     });
 
     //select a single project - open project-content panel
-    projectsContainer.on('click', '.cd-slider-2 a', function(event) {
+
+    projectsContainer.on('click', '.cd-slider a', function(event) {
       var mq = checkMQ();
       event.preventDefault();
       if( $(this).parent('li').next('li').is('.current') && (mq == 'desktop') ) {
-        prevSides(projectsSlider);
+        prevSides($('.cd-slider'));
       } else if ( $(this).parent('li').prev('li').prev('li').prev('li').is('.current')  && (mq == 'desktop') ) {
-        nextSides(projectsSlider);
+        nextSides($('.cd-slider'));
       } else {
-        var clicked_element = $(this).attr("data-id");
-        var id = clicked_element.replace('project-', '');
-
-        // var dataid = $(this).data('id');
-        // var project_id = $("[data-id=project-"+dataid+"]");
+        var id = $(this).attr("data-id");
         var project= $('.cd-project-content');
+
         $.ajax({
-          url: "/projects/" + id,
-          dataType: "script"
-        })
-        .success(function( msg ) {
-          project.addClass('is-visible');
-          $(document).trigger("rate:click");
-        })
-        .error(function( msg ) {
-          alert( "Data Error");
-        });
+               url: "/projects/" + id,
+               dataType: "script"
+             })
+             .success(function( msg ) {
+               project.addClass('is-visible');
+               $(document).trigger("rate:click");
+             })
+             .error(function( msg ) {
+               alert( "Data Error");
+             });
+        //
+        // $.ajax({
+        //   url: "/posts/" + id,
+        //   dataType: "script"
+        // })
+        // .done(function( msg ) {
+        //   project.addClass('is-visible');
+        //   //
+        //   $(".star").each(function() {
+        //     var $readonly = ($(this).attr('data-readonly') == 'true');
+        //     var $half     = ($(this).attr('data-enable-half') == 'true');
+        //     var $halfShow = ($(this).attr('data-half-show') == 'true');
+        //     var $single   = ($(this).attr('data-single') == 'true');
+        //     $(this).raty({
+        //       score: function() {
+        //         return $(this).attr('data-rating')
+        //       },
+        //       number: function() {
+        //         return $(this).attr('data-star-count')
+        //       },
+        //       half:        $half,
+        //       halfShow:    $halfShow,
+        //       single:      $single,
+        //       path:        $(this).attr('data-star-path'),
+        //       starOn:      $(this).attr('data-star-on'),
+        //       starOff:     $(this).attr('data-star-off'),
+        //       starHalf:    $(this).attr('data-star-half'),
+        //       cancel:      $(this).attr('data-cancel'),
+        //       cancelPlace: $(this).attr('data-cancel-place'),
+        //       cancelHint:  $(this).attr('data-cancel-hint'),
+        //       cancelOn:    $(this).attr('data-cancel-on'),
+        //       cancelOff:   $(this).attr('data-cancel-off'),
+        //       noRatedMsg:  $(this).attr('data-no-rated-message'),
+        //       round:       $(this).attr('data-round'),
+        //       space:       $(this).attr('data-space'),
+        //       target:      $(this).attr('data-target'),
+        //       targetText:  $(this).attr('data-target-text'),
+        //       targetType:  $(this).attr('data-target-type'),
+        //       targetFormat: $(this).attr('data-target-format'),
+        //       targetScoret: $(this).attr('data-target-score'),
+        //       readOnly: $readonly,
+        //       click: function(score, evt) {
+        //         var _this = this;
+        //         if (score == null) { score = 0; }
+        //         $.post('<%= Rails.application.class.routes.url_helpers.rate_path %>',
+        //         {
+        //           score: score,
+        //           dimension: $(this).attr('data-dimension'),
+        //           id: $(this).attr('data-id'),
+        //           klass: $(this).attr('data-classname')
+        //         },
+        //         function(data) {
+        //           if(data) {
+        //             // success code goes here ...
+        //
+        //             if ($(_this).attr('data-disable-after-rate') == 'true') {
+        //               $(_this).raty('set', { readOnly: true, score: score });
+        //             }
+        //           }
+        //         });
+        //       }
+        //     });
+        //   });
+        //   //
+        // })
+        // .error(function( msg ) {
+        //   alert( "Data Error");
+        // });
       }
     });
 
@@ -220,32 +325,32 @@
 
     //go to next/pre slide - clicking on the next/prev arrow
     sliderNav.on('click', '.next', function(){
-      nextSides(projectsSlider);
+      nextSides($('.cd-slider'));
     });
     sliderNav.on('click', '.prev', function(){
-      prevSides(projectsSlider);
+      prevSides($('.cd-slider'));
     });
 
     //go to next/pre slide - keyboard navigation
     $(document).keyup(function(event){
       var mq = checkMQ();
       if(event.which=='37' &&  intro.hasClass('projects-visible') && !(sliderNav.find('.prev').hasClass('inactive')) && (mq == 'desktop') ) {
-        prevSides(projectsSlider);
+        prevSides($('.cd-slider'));
       } else if( event.which=='39' &&  intro.hasClass('projects-visible') && !(sliderNav.find('.next').hasClass('inactive')) && (mq == 'desktop') ) {
-        nextSides(projectsSlider);
+        nextSides($('.cd-slider'));
       } else if(event.which=='27' && singleProjectContent.hasClass('is-visible')) {
         singleProjectContent.removeClass('is-visible');
       }
     });
 
-    projectsSlider.on('swipeleft', function(){
+    $('.cd-slider').on('swipeleft', function(){
       var mq = checkMQ();
-      if( !(sliderNav.find('.next').hasClass('inactive')) && (mq == 'desktop') ) nextSides(projectsSlider);
+      if( !(sliderNav.find('.next').hasClass('inactive')) && (mq == 'desktop') ) nextSides($('.cd-slider'));
     });
 
-    projectsSlider.on('swiperight', function(){
+    $('.cd-slider').on('swiperight', function(){
       var mq = checkMQ();
-      if ( !(sliderNav.find('.prev').hasClass('inactive')) && (mq == 'desktop') ) prevSides(projectsSlider);
+      if ( !(sliderNav.find('.prev').hasClass('inactive')) && (mq == 'desktop') ) prevSides($('.cd-slider'));
     });
 
     function showProjectPreview(project) {
@@ -259,25 +364,25 @@
 
     function checkMQ() {
       //check if mobile or desktop device
-      return window.getComputedStyle(document.querySelector('.cd-projects-wrapper-2'), '::before').getPropertyValue('content').replace(/'/g, "").replace(/"/g, "");
+      return window.getComputedStyle(document.querySelector('.cd-projects-wrapper'), '::before').getPropertyValue('content').replace(/'/g, "").replace(/"/g, "");
     }
 
     function setSliderContainer() {
       var mq = checkMQ();
       if(mq == 'desktop') {
-        var slides = projectsSlider.children('li'),
+        var slides = $('.cd-slider').children('li'),
         slideWidth = slides.eq(0).width();
         var marginLeft = 0;
-        if (typeof projectsSlider.children('li').eq(1).css('margin-left') !== 'undefined') {
-          marginLeft = Number(projectsSlider.children('li').eq(1).css('margin-left').replace('px', ''))
+        if (typeof $('.cd-slider').children('li').eq(1).css('margin-left') !== 'undefined') {
+          marginLeft = Number($('.cd-slider').children('li').eq(1).css('margin-left').replace('px', ''))
         }
         var sliderWidth = ( slideWidth + marginLeft )*( slides.length + 1 ) + 'px',
-        slideCurrentIndex = projectsSlider.children('li.current').index();
-        projectsSlider.css('width', sliderWidth);
-        ( slideCurrentIndex != 0 ) && setTranslateValue(projectsSlider, (  slideCurrentIndex * (slideWidth + marginLeft) + 'px'));
+        slideCurrentIndex = $('.cd-slider').children('li.current').index();
+        $('.cd-slider').css('width', sliderWidth);
+        ( slideCurrentIndex != 0 ) && setTranslateValue($('.cd-slider'), (  slideCurrentIndex * (slideWidth + marginLeft) + 'px'));
       } else {
-        projectsSlider.css('width', '');
-        setTranslateValue(projectsSlider, 0);
+        $('.cd-slider').css('width', '');
+        setTranslateValue($('.cd-slider'), 0);
       }
       resizing = false;
     }
@@ -363,12 +468,235 @@
     }
 
 
-  }
-  jQuery(document).ready(function(){
-    squeezebox_setup();
-  });
-  $( document ).ajaxComplete(function() {
-    squeezebox_setup();
-  });
+
+  // }
+});
+
+// projectsContainer = $('.cd-projects-wrapper-2'),
+// projectsSlider = projectsContainer.children('.cd-slider-2'),
+// singleProjectContent = $('.cd-project-content'),
+// sliderNav = $('.cd-slider-2-navigation');
+
+
+
+  // function squeezebox_setup(){
+  //   var intro = $('.cd-intro-block'),
+  //   projectsContainer = $('.cd-projects-wrapper-2'),
+  //   projectsSlider = projectsContainer.children('.cd-slider-2'),
+  //   singleProjectContent = $('.cd-project-content'),
+  //   sliderNav = $('.cd-slider-2-navigation');
+  //
+  //   projectsContainer.addClass('projects-visible');
+  //   setTimeout(function(){
+  //     showProjectPreview(projectsSlider.children('li').eq(0));
+  //   }, 200);
+  //
+  //   var resizing = false;
+  //
+  //   //if on desktop - set a width for the projectsSlider element
+  //   setSliderContainer();
+  //   $(window).on('resize', function(){
+  //     //on resize - update projectsSlider width and translate value
+  //     if( !resizing ) {
+  //       (!window.requestAnimationFrame) ? setSliderContainer() : window.requestAnimationFrame(setSliderContainer);
+  //       resizing = true;
+  //     }
+  //   });
+  //
+  //   intro.on('click', function(event) {
+  //     //projects slider is visible - hide slider and show the intro panel
+  //     if( intro.hasClass('projects-visible') && !$(event.target).is('a[data-action="show-projects"]') ) {
+  //       intro.removeClass('projects-visible');
+  //       projectsContainer.removeClass('projects-visible');
+  //     }
+  //   });
+  //
+  //   //select a single project - open project-content panel
+  //   projectsContainer.on('click', '.cd-slider-2 a', function(event) {
+  //     var mq = checkMQ();
+  //     event.preventDefault();
+  //     if( $(this).parent('li').next('li').is('.current') && (mq == 'desktop') ) {
+  //       prevSides(projectsSlider);
+  //     } else if ( $(this).parent('li').prev('li').prev('li').prev('li').is('.current')  && (mq == 'desktop') ) {
+  //       nextSides(projectsSlider);
+  //     } else {
+  //       var clicked_element = $(this).attr("data-id");
+  //       var id = clicked_element.replace('project-', '');
+  //
+  //       // var dataid = $(this).data('id');
+  //       // var project_id = $("[data-id=project-"+dataid+"]");
+  //       var project= $('.cd-project-content');
+  //       $.ajax({
+  //         url: "/projects/" + id,
+  //         dataType: "script"
+  //       })
+  //       .success(function( msg ) {
+  //         project.addClass('is-visible');
+  //         $(document).trigger("rate:click");
+  //       })
+  //       .error(function( msg ) {
+  //         alert( "Data Error");
+  //       });
+  //     }
+  //   });
+  //
+  //   //close single project content
+  //   singleProjectContent.on('click', '.close', function(event){
+  //     event.preventDefault();
+  //     singleProjectContent.removeClass('is-visible');
+  //   });
+  //
+  //   //go to next/pre slide - clicking on the next/prev arrow
+  //   sliderNav.on('click', '.next', function(){
+  //     nextSides(projectsSlider);
+  //   });
+  //   sliderNav.on('click', '.prev', function(){
+  //     prevSides(projectsSlider);
+  //   });
+  //
+  //   //go to next/pre slide - keyboard navigation
+  //   $(document).keyup(function(event){
+  //     var mq = checkMQ();
+  //     if(event.which=='37' &&  intro.hasClass('projects-visible') && !(sliderNav.find('.prev').hasClass('inactive')) && (mq == 'desktop') ) {
+  //       prevSides(projectsSlider);
+  //     } else if( event.which=='39' &&  intro.hasClass('projects-visible') && !(sliderNav.find('.next').hasClass('inactive')) && (mq == 'desktop') ) {
+  //       nextSides(projectsSlider);
+  //     } else if(event.which=='27' && singleProjectContent.hasClass('is-visible')) {
+  //       singleProjectContent.removeClass('is-visible');
+  //     }
+  //   });
+  //
+  //   projectsSlider.on('swipeleft', function(){
+  //     var mq = checkMQ();
+  //     if( !(sliderNav.find('.next').hasClass('inactive')) && (mq == 'desktop') ) nextSides(projectsSlider);
+  //   });
+  //
+  //   projectsSlider.on('swiperight', function(){
+  //     var mq = checkMQ();
+  //     if ( !(sliderNav.find('.prev').hasClass('inactive')) && (mq == 'desktop') ) prevSides(projectsSlider);
+  //   });
+  //
+  //   function showProjectPreview(project) {
+  //     if(project.length > 0 ) {
+  //       setTimeout(function(){
+  //         project.addClass('slides-in');
+  //         showProjectPreview(project.next());
+  //       }, 50);
+  //     }
+  //   }
+  //
+  //   function checkMQ() {
+  //     //check if mobile or desktop device
+  //     return window.getComputedStyle(document.querySelector('.cd-projects-wrapper-2'), '::before').getPropertyValue('content').replace(/'/g, "").replace(/"/g, "");
+  //   }
+  //
+  //   function setSliderContainer() {
+  //     var mq = checkMQ();
+  //     if(mq == 'desktop') {
+  //       var slides = projectsSlider.children('li'),
+  //       slideWidth = slides.eq(0).width();
+  //       var marginLeft = 0;
+  //       if (typeof projectsSlider.children('li').eq(1).css('margin-left') !== 'undefined') {
+  //         marginLeft = Number(projectsSlider.children('li').eq(1).css('margin-left').replace('px', ''))
+  //       }
+  //       var sliderWidth = ( slideWidth + marginLeft )*( slides.length + 1 ) + 'px',
+  //       slideCurrentIndex = projectsSlider.children('li.current').index();
+  //       projectsSlider.css('width', sliderWidth);
+  //       ( slideCurrentIndex != 0 ) && setTranslateValue(projectsSlider, (  slideCurrentIndex * (slideWidth + marginLeft) + 'px'));
+  //     } else {
+  //       projectsSlider.css('width', '');
+  //       setTranslateValue(projectsSlider, 0);
+  //     }
+  //     resizing = false;
+  //   }
+  //
+  //   function nextSides(slider) {
+  //     var actual = slider.children('.current'),
+  //     index = actual.index(),
+  //     following = actual.nextAll('li').length,
+  //     width = actual.width(),
+  //     marginLeft = Number(slider.children('li').eq(1).css('margin-left').replace('px', ''));
+  //
+  //     index = (following > 4 ) ? index + 3 : index + following - 2;
+  //     //calculate the translate value of the slider container
+  //     translate = index * (width + marginLeft) + 'px';
+  //
+  //     slider.addClass('next');
+  //     setTranslateValue(slider, translate);
+  //     slider.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+  //       updateSlider('next', actual, slider, following);
+  //     });
+  //
+  //     if( $('.no-csstransitions').length > 0 ) updateSlider('next', actual, slider, following);
+  //   }
+  //
+  //   function prevSides(slider) {
+  //     var actual = slider.children('.previous'),
+  //     index = actual.index(),
+  //     width = actual.width(),
+  //     marginLeft = Number(slider.children('li').eq(1).css('margin-left').replace('px', ''));
+  //
+  //     translate = index * (width + marginLeft) + 'px';
+  //
+  //     slider.addClass('prev');
+  //     setTranslateValue(slider, translate);
+  //     slider.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+  //       updateSlider('prev', actual, slider);
+  //     });
+  //
+  //     if( $('.no-csstransitions').length > 0 ) updateSlider('prev', actual, slider);
+  //   }
+  //
+  //   function updateSlider(direction, actual, slider, numerFollowing) {
+  //     if( direction == 'next' ) {
+  //
+  //       slider.removeClass('next').find('.previous').removeClass('previous');
+  //       actual.removeClass('current');
+  //       if( numerFollowing > 4 ) {
+  //         actual.addClass('previous').next('li').next('li').next('li').addClass('current');
+  //       } else if ( numerFollowing == 4 ) {
+  //         actual.next('li').next('li').addClass('current').prev('li').prev('li').addClass('previous');
+  //       } else {
+  //         actual.next('li').addClass('current').end().addClass('previous');
+  //       }
+  //     } else {
+  //
+  //       slider.removeClass('prev').find('.current').removeClass('current');
+  //       actual.removeClass('previous').addClass('current');
+  //       if(actual.prevAll('li').length > 2 ) {
+  //         actual.prev('li').prev('li').prev('li').addClass('previous');
+  //       } else {
+  //         ( !slider.children('li').eq(0).hasClass('current') ) && slider.children('li').eq(0).addClass('previous');
+  //       }
+  //     }
+  //
+  //     updateNavigation();
+  //   }
+  //
+  //   function updateNavigation() {
+  //     //update visibility of next/prev buttons according to the visible slides
+  //     var current = projectsContainer.find('li.current');
+  //     (current.is(':first-child')) ? sliderNav.find('.prev').addClass('inactive') : sliderNav.find('.prev').removeClass('inactive');
+  //     (current.nextAll('li').length < 3 ) ? sliderNav.find('.next').addClass('inactive') : sliderNav.find('.next').removeClass('inactive');
+  //   }
+  //
+  //   function setTranslateValue(item, translate) {
+  //     item.css({
+  //       '-moz-transform': 'translateX(-' + translate + ')',
+  //       '-webkit-transform': 'translateX(-' + translate + ')',
+  //       '-ms-transform': 'translateX(-' + translate + ')',
+  //       '-o-transform': 'translateX(-' + translate + ')',
+  //       'transform': 'translateX(-' + translate + ')',
+  //     });
+  //   }
+  //
+  //
+  // }
+  // jQuery(document).ready(function(){
+  //   squeezebox_setup();
+  // });
+  // $( document ).ajaxComplete(function() {
+  //   squeezebox_setup();
+  // });
 
 </script>

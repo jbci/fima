@@ -4,9 +4,9 @@ class Area < ApplicationRecord
   acts_as_tree order: "name"
 
   belongs_to :area_level
-  has_many :evaluations, dependent: :destroy
+  has_many :evaluations, dependent: :nullify
   has_many :posts, dependent: :nullify
-  has_many :projects, dependent: :nullify
+  has_and_belongs_to_many :projects
 
   validates_presence_of :name
 

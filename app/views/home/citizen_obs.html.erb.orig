@@ -1,0 +1,396 @@
+<div id="side_menu">
+  <%= render 'layouts/side_menu'%>
+</div>
+<div class="wrapper content-right">
+  <h2>Participa en los proyectos abiertos a observaciones ciudadanas</h2>
+  <h4>Realiza <a href="" data-toggle="modal" data-target="#obs-ciudadanas">Observaciones Ciudadanas</a> a proyectos o actividades en <a href="" data-toggle="modal" data-target="#evaluacion">Evaluación Ambiental</a>. Los proyectos o actividades pueden ingresar por medio de una <a href="" data-toggle="modal" data-target="#dia-eia">DIA o un EIA.</a> Las autoridades están <a href="" data-toggle="modal" data-target="#obligadas">obligadas a considerar tus observaciones</a> para determinar si una actividad o proyecto se ajusta a las normas vigentes.<br>
+    ¿Quieres saber como funciona el procedimiento de observaciones ciudadanas? <a href="" data-toggle="modal" data-target="#infografia"> Presiona aqui! </a>
+  </h4 >
+  <p>Selecciona tu municipalidad para saber qué proyectos tienen abiertos su proceso de participación ciudadana o en cuáles puedes solicitar que se abra un periodo de observaciones. </p>
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="input-group">
+        <div id="initiatives_form" class="pull-left">
+          <%= form_tag citizen_obs_path, :method => :get, remote: true do |f| %>
+            <%= select_tag :area, options_from_collection_for_select(Area.joins(:projects).where('projects.area_id is not null').order(:name).distinct, "id", "name", ""), include_blank:  t('.select_area'), class: "chosen-select", id: "projects_area_select", onchange: "$(this).parent('form').submit();"%>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- <% @projects.each do |project| %>
+  <%= project.title %> <br>
+  <% end %> -->
+  <div class="cd-projects-wrapper-2">
+    <ul class="cd-slider-2">
+      <% unless @projects.nil? %>
+        <% @projects.each_with_index do |i, index|%>
+        <li class="<%= (index===0) ? 'current' : '' %>">
+          <a href="" data-id="<%= i.id %>" id="project_thumb_<%=i.id %>">
+            <% if i.image.size.nil? %>
+              <img src="/assets/img.png" alt="project image", class:"img-responsive", style:"height: 200px;">
+            <% else %>
+              <%= image_tag i.image.url, :alt => "project image", class:"img-responsive", style:"height: 200px;" %>
+            <% end %>
+            <div class="project-info <%= i.mark == true ? 'is_dia' : 'is_eia'%>">
+              <% if i.mark == true %>
+                <p class="text-right">Días para solicitar participación  <%= number_to_spans i.remaining_days %></p>
+              <% else %>
+                <p class="text-right">Días para recibir observaciones <%= number_to_spans i.remaining_days %></p>
+              <% end %>
+              <hr>
+              <h5> <%= i.title %> </h5>
+              <p> <%= i.description.truncate(300, :omission => "...más") %> </p>
+            </div>
+          </a>
+        </li>
+        <% end %>
+      <% end %>
+    </ul>
+
+    <ul class="cd-slider-2-navigation cd-img-replace">
+      <li><a href="#0" class="prev inactive">Prev</a></li>
+      <li><a href="#0" class="next">Next</a></li>
+    </ul> <!-- .cd-slider-navigation -->
+  </div> <!-- .cd-projects-wrapper -->
+
+
+  <div class="cd-project-content" data-id="project-0">
+    <div>
+      <a href="" class="close cd-img-replace">Close</a>
+      <h2></h2>
+      <p></p>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Obs Ciudadanas-->
+<div class="modal fade" id="obs-ciudadanas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Observaciones Ciudadanas</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Toda opinión, comentario, pregunta, preocupación y/o solicitud de una persona natural o jurídica que busca conocer, advertir o reparar acerca de un proyecto o actividad ingresado al SEIA (Sistema de Avaluación de Impacto Ambiental) y su proceso de evaluación ambiental.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Evaluación ambiental-->
+<div class="modal fade" id="evaluacion" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Evaluación Ambiental</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Proceso coordinado por el Servicio de Evaluación Ambiental que tiene por objetivo establecer si un proyecto o actividad cumple la normativa ambiental, y en caso de los Estudios de Impacto Ambiental (EIA) definir medidas de mitigación, reparación y compensación para los impactos ambientales del proyecto o actividad a desarrollarse.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal obligadas-->
+<div class="modal fade" id="obligadas" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Obligados a considerar tus observaciones</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>El servicio de evaluación ambiental está obligado a considerar debidamente las observaciones realizadas por la ciudadanía. Esto implica al menos:</p>
+          <ol>
+            <li>
+              <p>I. Hacerse cargo de la materia observada durante el proceso de evaluación ambiental, es decir incorporar al proceso respectivo la preocupación ambiental levantada por el observante.</p>
+            </li>
+            <li>
+              <p>II. Dar respuesta al requerimiento presentado por la ciudadanía.</p>
+            </li>
+          </ol>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal DIA EIA-->
+<div class="modal fade" id="dia-eia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Diferencia entre DIA y EIA</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>La principal diferencia entre una DIA y un EIA es que la primera es una declaración jurada del ejecutor de que un actividad o proyecto sobre los efectos del mismo en el medio ambiente y cómo también del cumplimiento de la normativa, mientras que un EIA, constituye un estudio sobre los impactos de un proyecto o actividad y la proposición de medidas de mitigación, compensación y reparación de los mismos, y por ello es mucho más exigente y riguroso que el primero. En el caso de los Estudios de Impacto Ambiental el período de observaciones ciudadanas es obligatoria, mientras que en las Declaraciones de Impacto Ambiental debe ser solicitado por los ciudadanos.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Infografia-->
+<div class="modal fade bd-example-modal-lg" id="infografia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Procedimiento de observaciones ciudadanas</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <%= image_tag 'infografia-municipio-verde-4', class: "img-responsive" %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  function squeezebox_setup(){
+    var intro = $('.cd-intro-block'),
+    projectsContainer = $('.cd-projects-wrapper-2'),
+    projectsSlider = projectsContainer.children('.cd-slider-2'),
+    singleProjectContent = $('.cd-project-content'),
+    sliderNav = $('.cd-slider-2-navigation');
+
+    projectsContainer.addClass('projects-visible');
+    setTimeout(function(){
+      showProjectPreview(projectsSlider.children('li').eq(0));
+    }, 200);
+
+    var resizing = false;
+
+    //if on desktop - set a width for the projectsSlider element
+    setSliderContainer();
+    $(window).on('resize', function(){
+      //on resize - update projectsSlider width and translate value
+      if( !resizing ) {
+        (!window.requestAnimationFrame) ? setSliderContainer() : window.requestAnimationFrame(setSliderContainer);
+        resizing = true;
+      }
+    });
+
+    intro.on('click', function(event) {
+      //projects slider is visible - hide slider and show the intro panel
+      if( intro.hasClass('projects-visible') && !$(event.target).is('a[data-action="show-projects"]') ) {
+        intro.removeClass('projects-visible');
+        projectsContainer.removeClass('projects-visible');
+      }
+    });
+
+    //select a single project - open project-content panel
+    projectsContainer.on('click', '.cd-slider-2 a', function(event) {
+      var mq = checkMQ();
+      event.preventDefault();
+      if( $(this).parent('li').next('li').is('.current') && (mq == 'desktop') ) {
+        prevSides(projectsSlider);
+      } else if ( $(this).parent('li').prev('li').prev('li').prev('li').is('.current')  && (mq == 'desktop') ) {
+        nextSides(projectsSlider);
+      } else {
+        var clicked_element = $(this).attr("data-id");
+        var id = clicked_element.replace('project-', '');
+
+        // var dataid = $(this).data('id');
+        // var project_id = $("[data-id=project-"+dataid+"]");
+        var project= $('.cd-project-content');
+        $.ajax({
+          url: "/projects/" + id,
+          dataType: "script"
+        })
+        .success(function( msg ) {
+          project.addClass('is-visible');
+          $(document).trigger("rate:click");
+        })
+        .error(function( msg ) {
+          alert( "Data Error");
+        });
+      }
+    });
+
+    //close single project content
+    singleProjectContent.on('click', '.close', function(event){
+      event.preventDefault();
+      singleProjectContent.removeClass('is-visible');
+    });
+
+    //go to next/pre slide - clicking on the next/prev arrow
+    sliderNav.on('click', '.next', function(){
+      nextSides(projectsSlider);
+    });
+    sliderNav.on('click', '.prev', function(){
+      prevSides(projectsSlider);
+    });
+
+    //go to next/pre slide - keyboard navigation
+    $(document).keyup(function(event){
+      var mq = checkMQ();
+      if(event.which=='37' &&  intro.hasClass('projects-visible') && !(sliderNav.find('.prev').hasClass('inactive')) && (mq == 'desktop') ) {
+        prevSides(projectsSlider);
+      } else if( event.which=='39' &&  intro.hasClass('projects-visible') && !(sliderNav.find('.next').hasClass('inactive')) && (mq == 'desktop') ) {
+        nextSides(projectsSlider);
+      } else if(event.which=='27' && singleProjectContent.hasClass('is-visible')) {
+        singleProjectContent.removeClass('is-visible');
+      }
+    });
+
+    projectsSlider.on('swipeleft', function(){
+      var mq = checkMQ();
+      if( !(sliderNav.find('.next').hasClass('inactive')) && (mq == 'desktop') ) nextSides(projectsSlider);
+    });
+
+    projectsSlider.on('swiperight', function(){
+      var mq = checkMQ();
+      if ( !(sliderNav.find('.prev').hasClass('inactive')) && (mq == 'desktop') ) prevSides(projectsSlider);
+    });
+
+    function showProjectPreview(project) {
+      if(project.length > 0 ) {
+        setTimeout(function(){
+          project.addClass('slides-in');
+          showProjectPreview(project.next());
+        }, 50);
+      }
+    }
+
+    function checkMQ() {
+      //check if mobile or desktop device
+      return window.getComputedStyle(document.querySelector('.cd-projects-wrapper-2'), '::before').getPropertyValue('content').replace(/'/g, "").replace(/"/g, "");
+    }
+
+    function setSliderContainer() {
+      var mq = checkMQ();
+      if(mq == 'desktop') {
+        var slides = projectsSlider.children('li'),
+        slideWidth = slides.eq(0).width();
+        var marginLeft = 0;
+        if (typeof projectsSlider.children('li').eq(1).css('margin-left') !== 'undefined') {
+          marginLeft = Number(projectsSlider.children('li').eq(1).css('margin-left').replace('px', ''))
+        }
+        var sliderWidth = ( slideWidth + marginLeft )*( slides.length + 1 ) + 'px',
+        slideCurrentIndex = projectsSlider.children('li.current').index();
+        projectsSlider.css('width', sliderWidth);
+        ( slideCurrentIndex != 0 ) && setTranslateValue(projectsSlider, (  slideCurrentIndex * (slideWidth + marginLeft) + 'px'));
+      } else {
+        projectsSlider.css('width', '');
+        setTranslateValue(projectsSlider, 0);
+      }
+      resizing = false;
+    }
+
+    function nextSides(slider) {
+      var actual = slider.children('.current'),
+      index = actual.index(),
+      following = actual.nextAll('li').length,
+      width = actual.width(),
+      marginLeft = Number(slider.children('li').eq(1).css('margin-left').replace('px', ''));
+
+      index = (following > 4 ) ? index + 3 : index + following - 2;
+      //calculate the translate value of the slider container
+      translate = index * (width + marginLeft) + 'px';
+
+      slider.addClass('next');
+      setTranslateValue(slider, translate);
+      slider.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+        updateSlider('next', actual, slider, following);
+      });
+
+      if( $('.no-csstransitions').length > 0 ) updateSlider('next', actual, slider, following);
+    }
+
+    function prevSides(slider) {
+      var actual = slider.children('.previous'),
+      index = actual.index(),
+      width = actual.width(),
+      marginLeft = Number(slider.children('li').eq(1).css('margin-left').replace('px', ''));
+
+      translate = index * (width + marginLeft) + 'px';
+
+      slider.addClass('prev');
+      setTranslateValue(slider, translate);
+      slider.one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(){
+        updateSlider('prev', actual, slider);
+      });
+
+      if( $('.no-csstransitions').length > 0 ) updateSlider('prev', actual, slider);
+    }
+
+    function updateSlider(direction, actual, slider, numerFollowing) {
+      if( direction == 'next' ) {
+
+        slider.removeClass('next').find('.previous').removeClass('previous');
+        actual.removeClass('current');
+        if( numerFollowing > 4 ) {
+          actual.addClass('previous').next('li').next('li').next('li').addClass('current');
+        } else if ( numerFollowing == 4 ) {
+          actual.next('li').next('li').addClass('current').prev('li').prev('li').addClass('previous');
+        } else {
+          actual.next('li').addClass('current').end().addClass('previous');
+        }
+      } else {
+
+        slider.removeClass('prev').find('.current').removeClass('current');
+        actual.removeClass('previous').addClass('current');
+        if(actual.prevAll('li').length > 2 ) {
+          actual.prev('li').prev('li').prev('li').addClass('previous');
+        } else {
+          ( !slider.children('li').eq(0).hasClass('current') ) && slider.children('li').eq(0).addClass('previous');
+        }
+      }
+
+      updateNavigation();
+    }
+
+    function updateNavigation() {
+      //update visibility of next/prev buttons according to the visible slides
+      var current = projectsContainer.find('li.current');
+      (current.is(':first-child')) ? sliderNav.find('.prev').addClass('inactive') : sliderNav.find('.prev').removeClass('inactive');
+      (current.nextAll('li').length < 3 ) ? sliderNav.find('.next').addClass('inactive') : sliderNav.find('.next').removeClass('inactive');
+    }
+
+    function setTranslateValue(item, translate) {
+      item.css({
+        '-moz-transform': 'translateX(-' + translate + ')',
+        '-webkit-transform': 'translateX(-' + translate + ')',
+        '-ms-transform': 'translateX(-' + translate + ')',
+        '-o-transform': 'translateX(-' + translate + ')',
+        'transform': 'translateX(-' + translate + ')',
+      });
+    }
+
+
+  }
+  jQuery(document).ready(function(){
+    squeezebox_setup();
+  });
+  $( document ).ajaxComplete(function() {
+    squeezebox_setup();
+  });
+
+</script>

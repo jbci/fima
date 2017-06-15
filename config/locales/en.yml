@@ -69,7 +69,7 @@ en:
       title: "Environmental Initiatives"
       id_header: "Id"
       title_header: "Title"
-      body_header: "Body"
+      body_header: "Area"
       exists_image_header: "Image"
     areas:
       title: "Areas"
@@ -143,6 +143,10 @@ en:
       select_area: "Select Area"
     registration:
       close_session: "Close Sesion"
+      change_color: "Change the colour of your neighborhood ¡Sign up!"
+      already_registered: "Already have an account? Sign In"
+    observations:
+      select_area: "Select Area"
   views:
     pagination:
       first: "&laquo; First"
@@ -175,6 +179,9 @@ en:
         signed_out: "Session succesfully closed."
     omniauth_callbacks:
       success: "Session succesfully started"
+    registrations:
+      user:
+        signed_up: "Session succesfully started"
   users:
     sessions:
       new:
@@ -189,3 +196,7 @@ en:
         confirmation: "Confirmation"
         new_password_change_placeholder: "Dejar en blanco si no desea cambiar su passowrd"
         password_change_placeholder: "El password actual es necesario para confirmar sus datos."
+    passwords:
+      new:
+        forgot_pass_new: "Forgot your password?"
+        send_me_reset: "Send me reset password instructions"

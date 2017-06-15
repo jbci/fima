@@ -2,4 +2,6 @@
 $('<%= j render "form", title: "Modificar Proyecto" %>').on('hidden.bs.modal', function (e) {
   $(this).remove();
   $('.modal-backdrop').remove();
-}).modal();
+}).modal().on('shown.bs.modal', function() {
+  $('.chosen-select').chosen();
+});

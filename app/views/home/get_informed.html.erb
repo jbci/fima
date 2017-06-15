@@ -1,14 +1,12 @@
 <div class="wrapper">
-  <div class="bg-white padding">
-    <div class="row">
-      <div class="col-9"><h4>Indicadores ambientales por municipalidad</h4>
-        <p>Selecciona el indicador ambiental que quieres explorar (este texto debe ser editable)</p>
-      </div>
-      <div class="col-md-3">
-          <%= form_tag evals_by_indicator_path, :method => :get, :remote => true do |f| %>
-            <%= select_tag :indicator, options_from_collection_for_select(Indicator.all.sort_by{|i| i.title.downcase}, "id", "title", params[:indicator] || ""), include_blank:  t('.select_indicator'), class: "chosen-select", id: "eval_indicator_select", onchange: "$(this).parent('form').submit();" %>
-          <% end %>
-      </div>
+  <div class="text-width">
+    <div class="selector">
+      <h3>Indicadores ambientales por municipalidad</h3>
+      <h4 class="bajada"></h4>
+      <p><%= Rating.first.description %></p>
+      <%= form_tag evals_by_indicator_path, :method => :get, :remote => true do |f| %>
+      <%= select_tag :indicator, options_from_collection_for_select(Indicator.all.sort_by{|i| i.title.downcase}, "id", "title", params[:indicator] || ""), include_blank:  t('.select_indicator'), class: "chosen-select form-control", id: "eval_indicator_select", onchange: "$(this).parent('form').submit();" %>
+      <% end %>
     </div>
   </div>
 

@@ -11,7 +11,7 @@
     <%= f.collection_select(:area_of_interest_id, Area.comunas.all, :id, :name, {:selected => current_user.area_of_interest_id, prompt: 'Seleccione comuna de interés'}, {'id' => 'post_comuna_dropdown','class' => 'chosen-select form-control'}) %>
 
     <% if current_user.provider.blank? %>
-    <%= f.input :password, autocomplete: "off", placeholder: t( '.new_password_change_placeholder' ), required: false %>
+    <%= f.input :password, autocomplete: "off", placeholder: t( '.new_password_change_placeholder' ), required: false, label: 'Contraseña' %>
     <%= f.input :password_confirmation, required: false, placeholder: t( '.new_password_change_placeholder' ) %>
     <%= f.input :current_password, placeholder: t( '.password_change_placeholder' ), required: true, label: t('.confirmation') %>
     <% end %>
