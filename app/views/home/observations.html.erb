@@ -11,9 +11,9 @@
         <p>¿Quieres saber cómo funciona el procedimiento de observaciones ciudadanas? <a href="" data-toggle="modal" data-target="#infografia"> ¡Presiona aquí! </a></p>
           <div class="">
             <div id="initiatives_form">
-              <%= form_tag observations_path, :method => :get, remote: true do |f| %>
+              <%= form_tag observations_path, :method => :get, remote: true, :id=>'p_form' do |f| %>
                 <div class="pull-left">
-                  <%= select_tag :area, options_from_collection_for_select(Area.joins(:areas_projects).where('areas_projects.area_id is not null').order(:name).distinct, "id", "name", ""), include_blank:  t('.select_area'), class: "chosen-select form-control", id: "projects_area_select", onchange: "$(this).parent('form').submit();"%>
+                  <%= select_tag :area, options_from_collection_for_select(Area.joins(:areas_projects).where('areas_projects.area_id is not null').order(:name).distinct, "id", "name", ""), include_blank:  t('.select_area'), class: "chosen-select form-control", id: "projects_area_select", onchange: "$('#p_form').submit();"%>
                 </div>
                 <a href="#0" class='btn btn-primary' data-action="show-projects" > Ver iniciativas </a>
               <% end %>
@@ -399,51 +399,4 @@ $(function() {
 
   // }
 });
-</script>
-
-<script src="//maps.googleapis.com/maps/api/js?sensor=false&key=<%= ENV['GOOGLE_MAPS_API_KEY'] %>"></script>
-
-<script type="text/javascript">
-  // The latitude and longitude of your business / place
-  var position = [-33.446165, -70.665767];
-  function showGoogleMaps() {
-      var latLng = new google.maps.LatLng(position[0], position[1]);
-      var mapOptions = {
-          zoom: 10, // initialize zoom level - the max value is 21
-          streetViewControl: false, // hide the yellow Street View pegman
-          scaleControl: false, // allow users to zoom the Google Map
-          mapTypeId: google.maps.MapTypeId.ROADMAP,
-          center: latLng
-      };
-      map = new google.maps.Map(document.getElementById('googlemaps'),
-          mapOptions);
-      // <% vitacura = Area.find_by_name 'Vitacura' %>
-      // <% geojson_polygon = RGeo::GeoJSON.encode vitacura.geom%>
-      <% post_areas = Post.select(:area_id).distinct.compact %>
-      <% post_areas.each do |post_area| %>
-        <% unless post_area.area_id.nil? %>
-          <% area = Area.find(post_area.area_id) %>
-            <% unless area.geom.nil? %>
-              var contentString = '<div id="content">'+' <%= area.name %>, <%= area.posts_average %> / 7'+ '</div>';
-              var infowindow_<%= area.id %> = new google.maps.InfoWindow({
-                content: contentString
-              });
-              var latlong = {lat: -25.363, lng: 131.044};
-              var marker_<%= area.id %> = new google.maps.Marker({
-                position: <%= raw area.centroid_coordinates %>,
-                map: map,
-                title: '<%= area.name %>',
-                draggable: false,
-                animation: google.maps.Animation.DROP
-              });
-              marker_<%= area.id %>.addListener('click', function() {
-                infowindow_<%= area.id %>.open(map, marker_<%= area.id %>);
-              });
-              // var geojson_polygon = JSON.parse('<%= raw area.geojson %>')
-              // map.data.addGeoJson(geojson_polygon);
-            <% end %>
-          <% end %>
-      <% end %>
-  }
-  google.maps.event.addDomListener(window, 'load', showGoogleMaps);
 </script>
