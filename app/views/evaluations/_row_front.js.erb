@@ -1,7 +1,7 @@
 <tr id="evaluation_<%= evaluation.id %>">
   <td><%= evaluation.area.name unless evaluation.area.nil? %></td>
   <td><%= evaluation.value unless evaluation.nil? %></td>
-  <% unless evaluation.url_link.nil? %>
+  <% unless evaluation.url_link.blank? %>
     <td><a href="<%= evaluation.url_link %>" target="_blank">Más info
     <svg id="i-arrow-right" viewBox="0 0 32 32" width="32" height="22" fill="none" stroke="currentcolor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
         <path d="M22 6 L30 16 22 26 M30 16 L2 16" />

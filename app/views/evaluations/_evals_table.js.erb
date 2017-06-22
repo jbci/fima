@@ -1,17 +1,19 @@
 <div id="evaluations-content" class="text-width">
 <h2><%= @indicator.title %></h2>
-<p><%= @indicator.description.gsub(/\n/, '<br/>').html_safe  %></p>
+<br>
+<p><%= @indicator.description.gsub(/\n/, '<br/>').html_safe  %> <br> <br> <br></p>
 <div class="text-center">
 <div class="number">
+
   <% if @indicator.number.nil? || @indicator.number == "" %>
   <% else %>
-    <h4 class="text-center number bajada"> <%= @indicator.number %>
+    <h4 class="text-center number bajada"> <%= @indicator.number.truncate(4, :omission => "") %>
     <% unless @indicator.icon.size.nil? %>
       <span><%= image_tag @indicator.icon %></span></br>
     <% end %>
     </h4>
   <% end %>
-  <h4 class="text-center"> <%= @indicator.explanation.gsub(/\n/, '<br/>').html_safe %> </h4>
+  <h4 class="text-center"> <%= @indicator.explanation.gsub(/\n/, '<br/>').html_safe unless @indicator.explanation.nil? %> </h4>
 </div>
 </div>
 
