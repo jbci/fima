@@ -7,15 +7,19 @@
       <h4>Realiza <a href="" data-toggle="modal" data-target="#obs-ciudadanas">Observaciones Ciudadanas</a> a proyectos o actividades en <a href="" data-toggle="modal" data-target="#evaluacion">Evaluación Ambiental</a>. Los proyectos o actividades pueden ingresar por medio de una <a href="" data-toggle="modal" data-target="#dia-eia">DIA o un EIA.</a> Las autoridades están <a href="" data-toggle="modal" data-target="#obligadas">obligadas a considerar tus observaciones</a> para determinar si una actividad o proyecto se ajusta a las normas vigentes.<br>
       </h4 >
       <div class="selector">
-        <p>Selecciona tu municipalidad para saber qué proyectos tienen abiertos su proceso de participación ciudadana o en cuáles puedes solicitar que se abra un periodo de observaciones. </p>
-        <p>¿Quieres saber cómo funciona el procedimiento de observaciones ciudadanas? <a href="" data-toggle="modal" data-target="#infografia"> ¡Presiona aquí! </a></p>
+        <h4>Selecciona tu municipalidad para saber qué proyectos tienen abiertos su proceso de participación ciudadana o en cuáles puedes solicitar que se abra un periodo de observaciones. </h4>
+        <h4>¿Quieres saber cómo funciona el procedimiento de observaciones ciudadanas? <a href="" data-toggle="modal" data-target="#infografia"> ¡Presiona aquí! </a></h4>
           <div class="">
             <div id="initiatives_form">
               <%= form_tag observations_path, :method => :get, remote: true, :id=>'i_form' do |f| %>
-                <div class="pull-left">
-                  <%= select_tag :area, options_from_collection_for_select(Area.joins(:areas_projects).where('areas_projects.area_id is not null').order(:name).distinct, "id", "name", ""), include_blank:  t('.select_area'), class: "chosen-select form-control", id: "projects_area_select", onchange: "$('#i_form').submit();"%>
+                <div class="row">
+                  <div class="col-md-8 col-sm-6">
+                    <%= select_tag :area, options_from_collection_for_select(Area.joins(:areas_projects).where('areas_projects.area_id is not null').order(:name).distinct, "id", "name", ""), include_blank:  t('.select_area'), class: "chosen-select form-control", id: "projects_area_select", onchange: "$('#i_form').submit();"%>
+                  </div>
+                  <div class="col-md-4 col-sm-6">
+                    <a href="#0" class='btn btn-primary' data-action="show-projects" > Ver iniciativas </a>
+                  </div>
                 </div>
-                <a href="#0" class='btn btn-primary' data-action="show-projects" > Ver iniciativas </a>
               <% end %>
             </div>
           </div>
